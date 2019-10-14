@@ -21,6 +21,8 @@ details ul ul ul { list-style-type: "\25B8  "; }
 details ul ul ul ul { list-style-type: "\25B9  "; }
 
 li { margin: 1em 0; max-width: 100%; }
+
+/* default styles for links */
 a {  border: 0.5px dotted black; color: black; text-decoration: none; }
 dt { font-weight: bold; margin-top: 0.5em}
 
