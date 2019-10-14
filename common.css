@@ -3,7 +3,7 @@
 @import "3rdpty/jquery.qtip.min.css";
 
 html { height: 100%; }
-body { margin: 0; padding: 0; height: 100%; width: 100%; font-size: medium; display: flex; flex-wrap: wrap; }
+body { margin: 0; padding: 0; height: 100%; width: 100%; font-size: large; display: flex; flex-wrap: wrap; }
 
 * { font-family: arial, helvetica, san-serif; box-sizing: border-box; }
 
@@ -32,6 +32,7 @@ header#tudheader > #tuddepttext { vertical-align: top; }
 header#tudheader > #tuddepttext > p { padding: 0; margin: 0.5em;}
 
 table#module-info th { width: 5em; text-align: left; }
+table#ca-info th { width: 8em; text-align: left; }
 
 #toc th, #toc td { padding: 0.2em; }
 #toc a { display: block; font-weight: bold; margin: 0.2em 0; }
