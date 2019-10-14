@@ -1,1 +1,130 @@
-../../notes-www/common/res/styles/common.css
+@import "colours-default.css";
+@import "colours-custom.css";
+@import "3rdpty/jquery.qtip.min.css";
+
+html { height: 100%; }
+body { margin: 0; padding: 0; height: 100%; width: 100%; font-size: medium; display: flex; flex-wrap: wrap; }
+
+* { font-family: arial, helvetica, san-serif; box-sizing: border-box; }
+
+pre { font-family: courier new, courier, mono; margin: 0; }
+hr { border: 0.5px solid black;}
+
+/* default styles for lists */
+ul { list-style-type: square; margin: 1.5em 0; }
+ul ul { list-style-type: disc; }
+ul ul ul { list-style-type: circle; }
+details ul, ul details ul { list-style-type: "\25BA  "; }
+details ul ul  { list-style-type: "\25BB  "; }
+details ul ul ul { list-style-type: "\25B8  "; }
+details ul ul ul ul { list-style-type: "\25B9  "; }
+
+li { margin: 1em 0; max-width: 100%; }
+a {  border: 0.5px dotted black; color: black; text-decoration: none; }
+dt { font-weight: bold; margin-top: 0.5em}
+
+#sig { font-size: small; transform: rotate(270deg); position: fixed; bottom: 1.8em; right: -2.2em;}
+
+header#tudheader { height: 4em; max-height: 4em; width: 100%; }
+header#tudheader > * {  display: inline-block; height: 100%; margin: 0; padding: 0; font-weight: bold;  }
+header#tudheader > #rightlogo { float: right; }
+header#tudheader > #tuddepttext { vertical-align: top; }
+header#tudheader > #tuddepttext > p { padding: 0; margin: 0.5em;}
+
+table#module-info th { width: 5em; text-align: left; }
+
+#toc th, #toc td { padding: 0.2em; }
+#toc a { display: block; font-weight: bold; margin: 0.2em 0; }
+#toc { border-collapse: separate; border-spacing: 0.3em; }
+.weeknum { width: 3em; }
+#toc td.tut, #toc td.lec, #toc td.lab, #toc td.com, #toc td.ca { border: 0.1px dotted darkgray; }  
+#toc td.com { max-width: 22em; }
+#toc td.ca { text-align: left; }
+#toc td.banner { letter-spacing: 1em; text-align: center; }
+
+
+nav { margin: 0; padding: 0.2em 0.2em 0 0.2em; width: 6em; min-height: calc(100% - 4em); }
+nav>ul { list-style-type: none; padding: 0; margin: 0; width: 5.6em; position: fixed; }
+nav>ul.links { top: 4.2em; }
+nav>ul.commands { top: calc(50% - 4em); }
+nav>ul>li { text-align: center; padding-top: 0.5em; padding-bottom: 0.5em; margin: 0 0 0.2em 0; border-radius: 0.2em; font-weight: bold; }
+nav>ul.links>li>a { text-decoration: none; border: none; font-weight: bold; }
+nav>ul.commands>li { cursor: pointer; }
+
+
+#content { padding: 1em; width: calc(100% - 6em); min-height: calc(100% - 4em);}
+#content-no-nav { padding: 1em; width: 100%; height: calc(100% - 4em);}
+
+.toc_grp { list-style-type: none; padding: 0; max-width: 100%;  }
+.toc_grp>li>p { width: 30em; max-width: 100%; padding: 0.5em; border: 0.5px solid black; color: black; font-weight: bold; }
+.toc_grp>li>article { border: 1px solid black; padding: 1.5em; width: 60em; max-width: 100%}
+article:after, header:after, .tutorial-panel:after {
+    content: "."; 
+    display: block;
+    visibility: hidden; 
+    height: 0; 
+    clear: both;
+}
+
+details {border: 1px solid black; padding: 0.5em; margin: 1em 0; max-width: 90%}
+
+canvas {border: 1px solid black; }
+
+figure { max-width: 100%; margin: 0; padding: 0; }
+figure img { width: 100%; }
+figure.cmdline { width: 40em; }
+figure.one { width: 10em; }
+figure.onenh { width: 15em; }
+figure.two { width: 20em; }
+figure.twonh { width: 25em; }
+figure.three { width: 30em; }
+figure.threenh { width: 35em; }
+figure.four { width: 40em; }
+figure.fournh { width: 45em; }
+figure.five { width: 50em; }
+figure.fivenh { width: 55em; }
+figcaption { font-style: italic; margin: 0 0 0.5em 0;}
+figure.section_symbol { float: right; }
+
+.example, .contraex, .example-no-leader, .contraex-no-leader { border: 0.5px solid black; padding: 0.25em; margin: 0.25em 0; display: inline-block; }
+.example, .example-no-leader {  }
+.contraex, .contraex-no-leader { text-decoration-line: line-through; }
+.example::before, .contraex::before { content: "EXAMPLE: "; font-family: Arial, Helvetica, sans-serif; }
+
+details.example>summary::before, details.contraex>summary::before { content: "EXAMPLE"; font-family: Arial, Helvetica, sans-serif; }
+details.example::before, details.contraex::before { content: ""; }
+
+
+.fw { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;}
+code pre { font-weight: bold; border: 1px solid black; padding: 0.5em; }
+.ice { background: #9999cc; border: 1px solid black; padding: 0.5em; margin: 1.5em 0;  }
+.ice::before { font-weight: bold; font-size: 1.2em; content: "In-class exercise " attr(data-heading); }
+.ttStyle * {font-size: 1.5em; line-height: 1.5em}
+.hasTT { border-radius: 0.1em; }
+
+/* floats and clears */
+.fl { float: left; }
+.fr { float: right; }
+.cl { clear: left; }
+.cr { clear: right; }
+
+/* margins and padding */
+.mt1 { margin-top: 1em; }
+.mbh { margin-bottom: 0.5em; }
+.ml1 { margin-left: 1em; }
+.mr1 { margin-right: 1em; }
+.mx1 { margin-left: 1em; margin-right: 1em; }
+.my1 { margin-top: 1em; margin-bottom: 1em; }
+
+
+@media only screen and (max-width: 40em) {
+    body { align-items: flex-end; }
+    nav { order: 1; width: 100% ; min-height: 7.4em; }
+    nav>ul.links { top: 0.2em; width: calc(100% - 0.4em); }
+    nav>ul.commands { top: 2.6em; width: calc(100% - 0.4em); }
+    header#tudheader > #tuddepttext { font-size: 2.5vw;} 
+    header#tudheader { order: 2; height: 10vw; }
+    
+    #content { order: 3; width: 100%; height: auto; }
+    #content-no-nav { order: 3; }
+}
