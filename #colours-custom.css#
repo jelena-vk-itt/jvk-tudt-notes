@@ -28,4 +28,3 @@ code pre { background-color: white; }
 
 .red { color: black; font-weight: bold; }
 .maroon { color: black; font-weight: bold; }
-
