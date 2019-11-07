@@ -1,0 +1,31 @@
+body { background-color: #eeeeee; } 
+
+header#tudheader { background-color: white; }
+header#tudheader > * {  color: black;  }
+
+#toc  { background-color: gray; }
+#toc td.tut:not(:empty) { background: white; }
+#toc td.lec:not(:empty) { background: white; }
+#toc td.sol:not(:empty) { background: white; }
+#toc td.lab:not(:empty) { background: white; }
+
+nav { background-color: white; }
+nav>ul.links>li { background-color: lightgray; border: 1px solid black;   }
+nav>ul.links>li>a { color: black; }
+nav>ul.commands>li { background-color: lightgray; color: black; border: 1px solid black; }
+
+.toc_grp>li>p { background-color: white; }
+.toc_grp>li>article {background-color:  white; }
+details {background-color: white; }
+
+
+.example, .example-no-leader { background-color: lightgray; }
+.contraex, .contraex-no-leader { background-color: lightgray; }
+code pre { background-color: white; }
+.badcode { background-color: lightgray; }
+
+.hasTT { background-color: white; border: 1px dashed black; }
+
+.red { color: black; font-weight: bold; }
+.maroon { color: black; font-weight: bold; }
+

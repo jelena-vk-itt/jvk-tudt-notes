@@ -101,7 +101,7 @@ details.example::before, details.contraex::before { content: ""; }
 .lab-answer-form { margin-top: 3em; }
 
 .fw { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;}
-pre code { font-family: courier new, courier, mono; margin: 0; font-weight: bold; white-space: pre-wrap; background: gray;}
+code pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; white-space: pre-wrap; background: gray;}
 
 .ice { background: #9999cc; border: 1px solid black; padding: 0.5em; margin: 1.5em 0;  }
 .ice::before { font-weight: bold; font-size: 1.2em; content: "In-class exercise " attr(data-heading); }
