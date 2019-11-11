@@ -122,6 +122,9 @@ code pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold
 .mx1 { margin-left: 1em; margin-right: 1em; }
 .my1 { margin-top: 1em; margin-bottom: 1em; }
 
+/* text sizes */
+.textn { font-size: normal; }
+
 
 @media only screen and (max-width: 40em) {
     body { align-items: flex-end; }
