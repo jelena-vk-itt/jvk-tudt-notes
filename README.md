@@ -1,1 +1,0 @@
-JVK TUDT Notes
