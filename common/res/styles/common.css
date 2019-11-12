@@ -36,7 +36,7 @@ header#tudheader > #tuddepttext > p { padding: 0; margin: 0.5em;}
 
 table#module-info th { width: 5em; text-align: left; }
 table#ca-info th { width: 8em; text-align: left; }
-table.ordinary { border: 1px solid black; border-collapse: collapse; margin: 0.5em; }
+table.ordinary { border: 1px solid black; border-collapse: collapse; margin: 0.5em 0; }
 table.ordinary th, table.ordinary td { border: 1px solid black; padding: 0.3em; }
 
 #toc th, #toc td { padding: 0.2em; }
@@ -59,7 +59,7 @@ nav>ul.commands>li { cursor: pointer; }
 
 
 #content { padding: 1em; width: calc(100% - 6em); min-height: calc(100% - 4em);}
-#content-no-nav { padding: 1em; width: 100%; height: calc(100% - 4em);}
+#content-no-nav { padding: 1em; width: 100%; min-height: calc(100% - 4em);}
 
 .toc_grp { list-style-type: none; padding: 0; max-width: 100%;  }
 .toc_grp>li>p { width: 30em; max-width: 100%; padding: 0.5em; border: 0.5px solid black; color: black; font-weight: bold; }
