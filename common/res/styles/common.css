@@ -36,6 +36,8 @@ header#tudheader > #tuddepttext > p { padding: 0; margin: 0.5em;}
 
 table#module-info th { width: 5em; text-align: left; }
 table#ca-info th { width: 8em; text-align: left; }
+table.ordinary { border: 1px solid black; border-collapse: collapse: }
+table.ordinary th, table.ordinary td { border: 1px solid black; padding: 0.3em; }
 
 #toc th, #toc td { padding: 0.2em; }
 #toc a { display: block; font-weight: bold; margin: 0.2em 0; }
