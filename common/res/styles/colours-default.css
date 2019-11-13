@@ -22,7 +22,7 @@ details {background-color: tomato; }
 .example, .example-no-leader { background-color: #53c68c; }
 .contraex, .contraex-no-leader { background-color: #ff4d4d; }
 .code-listing { background-color: #cc9999; }
-.badcode { background-color: gray; } 
+.badcode-listing { background-color: gray; } 
 
 .hasTT { background-color: maroon; }
 
