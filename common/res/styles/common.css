@@ -64,6 +64,10 @@ nav>ul.commands>li { cursor: pointer; }
 .toc_grp { list-style-type: none; padding: 0; max-width: 100%;  }
 .toc_grp>li>p { width: 30em; max-width: 100%; padding: 0.5em; border: 0.5px solid black; color: black; font-weight: bold; }
 .toc_grp>li>article { border: 1px solid black; padding: 1.5em; width: 60em; max-width: 100%}
+
+.demo, .exercise { border: 1px solid black; margin: 1em 0; padding: 0.5em; }
+.demo > p:first-child, .exercise p:first-child { font-weight: bold; }
+
 article:after, header:after, .tutorial-panel:after {
     content: "."; 
     display: block;
