@@ -21,7 +21,7 @@ details {background-color: white; }
 
 .example, .example-no-leader { background-color: lightgray; }
 .contraex, .contraex-no-leader { background-color: lightgray; }
-code pre { background-color: white; }
+.code-listing { background-color: white; }
 .badcode { background-color: lightgray; }
 
 .hasTT { background-color: white; border: 1px dashed black; }
