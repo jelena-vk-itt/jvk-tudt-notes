@@ -106,6 +106,7 @@ figure.section_symbol { float: right; }
 .fljust-start { justify-content: flex-start; }
 .fljust-end { justify-content: flex-end; }
 .fljust-spbtw { justify-content: space-between; }
+.fljust-spbar { justify-content: space-around; }
 
 
 details.example>summary::before, details.contraex>summary::before { content: "EXAMPLE"; font-family: Arial, Helvetica, sans-serif; }
