@@ -1,5 +1,5 @@
 @import "colours-default.css";
-@import "colours-custom.css";
+/* @import "colours-custom.css"; */
 @import "3rdpty/jquery.qtip.min.css";
 
 html { height: 100%; }
