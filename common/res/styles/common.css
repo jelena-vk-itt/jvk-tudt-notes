@@ -3,7 +3,7 @@
 @import "3rdpty/jquery.qtip.min.css";
 
 html { height: 100%; }
-body { margin: 0; padding: 0; min-height: 100%; width: 100%; font-size: large; display: flex; flex-wrap: wrap; }
+body { margin: 0; padding: 0; height: 100%; width: 100%; font-size: large; display: flex; flex-wrap: wrap; align-content: flex-start; }
 
 h1, h2, h3, h4, h5, h6 { margin: 1.5em 0 0.75em 0; }
 * { font-family: arial, helvetica, san-serif; box-sizing: border-box; }
@@ -49,7 +49,7 @@ table.ordinary th, table.ordinary td { border: 1px solid black; padding: 0.3em; 
 #toc td.banner { letter-spacing: 1em; text-align: center; }
 
 
-nav { margin: 0; padding: 0.2em 0.2em 0 0.2em; width: 6em; min-height: calc(100% - 4em); }
+nav { margin: 0; padding: 0.2em 0.2em 0 0.2em; width: 6em; min-height: calc(100% - 4em);  }
 nav>ul { list-style-type: none; padding: 0; margin: 0; width: 5.6em; position: fixed; }
 nav>ul.links { top: 4.2em; }
 nav>ul.commands { top: calc(50% - 4em); }
