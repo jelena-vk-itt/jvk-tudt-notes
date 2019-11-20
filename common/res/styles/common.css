@@ -94,6 +94,16 @@ canvas {border: 1px solid black; }
 
 figure { max-width: 100%; margin: 1em 0; padding: 0; }
 figure>img { width: 100%; }
+figure.one { width: 10em; }
+figure.onenh { width: 15em; }t
+figure.two { width: 20em; }
+figure.twonh { width: 25em; }
+figure.three { width: 30em; }
+figure.threenh { width: 35em; }
+figure.four { width: 40em; }
+figure.fournh { width: 45em; }
+figure.five { width: 50em; }
+figure.fivenh { width: 55em; }
 figure.cmdline { width: 40em; }
 figcaption { font-style: italic; margin: 0 0 0.5em 0;}
 figure.section_symbol { float: right; }
@@ -152,16 +162,6 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 .mid { margin: auto; }
 
 /* widths */
-one { width: 10em; }
-onenh { width: 15em; }
-two { width: 20em; }
-twonh { width: 25em; }
-three { width: 30em; }
-threenh { width: 35em; }
-four { width: 40em; }
-fournh { width: 45em; }
-five { width: 50em; }
-fivenh { width: 55em; }
 
 
 @media only screen and (max-width: 40em) {
