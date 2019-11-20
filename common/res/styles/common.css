@@ -5,7 +5,7 @@
 html { height: 100%; }
 body { margin: 0; padding: 0; height: 100%; width: 100%; font-size: large; display: flex; flex-wrap: wrap; align-content: flex-start; }
 
-h1, h2, h3, h4, h5, h6 { margin: 1.5em 0 0.75em 0; }
+h1, h2, h3, h4, h5, h6 { margin: 1em 0 0.75em 0; }
 * { font-family: arial, helvetica, san-serif; box-sizing: border-box; }
 
 pre { font-family: courier new, courier, mono; margin: 0; }
@@ -66,6 +66,20 @@ nav>ul.commands>li { cursor: pointer; }
 .toc_grp>li>article { border: 1px solid black; padding: 1.5em; width: 60em; max-width: 100%}
 
 
+.tutorial-panel {
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0 0 1rem 0;
+}
+
+.tutorial-panel li {
+    margin: 0 0 1em 0;
+}
+
+.tutorial-panel ul ul {
+    margin: 1em 0 0 0;
+}
 article:after, header:after, .tutorial-panel:after {
     content: "."; 
     display: block;
@@ -141,6 +155,9 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 .textn { font-size: normal; }
 .textl { font-size: large; }
 .textxl { font-size: x-large; }
+
+/* positioning */
+.mid { margin: auto; }
 
 @media only screen and (max-width: 40em) {
     body { align-items: flex-end; }
