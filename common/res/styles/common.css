@@ -1,11 +1,11 @@
 @import "colours-default.css";
-@import "colours-custom.css"; 
+@import "colours-custom.css";
 @import "3rdpty/jquery.qtip.min.css";
 
 html { height: 100%; }
-body { margin: 0; padding: 0; height: 100%; width: 100%; font-size: large; display: flex; flex-wrap: wrap; align-content: flex-start; }
+body { margin: 0; padding: 0; min-height: 100%; width: 100%; font-size: large; display: flex; flex-wrap: wrap; }
 
-h1, h2, h3, h4, h5, h6 { margin: 1em 0 0.75em 0; }
+h1, h2, h3, h4, h5, h6 { margin: 1.5em 0 0.75em 0; }
 * { font-family: arial, helvetica, san-serif; box-sizing: border-box; }
 
 pre { font-family: courier new, courier, mono; margin: 0; }
@@ -49,7 +49,7 @@ table.ordinary th, table.ordinary td { border: 1px solid black; padding: 0.3em; 
 #toc td.banner { letter-spacing: 1em; text-align: center; }
 
 
-nav { margin: 0; padding: 0.2em 0.2em 0 0.2em; width: 6em; min-height: calc(100% - 4em);  }
+nav { margin: 0; padding: 0.2em 0.2em 0 0.2em; width: 6em; min-height: calc(100% - 4em); }
 nav>ul { list-style-type: none; padding: 0; margin: 0; width: 5.6em; position: fixed; }
 nav>ul.links { top: 4.2em; }
 nav>ul.commands { top: calc(50% - 4em); }
@@ -66,21 +66,7 @@ nav>ul.commands>li { cursor: pointer; }
 .toc_grp>li>article { border: 1px solid black; padding: 1.5em; width: 60em; max-width: 100%}
 
 
-.tutorial-panel {
-    border: 1px solid black;
-    border-radius: 1rem;
-    padding: 1rem;
-    margin: 0 0 1rem 0;
-}
-
-.tutorial-panel li {
-    margin: 0 0 1em 0;
-}
-
-.tutorial-panel ul ul {
-    margin: 1em 0 0 0;
-}
-section:after, article:after, header:after, .tutorial-panel:after {
+article:after, header:after, .tutorial-panel:after {
     content: "."; 
     display: block;
     visibility: hidden; 
@@ -93,9 +79,10 @@ details {border: 1px solid black; padding: 0.5em; margin: 1em 0; max-width: 90%}
 canvas {border: 1px solid black; }
 
 figure { max-width: 100%; margin: 1em 0; padding: 0; }
-figure>img { width: 100%; }
+figure img { width: 100%; }
+figure.cmdline { width: 40em; }
 figure.one { width: 10em; }
-figure.onenh { width: 15em; }t
+figure.onenh { width: 15em; }
 figure.two { width: 20em; }
 figure.twonh { width: 25em; }
 figure.three { width: 30em; }
@@ -104,7 +91,6 @@ figure.four { width: 40em; }
 figure.fournh { width: 45em; }
 figure.five { width: 50em; }
 figure.fivenh { width: 55em; }
-figure.cmdline { width: 40em; }
 figcaption { font-style: italic; margin: 0 0 0.5em 0;}
 figure.section_symbol { float: right; }
 
@@ -132,8 +118,6 @@ details.example::before, details.contraex::before { content: ""; }
 .fw { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;}
 pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; white-space: pre-wrap;}
 
-
-
 .ice { background: #9999cc; border: 1px solid black; padding: 0.5em; margin: 1.5em 0;  }
 .ice::before { font-weight: bold; font-size: 1.2em; content: "In-class exercise " attr(data-heading); }
 .ttStyle * {font-size: 1.5em; line-height: 1.5em}
@@ -157,12 +141,6 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 .textn { font-size: normal; }
 .textl { font-size: large; }
 .textxl { font-size: x-large; }
-
-/* positioning */
-.mid { margin: auto; }
-
-/* widths */
-
 
 @media only screen and (max-width: 40em) {
     body { align-items: flex-end; }
