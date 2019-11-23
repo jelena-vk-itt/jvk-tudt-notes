@@ -95,7 +95,7 @@ canvas {border: 1px solid black; }
 figure { max-width: 100%; margin: 1em 0; padding: 0; }
 figure>img { width: 100%; }
 figure.one { width: 10em; }
-figure.onenh { width: 15em; }t
+figure.onenh { width: 15em; }
 figure.two { width: 20em; }
 figure.twonh { width: 25em; }
 figure.three { width: 30em; }
