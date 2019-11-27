@@ -109,6 +109,7 @@ figcaption { font-style: italic; margin: 0 0 0.5em 0;}
 figure.section_symbol { float: right; }
 
 .box { border: 1px solid black; padding: 0.5em;}
+.inline { display: inline-block; }
 .demo, .exercise, .code-listing, .badcode-listing { border: 1px solid black; margin: 1em 0; padding: 0.5em; }
 .demo > p:first-child, .exercise p:first-child { font-weight: bold; }
 .example, .contraex, .example-no-leader, .contraex-no-leader { border: 0.5px solid black; padding: 0.25em; margin: 0.25em 0; display: inline-block; }
