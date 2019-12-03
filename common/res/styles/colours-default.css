@@ -20,7 +20,8 @@ details {background-color: tomato; }
 
 
 .example, .example-no-leader { background-color: #53c68c; }
-.instructions, .instructions-no-leader { background-color: lightgray; }
+.instructions, .instructions-no-leader { background-color: darkgray; }
+.exercise, .exercise-no-leader { background-color: lightgray; }
 .contraex, .contraex-no-leader { background-color: #ff4d4d; }
 .code-listing { background-color: #cc9999; }
 .badcode-listing { background-color: gray; } 
