@@ -80,7 +80,7 @@ nav>ul.commands>li { cursor: pointer; }
 .tutorial-panel ul ul {
     margin: 1em 0 0 0;
 }
-section:after, article:after, header:after, .tutorial-panel:after {
+section:after, section:before, article:after, header:after, .tutorial-panel:after {
     content: "."; 
     display: block;
     visibility: hidden; 
