@@ -165,6 +165,8 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 /* widths */
 .w-one { width: 10em; }
 .w-two { width: 20em; }
+.w-three { width: 30em; }
+.w-four { width: 40em; }
 
 
 @media only screen and (max-width: 40em) {
