@@ -105,7 +105,7 @@ figure.fournh { width: 45em; }
 figure.five { width: 50em; }
 figure.fivenh { width: 55em; }
 figure.cmdline { width: 40em; }
-figcaption { font-style: italic; margin: 0 0 0.5em 0;}
+figcaption { font-style: italic; margin: 0 0 0.2em 0;}
 figure.section_symbol { float: right; }
 
 .box { border: 1px solid black; padding: 0.5em;}
@@ -113,9 +113,9 @@ figure.section_symbol { float: right; }
 .instructions, .demo, .exercise, .code-listing, .badcode-listing { border: 1px solid black; margin: 1em 0; padding: 0.5em; }
 .demo > p:first-child, .exercise > p:first-child, .instructions > p:first-child { font-weight: bold; }
 .example, .contraex, .example-no-leader, .contraex-no-leader { border: 0.5px solid black; padding: 0.25em; margin: 0.25em 0; display: inline-block; }
-.example, .example-no-leader {  }
-.contraex, .contraex-no-leader { text-decoration-line: line-through; }
+..contraex, .contraex-no-leader { text-decoration-line: line-through; }
 .example::before, .contraex::before { content: "EXAMPLE: "; font-family: Arial, Helvetica, sans-serif; }
+.code-listing-leader { margin: 1em 0.5em 1em 0; padding: 0.5em 0; font-weight: bold;}
 
 .flcont { display: flex; padding: 0.5em 0; }
 .fljust-start { justify-content: flex-start; }
