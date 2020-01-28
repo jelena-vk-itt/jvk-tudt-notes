@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>	
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="../common/res/styles/one.css"/>
+	<title>The Web Development Lifecycle</title>
+    </head>
+    <body>
+	<a href="index.html">Home</a>
+	
+	<img id="logo" src="res/images/logo.png"/>
+
+	<h1>The Web Development Lifecycle</h1>
+	
+	<ol class="toc_grp newline">
+	    
+	    <li id="70" class="collapsable-article-container">
+		<p>Click on headings like this one to open and close (try me)</p>
+		<article>
+		    <aside class="example">Examples are shown in green boxes.</aside><br>
+		    <aside class="contraex">Contraexamples (how not do do something) are shown in red boxes.</aside>
+		    <p>Links are shown in purple. <a href="res/images/logo.png"  target="_blank">Click me!</a></p>
+		</article>
+	    </li>
+
+	    <li id="71" class="collapsable-article-container">
+		<p>Introduction</p>
+		<article>
+		    <h2>Introduction</h2>
+		    <p>Like other types of software development, web development consists of a number of stages, some of which may overlap. Different sources may define or name the stages differently, however this is not important - the main purpose of naming the stages is to describe the process of development in terms of its constituent activities and the order in which they roughly take place. The stages are:
+			<ul>
+			    <li>inception and planning</li>
+			    <li>design</li>
+			    <li>development</li>
+			    <li>stabilisation</li>
+			    <li>deployment</li>
+			    <li>maintenance</li>
+			</ul>
+			In this lecture we describe all the stages of development but with particular focus on the early ones, <strong>inception and planning</strong> and <strong>design</strong>.
+		    </p>
+		</article>
+	    </li>
+	    
+	    <li id="72" class="collapsable-article-container">
+		<p>Inception and planning</p>
+		<article>
+		    <h2>Inception and planning</h2>
+		    <p>This is the lifecycle stage that deals with idea generation and the compilation of requirements. Initial requirements are developed and refined by taking various <strong>factors into consideration</strong>:
+			<ul>
+			    <li>purpose - this needs to be clear and specific in type (entertainment, education, commercial, communication) and aim</li>
+			    <li>initial requirements (customer's, own)</li>
+			    <li>the audience (questionnaire, survey, interviews)</li>
+			    <li>the competition (identify gaps and weaknesses and focus on own strengths and uniqueness)</li>
+			    <li>presentation style</li>
+			    <li>infrastructure integration</li>
+			    <li>value</li>
+			</ul>
+			Resulting from this stage is a set of tangible requirements of three types: content-related, functional and quality attributes (non-functional). For example:
+			<ul>
+			    <li>the domain and scope of the content (content)</li>
+			    <li>the functionality that will be provided (functional) - described in the form of <strong>use cases</strong></li>
+			    <li>the intended audience should be clearly addressed (quality attribute)</li>
+			    <li>the website should be interesting and engaging for the audience (quality attribute)</li>
+			    <li>usability of functions, e.g. intuitiveness of workflows (quality attribute)</li>
+			    <li>usability of information e.g. easy to access and understand (quality attribute)</li>
+			    <li>performance e.g. pages load quickly enough (quality attribute)</li>
+			</ul>
+		    </p>
+		</article>
+	    </li>
+	    
+	    <li id="73" class="collapsable-article-container">
+		<p>Design</p>
+		<article>
+		    <h2>Design</h2>
+		    <p>A website has a number of aspects that must be designed at this stage, both in their own right and integrated into a seamlessly presented whole:
+			<ul>
+			    <li>content
+				<ul>
+				    <li>organise into folders</li>
+				    <li>maintain an inventory (name, filename and type, size, location, author/owner, destination page)</li>
+				</ul>
+			    </li>
+			    <li>structure
+				<ul>
+				    <li>this needs to be intuitive for the user</li>
+				    <li>a good way to organise the pages is to use a <strong>tree structure</strong>, reflected in the URL paths (see picture)</li>
+				    <li>keep a one-topic-to-one-page mapping</li>
+				    <li>strike a balance between depth and breadth (see picture)</li>
+				</ul>
+				<figure class="five">
+				    <img src="res/images/website_structure.png">
+				    <figcaption>Figure: Website structure example (after picture by E. Lee)</figcaption>
+				</figure>
+			    </li>
+			    <li>page layout
+				<ul>
+				    <li>designed in <strong>three stages</strong>:
+					<ul>
+					    <li>wireframing – skeleton layout, used at the very early stage of design</li>
+					    <li>user experience (UX) design (tools: Balsamiq, Mockingbird, Visio, pen and paper), concerned with
+						<ul>
+						    <li>OS-native look-and-feel</li>
+						    <li>device hardware (size, available buttons etc.)</li>
+						    <li>mock-ups (not detailed design)
+							<figure class="three">
+							    <img src="res/images/page_mockup.png">
+							    <figcaption>Figure: Page mock-up example (picture by E. Lee)</figcaption>
+							</figure>
+						    </li>
+						</ul>
+					    </li>
+					    <li>user interface (UI) design, concerned with
+						<ul>
+						    <li>detailed design, including user interaction 'skeleton' (often templates are used)</li>
+						    <li>professional look</li>
+						    <li>consistency across website</li>
+						</ul>
+					    </li>
+					</ul>
+				    </li>
+				    <li>some tips for user-friendly page content:
+					<ul>
+					    <li>identify your website on every page</li>
+					    <li>identify your website's purpose on the main pages</li>
+					    <li>user- and search-engine-friendly page title</li>			    
+					    <li>make pages that load quickly</li>
+					    <li>ensure that the website is up to date</li>
+					    <li>use conventional names for common pages (e.g. home, about, contact)</li>
+					    <li>place objects in conventional places (logo, navbar, shopping cart, log-in button)</li>
+					</ul>
+				    </li>
+				</ul>
+			    </li>
+			    <li>navigation
+				<ul>
+				    <li>minimal: provide navigation to main pages e.g. homepage from every page</li>
+				    <li>ideal: navigation structures that reflect the site structure</li>
+				    <li>give clues as to 'where the user is' e.g. highlight the link to the current page (the user may not enter your site at the home page)</li>
+				    <li>encourage exploration of the site with navigation bar and other links</li>
+				    <li>for vast structured content, include a table of contents and ‘Up’ ‘Back’ ‘Next’ links</li>
+				    <li>make links that are recognisable as links (underlined, different colour from other text, third colour if visited)</li>
+				    <li>make navigation consistent and predictable</li>
+				    <li>provide a site-map</li>
+				    <li>provide a search facility</li>
+				    <li>test with real users</li>
+				</ul>
+			    </li>
+			    <li>media</li>
+			    <li>accessibility
+				<ul>
+				    <li>site should look good on various devices and window sizes</li>
+				    <li>avoid frames</li>
+				    <li>provide a printable version</li>
+				    <li>do not interfere with browser functions:
+					<ul>
+					    <li>pop-up or new window hyperlinks - tell user</li>
+					    <li>avoid fixed-size fonts as user cannot zoom these</li>
+					    <li>do not disable right-click, back or forward buttons</li>
+					</ul>
+				    </li>
+				</ul>
+			    </li>
+			</ul>
+		    </p>
+		</article>
+	    </li>
+	    
+	    <li id="74" class="collapsable-article-container">
+		<p>Development</p>
+		<article>
+		    <h2>Development</h2>
+		    <p>This is the central part of the lifecycle. There are a number of stages that the product goes through before it is deployed:
+			<ul>
+			    <li>prototype - proof of concept</li>
+			    <li>alpha - core functionality implemented but bugs, including serious ones, still present</li>
+			    <li>beta - all functionality implemented, initial testing performed and some bugs still present</li>
+			    <li>release candidate - in the absence of new bugs appearing during final testing, this version will be released</li>
+			</ul>
+			Prototype development may start in parallel with design.
+		    </p>
+		</article>
+	    </li>
+	    
+	    <li id="75" class="collapsable-article-container">
+		<p>Stabilisation</p>
+		<article>
+		    <h2>Stabilisation</h2>
+		    <p>This part of the lifecycle
+			<ul>
+			    <li>consists of testing and bug-fixing</li>
+			    <li>should start in parallel with development, intensifying as the code matures</li>
+			    <li>is the main activity from the alpha product stage and on</li>
+			</ul>
+		    </p>
+		    <p>Some test tools for web development:
+			<ul>
+			    <li>Testflight (iOS)</li>
+			    <li>launchpadapp.com (Android)</li>
+			    <li>vessel.io (iOS, Android)</li>
+			    <li>hockeyapp.com (iOS, Android, Windows)</li>
+			</ul>
+		    </p>
+		    <p>As with any software product, the website should be tested both from a <strong>content/functional</strong> point of view and with respect to <strong>quality attributes</strong>. Also, it needs to be tested at different levels:
+			<ul>
+			    <li><strong>unit</strong>
+				<ul>
+				    <li>validation of HTML and CSS</li>
+				    <li>testing of client-side scripts</li>
+				    <li>testing of server-side scripts</li>
+				    <li>proofing of content</li>
+				</ul>
+			    </li>
+			    <li><strong>system</strong>
+				<ul>
+				    <li>testing across all platforms (e.g. browsers and devices) reasonably expected to be used</li>
+				    <li>testing of navigation (including downloads)</li>
+				    <li>accessibility testing (e.g. screen reading software, zoom, alt tags on images)</li>
+				</ul>
+			    </li>
+			    <li><strong>user</strong>
+				<ul>
+				    <li>recruit testers representative of user base</li>
+				    <li>create exhaustive test scenarios and a means of clear communication of results, including
+					<ul>
+					    <li>content useful and accurate with respect to declared scope (or not)</li>
+					    <li>declared functionality present in expected form (or not)</li>
+					    <li>particular quality attributes (consumability of content, GUI aesthetics, ease of use, speed of loading) satisfactory (or not)</li>
+					    <li>general impression of website on tester (would they return to it, recommend it to others etc.)</li>
+					    <li>open-ended request for suggestions</li>
+					</ul>
+				    </li>
+				    <li>let the testers perform some unstructured use of the website</li>
+				</ul>
+			    </li>
+			</ul>
+		    </p>
+		</article>
+	    </li>
+	    
+	    <li id="76" class="collapsable-article-container">
+		<p>Deployment</p>
+		<article>		    
+		    <h2>Deployment</h2>
+		    <p>Deployment means making the website available to the intended audience.
+		    </p>
+		</article>
+	    </li>
+	    
+	    <li id="77" class="collapsable-article-container">
+		<p>Maintenance</p>
+		<article>		    
+		    <h2>Maintenance</h2>
+		    <p>This consists of fixing any bugs that are found after deployment, as well as upgrades. Some considerations:
+			<ul>
+			    <li>someone needs to be responsible for it and access should be controlled</li>
+			    <li>make it easier by establishing procedures for backup, version control, rollback etc.</li>
+			    <li>keep the website up to date by implementing a method for updating content (including tests and proofing)</li>
+			</ul>
+		    </p>
+		    
+		</article>
+	    </li>
+	</ol>
+
+
+
+
+	<script src="../common/res/scripts/main.js"></script>
+	<script>
+	 init_all();
+	</script>
+
+    </body>
+</html>

@@ -1,0 +1,14 @@
+@import url("../../../common/res/styles/common.css");
+
+.fbc {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    
+}
+.fbc a { flex-basis: 15em; padding: 0.5em;  margin: 0.5em; text-decoration: none;  }
+
+.fbc section { width: 100%; height: 100%; border: 2px dotted black; padding: 0.5em; background-color: cadetblue; }
+.fbc section.module { background-color: turquoise; }

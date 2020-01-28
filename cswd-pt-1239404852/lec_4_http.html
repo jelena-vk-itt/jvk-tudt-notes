@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>	
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="res/styles/cswd-ft.css"/>
+	<title>>Hypertext Transfer Protocol (HTTP)</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
+	</header>
+	
+	<nav>
+	    <ul class="links">
+		<li><a href="index.html">Home</a></li>
+	    </ul>
+	    <ul class="commands">
+		<li class="openall">Open all</li>
+		<li class="closeall">Close all</li>
+	    </ul>
+
+	</nav>
+
+	<div id="content">
+	    
+	    <h1>Hypertext Transfer Protocol (HTTP)</h1>
+	    
+	    <ol class="toc_grp newline">
+		
+		<!-------------------- SECTION 00 -------------------->
+		<li id="cswd-ft-http-00">
+		    <p>Click on headings like this one to open and close (try me)</p>
+		    <article style="display:none">
+			<h2>Notation</h2>
+			<aside class="example">Examples are shown in green boxes.</aside><br>
+			<aside class="contraex">Contraexamples (how not do do something) are shown in red boxes.</aside>
+			<p>Links are bordered by a dotted line: <a href="../common/res/images/tudublin_logo.png" target="_blank">Click me!</a></p>
+			<p>Hovering with the mouse over <span class="hasTT" tt="brings up more information tool-tip-style :-).">text with a maroon background...</span></p>
+		    </article>
+		</li>
+
+		<!-------------------- SECTION 01 -------------------->
+		<li id="cswd-ft-http-01">
+		    <p>HTTP Overview</p>
+		    <article>
+			<figure class="section_symbol">
+			    <pre>
+  ____________
+ /   //||\\   \
+/   ////\\\\   \
+\   \\\\////   /   
+ \___\\||//___/
+			    </pre>
+			</figure>
+			<h2>HTTP Overview</h2>
+			<ul>
+			    <li><strong>Hypertext Transfer Protocol (HTTP)</strong> is the protocol used for communication on the World Wide Web (WWW)</li>
+			    <li>It is at layer 7 of the OSI RM, above the Internet's transport protocol, TCP
+				<figure class="four">
+				    <img src="res/images/osi_model.png">
+				    <figcaption>Open Systems Interconnection Reference Model (OSI RM), source unknown</figcaption>
+				</figure>
+			    </li>
+			    <li>HTTP operates within a client-server model and involves two types of messages:
+				<ul>
+				    <li><strong>request</strong> - sent by the client (e.g. browser) and received by web server</li>
+				    <li><strong>response</strong> - sent by the server in reply to the client's request message</li>	
+				</ul>
+			    </li>
+			    <li>The request-response pair of messages constitutes an HTTP session, which takes place over a TCP connection
+				<figure class="four">
+				    <img src="res/images/http_session.png">
+				    <figcaption>HTTP Session (by E. Lee)</figcaption>
+				</figure>
+				<ul>
+				    <li>
+					Early implementations of HTTP opened a new TCP connection for each HTTP session, which had negative effects
+					<ul>
+					    <li>on responsiveness, owing to the TCP 3-way handshake and slow-start congestion control approach </li>
+					    <li>on server resource usage, owing to the multiple TCP connections opened for an HTTP page (if it referred to other files)</li>
+					</ul>
+				    </li>
+				    <li>
+					To improve this situation, starting with HTTP version 1.1 <strong>persistent connections</strong> were introduced, allowing
+					<ul>
+					    <li>TCP connections to be kept open for multiple HTTP sessions</li>
+					    <li>pipelining (asynchronous sending of requests i.e. without waiting for responses)</li>
+					    <li>chunked response (sending of responses in parts)</li>
+					</ul>
+				    </li>
+				</ul>
+			    </li>
+			    <li>HTTP message content is entirely text based - media that are normally in binary format are transferred using Multi-purpose Internet Media Extensions (MIME)
+				<details><summary>More about MIME</summary>
+				    <ul>
+					<li>Multi-purpose Internet Media Extensions (MIME) is used with HTTP (on the WWW) and with SMTP (email)</li>
+					<li>It was originally devised for the encoding of email attachments</li>
+					<li>The MIME type is declared (in HTTP in the header) to inform the recipient of the original file format</li>
+					<li>MIME uses base64 encoding, whereby three bytes (3 x 8 = 24 bits) are encoded as 4 text characters (represented with 6 bits each)
+					    <figure class="four">
+						<img src="res/images/base64_encoding_example.png">
+						<figcaption>Base64 encoding example (by E.Lee)</figcaption>
+					    </figure>
+					</li>
+				    </ul>
+				</details>
+			    </li>
+			    <li>
+				HTTP communiation is <strong>stateless</strong>
+				<ul>
+				    <li>what does this mean?
+					<ul>
+					    <li>the server does not have to maintain any information about communication sessions with clients</li>
+					    <li>the server receives a request, processes it, sends a response and then forgets all about it</li>
+					</ul>
+				    </li>
+				    <li>advantages of stateless communication:
+					<ul>
+					    <li>a lot simpler to implement</li>
+					    <li>does not leave the system in an inconsistent state that needs to be dealt with, in case of a crash</li>
+					</ul>
+				    </li>
+				    <li>disadvantages of stateless communication:
+					<ul>
+					    <li>applications where the server needs to 'remember' something, e.g. those including 'shopping carts', cannot be implemented</li>
+					    <li>the use of authentication is impractical (user would have to log in with every HTTP request!)</li>
+					</ul>
+				    </li>
+				    <li>solutions that do not violate statelessness:
+					<ul>
+					    <li>cookies</li>
+					    <li>URL re-writing</li>
+					    <li>invisible form fields</li>
+					</ul>
+				    </li>
+				</ul>
+				
+			    </li>
+			</ul>
+		    </article>
+		</li>
+
+		<!-------------------- SECTION 02 -------------------->
+		<li id="cswd-ft-http-02">
+		    <p>HTTP Request and Response</p>
+		    <article>
+			<figure class="section_symbol">
+			    <pre>
+ ----req---->
+ <---res-----
+			    </pre>
+			</figure>
+			<h2>HTTP Request and Response</h2>
+			<p>While studying this section, make sure to open the developer tools in your browser (key F12) and see for yourself some real examples of HTTP requests and responses.</p>
+			<hr/>
+			<h3>Structure of an HTTP Request</h3>
+			<figure class="four">
+			    <img src="res/images/request.png">
+			    <figcaption>Parts of an HTTP request (by E. Lee)</figcaption>
+			</figure>
+			<ol>
+			    <li>The <strong>request line</strong> includes
+				<ul>
+				    <li>the <strong>method</strong>, which can be (see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9">Method Definitions</a> in the standard):
+					<dl>
+					    <dt>GET</dt>
+					    <dd>Request for a document on a server
+						<details><summary>More about GET</summary>
+						    <ul>
+							<li>If sending form data using this method, the browser appends it to the URL</li>
+							<li>Maximal length of such a URL is 4000 characters</li>
+							<li>Server will respond with error 413, <span class="fw">Entity Too Large</span>, if the length is greater than that</li>
+							<div class="example"><br/><img src="res/images/get_url.png"></div>
+						    </ul>
+						</details>
+					    </dd>
+					    <dt>HEAD</dt>
+					    <dd>Retrieve only the header fields but not the document itself (purpose is to check links, test for page modifications and page size) </dd>
+					    <dt>POST</dt>
+					    <dd>Send information to the server (most often information collected from a form)
+						<details><summary>More about POST</summary>
+						    <ul>
+							<li>Data is sent in the request body (not as part of the URL)</li>
+							<li>The amount of data that can be sent in a POST request is <strong>unlimited</strong></li>
+							<li>Three different content types are supported (type used is specified in a header field)
+							    <ul>
+								
+								<li>application/x-www-form-urlencoded - key-value pairs, as in GET
+								    <div class="example"><br>Request header:<br/><span class="fw">POST www.xyz.com/abc.php Http/1.1<br/>
+									Content-Type: application/x-www-form-urlencoded</span><br/>Request payload (content):<br/><span class="fw">hl=en&as_q=url+length</span></div>
+								</li>
+								<li>multipart/form-data - binary data can be encoded
+								    <div class="example"><br><img src="res/images/post_multipart.png"><br>
+									In request header:<br><pre>Content-Type: multipart/form-data;<br> boundary=---------------------------21387795301410495893260618559</pre><br>Request payload (content):<br><pre>
+-----------------------------21387795301410495893260618559
+Content-Disposition: form-data; name="syx_sid"
+
+I6QlewQNnbwgrzJYhdUWBUS3ta40O3
+-----------------------------21387795301410495893260618559
+Content-Disposition: form-data; name="syx_sov"
+
+jfgdL4
+-----------------------------21387795301410495893260618559
+Content-Disposition: form-data; name="syx_efi"
+
+
+-----------------------------21387795301410495893260618559
+Content-Disposition: form-data; name="u_69x_4607"
+
+Jelena
+-----------------------------21387795301410495893260618559
+Content-Disposition: form-data; name="u_69x_338354"
+
+Vasic
+-----------------------------21387795301410495893260618559
+Content-Disposition: form-data; name="u_69x_4608"
+
+abc@xyz.com
+-----------------------------21387795301410495893260618559
+Content-Disposition: form-data; name="u_69x_338367"
+
+Website Feedback
+-----------------------------21387795301410495893260618559
+Content-Disposition: form-data; name="u_69x_4609"
+
+Great!
+-----------------------------21387795301410495893260618559
+Content-Disposition: form-data; name="submit"
+
+Continue →
+-----------------------------21387795301410495893260618559--</pre>
+								    </div>
+								</li>
+								<li>text/plain</li>
+							    </ul>
+							</li>
+						    </ul>
+						</details>
+					    </dd>
+					    <dt>PUT</dt>
+					    <dd>Upload resource to specified URI</dd>
+					    <dt>DELETE</dt>
+					    <dd>Delete resource with specified URI</dd>
+					    <dt>TRACE</dt>
+					    <dd>Echo contents of request header</dd>
+					</dl>
+				    </li>
+				    <li>the <strong>URL</strong></li>
+				    <li>the <strong>HTTP version</strong></li>
+				</ul>
+			    </li>
+			    <li><strong>Header fields</strong> (see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">Header Field Definitions</a> in the standard), for example:
+				<dl>
+				    <dt>User Agent</dt><dd>client software, e.g. browser</dd>
+				    <dt>Referer</dt><dd>URL that caused the page to be requested</dd>
+				    <dt>Accept</dt><dd>document types, encodings, languages and character sets that the client can handle</dd>
+				    <dt>Authorization</dt><dd>credentials for access to resource (especially after a 401 response)</dd>
+				    <dt>If-Modified-Since</dt><dd>for use with caching (response 304 i.e. 'not modified' is returned if not modified since date)</dd>
+				    <dt>Host</dt><dd>specified in the case of collocated hosts</dd>
+				    <dt>Connection</dt><dd>keep alive for further use or close</dd>
+				</dl>
+			    </li>
+			</ol>
+			<hr/>
+			<h3>Structure of an HTTP response</h3> 
+			<figure class="four">
+			    <img src="res/images/response.png">
+			    <figcaption>Parts of an HTTP response (by E. Lee)</figcaption>
+			</figure>
+			<ol>
+			    <li>The <strong>status line</strong> includes
+				<ul>
+				    <li>the <strong>HTTP version</strong></li>
+				    <li>the <strong>status code</strong> (see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6.1.1">Status Code and Reason Phrase</a>), classified as follows:
+					<ul>
+					    <li>1xx: informational, request received </li>
+					    <li>2xx: success, request accepted
+						<br><span class="example">
+						    <br><strong>200 OK</strong> (request succeeded, requested object appears further in the response message)
+						</span>
+					    </li>
+					    <li>3xx: redirection
+						<br><span class="example">
+						    <br><strong>301 Moved Permanently</strong> (requested object moved, new location specified later in this message with <span class="fw">Location:...</span>)
+						</span>
+					    </li>
+					    <li>4xx: client error
+						<br><span class="example">
+						    <br><strong>401 Bad Request</strong> (request message not understood by server)
+						    <br><strong>404 Not Found</strong> (requested document not found on this server)
+						</span>			    
+					    </li>
+					    <li>5xx: server error
+						<br><span class="example">
+						    <br><strong>505 HTTP Version Not Supported</strong> 
+						</span>			    
+					    </li>
+					</ul>
+				    </li>
+				    <li>the <strong>reason phrase</strong> (a short message in English explaining the status code)</li>
+				</ul>
+			    </li>
+			    <li><strong>Header fields</strong> (see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">Header Field Definitions</a> in the standard), for example:
+				<dl>
+				    <dt>Location</dt><dd>redirection</dd>
+				    <dt>Server</dt><dd>server software</dd>
+				    <dt>WWW-Authenticate</dt><dd>request for authentication</dd>
+				    <dt>Allow</dt><dd>list of supported methods (GET, HEAD etc.), must be present in a <strong>405 Method Not Allowed</strong> response</dd>
+				    <dt>Content-Encoding</dt><dd>tells the requestor how the response content is encoded, for example <span class="fw">gzip</span></dd>
+				    <dt>Content-Length</dt><dd>decimal number representing the number of octets in the body of the response</dd>
+				    <dt>Content-Type</dt><dd>the media type of the response content, for example <span class="fw">text/html; charset=ISO-8859-4</span></dd>
+				    <dt>Expires</dt><dd>date and time after which the response is considered stale (for caching purposes)</span></dd>	
+				</dl>
+			    </li>
+			</ol>
+	    	    </article>
+		</li>
+
+		
+		<!-------------------- SECTION 03 -------------------->
+		<li id="cswd-ft-http-03">
+		    <p>HTTP History</p>
+		    <article>
+			<figure  class="section_symbol" id="hist">
+			    <pre>
+:-(   ???   :-)   !!!   t
+-+-----+-----+-----+----->
+			    </pre>
+			</figure>
+			<h2>HTTP History</h2>
+			<dl>
+			    <dt>early<br>1990s</dt>
+			    <dd>
+				HTTP 0.9 (numbered retrospectively)
+				<ul>
+				    <li>one line protocol, with a single keyword, <strong>GET</strong></li>
+				    <li>fulfilled Tim Berners Lee's vision for a simple protocol that would help with the adoption of the WWW</li>
+				</ul>
+			    </dd>
+			    <dt>late<br>1990s</dt>
+			    <dd>
+				More complexity
+				<ul>
+				    <li>HTTP 1.0 (<a href="https://www.rfc-editor.org/info/rfc1945">RFC 1945</a> in 1996) - informational, not formal specification
+					<ul>
+					    <li>headers for request and response introduced to carry metadata</li>
+					    <li>status (success, error etc.) included in response</li>
+					    <li>response content not limited to HTML, for example could be a JPG image</li>
+					    <li>multi-part types are supported</li>
+					    <li>the TCP connection between client and server closes after every request-response pair of messages is exchanged</li>
+					</ul>
+				    </li>
+				    <li>HTTP 1.1 (<a href="https://www.rfc-editor.org/info/rfc2068">RFC 2068</a> in 1997 and <a href="https://www.rfc-editor.org/info/rfc2616">RFC 2616</a> in 1999) - formal specification i.e. standard
+					<ul>
+					    <li>keep-alive feature: connection can be reused for multiple request-response pairs of messages</li>
+					    <li>pipelining: multiple requests can be sent before responses are received</li>
+					    <li>chunked response support</li>
+					    <li>content negotiation, including language, encoding and content type</li>
+					    <li>the <span class="fw">Host</span> header line allows for collocation of domains on a single IP address</li>
+					</ul>
+				    </li>
+				    <li>further extensions
+					<ul>
+					    <li>security was added with the Secure Sockets Layer (SSL) on top of TCP and eventually standardised as Transport Layer Security (TSL); HTTP operating over a security layer is referred to as <strong>HTTPS</strong></li>
+					    <li>complex operations
+						<ul>
+						    <li>around 2000 <strong>representational state transfer (REST)</strong> was devised, whereby APIs were implemented at specific URIs rather than through HTTP extension</li>
+						    <li>HTTP <strong>extensions</strong>
+							<ul>
+							    <li>early attempts in the 1990s with WebDAV and WebCal</li>
+							    <li>recent (since 2005) APIs: WebSocket and server-sent events</li>
+							</ul>
+						    </li>
+						</ul>
+					    </li>
+					</ul>
+				    </li>
+				</ul>
+			    </dd>
+			    <dt>2010s</dt>
+			    <dd>
+				HTTP 2 (<a href="https://www.rfc-editor.org/info/rfc7540">RFC 7540</a> in 2015) - based on Google experimental protocol SPDY; implemented by about 30% of all websites (see <a href="https://w3techs.com/technologies/details/ce-http2/all/all">graph on W3Techs</a>)
+				<ul>
+				    <li>binary protocol (cannot be created or read manually)</li>
+				    <li>multiplexed (no restriction on number or order of requests of a single TCP connection</li>
+				    <li>compressed headers</li>
+				    <li>server push (send before client requests)</li>
+				    <li>all of the above greatly improve responsiveness</li>
+				</ul>
+			    </dd>
+			</dl>
+		    </article>
+		</li>
+
+		<!-------------------- SECTION 04 -------------------->
+		<li id="cswd-ft-http-04">
+		    <p>References</p>
+		    <article>
+			<figure class="section_symbol">
+			    <pre>
+  ____   ____
+ /    \ /    \
+| ABCD | EFG. |
+| ____ | ____ |
+|/    \|/    \|
+			    </pre>
+			</figure>
+			<h2>References</h2>
+			<ol>
+			    <li><em>High Performance Browser Networking</em> [<a href="https://hpbn.co//">https://hpbn.co/</a>]</li>
+			    <li><em>Evolution of HTTP</em> [<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP">https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP/</a>]</li>
+			</ol>
+		    </article>
+		</li>
+	    </ol>
+	</div>
+	
+	<script src="../common/res/scripts/main.js"></script>
+	<script>
+	 init_all();
+	</script>
+
+    </body>
+</html>
