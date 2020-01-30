@@ -188,3 +188,12 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
     #content { order: 3; width: 100%; height: auto; }
     #content-no-nav { order: 3; }
 }
+
+@media print {
+    body { display: block; }
+    nav { display: none; }
+    #content { width: 100%; }
+    .toc_grp>li>article { width: 100%; border-style: none; }
+    details { max-width: 100%; }
+    canvas { max-width: 100%; }
+}
