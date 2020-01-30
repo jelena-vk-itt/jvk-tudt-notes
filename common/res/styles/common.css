@@ -40,7 +40,7 @@ table.ordinary { border: 1px solid black; border-collapse: collapse; margin: 0.5
 table.ordinary th, table.ordinary td { border: 1px solid black; padding: 0.3em; text-align: left; }
 
 #toc th, #toc td { padding: 0.2em; }
-#toc a { display: block; font-weight: bold; margin: 0.2em 0; }
+#toc td>a { display: block; font-weight: bold; margin: 0.2em 0; }
 #toc { border-collapse: separate; border-spacing: 0.3em; }
 .weeknum { width: 3em; }
 #toc td.tut, #toc td.lec, #toc td.lab, #toc td.com, #toc td.sol, #toc td.ca { border: 0.1px dotted darkgray; }  
@@ -160,6 +160,12 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 .textn { font-size: normal; }
 .textl { font-size: large; }
 .textxl { font-size: x-large; }
+
+/* rotation */
+.rot1 { transform: rotate(90deg); }
+.rot2 { transform: rotate(180deg); }
+.rot3 { transform: rotate(270deg); }
+
 
 /* positioning */
 .mid { margin: auto; }
