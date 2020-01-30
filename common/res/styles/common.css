@@ -194,6 +194,7 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
     nav { display: none; }
     #content { width: 100%; }
     .toc_grp>li>article { width: 100%; border-style: none; }
-    details { max-width: 100%; }
+    details { max-width: 100%; border-style: none; }
     canvas { max-width: 100%; }
+    .example, .contraex, .example-no-leader, .contraex-no-leader { border-style: none; background-color: gray; }
 }
