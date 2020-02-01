@@ -23,31 +23,67 @@
 	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
 	</header>
 
-	<div id="content-no-nav">
+
+        <nav>
+            <ul class="links">
+		<li><a href="index.html">Home</a></li>
+	    </ul>
+	    <ul class="commands">
+		<li class="openall">Open all</li>
+		<li class="closeall">Close all</li>
+	    </ul>
+	</nav>
+	
+	<div id="content">
 	    <h1>Bootstrap</h1>
-	    <section class="tutorial-panel">
-		<ul>
-		    <li><strong>Bootstrap</strong>
+	    
+	    <ol class="toc_grp">
+
+		<!--------------------------------------------------------------------->
+		<li id="cswd-ttr-bootstrap-01">
+		    <p>What is it?</p>
+		    <article style="display:none">
+			<h2>What is it?</h2>
+			<p>Bootstrap</p>
 			<ul>
-			    <li>is a front-end framework, providing HTML, CSS and Javascript libraries</li>
+			    <li>is a front-end framework, providing CSS and Javascript libraries</li>
 			    <li>is free!</li>
 			    <li>was originally developed in Twitter</li>
 			    <li>is now an open source project hosted on GitHub (since 2011) </li>
 			</ul>
-		    </li>
-		    <li>What is Bootstrap for?
+			<p><strong class="maroon">In this module</strong>
+			    <ul>
+				<li>we use only the <strong>CSS</strong> portion of Bootstrap</li>
+				<li>we use Bootstrap <strong>version 4</strong></li>
+			    </ul>
+			</p>
+		    </article>
+		</li>
+		
+		<!--------------------------------------------------------------------->            
+                <li id="cswd-ttr-bootstrap-02">
+                    <p>What is it for?</p>
+                    <article>
+			<h2>What is it for?</h2>
+			<p>Boostrap</p>
 			<ul>
-			    <li>it provides <strong>various styling instructions</strong> for various html elements</li>
-			    <li>it includes features for easy development of <strong>responsive</strong> websites</li>
-			    <li>it includes <strong>mobile-first</strong> styles that can aid in development for mobile devices</li>
+			    <li>provides <strong>various styling rules</strong> for various html elements</li>
+			    <li>includes features for easy development of <strong>responsive</strong> websites</li>
+			    <li>includes <strong>mobile-first</strong> styles that can aid in development for mobile devices</li>
 			</ul>
-		    </li>
-		    <li>How do Boostrap styles work?
+                    </article>
+		</li>
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="cswd-ttr-bootstrap-03">
+                    <p>How are the styles applied?</p>
+                    <article>
+                        <h2>How are the styles applied?</h2>
 			<ul>
-			    <li>Bootstrap library styles are associated with <strong>classes</strong></li>
-			    <li>to use a Bootstrap style you must
+			    <li>Bootstrap styles are defined in a CSS file, where they are associated with <strong>classes</strong> by means of the usual ruleset syntax.</li>
+			    <li>To use a Bootstrap style you must
 				<ul>
-				    <li>include the Bootstrap CSS library as a link in your html file (you can copy the link html element provided in section Introduction/Quick start/CSS on <a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">this web page</a>)</li>
+				    <li>include the Bootstrap CSS file as a link in your html file (you can copy the link html element provided in section CSS on <a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">this web page</a>)</li>
 				    <li>make the element you want to style a member of the Bootstrap class associated with the desired style<br>
 					<details class="example"><summary></summary>
 					    <p>Let's say the element <span class="fw">&lt;div type="button">Button text&lt;/div></span> appears in a web page. It is rendered as follows by default:</p>
@@ -59,27 +95,49 @@
 				    </li>
 				</ul>
 			    </li>
+			    <li>You can use a Bootstrap documentation, e.g. <a href="https://www.w3schools.com/bootstrap4/">on W3 Schools</a>, as a catalogue of all the Boostrap styles that are available.</li>
 			</ul>
-		    </li>
-		    <li>To use or not to use Bootstrap?
-			<ul>
+                    </article>
+                </li>
+
+
+	        <!--------------------------------------------------------------------->            
+                <li id="cswd-ttr-bootstrap-04">
+                    <p>To use or not to use it?</p>
+                    <article>
+                        <h2>To use or not to use it?</h2>
+                	<ul>
 			    <li>It speeds up development <i class="material-icons">check_box</i></li>
 			    <li>Makes it easier to create a professional-looking website <i class="material-icons">check_box</i></li>
 			    <li>Provides responsivenes <i class="material-icons">check_box</i></li>
 			    <li>Provides consistency of look and feel <i class="material-icons">check_box</i></li>
 			    <li>Makes a website's look and feel the same as that of millions of other websites <i class="material-icons">indeterminate_check_box</i></li>
 			</ul>
-		    </li>
-		    <li><a href="https://www.w3schools.com/bootstrap4/default.asp">Bootstrap tutorial on W3 Schools, including information on how to:</a>
+		    </article>
+                </li>
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="cswd-ttr-bootstrap-05">
+                    <p>Where to get more information?</p>
+                    <article>
+                        <h2>Where to get more information?</h2>
+			<a href="https://www.w3schools.com/bootstrap4/default.asp">Bootstrap tutorial on W3 Schools, including information on how to:</a>
 			<ul>
 			    <li><a href="https://www.w3schools.com/bootstrap4/bootstrap_get_started.asp">include the Bootstrap library in your html file</a></li>
 			    <li><a href="https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp">create a Bootstrap navigation bar</a></li>
 			    <li><a href="https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp">create layouts with Bootstrap</a></li>
 			</ul>
-		    </li>
-		</ul>
-	    </section>
+                    </article>
+                </li>
+	    </ol>
 	</div>
+	    
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/3rdpty/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/common.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script>init_all();</script>
     </body>
 </html>
 
