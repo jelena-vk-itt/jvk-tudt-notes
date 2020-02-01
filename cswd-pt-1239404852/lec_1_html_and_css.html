@@ -39,13 +39,13 @@
 		    <p>HTML and CSS - Overview</p>
 		    <article>
 			<!-- figure class="section_symbol"><pre>
-    ____________
-   /   //||\\   \
-  /   ////\\\\   \
-  \   \\\\////   /   
-   \___\\||//___/
-</pre>
-			</figure-->
+			     ____________
+			     /   //||\\   \
+			     /   ////\\\\   \
+			     \   \\\\////   /   
+			     \___\\||//___/
+			     </pre>
+			     </figure-->
 			<h2>HTML and CSS - Overview</h2>
 
 			<figure class="fr onenh">
@@ -96,6 +96,60 @@
 		
 		<!-------------------------------------------------------------------------->	
 		<li id="cswd-ft-html-css-02">
+		    <p>HTML Terminology</p>
+		    <article style="display:none">
+			<h2>HTML Terminology</h2>
+			
+			<p>HTML elements are the building blocks of a Web page. HTML elements consist of <strong>tags</strong> and <strong>content</strong>.</p>
+			<figure class="two fr cr mbh ml1">
+			    <img src="res/images/1.1_html_terms_element.png">
+			</figure>
+			<figure class="two fr cr mbh ml1">
+			    <img src="res/images/1.1_html_terms_tags_oc.png">
+			</figure>
+			<figure class="two fr cr mbh">
+			    <img src="res/images/1.1_html_terms_tags_lone.png">
+			</figure>
+			
+			<h4>HTML tags</h4>
+			<ul>
+			    <li>HTML tags are the markup (information about the contents) in the html file.</li>
+			    <li>A tag consists of angular brackets and all the characters inside the brackets.</li>
+			    <li>There are three types of tag:
+				<ul>
+				    <li>open/start tag <div class="example-no-leader"><span class="fw">&lt;p></span></div> </li>
+				    <li>close/end tag <div class="example-no-leader"><span class="fw">&lt;/p></span></div></li>
+				    <li>lone tag <div class="example-no-leader"><span class="fw">&lt;br/></span></div></li>
+				</ul>
+			    </li>
+			</ul>
+			
+			<h4>HTML content</h4>
+			<ul>
+			    <li>The content is the part of the element that is actually displayed as part of the rendered HTML page.</li>
+			    <li>An HTML element's content appears between the open and close tag.</li>
+			    <li>A <strong>void</strong> element has no content and consists of a lone tag only.</li>
+			</ul>
+			
+			<h4>Inside an HTML element tag</h4>
+			<ul>
+			    <li>The first word inside the open or void HTML tag is the <strong>element name</strong> <span class="example-no-leader">h1, img</span>. These names are reserved strings in HTML.</li>
+			    <li>A close tag consists of a forward slash and the element name.</li>
+			    <figure class="three fr cr mbh ml1">
+				<img src="res/images/1.1_html_terms_attribute.png">
+			    </figure>
+			    <figure class="two fr cr mbh ml1">
+				<img src="res/images/1.1_html_terms_attribute_in_void.png">
+			    </figure>
+			    <li>The remainder of the strings inside the open or void HTML tag are name-value pairs representing <strong>attributes</strong>. Attributes provide more information about the element.</li>
+			    <li>If an attribute is not applicable to the element that it is placed on, the browser ignores it.
+				<aside class="example"><br/><span class="fw">&lt;h1 src="abc.jpg"></span>: the attribute <span class="fw">src</span> is ignored as it has no meaning in the context of element <span class="fw">h1</span>. <br/><span class="fw">&lt;img src="abc.jpg"></span>: the attribute <span class="fw">src</span> is used to specify the source of the image.</aside></li>
+			</ul>
+		    </article>
+		</li>
+
+		<!-------------------------------------------------------------------------->	
+		<li id="cswd-ft-html-css-03">
 		    <p>HTML Document Structure</p>
 		    <article>
 			<h2>HTML Document Structure</h2>
@@ -149,61 +203,11 @@
 		</li>
 		
 		<!-------------------------------------------------------------------------->	
-		<li id="cswd-ft-html-css-03">
-		    <p>HTML and CSS Terminology</p>
+		<li id="cswd-ft-html-css-04">
+		    <p>CSS Terminology</p>
 		    <article style="display:none">
-			<h2>HTML and CSS Terminology</h2>
-			
-			<h3>HTML</h3>
-			
-			<p>HTML elements are the building blocks of a Web page. HTML elements consist of <strong>tags</strong> and <strong>content</strong>.</p>
-			<figure class="two fr cr mbh ml1">
-			    <img src="res/images/1.1_html_terms_element.png">
-			</figure>
-			<figure class="two fr cr mbh ml1">
-			    <img src="res/images/1.1_html_terms_tags_oc.png">
-			</figure>
-			<figure class="two fr cr mbh">
-			    <img src="res/images/1.1_html_terms_tags_lone.png">
-			</figure>
-			
-			<h4>HTML tags</h4>
-			<ul>
-			    <li>HTML tags are the markup (information about the contents) in the html file.</li>
-			    <li>A tag consists of angular brackets and all the characters inside the brackets.</li>
-			    <li>There are three types of tag:
-				<ul>
-				    <li>open/start tag <div class="example-no-leader"><span class="fw">&lt;p></span></div> </li>
-				    <li>close/end tag <div class="example-no-leader"><span class="fw">&lt;/p></span></div></li>
-				    <li>lone tag <div class="example-no-leader"><span class="fw">&lt;br/></span></div></li>
-				</ul>
-			    </li>
-			</ul>
-			
-			<h4>HTML content</h4>
-			<ul>
-			    <li>The content is the part of the element that is actually displayed as part of the rendered HTML page.</li>
-			    <li>An HTML element's content appears between the open and close tag.</li>
-			    <li>A <strong>void</strong> element has no content and consists of a lone tag only.</li>
-			</ul>
-			
-			<h4>Inside an HTML element tag</h4>
-			<ul>
-			    <li>The first word inside the open or void HTML tag is the <strong>element name</strong> <span class="example-no-leader">h1, img</span>. These names are reserved strings in HTML.</li>
-			    <li>A close tag consists of a forward slash and the element name.</li>
-			    <figure class="three fr cr mbh ml1">
-				<img src="res/images/1.1_html_terms_attribute.png">
-			    </figure>
-			    <figure class="two fr cr mbh ml1">
-				<img src="res/images/1.1_html_terms_attribute_in_void.png">
-			    </figure>
-			    <li>The remainder of the strings inside the open or void HTML tag are name-value pairs representing <strong>attributes</strong>. Attributes provide more information about the element.</li>
-			    <li>If an attribute is not applicable to the element that it is placed on, the browser ignores it.
-				<aside class="example"><br/><span class="fw">&lt;h1 src="abc.jpg"></span>: the attribute <span class="fw">src</span> is ignored as it has no meaning in the context of element <span class="fw">h1</span>. <br/><span class="fw">&lt;img src="abc.jpg"></span>: the attribute <span class="fw">src</span> is used to specify the source of the image.</aside></li>
-			</ul>
-
-			<h3>CSS</h3>
-			
+			<h2>CSS Terminology</h2>
+					
 			<p>CSS is a declarative language for specifying styles to be applied to HTML elements.</p>
 			
 			<h4>CSS rulesets</h4>
@@ -226,14 +230,14 @@
 
 		<!-------------------------------------------------------------------------->	
 		<li id="cswd-ft-html-css-04">
-		    <p>CSS Rules and their Application</p>
+		    <p>Application of CSS Rules</p>
 		    <article>
-			<h2>CSS Rules and their Application</h2>
+			<h2>Application of CSS Rules</h2>
 			<p>It is the W3 Consortium recommendations on CSS that specify both how CSS rules are defined and how they are interpreted and applied by the browser.</p>
 			<h3>Specifying CSS rules</h3>
 			<p>CSS rules can be specified for an HTML page in two ways:</p>
 			<ul>
-			    <li>as part of a ruleset, specified in the <em>HTML and CSS Terminology</em> section<br/>
+			    <li>as part of a ruleset, as discussed in the <em>CSS Terminology</em> section above<br/>
 				<aside class="example"><br/>In this example the ruleset consists of two rules: one saying that <span class="fw">h1</span> elements should be purple in colour and another saying that <span class="fw">h1</span> elements should have bold text.<pre>
 
 h1 { color: purple; font-weight: bold; }</pre></aside>
@@ -272,6 +276,7 @@ h1 { color: purple; }</pre><pre class="ml6 maroon">
 &lt;h1 style="color:purple;">A heading&lt;/h1></pre></aside>
 			    </li>
 			</ul>
+			
 			<h3>CSS rule application</h3>
 			<p>CSS rules are applied by browsers according to an order of precedence based around rule type and rule definition mechanism. The order, referred to as the <em>cascade</em>, is defined by the W3 Consortium as part of the CSS recommendations.</p>
 			<details><summary>More about the cascade</summary><br>
@@ -301,7 +306,7 @@ h1 { color: purple; }</pre><pre class="ml6 maroon">
 (___)       
 (___)     _____
  (__)____/
-</pre>
+			    </pre>
 			</figure>
 			<h2>HTML and CSS - Best Practice Guidelines</h2>
 			<ul>
@@ -349,7 +354,7 @@ h1 { color: purple; }</pre><pre class="ml6 maroon">
 			    <pre>
 :-(   ???   :-)   !!!   t
 -+-----+-----+-----+----->
-</pre>
+			    </pre>
 			</figure>
 			<h2>HTML and CSS - A Brief History</h2>
 			<dl>
