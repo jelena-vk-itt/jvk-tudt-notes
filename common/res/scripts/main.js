@@ -116,6 +116,10 @@ function open_all() {
     Array.prototype.forEach.call(elementList, function(item) {
 	open_close_article(item);
     });
+    var detElList = document.querySelectorAll("details");
+    Array.prototype.forEach.call(detElList, function(item) {
+	item.open = true;
+    });
 }
 
 function close_all() {
