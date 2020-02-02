@@ -110,6 +110,7 @@ figcaption { font-style: italic; margin: 0 0 0.2em 0;}
 figure.section_symbol { float: right; }
 
 .box { border: 1px solid black; padding: 0.5em;}
+.tbox { border: 1px solid black; padding: 0.1em;}
 .inline { display: inline-block; }
 .instructions, .demo, .exercise, .code-listing, .badcode-listing { border: 1px solid black; margin: 1em 0; padding: 0.5em; }
 .demo > p:first-child, .exercise > p:first-child, .instructions > p:first-child { font-weight: bold; }
@@ -163,6 +164,10 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 .textn { font-size: normal; }
 .textl { font-size: large; }
 .textxl { font-size: x-large; }
+
+/* text weights */
+.bold { font-weight: bold; }
+
 
 /* rotation */
 .rot1 { transform: rotate(90deg); }

@@ -204,55 +204,186 @@
 		
 		<!-------------------------------------------------------------------------->	
 		<li id="cswd-ft-html-css-04">
-		    <p>CSS Terminology</p>
-		    <article style="display:none">
-			<h2>CSS Terminology</h2>
-					
-			<p>CSS is a declarative language for specifying styles to be applied to HTML elements.</p>
+		    <p>Application of Styles with CSS</p>
+		    <article>
+			<h2>Application of Styles with CSS</h2>
+			<p>It is the W3 Consortium recommendations on CSS that specify both how CSS rules are defined and how they are interpreted and applied by the browser.</p>
+			<p>For a CSS style to be applied by the browser to a specific HTML element in a specific HTML document, three things need to happen:</p>
+			<ol>
+			    <li>the style needs to be associated with the element as defined in the context of the HTML document</li>
+			    <li>the association must be visible within the HTML document</li>
+			    <li>the association must have the highest precedence out of all such associations</li>
+			</ol>
+
+			<h3>(1) Associating styles with elements by means of CSS rulesets</h3>
+
+			<p>HTML elements are associated with styles using CSS <strong>rulesets</strong>. A ruleset
+			    <ul>
+				<li>uses a <strong>selector</strong> to define a subset of HTML elements and</li>
+				<li>lists styling instructions that are to be associated with that subset of elements</li>
+			    </ul>
+			</p>
 			
-			<h4>CSS rulesets</h4>
+			<h4>CSS Rulesets</h4>
+
+			<p>A CSS ruleset consists of:</p>
+			<figure class="threenh fr cr mbh ml1">
+			    <figcaption>A CSS ruleset associating HTML elements of type <span class="fw">h1</span> with two styles: the purple colour for text and bold font weighting.</figcaption>
+			    <img src="res/images/1.1_css_terms_ruleset.png">
+			</figure>
 			<ul>
-			    <li>A statement in CSS is called a <strong>ruleset</strong></li>
-			    
-			    <figure class="threenh fr cr mbh ml1">
-				<img src="res/images/1.1_css_terms_ruleset.png">
-			    </figure>
-			    
-			    <li>A CSS ruleset consists of:
-				<ul>
-				    <li>a <strong>selector</strong>, used to specify which elements a style should be applied to</li>
-				    <li>a <strong>declaration block</strong> containing  one or more declarations, which are styling instructions in the form of <strong>property-value</strong> pairs</li>
-				    <li>many of the values specified for CSS properties are <strong>keywords</strong> i.e. strings designated as valid values for the property
-					<details class="example"><summary></summary>
-					    <p>In the declaration <span class="fw box">width: 3em</span> the value (<span class="fw">3em</span>) <strong>is not</strong> a keyword.</p><br/>
-					    <p>In the declaration <span class="fw box">font-weight: bold</span> the value (<span class="fw">bold</span>) <strong>is</strong> a keyword.</p>
-					    
-					</details>
-				    </li>
-				</ul>
+			    <li>a <strong>selector</strong>, used to specify which elements a style should be applied to</li>
+			    <li>a <strong>declaration block</strong> containing  one or more <strong>declarations</strong>, which are styling instructions in the form of <strong>property-value</strong> pairs, the property representing an aspect of the element's style and the value being the one that the property should take</li>
+			    <li>many of the values specified for CSS properties are <strong>keywords</strong> i.e. strings designated as valid values for the property
+				<details class="example"><summary></summary>
+				    <p>In the declaration <span class="fw tbox">width: 3em</span> the value (<span class="fw">3em</span>) <strong>is not</strong> a keyword because the number of allowed values of this type is infinite.</p>
+				    <p>In the declaration <span class="fw tbox">font-weight: bold</span> the value (<span class="fw">bold</span>) <strong>is</strong> a keyword as <span class="fw">bold</span> is one of a closed set of allowed values.</p>
+				</details>
 			    </li>
 			</ul>
-		    </article>
-		</li>
 
-		<!-------------------------------------------------------------------------->	
-		<li id="cswd-ft-html-css-04">
-		    <p>Application of CSS Rules</p>
-		    <article>
-			<h2>Application of CSS Rules</h2>
-			<p>It is the W3 Consortium recommendations on CSS that specify both how CSS rules are defined and how they are interpreted and applied by the browser.</p>
-			<h3>Specifying CSS rules</h3>
-			<p>CSS rules can be specified for an HTML page in two ways:</p>
+			<h4>CSS Selectors</h4>
+			<p>CSS <strong>selectors</strong> use element properties and document structure to 'pick out' elements for association with styles. Detailed information on selectors can be found, for example, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Selectors">on MDN</a>. Here we list the selector types that are covered <span class="maroon bold">in this module</span>.</p>
 			<ul>
-			    <li>as part of a ruleset, as discussed in the <em>CSS Terminology</em> section above<br/>
-				<aside class="example"><br/>In this example the ruleset consists of two rules: one saying that <span class="fw">h1</span> elements should be purple in colour and another saying that <span class="fw">h1</span> elements should have bold text.<pre>
+			    <li><strong>element type selector</strong> selects all the elements of a particular type
+				<p><strong>Notation:</strong> the element type name i.e. <span class="fw maroon bold"><em>element_type_name</em></span>.</p>
+				<details class="example"><summary></summary>
+				    <table>
+					<tr><td>Ruleset:</td> <td><span class="fw">h1 { color: green; }</span></td></tr>
+					<tr><td>Selector:</td> <td><span class="fw">h1</span></td></tr>
+					<tr><td>An element that is selected:</td> <td><span class="fw">&lt;h1>A Heading&lt;/h1></span></td></tr>
+					<tr><td>An element that is not selected:</td> <td><span class="fw">&lt;h3>Another Heading&lt;/h3></span></td></tr>
+					<tr><td>Rendering of the two elements with the ruleset applied:</td> <td><div id="ex1" class="box ex1"><style>#ex1 h1 { color: green; }</style><h1>A Heading</h1><h3>Another Heading</h3></div></td></tr>
+				    </table>
+				</details>
+			    </li>
 
-h1 { color: purple; font-weight: bold; }</pre></aside>
-				
-				<p>Rulesets can be related to a HTML file in two ways:</p>
-				<ul>
-				    <li><strong>externally</strong> - a file with rulesets (a CSS file) is linked into the HTML file with a <span class="fw">link</span> element<br/>
-					<aside class="example"><br/><pre>
+			    <li><strong>class selector</strong> selects all the elements that are assigned to a class
+				<p><strong>Notation:</strong> the class name prefixed by a dot (.) i.e. <span class="fw maroon bold">.<em>class_name</em></span>.</p>
+				<details class="example"><summary></summary>
+				    <table>
+					<tr><td>Ruleset:</td> <td><span class="fw">.red-text { color: red; }</span></td></tr>
+					<tr><td>Selector:</td> <td><span class="fw">.red-text</span></td></tr>
+					<tr><td>An element that is selected:</td> <td><span class="fw">&lt;h3 class="red-text">some text&lt;/h3></span></td></tr>
+					<tr><td>An element that is not selected:</td> <td><span class="fw">&lt;p class="hat">some more text&lt;/p></span></td></tr>
+					<tr><td>Rendering of the two elements with the ruleset applied:</td> <td><div id="ex2" class="box"><style>#ex2 .red-text { color: red; }</style><h3 class="red-text">some text</h3><p class="hat">some more text</p></div></td></tr>
+				    </table>
+				</details>
+			    </li>
+
+			    <li><strong>id selector</strong> selects the elements with a particular id
+				<p><strong>Notation:</strong> the id prefixed by a hash sign (#) i.e. <span class="fw maroon bold">#<em>id_value</em></span>.</p>
+				<details class="example"><summary></summary>
+				    <table>
+					<tr><td>Ruleset:</td> <td><span class="fw">#abc123 { font-weight: bold; }</span></td></tr>
+					<tr><td>Selector:</td> <td><span class="fw">#abc123</span></td></tr>
+					<tr><td>An element that is selected:</td> <td><span class="fw">&lt;p id="abc123">some text&lt;/p></span></td></tr>
+					<tr><td>An element that is not selected:</td> <td><span class="fw">&lt;span class="hat">other text&lt;/span></span></td></tr>
+					<tr><td>Rendering of the two elements with the ruleset applied:</td> <td><div id="ex3" class="box"><style>#ex3 #abc123 { font-weight: bold; }</style><p id="abc123">some text</p><span class="hat">other text</span></div></td></tr>
+				    </table>
+				</details>
+			    </li>
+
+			    <li><strong>attribute selector</strong> selects the elements with a specified value for a specified attribute
+				<p><strong>Notation:</strong> the attribute and value separated by an equal sign (=) and inside square brackets i.e. <span class="fw maroon bold">[<em>attribute_name</em>="<em>the_value</em>"]</span>.</p>
+				<details class="example"><summary></summary>
+				    <table>
+					<tr><td>Ruleset:</td> <td><span class="fw">[src="hat.jpg"] { border: 5px solid; }</span></td></tr>
+					<tr><td>Selector:</td> <td><span class="fw">[src="hat.jpg"]</span></td></tr>
+					<tr><td>An element that is selected:</td> <td><span class="fw">&lt;img src="hat.jpg" width="100px"></span></td></tr>
+					<tr><td>An element that is not selected:</td> <td><span class="fw">&lt;img src="cat.jpg" width="100px"></span></td></tr>
+					<tr><td>Rendering of the two elements with the ruleset applied:</td> <td><div id="ex4" class="box"><style>#ex4 [src="res/images/hat.jpg"] { border: 5px solid; }</style><img src="res/images/hat.jpg" width="100px"><span class="fw">  </span><img src="res/images/cat.jpg" width="100px"></div></td></tr>
+				    </table>
+				</details>
+			    </li>
+
+			    <li><strong>complex selectors</strong> combine two or more simple selectors
+				<p><strong>Notation:</strong> valid selectors separated by combinators i.e. <span class="fw maroon bold"><em>selector_1 combinator selector_2"</em></span>.</p>
+				<details class="example"><summary></summary>
+				    <p>This example presents the <strong>descendant combinator</strong>, which is denoted with a <strong>space character</strong>. The example selector selects any element of type <span class="fw">h1</span> that is inside an element of class <span class="fw">sp</span>, with zero or more intermediate containing elements. </p>
+				    <table>
+					<tr><td>Ruleset:</td> <td><span class="fw">.sp h1 { color: purple; }</span></td></tr>
+					<tr><td>Selector:</td> <td><span class="fw">.sp h1</span></td></tr>
+					<tr><td>An element that is selected (highlighed bold):</td> <td>
+					    <div class="box">
+						<span class="fw">&lt;div class="sp"></span><br/>
+						<span class="fw">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div></span><br/>
+						<span class="fw bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1>Special&lt;/h1></span><br/>
+						<span class="fw">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div></span><br/>
+						<span class="fw">&lt;/div></span><br/>
+					    </div></td>
+					</tr>
+					<tr><td>An element that is not selected (highlighed bold):</td> <td>
+					    <div class="box">
+						<span class="fw">&lt;div class="nr"></span><br/>
+						<span class="fw">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div></span><br/>
+						<span class="fw bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1>Special&lt;/h1></span><br/>
+						<span class="fw">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div></span><br/>
+						<span class="fw">&lt;/div></span><br/>
+					    </div></td>
+					</tr>
+					<tr><td>Rendering of the two elements with the ruleset applied:</td> <td><div id="ex5" class="box"><style>#ex5 .sp h1 { color: purple; }</style>
+					    <div class="sp">
+						<div>
+						    <h1>Special</h1>
+						</div>
+					    </div>
+					    <div class="nr">
+						<div>
+						    <h1>Normal</h1>
+						</div>
+					    </div>
+					</div></td></tr>
+				    </table>
+				</details>
+
+				<details class="example"><summary></summary>
+				    <p>This example presents the <strong>child combinator</strong>, which is denoted with a <strong>right angular bracket (>)</strong>. The example selector selects any element of type <span class="fw">h1</span> that is inside an element of class <span class="fw">sp</span>, with no intermediate containing elements i.e. that is a child of an element of class <span class="fw">sp</span>.</p> 
+				    <table>
+					<tr><td>Ruleset:</td> <td><span class="fw">.sp > h1 { color: orange; }</span></td></tr>
+					<tr><td>Selector:</td> <td><span class="fw">.sp > h1</span></td></tr>
+					<tr><td>An element that is selected (highlighed bold):</td> <td>
+					    <div class="box">
+						<span class="fw">&lt;div class="sp"></span><br/>
+						<span class="fw bold">&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1>Special child&lt;/h1></span><br/>
+						<span class="fw">&lt;/div></span><br/>
+					    </div></td>
+					</tr>	    
+					<tr><td>An element that is not selected (highlighed bold):</td> <td>
+					    <div class="box">
+						<span class="fw">&lt;div class="sp"></span><br/>
+						<span class="fw">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div></span><br/>
+						<span class="fw bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1>Special grandchild&lt;/h1></span><br/>
+						<span class="fw">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div></span><br/>
+						<span class="fw">&lt;/div></span><br/>
+					    </div></td>
+					</tr>	    
+					<tr><td>Rendering of the two elements with the ruleset applied:</td> <td><div id="ex6" class="box"><style>#ex6 .sp > h1 { color: orange; }</style>
+					    <div class="sp">
+						<h1>Special child</h1>
+					    </div>
+					    <div class="sp">
+						<div>
+						    <h1>Special grandchild</h1>
+						</div>
+					    </div>
+					</div></td></tr>
+				    </table>
+				</details>				
+			    </li>
+			    <li><strong>grouping of selectors</strong> allows the specification of the same group of styles for several selectors at the same time
+				<p><strong>Notation:</strong> selectors separated by commas e.g. <span class="fw maroon bold"><em>selector_1, selector_2, selector_3</em></span>.</p>				
+			    </li>
+			</ul>
+			
+			<h3>(2) Making the element-style associations visible in a HTML document</h3>
+
+			<p>Rulesets can be introduced into a HTML file in two ways:</p>
+			<ul>
+			    <li><strong>externally</strong> - a file with rulesets (a CSS file) is linked into the HTML file with a <span class="fw">link</span> element<br/>
+				<details class="example"><summary></summary>
+				    <p>In this example, the file <span class="fw">one.css</span>, located in the directory <span class="fw">res/styles</span> relative to the location of the HTML document, contains CSS rulesets. As the CSS file is specified as a link in the HTML file, the rulesets contained in it become applicable to the elements in the HTML document.</p>
+<pre>
 &lt;html lang="en"></pre><pre class="ml3">
 &lt;head></pre><pre class="ml6 maroon">
 &lt;link rel="stylesheet" type="text/css" href="res/styles/one.css"/></pre><pre class="ml3">
@@ -260,10 +391,13 @@ h1 { color: purple; font-weight: bold; }</pre></aside>
 &lt;body></pre><pre class="ml6">
 ...</pre><pre class="ml3">
 &lt/body></pre><pre>
-&lt/html></pre></aside>			
-				    </li>
-				    <li><strong>internally</strong> - rulesets are listed inside a <span class="fw">style</span> element under the <span class="fw">head</span> element of the HTML file<br/>
-					<aside class="example"><br/><pre>
+&lt/html></pre>
+				</details>
+			    </li>
+			    <li><strong>internally</strong> - rulesets are listed inside a <span class="fw">style</span> element under the <span class="fw">head</span> element of the HTML file<br/>
+				<details class="example"><summary></summary>
+				    <p>The ruleset <span class="fw">h1 { color: purple; }</span> in this example is applicable to the elements in the HTML file that contains it.</p>
+				    <pre>
 &lt;html lang="en"></pre><pre class="ml3">
 &lt;head></pre><pre class="ml6 maroon">
 &lt;style></pre><pre class="ml9 maroon">
@@ -273,24 +407,35 @@ h1 { color: purple; }</pre><pre class="ml6 maroon">
 &lt;body></pre><pre class="ml6">
 ...</pre><pre class="ml3">
 &lt/body></pre><pre>
-&lt/html></pre></aside>						
-				    </li>
-				</ul>  
-			    </li>
-			    
-			    <li><strong>inline</strong> - as a styling instruction placed directly on an element (this way of specifying styles <strong>should not</strong> be used in this module)
-				<aside class="example"><br/>In this example the <span class="fw">style</span> attribute on the <span class="fw">h1</span> element specifies that that particular <span class="fw">h1</span> element should be purple in colour.<pre>
-
-&lt;h1 style="color:purple;">A heading&lt;/h1></pre></aside>
+&lt/html></pre>
+				</details>
 			    </li>
 			</ul>
 			
-			<h3>CSS rule application</h3>
+			<h3>(1,2) Bypassing rulesets with inline styles</h3>
+			
+			<p>Another way of associating styles with HTML elements is</p>
+			<ul>
+			    <li><strong>inline</strong> - styling declarations (property-value pairs) are placed directly on an element
+				<ul>
+				    <li>style property-value pairs are specified as the value of the element's <strong>style</strong> attribute</li>
+				    <li>element selection is implicit, by virtue of the <span class="fw">style</span> attribute's presence (selectors not needed)</li>
+				    <li>it is an <span class="fw">extensional</span> (by case) mechanism rather than an intentional (by design) one</li>
+				</ul>
+				<details class="example"><summary></summary>
+				    <p>In this example the inline style specification on the <span class="fw">h1</span> element causes that particular <span class="fw">h1</span> element to have purple text and letters spaced by 1em.<pre>
+&lt;h1 style="color:purple;letter-spacing:1em;">A heading&lt;/h1></pre>
+				</details>
+				<p><span class="maroon bold">In this module</span> inline style specification should not be used.
+			    </li>
+			</ul>
+			
+			<h3>(3) CSS rule precedence</h3>
 			<p>CSS rules are applied by browsers according to an order of precedence based around rule type and rule definition mechanism. The order, referred to as the <em>cascade</em>, is defined by the W3 Consortium as part of the CSS recommendations.</p>
 			<details><summary>More about the cascade</summary><br>
 			    <canvas id="cascade" width="0" height="0"></canvas>
 			    <em>In the CSWD module we concern ourselves only with the cascade items marked with three red asterisks (<span class="red">***</span>).</em>
-			    <p>Which of many specified styles will actually be applied to an element is decided based on a strictly defined precedence rules (see <a href="https://www.w3.org/TR/css-cascade-3/#cascading"  target="_blank">the standard</a>), involving three main factors, listed here in order of priority:</p>
+			    <p>Which of many specified styles will actually be applied to an element is decided based on a strictly defined precedence of rules (see <a href="https://www.w3.org/TR/css-cascade-3/#cascading"  target="_blank">the standard</a>), involving three main factors, listed here in order of priority:</p>
 			    <ol>
 				<li>Origin and importance: the lowest priority is given to <strong>user agent</strong> (browser) declarations and <strong>user</strong> (browser configuration) declarations, which are followed by <strong>author</strong> declarations (the ones we are familiar with, in CSS and HTML files) and then a number of other categories of declarations </li>
 				<li>Specificity: this is considered at each level of origin and importance; the more specific selector has precedence (e.g. ".cls p" is more specific than "p"). This <a href="https://specificity.keegan.st/">specificity calculator</a> provides a clear visual representation of selector specificity values and compares them.</li>
