@@ -417,14 +417,23 @@ function set_canvas_width_to_parent_width(element) {
     var cmParentElement = element.parentElement;
     var cmParentElementStyle = getComputedStyle(cmParentElement);
     var cmParentWidthInPx = parseInt(cmParentElementStyle.getPropertyValue('width'), 10);
-    if (cmParentElementStyle.getPropertyValue('box-sizing') == 'border-box') {
-	cmParentWidthInPx -= parseInt(cmParentElementStyle.getPropertyValue('padding-left'), 10);
-	cmParentWidthInPx -= parseInt(cmParentElementStyle.getPropertyValue('padding-right'), 10);
-	cmParentWidthInPx -= 2 * parseInt(cmParentElementStyle.getPropertyValue('border-width'), 10);
+    if (!isNaN(cmParentWidthInPx)) {
+	if (cmParentElementStyle.getPropertyValue('box-sizing') == 'border-box') {
+	    let val = parseInt(cmParentElementStyle.getPropertyValue('padding-left'), 10);
+	    if (!isNaN(val)) {
+		cmParentWidthInPx -= val;
+	    }
+	    val = parseInt(cmParentElementStyle.getPropertyValue('padding-right'), 10);
+	    if (!isNaN(val)) {
+		cmParentWidthInPx -= val;
+	    }
+	    val =  parseInt(cmParentElementStyle.getPropertyValue('border-width'), 10);
+	    if (!isNaN(val)) {
+		cmParentWidthInPx -= 2 * val;
+	    }
+	}
+	element.width = cmParentWidthInPx;
     }
-
-    element.width = cmParentWidthInPx;
-
 }
 
 var CM_LEVEL_MARGIN = 0.07;
