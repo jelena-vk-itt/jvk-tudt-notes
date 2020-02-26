@@ -153,7 +153,7 @@ function save_html() {
 
     // Script copied from: https://www.encodedna.com/javascript/how-to-save-form-data-in-a-text-file-using-javascript.htm
     const textToBLOB = new Blob([data], { type: 'text/html' });
-    const sFileName = 'js_intro_lab.html';	   // The file to save the data.
+    const sFileName = 'js_a_in_html_lab_sheet_complete.html';	   // The file to save the data.
     
     let newLink = document.createElement("a");
     newLink.download = sFileName;

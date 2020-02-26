@@ -1,24 +1,24 @@
-$('.hasTT').qtip({
+$('.hasTT2').qtip({
     content: {
-      attr      : 'tt'
+      	attr      : 'tt'
     },
     position  : {  
-            effect: function(api, pos, viewport) {
-            // "this" refers to the tooltip
-            $(this).animate(pos, {
-                duration: 600,
-                easing: 'linear',
-                queue: false // Set this to false so it doesn't interfere with the show/hide animations
-            });
-        }
+	effect: function(api, pos, viewport) {
+	    // "this" refers to the tooltip
+	    $(this).animate(pos, {
+		duration: 600,
+		easing: 'linear',
+		queue: false // Set this to false so it doesn't interfere with the show/hide animations
+	    });
+	}
     },
     style: {
-      classes   : "qtip-tipsy  ttStyle",
-      tip       : {
-          border : 3
-      }
+	classes   : "qtip-tipsy ttStyle",
+	tip       : {
+	    border : 3
+	}
     }
-})
+ })
 
 function setup_xrefids (selector, num_prefix, start, alpha, func) {
     var counter = start;
