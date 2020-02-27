@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="res/styles/swd1-pt.css"/>
+	<title>Software Development 1</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="../common/res/images/python_logo.png" alt="Python Logo">
+	</header>
+	
+	<nav>
+	    <ul class="links">
+		<li><a href="index.html">Home</a></li>
+	    </ul>
+	    <ul class="commands">
+		<li class="openall">Open all</li>
+		<li class="closeall">Close all</li>
+	    </ul>
+
+	</nav>
+
+	<div id="content">
+	    <h1>Introduction to Software Development</h1>
+	    
+	    <ol class="toc_grp newline">
+		
+		<li id="swd1-pt-1.0-00">
+		    <p>Click on headings like this one to open and close (try me)</p>
+		    <article style="display:none">
+			<h2>Notation</h2>
+			<aside class="example">Examples are shown in green boxes.</aside><br>
+			<aside class="contraex">Contraexamples (how not do do something) are shown in red boxes.</aside>
+			<p>Links are bordered by a dotted line: <a href="../common/res/images/python_logo.png" target="_blank">Click me!</a></p>
+			<p>Hovering with the mouse over <span class="hasTT" tt="brings up more information tool-tip-style :-).">text with a maroon background...</span></p>
+		    </article>
+		</li>
+
+		<li id="swd1-pt-1.0-01">
+		    <p>Software development</p>
+		    <article style="display:none">
+			<h2>Software development</h2>
+
+			<h3>What is software?</h3>
+			<p>The word software denotes <strong>instructions</strong> for a machine (hardware), most commonly a microprocessor. Also,
+			    <ul>
+				<li>software <strong>abstracts</strong> the machine both for the developer and the user, into procedural, media and logical paradigms familiar to humans</li>
+				<li>it provides <strong>complexity</strong> through combination (from a limited number of things the machine can do i.e. operations)</li>
+				<li><em>software</em> is an uncountable noun (there are no softwares!)</li>
+				<li>a unit of software usable for some purpose is called a software program, application, app or product</li>
+				<li>the actual instructions that the software is built from are called code (another uncountable - there are no 'codes' in software)</li>
+			    </ul>
+			</p>
+
+			<h3>What is software development, programming, coding?</h3>
+			<ul>
+			    <li>In most general terms <strong>software development</strong> is the process of creating software. It can be seen as encompassing the entire process, from inception to long-term maintenance (more on this in the methodology section).</li>
+			    <li><strong>Programming</strong>, in general terms, is the instruction of a machine as to what it should do in a particular instance. You can program a TV remote control and the house alarm, but in the context of software development programming is the activity concerned with actually writing the software in a programming language.</li>
+			    <li><strong>Coding</strong> is programming in the context of software development.</li>
+			</ul>
+		    </article>
+		</li>
+		<li id="swd1-pt-1.0-02">
+		    <p>Methodologies</p>
+		    <article style="display:none">
+			<h2>Methodologies</h2>
+			<p>Developing software is a complex undertaking that includes several different types of activity within its lifecycle (the software development lifecycle - SDLC):</p>
+			<figure>
+			    <canvas id="waterfall" width="0" height="0"></canvas>
+			</figure>
+			<p>Depending on the context, the way these activities are interconnected and carried out as well as the degree of formality employed will differ greatly. However a <strong>methodology</strong> will generally be adhered to in one form or another.</p>
+			<p>The two main methodology styles are:</p>
+			<ul>
+			    <figure class="two fr ml1">
+				<img src="res/images/line_drawing_waterfall.png">
+			    </figure>
+			    <li>waterfall
+				<ul>
+				    <li>projects are large</li>
+				    <li>each activity is a single phase in a large project</li>
+				    <li>phases last  weeks or months</li>
+				    <li>a project generally corresponds to a single release</li>
+				</ul>
+			    </li>
+			    <figure class="two fr ml1">
+				<img src="res/images/line_drawing_agile.png">
+			    </figure>
+			    <li>agile (e.g. Scrum, XP)
+				<ul>
+				    <li>projects consist of many small iterations (1-2 weeks)</li>
+				    <li>constant updating of requirements based on feedback</li>
+				    <li>constant communication between teams and stakeholders (internal and external)</li>
+				    <li>continuous delivery and even deployment</li>
+				    <li>goes hand-in-hand with DevOps (also promotes connectedness of activities and roles but is centered around <em>delivery</em> as opposed to <em>development</em> in agile, see <a href="https://www.guru99.com/agile-vs-devops.html">this</a>)</li>
+				</ul>
+			    </li>
+			</ul>
+			<p>But there are many more that are either variations on these two themes or sit somewhere between the two, for example:</p>
+			<ul>
+			    <li>Rapid Application Development (RAD)
+				<ul>
+				    <li>less focus on design and documentation</li>
+				    <li>prototyping</li>
+				    <li>multiple iterations</li>
+				</ul>
+			    </li>
+			    <li>'Sashimi' model - with overlapping phases
+			    </li>
+			</ul>
+		    </article>
+		</li>
+		
+		<li id="swd1-pt-1.0-03">
+		    <p>Methods and tools</p>
+		    <article style="display:none">
+			<h2>Methods and tools</h2>
+			<p>There are methods and tools for every activity in the software development cycle.</p>
+			<ul>
+			    <li><span class="maroon">requirements gathering and analysis</span>, using tools such as Eclipse-based Rational tools or VisualParadigm
+				<ul>
+				    <li>use cases e.g. as prescribed by Rational Unified Process (RUP) framework</li>
+				    <li>user stories in agile</li>
+				    <li>source-stimulus-environment-artefact-response-measure for non-functional requirements</li>
+				    <li>analysis-level class diagrams</li>
+				</ul>
+			    </li>
+			    <li><span class="maroon">design</span>, using tools such as Eclipse-based Rational tools or VisualParadigm
+				<ul>
+				    <li>component diagrams (describing high-level structure)</li>
+				    <li>design-level class diagrams (describing structure)</li>
+				    <li>sequence diagrams (describing behaviour)</li>
+				</ul>
+			    </li>
+			    <li><span class="maroon">implementation</span>
+				<ul>
+				    <li>based around programming in languages such as Python, Java, C++</li>
+				    <li>supported by many different types of tools:
+					<ul>
+					    <li>syntax-aware text editors e.g. Visual Studio Code, Notepad++</li>
+					    <li>interpreters and compilers for </li>
+					    <li>debuggers</li>
+					    <li>program profilers and validators e.g. Valgrind</li>
+					    <li>version control systems e.g. git implemented by GitHub, Bitbucket etc.</li>
+					    <li>integrated development environments (IDEs) e.g. Eclipse, NetBeans, PyCharm; providing integrated access to all of the above listed tools, typically
+						<ul>
+						    <li>text editor</li>
+						    <li>compiler/interpreter</li>
+						    <li>debugger</li>
+						    <li>profiler</li>
+						    <li>version control</li>
+						</ul>
+					    </li>
+					</ul>
+				    </li>
+				</ul>
+			    </li>
+			    <li><span class="maroon">integration, deployment, maintenance</span>
+				<ul>
+				    <li>tools for the automation of configuration and deployment such as Puppet, Chef, Ansible</li>
+				</ul>
+			    </li>
+			    <li>planning and management (orthogonal to all of the above) also require tools for
+				<ul>
+				    <li>defect tracking</li>
+				    <li>project management (traditional)</li>
+				    <li>agile tools, which include both of the above</li>
+				</ul>
+			    </li>
+			</ul>
+		    </article>
+		</li>
+
+		<li id="swd1-pt-1.0-04">
+		    <p>Software and programming languages</p>
+		    <article style="display:none">
+			<h2>Sofware and programming languages</h2>
+			<p>Software has two aspects, both equally important:
+			    <ul>
+				<li><strong>information</strong>, represented in a program by <strong>data structures</strong></li>
+				<li><strong>behaviour</strong>, represented in a program by <strong>algorithms</strong></li>
+			    </ul>
+			</p>
+			<p>A <strong>programming language</strong>
+			    <ul>
+				<li>consists of vocabulary, syntax and rules for representing <em>information</em> and <em>behaviour</em></li>
+				<li>can be high-level (e.g. C++) or low-level (e.g. assembly)</li>
+				<li>compiled (e.g. C++) or interpreted (e.g. Python)</li>
+				<li>special-purpose (e.g. R for data analysis) or general-purpose (e.g. Python)</li>
+			    </ul>
+			</p>
+		    </article>
+		</li>
+
+		<li id="swd1-pt-1.0-05">
+		    <p>What does the <em>Software Development 1</em> module cover?</p>
+		    <article style="display:none">
+			<h2>What does the <em>Software Development 1</em> module cover?</h2>
+			<figure class="twonh fr ml1">
+			    <canvas id="waterfall_in_swd1" width="0" height="0"></canvas>
+			</figure>
+			<ul>
+			    <li>This module focuses primarily on
+				<ul>
+				    <li><strong>implementation and testing</strong></li>
+				</ul>
+				but also provides an introduction to     
+				<ul>
+				    <li>requirements gathering</li>
+				    <li>analysis</li>
+				    <li>design</li>
+				</ul>
+			    </li>
+			    <li>In the module we employ <strong>problem-based learning (PBL)</strong>, which engages the student in learning through solving open-ended problems. This is particularly suited to software development as it mirrors the real-life (workplace and advanced study) circumstances of software development application.</li>
+			    <li>The module is taught through <strong>Python</strong>, a high-level interpreted general-purpose programming language.</li>
+			</ul>
+		    </article>
+		</li>
+
+		<li id="swd1-pt-1.0-06">
+		    <p>The Python programming language</p>
+		    <article style="display:none">
+			<h2>Python and tools</h2>
+			<ul>
+			    <li>The Python programming language can be used
+				<ul>
+				    <li>interactively on the command line for simple work</li>
+				    <li>in one or more interacting scripts that can be kicked of to execute as a unit</li>
+				</ul>
+			    </li>
+			    <li>Python is an interpreted language, requiring no explicit <span class="hasTT" tt="Translation of high-level language instructions into machine code, which is a language used by the microprocessor.">compilation</span> step on the part of the developer (traditionally this type of language would have been used for <span class="hasTT" tt="A type of programming for operation over artefacts in specific environments like an OS shell (e.g. bash), browser (Javascript), editors (Lisp in Emacs).">scripting</span>)
+				<figure class="twonh mt1">
+				    <figcaption>Python interpreter<br/>(source: indianpythonista.wordpress.com)</figcaption>
+				    <img src="res/images/python_script_run_from_indianpythonista.wordpress.com.png">
+				</figure>
+			    </li>
+			    <li>A program in Python (or any other language) is useful only if it interacts with its environment by consuming and providing information
+				<figure class="twonh mt1">
+				    <figcaption>Python program inputs and outputs<br/>(source: python-nitol.blogspot.com)</figcaption>
+				    <img src="res/images/python_interactive_from_python-nitol.blogspot.com.png">
+				</figure>
+			    </li>
+			</ul>
+		    </article>
+		</li>
+
+		<li id="swd1-pt-1.0-07">
+		    <p>Python tools used in <em>Software Development 1</em></p>
+		    <article style="display:none">
+			<h2>Python tools used in <em>Software Development 1</em></h2>
+
+			<ul>
+			    <li>Python is installed in the labs and can be used <strong>on the command line</strong></li>
+			    <li>The IDE <strong>PyCharm</strong> is also installed and we will be using this for most of our exercises</li>
+			</ul>
+		    </article>
+		</li>
+	    </ol>
+	    <p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/3rdpty/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/common.js"></script>
+	<script type="text/javascript" src="res/scripts/swd1-pt.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>
+
+

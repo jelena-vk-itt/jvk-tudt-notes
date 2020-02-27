@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="res/styles/da.css"/>
+	<title>Data Analysis [DATAH3008]</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/dalogo.png" alt="DA Logo">
+	</header>
+	
+	<div id="content-no-nav">
+	    
+	    <h1>Data Analysis [DATAH3008]</h1>
+
+	    <h4><a href="res/files/lectures/00DA_Introduction/ITTCompDA_Introduction.pdf">Introductory notes</a></h4>
+	    <h4><a href="ttr1_analysis_process.html">Data Analysis Process Mini-Workshop</a></h4>
+	    <h4><a href="tools.html">Tools</a></h4>
+	    
+	    
+	    <h2>Types of Data Analysis</h2>
+	    <section class="fbc">
+		<a href="descriptive.html">
+		    <section class="module">
+			<h3>Descriptive</h3>
+			<p>Summarisation and description of data, using statistical measures and visualisation.</p>
+			<ul>
+			    <li>Measures of central tendency (mean, median, mode)</li>
+			    <li>Measures of variability (variance, standard deviation)</li>
+			    <li>Visualisation of distribution (barchart, histogram, boxplot, probability density curve)</li>
+			</ul>
+		    </section>
+		</a>
+		<a href="exploratory.html">
+		    <section class="module">
+			<h3>Exploratory</h3>
+			<p>A look at connections that are not immediately obvious, that is, correlations between variables.</p>
+			<ul>
+			    <li>Pearson's correlation coefficient</li>
+			    <li>Kendall's Tau</li>
+			    <li>Chi-square test</li>
+			    <li>ANOVA</li>
+			    <li>Information gain</li>
+			    <li>Lift</li>
+			</ul>
+		    </section>
+		</a>
+		<a href="inferential.html">
+		    <section class="module">
+			<h3>Inferential</h3>
+			<p>Drawing conclusions about populations based on samples.</p>
+			<ul>
+			    <li>Estimation of population parameters from samples (all the measures under 'Descriptive')</li>
+			    <li>Confidence intervals</li>
+			    <li>Hypothesis testing</li>
+			</ul>
+		    </section>
+		</a>
+		<a href="predictive.html">
+		    <section class="module">
+			<h3>Predictive</h3>
+			<p>Building of models from known data for the prediction of unknown data values.</p>
+		    </section>
+		</a>
+		<a class="dummy">
+		    <section>
+			<h3>Causal</h3>
+			<p class="maroon">[Not treated in this module]</p>
+			<p>Prediction of what happens to one variable (on average) if another changes.</p>
+		    </section>
+		</a>
+		<a class="dummy">
+		    <section>
+			<h3>Mechanistic</h3>
+			<p class="maroon">[Not treated in this module]</p>
+			<p>Even more exact than causal, predicts effect of a changing variable on another for particular cases.</p>
+		    </section>
+		</a>
+
+	    </section>
+
+	    <figure class="four mid">
+		<img src="res/images/data_cycle_and_types_of_analysis.png">
+	    </figure>
+	    
+	    <section class="refs">
+		<h2>References</h2>
+		<ol>
+		    <li><em>The Workflow of Data Analytics</em> <a href="https://www.cuelogic.com/blog/the-workflow-of-data-analytics/">[https://www.cuelogic.com/blog/the-workflow-of-data-analytics/]</a></li>		
+		</ol>
+		<br/><br/>
+	    </section>
+
+	</div>
+    </body>
+</html>
+
+

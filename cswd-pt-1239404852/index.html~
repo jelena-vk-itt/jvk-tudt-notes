@@ -53,9 +53,7 @@
 			<a href="res/files/labfiles/Lab1HtmlAndCssComplete.zip">HTML and CSS Revision</a>
 			<a href="res/files/labfiles/Lab2BootstrapIntroductionComplete.zip">Bootstrap Introduction</a>
 		    </td>
-		    <td class="ca">
-			
-		    </td>
+		    <td class="ca"></td>
 		</tr>
 
 		<tr><th>2</th><th></th><th></th><th></th>
@@ -83,9 +81,7 @@
 			<a href="res/files/labfiles/Lab6FlexboxIntroductionComplete.zip">Flexbox Introduction</a>
 			<a href="res/files/labfiles/Lab7FlexboxNewsVGComplete.zip">Flexbox News Page</a>
 		    </td>
-		    <td class="ca">
-			<a href="res/files/labfiles/CA1BS4Practice1WithSolution.zip">Further BS4 practice for CA1 (with solution)</a>
-		    </td>
+		    <td class="ca"></td>
 		</tr>
 
 		<tr><th>4</th><th></th><th></th><th></th>
@@ -93,14 +89,11 @@
 		</tr>
 
 		<tr><th>5</th><th>3</th><th>Thursday<br/>27/02/20</th>
-		    <td class="lec">
-			<a href="lec_5_web_application_architecture.html">Clients and Servers</a>
-		    	<a href="lec_6_dynamic_web_content.html">HTTP</a>
-		    </td>
+		    <td class="lec"></td>
 		    <td class="tut"></td>
 		    <td class="lab"></td>
 		    <td class="sol"></td>
-		    <td class="ca"><strong class="maroon">CA1 [20%, open-book in-class development]: </strong><br/>HTML, CSS, Bootstrap</td>
+		    <td class="ca"><strong class="maroon">CA1 [25%, open-book in-class development]: </strong><br/>HTML, CSS, Bootstrap</td>
 		</tr>
 
 		<tr><th>6</th><th>4</th><th>Tuesday<br/>03/03/20</th>
@@ -132,7 +125,7 @@
 		    <td class="tut"></td>
 		    <td class="lab"></td>
 		    <td class="sol"></td>
-		    <td class="ca"><strong class="maroon">CA3 [45%, open-book in-class development]: </strong><br/>Javascript</td>
+		    <td class="ca"><strong class="maroon">CA3 [40%, open-book in-class development]: </strong><br/>Javascript</td>
 		</tr>
 
 		<tr>

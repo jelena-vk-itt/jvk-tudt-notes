@@ -172,7 +172,6 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 
 /* margins and padding */
 .m1  { margin: 1em; }
-.m2  { margin: 2em; }
 .mt1 { margin-top: 1em; }
 .mt3 { margin-top: 3em; }
 .mt4 { margin-top: 4em; }
@@ -198,7 +197,6 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 .pl8 { padding-left: 8em; }
 .pl10 { padding-left: 10em; }
 
-
 /* text sizes */
 .texts { font-size: small; }
 .textn { font-size: normal; }
@@ -223,9 +221,6 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 .w-two { width: 20em; }
 .w-three { width: 30em; }
 .w-four { width: 40em; }
-.w-30 { width: 30%; }
-
-
 
 
 @media only screen and (max-width: 40em) {

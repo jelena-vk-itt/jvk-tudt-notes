@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>	
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="res/styles/cswd.css"/>
+	<title>Dynamic Web Content</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
+	</header>
+	
+	<nav>
+	    <ul class="links">
+		<li><a href="index.html">Home</a></li>
+	    </ul>
+	    <ul class="commands">
+		<li class="openall">Open all</li>
+		<li class="closeall">Close all</li>
+	    </ul>
+
+	</nav>
+
+	<div id="content">
+	    
+	    <h1>Developing for Mobile Devices</h1>
+	    
+	    <ol class="toc_grp newline">
+		
+		<li id="80" class="collapsable-article-container">
+		    <p>Click on headings like this one to open and close (try me)</p>
+		    <article>
+			<aside class="example">Examples are shown in green boxes.</aside><br>
+			<aside class="contraex">Contraexamples (how not do do something) are shown in red boxes.</aside>
+			<p>Links are shown in purple. <a href="res/images/logo.png"  target="_blank">Click me!</a></p>
+		    </article>
+		</li>
+
+		<li id="81" class="collapsable-article-container">
+		    <p>Mobile Device Statistics</p>
+		    <article>
+			<h2>Mobile Device Statistics</h2>
+
+			<p>Access to the web has changed dramatically in the last 10 years, with mobile device use now exceeding that of PCs. For this reason there is a great demand for mobile web content.</p>
+			<figure class="four">
+			    <img src="res/images/StatCounter-comparison-ww-monthly-200901-201811.png">
+			    <figcaption>Source: <a href="http://gs.statcounter.com/platform-market-share/desktop-mobile-tablet/worldwide/#monthly-200901-201811">StatCounter Global Stats - Platform Comparison Market Share</a></figcaption>
+			</figure>
+			<figure class="four">
+			    <img src="res/images/digital_media_usage.png">
+			    
+			</figure>
+			<a href="https://www.statista.com/statistics/241462/global-mobile-phone-website-traffic-share/">Percentage of all global web pages served to mobile phones from 2009 to 2018</a>
+		    </article>
+		</li>
+		
+		<li id="82" class="collapsable-article-container">
+		    <p>What does 'developing for mobile' mean?</p>
+		    <article>
+			<h2>What does 'developing for mobile' mean?</h2>
+			<ul>
+			    <li>Creating websites that are <strong>mobile-optimised</strong>
+				<ul>
+				    <li>in the past this meant adapting the site for mobile as an afterthought</li>
+				    <li>today the mobile-adapted content is treated 'equally' and responsive designs used from the beginning</li> 
+				    <li>some developers take the <strong>mobile-first</strong> approach development - where the content for mobile devices is developed first, then adapted for PC browsers</li>
+				    <li>a common technique is to use <strong>responsive</strong> web designs, which adapt the layout and content to the displaying device
+					<figure class="three">
+					    <img src="res/images/adaptive_layouts.png">
+					    <figcaption>Source: <a href="https://www.zkoss.org/wiki/File:Adaptive_Layouts.PNG">https://www.zkoss.org/wiki/File:Adaptive_Layouts.PNG</a></figcaption>
+					</figure>
+					<details>
+					    <summary>Media queries</summary>
+					    <p>Media queries are:</p>
+						<ul>
+						    <li>the main tool for the creation of responsive web designs</li>
+						    <li>constructs included in CSS that allow the inspection of device characteristics and selective application of CSS rules based on those characteristics</li>
+						    <li>what can be queried?
+							<ul>
+							    <li>media type
+								<ul>
+								    <li>all - all media</li>
+								    <li>braille - braille and tactile feedback devices</li>
+								    <li>embossed - paged braille printers</li>
+								    <li>handheld - small-screen, low-bandwidth handheld devices</li>
+								    <li>print - paged media and documents in print preview mode</li>
+								    <li>projection - projected presentations</li>
+								    <li>screen - computer, tablet and phone screen (most commonly used)</li>
+								    <li>speech - speech synthesizers</li>
+								    <li>tty - teletypes and media with a fixed-pitch character grid</li>
+								    <li>tv – television</li>
+								</ul>
+								The media type can be specified in the link element tag when including a media-specific CSS file:<pre>
+&lt;link href="print.css" rel="stylesheet" media="print"></pre>
+							    </li>
+							    <li>various characteristics of the device
+								<ul>
+								    <li>aspect-ratio - the width/height ratio</li>
+								    <li>color - the number of bits per color component</li>
+								    <li>color-index - the number of colors in the device’s color lookup table</li>
+								    <li>device-aspect-ratio - the device-width/device-height ratio</li>
+								    <li>device-height - the height of the rendering surface</li>
+								    <li>device-width - the width of the rendering surface</li>
+								    <li>height - the height of the display area</li>
+								    <li>width - the width of the display area</li>
+								    <li>orientation - whether the device is in portrait or landscape mode</li>
+								    <li>resolution - the pixel density of the device (in print, this is the dpi of the printer)</li>
+								</ul>
+								The characteristics are used in conditional statements placed 'around' CSS rulesets:<pre>
+@media all and (max-width: 600px) {
+	body {
+		// additional styles for mobile
+	}
+}
+
+@media all and (min-width: 600px) {
+	body {
+		// additional styles for desktop
+	}
+}</pre>
+								Logic operators can be used to form complex media query expressions:<br/><br/>
+								Logic operator <strong>and</strong>:<pre>
+@media all and (max-width: 600px) <strong>and</strong> (orientation: portrait) {
+	body {
+		// additional styles for mobile
+	}
+}</pre>
+								Logic operator <strong>or</strong>:<pre>
+@media all and (min-width: 600px)<strong>,</strong> (orientation: landscape) {
+	body {
+		// additional styles for desktop
+	}
+}</pre>	
+
+
+								
+							    </li>
+							</ul>
+						    </li>
+						    <li>what is styled differently?
+							<ul>
+							    <li>background colour</li>
+							    <li>image positioning</li>
+							    <li>page breaks</li>
+							    <li>font style</li>
+							    <li>etc.</li>
+							</ul>
+						    </li>
+						    <li>CSS media <strong>breakpoints</strong> (sizes at which styles change) can be obtained for currently used devices, e.g. <a href="https://responsivedesign.is/develop/browser-feature-support/media-queries-for-common-device-breakpoints/">here</a></li>
+						</ul>
+					</details>
+					Other than with media queries, responsive design can be achieved with relative sizing of elements (% and em) i.e. elastic layout.
+				    </li>
+				</ul>
+			    </li>
+			    <li>Developing <strong>native apps</strong> that run on the mobile device's operating system rather than in a browser.</li>
+			    <li><strong>Hybrid development</strong> - HTML + CSS + Javascript website 'wrapped' in a native app, e.g. Apache Cordova (often used for cross-platform mobile development)</li>
+			</ul>
+		    </article>
+		</li>
+
+		<li id="83" class="collapsable-article-container">
+		    <p>How are mobile devices different from PCs with browsers?</p>
+		    <article>
+			
+			<h2>How are mobile devices different from PCs with browsers?</h2>
+			<ul>
+			    <li>smaller screens</li>
+			    <li>various resolutions</li>
+			    <li>two different screen orientations (with one primary one)</li>
+			    <li>touch-based input</li>
+			    <li>possibly lower bandwith and network usage allowances</li>
+			    <li>power usage a factor</li>
+			</ul>
+		    </article>
+		</li>
+
+		<li id="84" class="collapsable-article-container">
+		    <p>How are those differences accounted for in web pages?</p>
+		    <article>
+			<h2>How are those differences accounted for in web pages?</h2>
+			<ul>
+			    <li>adjustment when orientation changes</li>
+			    <li>no horizontal scrolling</li>
+			    <li>forms should be mobile-optimised (labels above fields, touchscreen controls etc.)</li>
+			    <li>font should be readable</li>
+			    <li>offline use should be allowed</li>
+			    <li>power-hungry functions should be avoided</li>
+			    <li>should 'work' on a variety of devices</li>
+			</ul>
+		    </article>
+		</li>
+
+		<li id="85" class="collapsable-article-container">
+		    <p>Mobile App Deployment</p>
+		    <article>
+			<h2>Mobile App Deployment</h2>
+			<p>Mobile app deployment is different from web content deployment in that the app is packaged and made available for download in an app store, rather than integrated into a running web server. Even in deployment, there are different rules for different platforms:
+			    <ul>
+				<li>IOS – Apple App Store only</li>
+				<li>Android – Google Play store or other (Google allows open creation of stores e.g. Handango, Amazon App Store for Android); requires signing of apps with developers' certificates</li>
+				<li>Windows – app is submitted to Windows Phone Dev Centre for approval and deployment is tightly prescribed</li>
+			    </ul>
+			</p>	
+		    </article>
+		</li>
+	    </ol>
+	</div>
+	<script src="../common/res/scripts/main.js"></script>
+	<script>
+	 init_all();
+	</script>
+	
+    </body>
+</html>

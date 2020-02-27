@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>	
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="../common/res/styles/one.css"/>
+	<title>Lab Reference Material</title>
+    </head>
+    <body>
+	<a href="index.html">Home</a>
+	
+	<img id="logo" src="res/images/logo.png"/>
+
+	<h1>Lab Reference Material</h1>
+
+	<p><strong>NOTE:</strong> If a listed command includes text in angular brackets, e.g. <span class="fw">&lt;your email></span>, then this is a placeholder (in BNF notation). This means that when running the command you should replace this placeholder, including the angular brackets, with whatever is described by the text in the brackets. For example, if a command is listed as:<pre>
+cd &lt;your repository working directory></pre>
+	    You will run it as, let's say:<pre>
+cd labwork-itm-JohnDoeGitHubAccount</pre></p>
+	
+	<ol class="toc_grp newline">
+	    
+	    <li id="1001" class="collapsable-article-container">
+		<p>Useful sbt commands and tasks</p>
+		<article>
+		    <h2>Useful sbt commands and tasks (a complete list can be found <a href="https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html">here</a>)</h2>
+		    <p>To work with a Play Framework project in development mode, first you must start the <strong>sbt</strong> shell:<pre>
+cd &lt;play project directory>
+./sbt</pre>
+			From the sbt shell you can run the following tasks and commands.</p>
+		    <dl>
+			<dt><span class="fw">run</span></dt><dd>runs the Play Framework project, rendering it a running server (in development mode)</dd>
+			<dt><span class="fw">compile</span></dt><dd>builds the application without running - useful for error checking</dd>
+			<dt><span class="fw">clean</span></dt><dd>deletes build (compilation files) - repeated builds can introduce strange errors which can usually be solved by cleaning</dd>
+			<dt><span class="fw">exit</span></dt><dd>quits the sbt environment and returns to the console prompt</dd>
+			<dt><span class="fw">help</span></dt><dd>displays a list of all commands</dd>
+		    </dl>
+		</article>
+	    </li>
+	    <li id="1002" class="collapsable-article-container">
+		<p>Useful Linux commands</p>
+		<article>
+		    <h2>Useful Linux commands</h2>
+		    <dl>
+			<dt><span class="fw">cd</span></dt><dd>changes current directory to the user's home directory (same as cd ~)</dd>
+			<dt><span class="fw">cd abc</span></dt><dd>changes current directory to <strong>subdirectory</strong> abc of the current directory</dd>
+			<dt><span class="fw">cd ..</span></dt><dd>changes current directory to the <strong>parent</strong> directory of the current directory ('goes up one')</dd>
+			<dt><span class="fw">ls</span></dt><dd>lists the contents of the current directory</dd>
+			<dt><span class="fw">cp abc xyz</span></dt><dd>copies file abc:<ul>
+			    <li>if xyz doesn't exist or is a file, the result is a file identical to abc but called xyz</li>
+			    <li>if xyz exists and is a directory, a copy of abc is created in xyz</li> 
+			</ul></dd>
+			<dt><span class="fw">mv abc xyz</span></dt><dd>moves file abc - the effect is the same as with cp, except that the file abc is removed</dd>
+			<dt><span class="fw">rm abc</span></dt><dd>removes (deletes) file abc</dd>	
+			<dt><span class="fw">rm -r def</span></dt><dd>removes (deletes) directory def and everything that is in it</dd>					
+		    </dl>
+		</article>
+	    </li>
+	    <li id="1003" class="collapsable-article-container">
+		<p>Useful git commands</p>
+		<article>
+		<h2>Useful git commands</h2>
+		<dl>
+		    <p>Run the following to <strong>create a copy of a repository</strong> on your computer.</p>
+		    <dt><span class="fw">git clone &lt;repository URL></span></dt><dd>Clones a repository to your computer file system. A repository working directory is created in the directory where the command was executed.</dd>
+		    
+		    <br/><p>To <strong>push your work to the online repository</strong>, run the following commands from within the repository working directory created by <span class="fw">clone</span>.</p>
+		    <dt><span class="fw">git config --global user.email "&lt;the email address with which you registered with GitHub>"</span></dt><dd>let git know your email</dd>
+		    <dt><span class="fw">git config --global user.name "&lt;your name (not username)>"</span></dt><dd>let git know your name</dd>
+		    <dt><span class="fw">git add .</span></dt><dd>adds any files new to the repository to the 'staged' (for commit) state</dd>
+		    <dt><span class="fw">git commit -m "&lt;some comment>"</span></dt><dd>commits the staged files, but does not push them to the online repository</dd>
+		    <dt><span class="fw">git push -u origin master</span></dt><dd>pushes the commited changes to the online repository</dd>
+		</dl>
+		</article>
+	    </li>
+	</ol>
+
+	<script src="../common/res/scripts/main.js"></script>
+	<script>
+	 init_all();
+	</script>
+
+    </body>
+</html>
+	    
+		

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<!-- link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/-->
+	<link rel="stylesheet" type="text/css" href="../common/res/styles/two.css"/>
+	<title>Predictive Data Analysis</title>
+    </head>
+    <body>
+	<a href="index.html">Home</a>
+
+	<h1>Predictive Data Analysis</h1>
+
+	<!-- 
+	     <a href="https://elearning.it-tallaght.ie/mod/resource/view.php?id=292182"><em>Models (notes on Moodle)</em> </a>
+	-->
+	
+	<ol class="toc_grp newline">
+	    <li id="pe" class="collapsable-article-container">
+		<p>Click on headings like this one to open and close (try me)</p>
+		<article>
+		    <aside class="example">Examples are shown in green boxes.</aside><br>
+		    <aside class="contraex">Contraexamples (how not do do something) are shown in red boxes.</aside>
+		    <p>Links are shown in purple. <a href="index.html"  target="_blank">Click me to go home!</a></p>
+		</article>
+	    </li>
+
+	    <li id="pg" class="collapsable-article-container">
+		<p>Predictive Data Modelling</p>
+		<article>
+		    <h2>Predictive Data Modelling</h2>
+		    <p>When models are built with the aim of predicting some data values, they are called <strong>predictive data models</strong>. Some of these models have been historically developed as part of statistics, while others were devised within the machine learning field.</p>
+		    <h3>The data</h3>
+		    <p>Let's have a look at a data set and associated terminology, including the target variable.</p>
+		    <figure class="three lft">
+			<figcaption>Figure: Dataset components</figcaption>
+			<img src="res/images/table_general_terms_tgt.png">
+		    </figure>
+		    
+		    <h3>The models</h3>
+		    <p>Any type of data can be predicted from any type of data. However, different types of models are used depending on the input and output types.
+			<table>
+			    <caption>Table: Predictive models by input and output data types (the letters in square brackets denote the field, S for statistics and M machine learning, in which the model was developed)</caption>
+			    <tr>
+				<th colspan="2" rowspan="2"></th>
+				<th colspan="2">Dependent/target variable</th>
+			    </tr>
+			    <tr>
+				<th>categorical</th>
+				<th>numeric</th>
+			    </tr>
+			    <tr>
+				<th rowspan="3" class="vtext">Independent variable/feature</th>
+				<th class="vtext">categorical</th>
+				<td><ul>
+				    <li><a href="#pt">Classification trees [M]</a></li>
+				    <li><a href="#pt">Random forests [M]</a></li>
+				    <li><a href="#pb">Na&iuml;ve Bayes [M]</a></li>
+				</ul></td>
+				<td><ul>
+				    <li><a href="#pt">Regression trees [M]</a></li>
+				</ul></td>
+			    </tr>
+			    <tr>
+				<th class="vtext">numeric</th>
+				<td><ul>
+				    <li><a href="#pl">Logistic regression [S]</a></li>
+				    <li><a href="#pl">Support Vector Machines (SVM) [M]</a></li>
+				    <li><a href="#pb">Na&iuml;ve Bayes [M]</a></li>
+				</ul></td>
+				<td><ul>
+				    <li><a href="#pr">Linear regression (simple and multiple) [S]</a></li>
+					<li><a href="#pr">Non-linear regression (simple and multiple) [S]</a></li>
+					
+				</ul></td>
+			    </tr>
+			    <tr>
+				<th class="vtext">combination</th>
+				<td><ul>
+				    <li><a href="#pb">Na&iuml;ve Bayes [M]</a></li>
+				</ul></td>
+				<td><ul>
+				</ul></td>
+			    </tr>
+			</table>
+		    </p>
+		    <h3>Predictive models in machine learning</h3>
+		    <p>Machine learning algorithms for data analysis can be classified into two big groups:</p>
+		    <ul>
+			<li><strong>supervised learning - algorithms used for building predictive models</strong> and they involve:
+			    <ul>
+				<li>the use of data where the target variable values are known for the <strong>building of the model</strong></li>
+				<li>the use of other data where the target variable values are known for the <strong>testing and validation</strong> of the model</li>
+				<li>the use of the model with data where the target variable values are not known, for <strong>prediction</strong></li>
+			    </ul>
+			</li>
+
+			<li>unsupervised learning - algorithms  that
+			    <ul>
+				<li>discover relationships or other information not immediately evident in the data</li>
+				<li>do not build models to be used with unseen data, but work directly on the available dataset</li>
+				<li>for example, perform <strong>clustering</strong> or the discovery of <strong>association rules</strong></li>
+			    </ul>
+			</li>
+		    </ul>
+		</article>
+	    </li>
+
+	    <li id="pb" class="collapsable-article-container ind1">
+		<p>Na&iuml;ve Bayes Models</p>
+		<article>
+		    <h2>Na&iuml;ve Bayes Models</h2>
+		    <ul>
+			<li>A versatile modelling approach as it can use attributes of any type, including combinations of different types.</li>
+			<li>Does not generally outperform other predictive models, but is a great way of getting rough early predictions.</li>
+			<li>The designation <em>na&iuml;ve</em> comes from the assumption made in the model that there is no correlation between the input attributes.</li>
+			<li>Na&iuml;ve Bayes models output <strong>probabilities</strong> for the different values of the target variable.</li>
+		    </ul>
+
+		    <details>
+			<summary>Algorithm description</summary>
+			<p>This example shows how to predict a categorical target variable from categorical attributes. However, by using probability densities of estimated distributions, Na&iuml;ve Bayes can include numeric variables as attributes as well.</p>
+			<figure class="two lft">
+			    <figcaption>Figure: Weather and game data. Source: [DAMA].</figcaption>
+			    <img src="res/images/dm_play_data_table.png">
+			</figure>
+			<p>We want to find out the probability of the game going ahead when the attribute values are <span class="fw">Sunny</span>, <span class="fw">Cool</span>, <span class="fw">High</span> and <span class="fw">True</span>. That combination of values doesn't even appear in the table (with many attributes, the number of instances with the 'right' combination will generally be low and would not form a good basis for direct probability calculatioins).</p>
+			<p>The trick is to approach this 'from the other side', using Bayes' formula, which says:</p>
+			<pre>
+P(E|O)P(O) = P(O|E)P(E)</pre>
+			<p>The probability we need is <span class="fw">P(O|E)</span> (the probability of the outcome given the evidence). This can be calculated as:</p>
+			<pre>
+P(O|E) = P(E|O)P(O) / P(E)        </pre>
+			<p>The outcome we are interested in is <span class="fw">Yes</span> (play goes ahead) and the value of <span class="fw">P(E|O)</span> is calculated using the na&iuml;ve assumption, so:</p>
+			<pre>
+P(E|O)P(O) =
+   P(E|Yes)P(Yes) =
+      P(Sunny|Yes)P(Cool|Yes)P(High|Yes)P(True|Yes)P(Yes)</pre>
+			<p>We can calculate the value above simply by looking up the frequency of values in the table.</p>
+			<pre>
+P(E|O)P(O) =
+  P(Sunny,Cool,High,True|Yes)P(Yes) = 
+    P(Sunny|Yes)P(Cool|Yes)P(High|Yes)P(True|Yes)P(Yes) =
+      2/9*3/9*3/9*3/9*9/14 = 0.0053</pre>
+			<p>The value <span class="fw">P(E)</span> is not calculated, but rather, the numerator is found for all outcomes as above and then the proportions used to find the probabilities, which must add up to 1. So:</p>
+			<pre>
+P(E|O)P(O) =
+  P(Sunny,Cool,High,True|No)P(No) = 
+    P(Sunny|No)P(Cool|No)P(High|No)P(True|No)P(No) =
+      3/5*1/5*4/5*3/5*5/14 = 0.0206</pre>
+			<p>And:</p>
+			<pre>
+P(Yes) = P(E|Yes)P(Yes) / [P(E|Yes)P(Yes) + P(E|No)P(No)] =
+  0.0053 / [0.0053 + 0.0206] = 0.205 </pre>
+			<p>The model predicts that it is nearly 4 times more probable that <strong>the game will not be played</strong> under the given conditions (Sunny,Cool,High,True).</p>
+		    </details>
+		</article>
+	    </li>
+	    
+	    <li id="pt" class="collapsable-article-container ind1">
+		<p>Classification Trees</p>
+		<article>
+		    <h2>Classification Trees</h2>
+		    <figure class="three">
+			<figcaption>Figure: Classification tree example. Source: [DSB].</figcaption>
+			<img src="res/images/3-10c_classification_tree.jpg">
+		    </figure>
+		    <br/>
+		    <ul>
+			<li>Built by <strong>supervised segmentation</strong> of the training dataset</li>
+			<li>A popular type of model because they are:
+			    <ul>
+				<li>easy to understand</li>
+				<li>easy to use: at each step the problem is just a smaller version of the problem at the previous step (i.e. recursive)</li>
+				<li>relatively efficient</li>
+			    </ul>
+			</li>
+			<li>How does a classification tree work once the model has been created?
+			    <p>Let's say we have a data instance with attributes <span class="fw">Age</span>, <span class="fw">Balance</span> and <span class="fw">Employed</span> and the target to predict is whether the customer that the instance represents is going to default on their debt (<span class="fw">Write-off</span>) or not (<span class="fw">No Write-off</span>). The picture shows a simple classification tree built to predict this. The attribute <span class="fw">Employed</span> is in the root node, which means it has been deemed as the most important during the model-building phase. If a customer is employed, they are predicted as <span class="fw">No Write-off</span>. If the customer is not employed, the tree is traversed further and other attributes are inspected, until a leaf node is reached. A leaf node is associated with a target variable value and that value becomes the predicted value.</p>
+			</li>
+		    </ul>
+		    <details>
+			<summary>Algorithm description</summary>
+			<p>A classification tree is built in an iterative process whereby in each iteration one of the following happens to a node:
+			    <ul>
+				<li>it is associated with a 'splitting attribute', which
+				    <ul>
+					<li>must not be the same as any splitting attribute on the path from the root to the node</li>
+					<li>is the attribute that produces the 'purest' subsets with respect to the target variable value, according to some measure, e.g.
+					    <ul>
+						<li>Information Gain (IG) (Claude E. Shannon, 1948)</li>
+						<li>Gini impurity (Corrado Gini 1884-1965)</li>
+					    </ul>
+					</li>
+					<li>
+					    divides, by its own values, the data subset associated with the node into further subsets, to be associated with child nodes (the root node is associated with the entire set)
+					</li>
+				    </ul>	
+				</li>
+				<li>it is declared a leaf, if it meets any of the algorithm criteria e.g.
+				    <ul>
+					<li>further splitting would cause overfitting to happen</li>
+					<li>the tree must be kept to a limited number of levels, for simplicity</li>
+				    </ul>
+				</li>
+			    </ul>
+			</p>
+		    </details>
+		    
+		    <p>Have a look at <a href="http://www.r2d3.us/">these very clever web presentations</a> on classification trees and overfitting.</p>
+		    
+		    <h3>Other decision tree models</h3>
+		    <ul>
+			<li><strong>Regression trees</strong> are tree-based models for the prediction of numeric values. They work on the same general principle as classification trees, but use different criteria for attribute selection (e.g. greatest variance reduction).</li>
+			<li><strong>Random forest</strong> models are based on decision trees (either classification or regression) and consist of several trees which are all used for prediction, with their results combined to produce a single predicted value.
+			</li>
+		    </ul>
+		</article>
+	    </li>
+
+	    <li id="pl" class="collapsable-article-container ind1">
+		<p>Linear Classifiers</p>
+		<article>
+		    <h2>Linear Classifiers</h2>
+		    <figure class="three">
+			<figcaption>Figure: Linear classifier illustration. Source: [DSB].</figcaption>
+			<img src="res/images/4-7c.jpg">
+		    </figure>
+		    <br/>
+		    <ul>
+			<li>A linear classifier is a model that predicts a categorical target variable from one or more numeric variables.</li>
+			<li>This kind of model is built around a linear function of the numeric attributes used for the prediction:<br/><br/>
+			    <img class="formula" src="res/formulae/linear_function.png"/><br/><br/>
+			    where <span class="ob">w<sub>1</sub>, w<sub>2</sub>...</span> are weights (coefficients), <span class="ob">x<sub>1</sub>, x<sub>2</sub>...</span> are the independent numeric variables (attributes) and <span class="ob">n</span> is the number of attributes. The function defines a hyperplane in an <span class="ob">(n+1)</span>-dimensional space. In the case of a single attribute, it is a line in a two-dimensional space.
+			</li>
+			<li>The model-building process optimises a measure specific to the model, by finding the best values for the weights:
+			    <ul>
+				<li>Logistic regression - the weights are chosen so that the instances of one class are as far from the plane as possible on one side and the instances of the other class as far from the plane on the other side (the sum of distances is minimised)
+				</li>
+				<li>Support vector machines - the weights are chosen so that the 'no-man's-land' between instances of one class and instances of the other class is as wide as possible (the width of the 'no-man's-land' strip is maximised)</li>
+			    </ul>
+			</li>
+		    </ul>
+		    <h3>Other classifiers with numerical attributes</h3>
+		    <p>The function used by this kind of classifier does not have to be linear. Non-linear classifiers use non-linear functions in the same way as linear classifiers use the linear function: they find the optimal function coefficients with respect to some model-specific measure. E.g. non-linear logistic regression will separate the instances using a line that is not straight.</p> 
+		</article>
+	    </li>
+
+	    <li id="pr" class="collapsable-article-container ind1">
+		<p>Linear Regression</p>
+		<article>
+		    <h2>Linear Regression</h2>
+		    <ul>	
+			<li>Linear regression is a member of a group of predicitive models defined in statistics, which use mathematical functions to model a dependent variable in terms of independent variables.</li>
+			<li>In the case of linear regression, the function is linear. It has the same form as the one used with linear classifiers, but in this case the function represents the model of the target, rather than being a class-defining delineator as with the classifiers.<br/><br/>
+			    <img class="formula" src="res/formulae/linear_function.png"/><br/><br/>    
+			</li>
+			<li>The function above is for the general case, where any number of independent variables may be used in the model. In the case that there are more than one variable, it is called a <strong>multiple</strong> linear regression model.
+			</li>
+			<li>There are also <strong>non-linear regression</strong> models, which use non-linear functions in a similar way that linear regression uses the linear function.</li>
+			<li>In the case of simple linear regression, the dependent variable is expressed in terms of a single independent variable and the function represents a straight line:
+			    <br/><br/><img class="formula" src="res/formulae/simple_linear.png"><br/><br/>
+			    While with multiple and non-linear regression the calculation of the coefficients is more complicated and in some cases must rely on numerical or computational methods, there is a straightforward formula for calculating the line coefficients for simple linear regression. The formula minimises the sum of square distances of actual dependent values and predicted values (on the line).
+			    <br/><br/><img class="formula6" src="res/formulae/simple_linear_slope.png"><br/>
+			    <br/><br/><img class="formula" src="res/formulae/simple_linear_shift.png"><br/><br/>
+			</li>
+		    </ul>
+		    
+		</article>
+	    </li>
+
+	    <li id="pk" class="collapsable-article-container ind1">
+		<p>K Nearest Neighbours (KNN)</p>
+		<article>
+		    <h2>K Nearest Neighbours (KNN)</h2>
+		    <figure class="three">
+			<figcaption>Figure: Example of K-Nearest Neighbours. Source: [MSD].</figcaption>
+			<img src="res/images/msd6-13_k_nearest_neighbours.png"/>
+		    </figure>
+		    <br/>
+		    <ul>
+			<li> This method can be used with any attribute and target variable types.</li>
+			<li> It is an <strong>algorithm</strong> for determining a target variable's value for a data instance, given a labelled data set (one in which the target variable's value is known for all instances.)</li>			
+			<li> The distance is calculated between the new data instance and the instances in the dataset, based on the values of the attributes, which can be numeric (distance is Euclidean) or categorical (some measure of distance e.g. Jaccard).</li>
+			<li> The target variable of the new instance is calculated based on the target variable values of the closest <strong>k</strong> instances (e.g. as average if numeric or most frequent value if categorical).</li>
+			<li> Determining the best value for <strong>k</strong> is also part of the algorithm.</li>
+		    </ul>
+
+		</article>
+	    </li>
+
+	    <li id="pn" class="collapsable-article-container ind1">
+		<p>Artificial Neural Networks</p>
+		<article>
+		    <h2>Artificial Neural Networks (ANNs)</h2>
+		    <ul>	
+			<li>These are omputational models that loosely emulate the workings of an animal brain.</li>
+			<li>ANNs can be designed for any kind of input and output variable types.</li>
+			<li> They are non-linear models, with parameters (weights) that are fitted to data through a learning process.</li>
+			<li> The structure of an ANN consists of nodes and connections between those nodes:
+			    <ul>
+				<li> a node applies a weight to the value that enters it, despatching the new value further into the network</li>
+				<li> the connections define the flow of information between nodes</li>
+				<li> the input attributes are 'fed' into the ANN and it outputs a predicted value for the target variable</li>
+			    </ul>    
+			</li>
+			<li>The learning, i.e. parameter fitting, in an ANN takes place through multiple cycles of data flowing through the network and weight adjustments using a suitable algorithm.</li>
+		    </ul>
+		</article>
+	    </li>
+
+	    <li id="pq" class="collapsable-article-container">
+		<p>Model Evaluation</p>
+		<article>
+		    <h2>Model Evaluation</h2>
+		    <h3>Classification Model Evaluation</h3>
+		    <p>The simplest way to evaluate a model is by using a metric i.e. a single number that quantifies the model's performance in some way. Here are some commonly used metrics. </p>
+		    <h4>Metrics based on the confusion matrix</h4>
+		    <section class="figgroup">
+			<figure class="one lft">
+			    <figcaption>Confusion matrix</figcaption>
+			    <canvas class="confusion" width="0" height="0" data-pclts='[
+					   {"position":1, "colour":"darkgray", "level":0, "text":true},
+					   {"position":2, "colour":"gray", "level":0, "text":true}, 
+					   {"position":3, "colour":"gray", "level":0, "text":true}, 
+					   {"position":4, "colour":"darkgray", "level":0, "text":true}]'>	 
+			    </canvas>
+			</figure>
+			<p>The metrics described here are all based on the <strong>confusion matrix</strong>, which is a table showing four values:
+			    <ul>
+				<li><strong>true positive (TP)</strong> - the number of items correctly identified by the model as belonging to the 'positive' class</li>
+				<li><strong>false positive (FP)</strong> - the number of items belonging to the 'negative' class incorrectly identified by the model as belonging to the 'positive' class</li>
+				<li><strong>false negative (FN)</strong> - the number of items belonging to the 'positive' class incorrectly identified by the model as belonging to the 'negative' class</li>
+				<li><strong>true negative (TN)</strong> - the number of items correctly identified by the model as belonging to the 'negative' class</li>
+			    </ul>
+			    <p>For categorical variables with more than two values, the confusion matrix has more than two columns and rows.</p>
+			</p>
+		    </section>
+		    
+		    <section class="figgroup">
+			<figure class="one lft">
+			    <figcaption>Accuracy: <br/>(TP+TN)/<br/>(TP+FP+FN+TN)</figcaption>
+			    <canvas class="confusion" width="0" height="0" data-pclts='[
+					   {"position":1, "colour":"red", "level":0, "text":false},
+					   {"position":1, "colour":"maroon", "level":1, "text":true}, 
+					   {"position":2, "colour":"red", "level":0, "text":true}, 
+					   {"position":3, "colour":"red", "level":0, "text":true}, 
+					   {"position":4, "colour":"red", "level":0, "text":true},
+					   {"position":4, "colour":"maroon", "level":1, "text":true}]'>	 
+			    </canvas>
+			</figure class="one lft">
+			<br/><br/><br/><br/>
+			<ul>
+			    <li>While a very 'blunt instrument', accuracy gives an easily calculable insight into the performance of models.</li>
+			    <li>The main problem with accuracy is that it does not account for possible differences in model performance when predicting different values, e.g. 'positives' as opposed to 'negatives'.</li>
+			</ul>
+		    </section>
+		    <section class="figgroup">
+			<figure class="one lft">
+			    <figcaption>True positive rate:  <br/>TP/(TP+FN)</figcaption>
+			    <canvas class="confusion" width="0" height="0" data-pclts='[
+					   {"position":1, "colour":"red", "level":0, "text":false},
+					   {"position":1, "colour":"maroon", "level":1, "text":true}, 
+					   {"position":2, "colour":"gray", "level":0, "text":true}, 
+					   {"position":3, "colour":"red", "level":0, "text":true}, 
+					   {"position":4, "colour":"gray", "level":0, "text":true}]'>	
+			    </canvas>
+			</figure>
+			<figure class="one lft">
+			    <figcaption>False negative rate: <br/>FN/(TP+FN)</figcaption>
+			    <canvas class="confusion" width="0" height="0" data-pclts='[
+					   {"position":1, "colour":"red", "level":0, "text":true},
+					   {"position":2, "colour":"gray", "level":0, "text":true}, 
+					   {"position":3, "colour":"red", "level":0, "text":false}, 
+					   {"position":3, "colour":"maroon", "level":1, "text":true}, 
+					   {"position":4, "colour":"gray", "level":0, "text":true}]'>	
+			    </canvas>
+			</figure>
+			<figure class="one lft">
+			    <figcaption>False positive rate:  <br/>FP/(FP+TN)</figcaption>
+			    <canvas class="confusion" width="0" height="0" data-pclts='[
+					   {"position":1, "colour":"gray", "level":0, "text":true},
+
+					   {"position":2, "colour":"red", "level":0, "text":true}, 
+					   {"position":2, "colour":"maroon", "level":1, "text":true}, 
+					   {"position":3, "colour":"gray", "level":0, "text":true}, 
+					   {"position":4, "colour":"red", "level":0, "text":true}]'>	
+			    </canvas>
+			</figure>
+			<figure class="one lft">
+			    <figcaption>True negative rate:  <br/>TN/(FP+TN)</figcaption>
+			    <canvas class="confusion" width="0" height="0" data-pclts='[
+					   {"position":1, "colour":"gray", "level":0, "text":true},
+					   {"position":2, "colour":"red", "level":0, "text":true}, 
+					   {"position":3, "colour":"gray", "level":0, "text":true}, 
+					   {"position":4, "colour":"red", "level":0, "text":true},
+					   {"position":4, "colour":"maroon", "level":1, "text":true}]'> 
+			    </canvas>
+			</figure>
+		    </section>
+		    <section class="figgroup">
+			<figure class="one lft">
+			    <figcaption>Recall (=TPR):  <br/>TP/(TP+FN)</figcaption>
+			    <canvas class="confusion" width="0" height="0" data-pclts='[
+					   {"position":1, "colour":"red", "level":0, "text":false},
+					   {"position":1, "colour":"maroon", "level":1, "text":true}, 
+					   {"position":2, "colour":"gray", "level":0, "text":true}, 
+					   {"position":3, "colour":"red", "level":0, "text":true}, 
+					   {"position":4, "colour":"gray", "level":0, "text":true}]'>	
+			    </canvas>
+			</figure>
+			<figure class="one lft">
+			    <figcaption>Precision: <br>TP/(TP+FP)</figcaption>
+			    <canvas class="confusion" width="0" height="0" data-pclts='[
+					   {"position":1, "colour":"red", "level":0, "text":true},
+					   {"position":1, "colour":"maroon", "level":1, "text":true}, 
+					   {"position":2, "colour":"red", "level":0, "text":true}, 
+					   {"position":3, "colour":"gray", "level":0, "text":false}, 
+					   {"position":4, "colour":"gray", "level":0, "text":true}]'>	
+			    </canvas>
+			</figure>
+
+			<br/><br/><br/><br/>
+			<ul>
+			    <li>Precision and recall are used in text classification and information retrieval. Also used is their harmonic mean, the F-measure:<br/><br/>
+				F-measure = 2 * precision * recall / (precision + recall)</li>
+			</ul>
+		    </section>
+		    <section class="figgroup">
+			<figure class="one lft">
+			    <figcaption>Specificity (=TPR): <br/>TP/(TP+FN)</figcaption>
+			    <canvas class="confusion" width="0" height="0" data-pclts='[
+					   {"position":1, "colour":"red", "level":0, "text":false},
+					   {"position":1, "colour":"maroon", "level":1, "text":true}, 
+					   {"position":2, "colour":"gray", "level":0, "text":true}, 
+					   {"position":3, "colour":"red", "level":0, "text":true}, 
+					   {"position":4, "colour":"gray", "level":0, "text":true}]'>	
+			    </canvas>
+			</figure>
+			<figure class="one lft">
+			    <figcaption>Sensitivity (=TNR): <br/>TN/(FP+TN)</figcaption>
+			    <canvas class="confusion" width="0" height="0" data-pclts='[
+					{"position":1, "colour":"gray", "level":0, "text":true},
+					{"position":2, "colour":"red", "level":0, "text":true}, 
+					{"position":3, "colour":"gray", "level":0, "text":true}, 
+					{"position":4, "colour":"red", "level":0, "text":true},
+					{"position":4, "colour":"maroon", "level":1, "text":true}]'> 
+			    </canvas>
+			</figure>
+			<br/><br/><br/><br/>
+			<ul>
+			    <li>Sensitivity and specificity are used in statistics and analysis subject domains such as pattern recognition and epidemiology.</li>
+			</ul>
+		    </section>
+
+		    <h4>More complex metrics</h4>
+		    <ul>
+			<li>One important aspect of evaluating a model that the simple confusion-matrix-based metrics do not consider are the cost and benefit of the various outcomes. When these are taken into acount, an <strong>expected value</strong> metric is used, that can be defined as:<br/><br/>
+			    expected value = TP * b<sub>TP</sub> - FP * c<sub>FP</sub> - FN * c<sub>FN</sub> + TN * b<sub>TN</sub><br/><br/>
+			    where TP, FP, FN and TN have the meaning given above and b<sub>TP</sub>, c<sub>FP</sub>, c<sub>FN</sub> and b<sub>TN</sub> are the benefits and costs of corresponding individual predictions.</li>
+			<li>Expected values plotted for different model parameters form <strong>profit curves</strong>, which can be used to help with model configuration.</li>
+			<li>Another graph for evaluating classification models is the <strong>receiver operating characteristic (ROC)</strong> and its <strong>area under the curve (AOC)</strong>.</li>
+		    </ul>
+
+		    <h3>Regression model evaluation</h3>
+		    <p>Regression models are most often evaluated using the root mean square error (RMSE), which is a measure of how distant on average are the predicted values from the real values.</p>
+		    <img class="formula3" src="res/formulae/RMSE.png"/>
+		    
+		</article>
+	    </li>
+	    
+	    <li id="po" class="collapsable-article-container">
+		<p>Model Overfitting</p>
+		<article>
+		    <h2>Model Overfitting</h2>
+		    <figure class="three">
+			<figcaption>Figure: Fitting graph example. Source: [DSB].</figcaption>
+			<img src="res/images/5-1c_overfitting.jpg"/>
+			<br/><br/><figcaption>Figure: Another fitting graph example. Source: [DSB].</figcaption>
+			<img src="res/images/5-3c_tree_overfitting.jpg"/>
+		    </figure>
+		    <br/>
+		    <ul>
+			<li>Overfitting is the application of model-building procedures to an extent that causes the created model to include properties specific to the training data, in addition to those actually pertinent to a general model.</li>
+			<li> For example:
+			    <ul>
+				<li> a classification tree can be refined until all the leaf nodes are pure, but in most cases such a tree is over-fitted</li>
+				<li> with a mathematical function overfitting may occur through the addition of too many attributes: more attributes means more dimensions and a better fit, but to the detriment of general applicability</li>
+			    </ul>
+			</li>
+			<li> Overfitting can be avoided by using <strong>holdout</strong> data to test that the accurracy of a model when used on new data matches, or is close to, the accuracy of the model when used on training data. In practice, this technique is usually applied in the form of k-fold cross-validation, where a different k-th part of the data is held out in each of k</li>
+			<li>The optimal complexity of a particular type of model built with some data set can be determined with the help of a <strong>fitting graph</strong>. A fitting graph plots the accuracy of models of increasing complexity (e.g. represented by the number of nodes if a model is a decision tree), both for the training set and for a test set. As the complexity increases, so does the accuracy for both the training and test (holdout) set, until a critical complexity value at which the accuracy for the two sets diverges. It is for complexity higher than this critical value that the model is overfitted.</li>
+		    </ul>
+		</article>
+	    </li>
+
+	    <li id="pr" class="collapsable-article-container">
+		<p>References</p>
+		<article class="refs">
+		    <h2>References</h2>
+		    <ul>
+			<li><strong>[DSB]</strong> <em>Science for Business: What you need to know about data mining and data-analytic thinking</em>, by Foster Provost and Tom Fawcett, O’Reilly Media, 2013.</li>
+			<li><strong>[DAMA]</strong> <em>Data Analytics Made Accessible</em>, by Anil Maheshwari, Kindle Direct Publishing eBook, 2016.</li>
+			<li><strong>[MSD]</strong> <em>Making Sense of Data I: A Practical Guide to Exploratory Data Analysis and Data Mining</em>, by Glenn J. Myatt and Wayne P. Johnson, John Wiley & Sons, 2014.</li>
+			</li>
+		    </ul>
+		    
+		</article>
+	    </li>
+	</ol>
+	
+	<script src="../common/res/scripts/main.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>

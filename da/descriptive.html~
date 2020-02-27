@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<!-- link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/-->
+	<link rel="stylesheet" type="text/css" href="../common/res/styles/two.css"/>
+	<title>Descriptive Data Analysis</title>
+    </head>
+    <body>
+	<a href="index.html">Home</a>
+
+	<h1>Descriptive Data Analysis</h1>
+
+	<p>Notes on this topic can be found in the <a href="res/files/01DA_DataPreparationAndDescription/ITTCompDA_DataPreparationAndDescription.pdf"><strong>Data Preparation and Description PDF</strong></a> (also available in Moodle as "ITTCompDA Data Preparation and Description").</p>
+
+	<ol hidden class="toc_grp newline">
+	    <li id="dr" class="collapsable-article-container">
+		<p>References</p>
+		<article>
+		    <h2>References</h2>
+		    <ul>
+			<li><strong>[CODE]</strong> <em>Title</em> The rest.</li>
+		    </ul>
+		</article>
+	    </li>
+	</ol>
+
+	<script src="../common/res/scripts/main.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>

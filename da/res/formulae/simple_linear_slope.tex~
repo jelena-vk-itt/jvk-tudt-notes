@@ -1,0 +1,14 @@
+\documentclass{article}%
+\usepackage[paperheight=15mm,paperwidth=210mm,margin=-5mm,heightrounded]{geometry}
+\usepackage[fleqn]{amsmath}
+\pagestyle{empty}
+\newcommand*\mean[1]{\bar{#1}}
+
+\begin{document}
+{\Huge
+\setlength{\abovedisplayskip}{0pt}
+\begin{flalign*}
+ b = \dfrac{\mathlarger{\mathlarger{\sum}}_{i=1}^n(x_i-\mean{x})(y_i-\mean{y})}{\mathlarger{\mathlarger{\sum}}_{i=1}^n(x_i-\mean{x})^2}
+\end{flalign*}
+\end{document}
+

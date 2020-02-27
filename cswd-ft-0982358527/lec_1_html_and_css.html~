@@ -47,7 +47,7 @@
 		</li>
 
 		<!-------------------- SECTION 01 -------------------->
-		<li id="cswd-ft-html-css-01">
+		<li id="cswd-ft-html-css-01" class="collapsable-article-container">
 		    <p>HTML and CSS - Overview</p>
 		    <article>
 			<h2>HTML and CSS - Overview</h2>
@@ -375,6 +375,8 @@
 	<script type="text/javascript" src="../common/res/scripts/3rdpty/jquery.qtip.min.js"></script>
 	<script type="text/javascript" src="../common/res/scripts/common.js"></script>
 	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
-	<script>init_all();</script>
+	<script>
+	 init_all();
+	</script>
     </body>
 </html>
