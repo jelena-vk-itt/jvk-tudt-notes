@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="https://jelena-vk-itt.github.io/jvk-tudt-notes/cswd-pt-1239404852/res/images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css" />
+	<link rel="stylesheet" type="text/css" href="../../../../../notes-www/common/res/styles/common.css" />
+
+	<style> #content { background: lightgray; } </style>
+	<title>Javascript Introductory Lab</title>
+    </head>
+
+    <body>
+	<header id="tudheader">
+	    <img src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="https://jelena-vk-itt.github.io/jvk-tudt-notes/cswd-pt-1239404852/res/images/logo.png" alt="CSWD Logo">
+	</header>
+
+	<nav>
+	    
+	</nav>
+
+	<div id="content">
+	    
+	    <h1>Javascript Introduction</h1>
+
+	    <ol class="toc_grp newline">
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="cswd-ttr-js-01">
+                    <p>Programming</p>
+                    <article>
+                        <h2>Programming with Javascript</h2>
+			<h4>Programming</h4>
+			<ul>
+			    <li><span class="hasTT2" tt="A set of instructions that a computer knows how to carry out.">What is a computer program?</span></li>
+			    <li><span class="hasTT2" tt="Rules for how the program is specified (syntax and semantics).">What is a programming language?</span></li>
+			    <li><span class="hasTT2" tt="A scripting language is generally a high-level interpreted language, used to automate tasks in some domain, e.g. operating system (e.g. bash in Linux), databases (e.g. SQL) or Web content (e.g. Javascript).">What is a scripting language?</span></li>
+			</ul>
+			<h4>Concepts</h4>
+			<ul>
+			    <li><span class="hasTT2" tt="Data (information) and algorithms (behaviour).">What are the two conceptual aspects of a program?</span></li>
+			    <li><span class="hasTT2" tt="Data is represented by literals, variables and their types. Algorithms are represented by flow control (i.e. conditional statements and loops) and data manipulation (operators).">What concrete constructs correspond to the two conceptual aspects of a program?</span></li>
+			</ul>
+			<h4>Input/output</h4>
+			<ul>
+			    <li><span class="hasTT2" tt="Through input and output in various forms.">How does a computer program communicate with its environment (users, machines, other programs)?</span></li>
+			    <li><span class="hasTT2" tt="The input and output are contained in the Web user interface. Anything that the user does (click, move mouse, reload page, scroll...) is input. The appearance of the page, including media such as sounds and video, is the output.">What are a Web application's input and output with respect to the end-user?</span></li>
+			</ul>
+                    </article>
+                </li>
+
+
+	        <!--------------------------------------------------------------------->            
+                <li id="cswd-ttr-js-02">
+                    <p>Javascript Background</p>
+                    <article>
+                        <h2>Javascript Background</h2>
+			<p>Background information about Javascript and client-side scripting in general can be found <a href="https://jelena-vk-itt.github.io/jvk-tudt-notes/cswd-pt-1239404852/lec_6_dynamic_web_content.html#cswd-ft-dyn-web-cont-03">here (section <strong>Client-Side-Generated Dynamic Content</strong>)</a>.</p>
+                    </article>
+                </li>
+		
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="cswd-ttr-js-03">
+                    <p>Learning to Program (with Javascript)</p>
+                    <article>
+                        <h2>Learning to Program (with Javascript)</h2>
+
+			<ul>
+			    <li>Learning to program is an infinite feedback loop connecting <strong>understanding</strong> and <strong>practice</strong>: practice, practice, practice, work hard to understand, then again practice, practice, practice. Like with any language of any kind, it takes time and effort to acquire automatic understanding and become fluent.</li>
+			    <li>Class work alone is <strong>not enough</strong></li>
+			    <li>The skills that make up programming:
+				<ul>
+				    <li><strong>knowing</strong> a basic set of syntactic and semantic rules for a language <em>and</em> the available tools</li>
+				    <li><strong>abstracting</strong> real-world things into data and algorithms (design)</li>
+				    <li><strong>finding</strong> the right constructs and library code to use by looking</li>
+				</ul>
+			    </li>
+			    <li>Javascript tutorials from scratch
+				<ul>
+				    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript">Mozilla Developer Network (MDN)</a></li>
+				    <li><a href="https://www.w3schools.com/js/default.asp">W3 Schools</a></li>
+				</ul>
+			    </li>
+			    <li>Javascript reference material
+				<ul>
+				    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript">Mozilla Developer Network (MDN)</a></li>
+				    <li><a href="https://www.w3schools.com/js/default.asp">W3 Schools</a></li>
+				</ul>
+			    </li>
+			</ul>
+                    </article>
+                </li>
+
+		
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="cswd-ttr-js-04">
+                    <p>Tools for Developing in Javascript</p>
+                    <article>
+                        <h2>Tools for Developing in Javascript</h2>
+                	
+			<ul>
+			    <li>The browser developer tools
+				<ul>
+				    <li><strong>Javascript console</strong>
+					<ul>
+					    <li>To access the Javascript console in your browser, press key <strong>F12</strong> to open the developer tools, then click the <strong>Console</strong> tab.</li>
+					    <li> The Javascript interpreter inside the browser uses the Console to <strong>communicate</strong> (e.g. with information, warning and error messages).</li>
+					    <li>You as the developer can use the console to <strong>interactively</strong> run Javascript code.</li>
+					</ul>
+				    </li>
+				    <li><strong>The debugger</strong>
+					<ul>
+					    <li>To access the Javascript debugger in your browser, press key <strong>F12</strong> to open the developer tools, then click the <strong>Debugger</strong> tab.</li>
+					    <li>Use the <strong>Sources</strong> panel to navigate through the file system and open files.</li>
+					    <li>Once a file is open, you can click on line numbers in the column to the left to set <strong>breakpoints</strong>.</li>
+					</ul>
+				    </li>
+				</ul>
+			    </li>
+			    <li>Linting tools
+				<p>A <strong>linting tool</strong> checks the style, syntax and semantics of code. You will find an online Javascript linter <a href="https://www.jslint.com/">here</a>.</p>
+			    </li>
+			</ul>
+		    </article>
+                </li>
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="cswd-ttr-js-05">
+                    <p>Elements of the Javascript Language</p>
+                    <article>
+                        <h2>Elements of the Javascript Language</h2>
+
+			<ul>
+			    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions/">Functions</a></li>
+			    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables/">Variables</a></li>
+			    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures/">Data types</a></li>
+			    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators/">Operators</a></li>
+			    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">Document Object Model (DOM)</a></li>
+			    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Events#Standard_events">Events</a></li>
+			</ul>
+
+			
+			
+                    </article>
+                </li>
+	    </ol>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/qtip2/3.0.3/jquery.qtip.min.js"></script>
+	<script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/common.js"></script>
+	<script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/main.js"></script>
+	<script>init_all();</script>
+    </body>
+</html>
