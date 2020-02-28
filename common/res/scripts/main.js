@@ -58,7 +58,7 @@ function init_all() {
 	});
     }
 
-    var questions = document.getElementByClassName("question");
+    var questions = document.getElementsByClassName("question");
     if (questions) {
 	Array.prototype.forEach.call(questions, function(item) {
 	    item.addEventListener("mouseenter", function(e) {
