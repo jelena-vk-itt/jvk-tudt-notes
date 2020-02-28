@@ -61,10 +61,10 @@ function init_all() {
     var questions = document.getElementsByClassName("question");
     if (questions) {
 	Array.prototype.forEach.call(questions, function(item) {
-	    item.addEventListener("mouseenter", function(e) {
+	    item.addEventListener("mouseover", function(e) {
 		item.nextSibling.hidden = false;
 	    });
-	    item.addEventListener("mouseleave", function(e) {
+	    item.addEventListener("mouseout", function(e) {
 		item.nextSibling.hidden = true;
 	    });
 	});
