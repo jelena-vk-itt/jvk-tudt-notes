@@ -138,7 +138,7 @@ figure.section_symbol { float: right; }
 details.example>summary::before, details.contraex>summary::before { content: "EXAMPLE"; font-family: Arial, Helvetica, sans-serif; }
 details.example::before, details.contraex::before { content: ""; }
 
-.question { background-color: lightblue; }
+.question { background-color: blue; }
 .answer { border: 2px dashed blue; }
 
 .lab-answer-form { margin-top: 3em; }
