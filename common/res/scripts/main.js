@@ -58,6 +58,18 @@ function init_all() {
 	});
     }
 
+    var questions = document.getElementByClassName("question");
+    if (questions) {
+	Array.prototype.forEach.call(questions, function(item) {
+	    item.addEventListener("mouseenter", function(e) {
+		item.nextSibling.hidden = false;
+	    });
+	    item.addEventListener("mouseleave", function(e) {
+		item.nextSibling.hidden = true;
+	    });
+	});
+    }
+    
     var canvases = document.querySelectorAll(DETAILS_TAG_NAME + " " + CANVAS_TAG_NAME);
     if (canvases) {
 	Array.prototype.forEach.call(canvases, function(item) {
@@ -573,3 +585,4 @@ function draw_pf_rqrs_cycle(element) {
 
     // etc. etc.
 }
+
