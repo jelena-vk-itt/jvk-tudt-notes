@@ -67,6 +67,13 @@ function init_all() {
 	    item.addEventListener("mouseout", function(e) {
 		item.nextSibling.hidden = true;
 	    });
+	    item.addEventListener("click", function(e) {
+		if (!item.hasAttribute("openfix")) {
+		    item.openfix = false;
+		} else {
+		    item.openfix = !item.openfix;
+		}
+	    });
 	});
     }
     
