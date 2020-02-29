@@ -142,7 +142,7 @@ function open_all() {
 	item.open = true;
     });
     
-    var answers = document.querySelectorAll("answer");
+    var answers = document.querySelectorAll(".answer");
     Array.prototype.forEach.call(answers, function(item) {
 	item.setAttribute("openfix", "");
 	item.hidden = false;
@@ -154,6 +154,13 @@ function close_all() {
     Array.prototype.forEach.call(elementList, function(item) {
 	open_close_article(item);
     });
+
+    var answers = document.querySelectorAll(".answer");
+    Array.prototype.forEach.call(answers, function(item) {
+	item.removeAttribute("openfix", "");
+	item.hidden = true;
+    });
+
 }
 
 function save_html() {
