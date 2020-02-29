@@ -141,6 +141,12 @@ function open_all() {
     Array.prototype.forEach.call(detElList, function(item) {
 	item.open = true;
     });
+    
+    var answers = document.querySelectorAll("answer");
+    Array.prototype.forEach.call(answers, function(item) {
+	item.setAttribute("openfix", "");
+	item.hidden = false;
+    });
 }
 
 function close_all() {
