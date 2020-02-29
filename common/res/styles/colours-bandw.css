@@ -26,6 +26,6 @@ details {background-color: white; }
 
 .hasTT { background-color: white; border: 1px dashed black; }
 
-.red, .maroon, .green, .darkgreen { color: black; font-weight: bold; }
-.bg-darkcyan { background: white; }
+.red, .maroon, .green, .darkgreen, .blue, .purple, .yellow, .orange { color: black; font-weight: bold; }
+.bg-darkcyan, .bg-lightseagreen { background: white; }
 

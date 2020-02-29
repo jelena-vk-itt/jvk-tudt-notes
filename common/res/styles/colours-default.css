@@ -32,4 +32,9 @@ details {background-color: tomato; }
 .maroon { color: maroon; }
 .green { color: green; }
 .darkgreen { color: darkgreen; }
-.bg-darkcyan { background: lightseagreen; }
+.blue { color: blue; }
+.purple {color: purple; }
+.yellow {color: yellow; }
+.orange {color: orange; }
+.bg-darkcyan { background: darkcyan; }
+.bg-lightseagreen { background: lightseagreen; }
