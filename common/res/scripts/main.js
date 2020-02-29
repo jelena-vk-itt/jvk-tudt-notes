@@ -71,7 +71,7 @@ function init_all() {
 	    });
 	    item.addEventListener("click", function(e) {
 		if (!item.hasAttribute("openfix")) {
-		    item.openfix = false;
+		    item.openfix = true;
 		} else {
 		    item.openfix = !item.openfix;
 		}
