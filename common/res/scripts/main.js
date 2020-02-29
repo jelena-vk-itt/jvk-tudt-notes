@@ -70,10 +70,10 @@ function init_all() {
 		}
 	    });
 	    item.addEventListener("click", function(e) {
-		if (!item.hasAttribute("openfix")) {
-		    item.openfix = true;
+		if (item.hasAttribute("openfix")) {
+		    item.removeAttribute("openfix");
 		} else {
-		    item.openfix = !item.openfix;
+		    item.setAttribute("openfix", "");
 		}
 	    });
 	});
