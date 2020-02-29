@@ -10,7 +10,7 @@ var CLOSED_ARTICLE_TAG_NAME = "P";
 var CANVAS_TAG_NAME = "CANVAS";
 var DETAILS_TAG_NAME = "DETAILS";
 var ARTICLE_TAG_NAMES = [OPEN_ARTICLE_TAG_NAME, CLOSED_ARTICLE_TAG_NAME];
-var CLICK_PROTECTED_SELECTOR = "a, details, #jsexample, form";
+var CLICK_PROTECTED_SELECTOR = "a, details, #jsexample, form, .question";
 
 function init_all() {
 
