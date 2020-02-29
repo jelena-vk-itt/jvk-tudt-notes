@@ -139,7 +139,7 @@ details.example>summary::before, details.contraex>summary::before { content: "EX
 details.example::before, details.contraex::before { content: ""; }
 
 .question { color: blue; font-weight: bold; }
-.answer { border: 2px dashed blue; }
+.answer { border-width: 3px border-color: blue; border-style: none none solid none;  }
 
 .lab-answer-form { margin-top: 3em; }
 
