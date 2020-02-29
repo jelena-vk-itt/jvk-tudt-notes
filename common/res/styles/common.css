@@ -192,7 +192,9 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 .textl { font-size: large; }
 .textxl { font-size: x-large; }
 
-.textscaled1 { font-size: 2vw; } 
+.textscaled1 { font-size: 1vw; } 
+.textscaled2 { font-size: 2vw; } 
+.textscaled3 { font-size: 3vw; } 
 
 /* text weights */
 .bold { font-weight: bold; }
