@@ -134,9 +134,9 @@ figure.section_symbol { float: right; }
 .fljust-spev { justify-content: space-evenly; }
 
 
-details.example>summary::before, details.contraex>summary::before { content: "EXAMPLE"; font-family: Arial, Helvetica, sans-serif; }
+details.example>summary::before, details.contraex>summary::before { content: "EXAMPLE "; font-family: Arial, Helvetica, sans-serif; }
 details.example::before, details.contraex::before { content: ""; }
-details.examples>summary::before, details.contraexs>summary::before { content: "EXAMPLES"; font-family: Arial, Helvetica, sans-serif; }
+details.examples>summary::before, details.contraexs>summary::before { content: "EXAMPLES "; font-family: Arial, Helvetica, sans-serif; }
 details.examples::before, details.contraexs::before { content: ""; }
 
 .question { color: blue; font-weight: bold; }
@@ -240,5 +240,5 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; }
     .toc_grp>li>article { width: 100%; border-style: none; }
     details { max-width: 100%; border-style: none; }
     canvas { max-width: 100%; }
-    .example, .contraex, .example-no-leader, .contraex-no-leader { border-style: none; background-color: gray; }
+    .example, .contraex, .examples, .contraexs, .example-no-leader, .contraex-no-leader { border-style: none; background-color: gray; }
 }
