@@ -212,6 +212,7 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; }
 .mid { margin: auto; }
 
 /* widths */
+.w-quarter { width: 2.5em; }
 .w-half { width: 5em; }
 .w-one { width: 10em; }
 .w-two { width: 20em; }
