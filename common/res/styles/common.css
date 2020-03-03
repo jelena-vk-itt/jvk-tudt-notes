@@ -175,6 +175,7 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; }
 .mr1 { margin-right: 1em; }
 .mr2 { margin-right: 2em; }
 .mx1 { margin-left: 1em; margin-right: 1em; }
+.mx3 { margin-left: 3em; margin-right: 3em; }
 .my1 { margin-top: 1em; margin-bottom: 1em; }
 
 
