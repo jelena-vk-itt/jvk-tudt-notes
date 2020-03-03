@@ -96,6 +96,8 @@ section:after, section:before, article:after, header:after, .tutorial-panel:afte
     clear: both;
 }
 
+sec
+
 details {border: 1px solid black; padding: 0.5em; margin: 1em 0; max-width: 90%}
 
 canvas {border: 1px solid black; }
