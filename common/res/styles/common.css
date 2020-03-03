@@ -87,6 +87,7 @@ nav>ul.commands>li { cursor: pointer; }
 .tutorial-panel ul ul {
     margin: 1em 0 0 0;
 }
+
 section:after, section:before, article:after, header:after, .tutorial-panel:after, .figure:after, .figgroup:after, .code-listing:after {
     content: "."; 
     display: block;
