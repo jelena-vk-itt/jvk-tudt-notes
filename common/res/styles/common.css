@@ -209,8 +209,7 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; fon
 
 .textprefour { font-size: calc(100%/40);}
 .textprefournh { font-size: calc(100%/45);}
-
-
+.textprefive { font-size: calc(100%/50);}
 
 /* text weights */
 .bold { font-weight: bold; }
@@ -233,6 +232,8 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; fon
 .w-three { width: 30em; }
 .w-four { width: 40em; }
 .w-fournh { width: 45em; }
+.w-fournh { width: 45em; }
+.w-five { width: 50em; }
 .w-30 { width: 30%; }
 
 
