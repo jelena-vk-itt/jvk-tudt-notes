@@ -184,6 +184,7 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; fon
 .mx3 { margin-left: 3em; margin-right: 3em; }
 .mx4 { margin-left: 4em; margin-right: 4em; }
 .my1 { margin-top: 1em; margin-bottom: 1em; }
+.my2 { margin-top: 2em; margin-bottom: 2em; }
 
 
 .ph { padding: 0.5em; }
@@ -205,6 +206,11 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; fon
 .textscaled1 { font-size: 1vw; } 
 .textscaled2 { font-size: 2vw; } 
 .textscaled3 { font-size: 3vw; } 
+
+.textprefour { font-size: calc(100%/40);}
+.textprefournh { font-size: calc(100%/45);}
+
+
 
 /* text weights */
 .bold { font-weight: bold; }
