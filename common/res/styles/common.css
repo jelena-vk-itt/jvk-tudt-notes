@@ -104,6 +104,10 @@ canvas {border: 1px solid black; }
 
 figure { max-width: 100%; margin: 1em 0; padding: 0; }
 figure * { max-width: 100%; }
+figcaption, caption { font-style: italic; margin: 0 0 0.2em 0; text-align: left; }
+figure.section_symbol { float: right; }
+
+/* the widths below are deprecated; use general ones further down the file */
 figure.one { width: 10em; }
 figure.onenh { width: 15em; }
 figure.two { width: 20em; }
@@ -116,8 +120,6 @@ figure.five { width: 50em; }
 figure.fivenh { width: 55em; }
 figure.six { width: 60em; }
 figure.cmdline { width: 40em; }
-figcaption, caption { font-style: italic; margin: 0 0 0.2em 0; text-align: left; }
-figure.section_symbol { float: right; }
 
 .box { border: 1px solid black; padding: 0.5em;}
 .tbox { border: 1px solid black; padding: 0.1em;}
@@ -224,6 +226,7 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; fon
 .w-two { width: 20em; }
 .w-three { width: 30em; }
 .w-four { width: 40em; }
+.w-fournh { width: 45em; }
 .w-30 { width: 30%; }
 
 
