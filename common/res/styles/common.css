@@ -148,7 +148,7 @@ details.examples::before, details.contraexs::before { content: ""; }
 .lab-answer-form { margin-top: 3em; }
 
 .fw { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;}
-pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; white-space: pre-wrap; }
+pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; font-size: min(normal, 3vw); }
 .nowrap { white-space: pre; }
 
 .ice { background: #9999cc; border: 1px solid black; padding: 0.5em; margin: 1.5em 0;  }
