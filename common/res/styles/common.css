@@ -150,7 +150,7 @@ details.examples::before, details.contraexs::before { content: ""; }
 .lab-answer-form { margin-top: 3em; }
 
 .fw { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;}
-pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; font-size: min(normal, 3vw); }
+pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; }
 .nowrap { white-space: pre; }
 
 .ice { background: #9999cc; border: 1px solid black; padding: 0.5em; margin: 1.5em 0;  }
@@ -207,10 +207,6 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; fon
 .textscaled2 { font-size: 2vw; } 
 .textscaled3 { font-size: 3vw; } 
 
-.textprefour { font-size: calc(100%/40);}
-.textprefournh { font-size: calc(100%/45);}
-.textprefive { font-size: calc(100%/50);}
-
 /* text weights */
 .bold { font-weight: bold; }
 
@@ -234,10 +230,32 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; fon
 .w-fournh { width: 45em; }
 .w-fournh { width: 45em; }
 .w-five { width: 50em; }
-.w-30 { width: 30%; }
 
+/* special scaled and responsive elements */
 
+.sc-frl { float: right;}
+.sc-25 { width: 25%; }
+.sc-50 { width: 50%; }
+.sc-75 { width: 75%; }
+.sc-25-m1 { width: calc(25% - 1em); }
+.sc-50-m1 { width: calc(50% - 1em); }
+.sc-75-m1 { width: calc(75% - 1em); }
 
+@media only screen and (max-width: 90em) {
+    .sc-t { font-size: 1.3vw; }
+}
+
+@media only screen and (max-width: 65em) {
+    .sc-frl { float: left; margin-left: 0; }
+    .sc-t { font-size: 1.5vw; }
+    .sc-25, .sc-25-m1 { width: 50%; }
+    .sc-50, .sc-50-m1 { width: 100%; }
+    .sc-75, .sc-75-m1 { width: 100%; }
+}
+
+@media only screen and (max-width: 40em) {
+    .sc-t { font-size: 1.7vw; }
+}
 
 @media only screen and (max-width: 40em) {
     body { align-items: flex-end; }
