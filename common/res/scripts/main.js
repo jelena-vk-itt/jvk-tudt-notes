@@ -77,6 +77,11 @@ function init_all() {
 	    });
 	});
     }
+
+    var rubricTables = document.querySelectorAll("table.rubric");
+    if (rubricTables) {
+	rubricTables.forEach(table => make_table_heading_cells_editable(table));
+    }
     
     var canvases = document.querySelectorAll(DETAILS_TAG_NAME + " " + CANVAS_TAG_NAME);
     if (canvases) {
@@ -368,6 +373,7 @@ function make_element_editable(element) {
 	    if (!editingElement) {
 		let ta = add_text_area_at_element(element, "replace-contents", 20, 10, "");
 		ta.value = innerHTML;
+		ta.select();
 		editingElement = element;
 		
 		function stop_editing() {
@@ -375,7 +381,7 @@ function make_element_editable(element) {
 		    editingElement = null;
 		}
 		document.body.addEventListener("click", function(event) { if (event.target != ta) { stop_editing(); } });
-		document.body.addEventListener("keydown", function(event) { if (event.keyCode === 27) { stop_editing();} });
+		document.body.addEventListener("keydown", function(event) { if (event.keyCode === 27 || event.keyCode === 9) { stop_editing();} });
 	    }
 	});
     }
@@ -414,6 +420,7 @@ function make_rubric(element) {
 	    for (let c = 0; c < names.length; ++c) {
 		rubricInputFieldRow.push ("<input type=\"number\" min=\"" +
 					  parseInt(rubricItemData[1].trim()) + "\" max=\"" +
+					  parseInt(rubricItemData[2].trim()) + "\" value=\"" +
 					  parseInt(rubricItemData[2].trim()) + "\" tabindex=\"" +
 					  (c * rubricItemLines.length + i + 1) + "\">");
 	    }
@@ -426,11 +433,13 @@ function make_rubric(element) {
 	ta2.remove();
 	button.remove();
 
-	let rubricItemElements = table.querySelectorAll("tr>th:first-child");
-	rubricItemElements.forEach(item => make_element_editable(item));
-    });
+	make_table_heading_cells_editable(table);
+   });
 }
 
+function make_table_heading_cells_editable(table) {
+    table.querySelectorAll("th").forEach(item => make_element_editable(item));
+}
 
 function save_results(module, ca) {
     
