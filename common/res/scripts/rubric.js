@@ -486,6 +486,12 @@ function make_rubric(element) {
 function save_results(module, ca) {
     
     let table = document.querySelector("table.rubric");
+
+    if (!table || !table.rows.length) {
+	alert("Table is empty. Nothing to save.");
+	return;
+    }
+
     let rows = table.querySelectorAll("tr");
     
     let headerRowCells = rows[0].querySelectorAll("th");
@@ -547,6 +553,11 @@ function export_to_csv() {
     let csvContents = "";
     
     let table = document.querySelector("table.rubric");
+    if (!table || !table.rows.length) {
+	alert("Table is empty. Nothing to export.");
+	return;
+    }
+    
     let rows = table.rows;
 
     // first line (names)
