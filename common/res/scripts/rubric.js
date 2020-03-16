@@ -3,7 +3,8 @@
 const RUBRIC_ITEM_DATA_SEPARATOR="-----";
 const RUBRIC_ITEM_DATA_DESCRIPTION =
       "A line should contain the rubric item description, min marks and max marks, separated by " + RUBRIC_ITEM_DATA_SEPARATOR + ", e.g.\n\n" + 
-      "Quality of user experience" + RUBRIC_ITEM_DATA_SEPARATOR + "0" + RUBRIC_ITEM_DATA_SEPARATOR + "10";
+      "Quality of user experience" + RUBRIC_ITEM_DATA_SEPARATOR + "0" + RUBRIC_ITEM_DATA_SEPARATOR + "10" +
+      "Program runs without errors" + RUBRIC_ITEM_DATA_SEPARATOR + "0" + RUBRIC_ITEM_DATA_SEPARATOR + "15";
 const RUBRIC_ITEM_DATA_LENGTH = 3;
 
 const ADD_SYMSTR = "+";
