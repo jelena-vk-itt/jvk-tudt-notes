@@ -41,7 +41,7 @@ function create_button(name) {
 function create_number_input_element(min, max, tab_index=0) {
     let nie = document.createElement("INPUT");
     nie.type = "number";
-    nie.style.width
+    nie.style.width = "3.5em";
     nie.min = min;
     nie.max = max;
     nie.value = max;
@@ -57,7 +57,7 @@ function make_feedback_text_element_editable(element) {
     make_element_editable(element, "dblclick", function(ta) {
 	ta.parentElement.setAttribute("data-text", ta.value);
 	element.style.fontWeight = ta.value ? "bold" : "normal";
-	return false; 
+	return { close: true, value: null} ; 
     }, function(element) {
 	return element.getAttribute("data-text");
     });
@@ -84,11 +84,7 @@ function insert_table_cell(row, header, child_element, pos = null) {
 // restrict editing to one element
 let editingElement = null;
 function make_element_editable(element, event_type = "dblclick", stop_editing_function = function(ta) {
-    let newValue = ta.value;
-    let parentElement = ta.parentElement;
-    parentElement.removeChild(ta);
-    parentElement.innerHTML = newValue;
-    return true;
+    return { close: true, value: ta.value };
 }, get_data_func = function(element) { return element.innerHTML; }) {
     element.addEventListener(event_type, function() {
 	event.stopPropagation();
@@ -101,14 +97,17 @@ function make_element_editable(element, event_type = "dblclick", stop_editing_fu
 	    ta.select();
 
 	    function handleClickDuringCellEdit() { if (event.target != ta) { processEndOfCellEdit(ta); } }
-	    function handleKeydownDuringCellEdit() { if (event.keyCode === ESC_CCODE) { processEndOfCellEdit(ta, true); } }
-	    function processEndOfCellEdit(ta, cancel=false) {
-		if (cancel || !stop_editing_function(ta)) {
-		    ta.parentElement.innerHTML = innerHTML;
-		}
-	    	editingElement = null;
+	    function handleKeydownDuringCellEdit() { if (event.keyCode === ESC_CCODE) { closeTextArea(innerHTML); } }
+	    function closeTextArea(value) {
+		ta.parentElement.innerHTML = value;
+		editingElement = null;
 		document.body.removeEventListener("click", handleClickDuringCellEdit);
 		document.body.removeEventListener("keydown", handleKeydownDuringCellEdit);
+	    }
+	    function processEndOfCellEdit(ta) {
+		let ret = stop_editing_function(ta);
+		if (ret.close) { closeTextArea(ret.value ? ret.value : innerHTML); }
+		else { ta.value = ret.value ? ret.value : innerHTML; ta.select(); }
 	    }
 	    document.body.addEventListener("click", handleClickDuringCellEdit);
 	    document.body.addEventListener("keydown", handleKeydownDuringCellEdit);
@@ -202,7 +201,7 @@ function make_ext_table_cell_add_handle(table, cell, row, add_func) {
 
 function activate_ext_table_add_element(table, element, add_func) {
     make_element_mouse_pointer_zone(element);
-    make_element_editable(element, "click", function(ta) { if (ta.value != ADD_SYMSTR) { add_func(ta); } return false; });
+    make_element_editable(element, "click", function(ta) { if (ta.value != ADD_SYMSTR) { return add_func(ta); } else { return { close: true, value: null }; } });
 }
 
 
@@ -405,7 +404,7 @@ function rubric_table_row_from_rubric_item_string(table, rubric_item_string, row
 	row_number == table.rows.length - 1;
     }
     let ri = parse_rubric_item(rubric_item_string);
-    if (!ri) return;
+    if (!ri) { return false; }
     if (table.rows[0].cells.length == 2) {
 	rubric_table_column_from_name(table, "MAX", 1);
     }
@@ -419,6 +418,7 @@ function rubric_table_row_from_rubric_item_string(table, rubric_item_string, row
     
     insert_ext_table_row(table, rowData, row_number);
     rubric_table_assign_tabindex_values(table);
+    return true;
 }
 
 function rubric_table_column_from_name(table, name, column_number) {
@@ -429,7 +429,7 @@ function rubric_table_column_from_name(table, name, column_number) {
     if (table.rows.length > 2) {
 	if (table.rows[0].cells.length == 2) {
 	    console.error("Rubric inconsistency: name being added to table with rubric items but without mark information.");
-	    return;
+	    return true;
 	}
 	let prevCol = get_ext_table_column(table, column_number - 1);
 	for (let r = 1; r < prevCol.length; ++r) {
@@ -438,13 +438,21 @@ function rubric_table_column_from_name(table, name, column_number) {
     }
     insert_ext_table_column(table, colData, column_number);
     rubric_table_assign_tabindex_values(table);
+    return true;
 }
 
 
-function rubric_add_row_func(table, ta) { rubric_table_row_from_rubric_item_string(table, ta.value, table.rows.length - 1); }
-function rubric_add_col_func(table, ta) { rubric_table_column_from_name(table, ta.value, table.rows[0].cells.length - 1); }
+function rubric_add_row_func(table, ta) {
+    if (rubric_table_row_from_rubric_item_string(table, ta.value, table.rows.length - 1)) {
+	return { close: true, value: null }
+    } 
+    return { close: false, value: ta.value };
+}
+function rubric_add_col_func(table, ta) { rubric_table_column_from_name(table, ta.value, table.rows[0].cells.length - 1); return { close: true, value: null } }
+
 function activate_ext_rubric_table(table) {
-    activate_ext_table(table,  function(ta) { rubric_add_row_func(table, ta); }, function(ta) { rubric_add_col_func(table, ta); });
+    activate_ext_table(table,  function(ta) { return rubric_add_row_func(table, ta); }, function(ta) { return rubric_add_col_func(table, ta); });
+
     document.querySelectorAll(FEEDBACK_ELEMENT_SELECTOR).forEach(function(element) { make_feedback_text_element_editable(element); });
 }
 
@@ -461,7 +469,7 @@ function make_rubric(element) {
     
     button.addEventListener("click", function() {
 	let table = document.querySelector("table.rubric");
-	make_table_extensible(table, function(ta) { rubric_add_row_func(table, ta); }, function(ta) { rubric_add_col_func(table, ta); });
+	make_table_extensible(table, function(ta) { return rubric_add_row_func(table, ta); }, function(ta) { return rubric_add_col_func(table, ta); });
 		
 	ta1.value.split("\n").filter(item => item).forEach(function(item) { rubric_table_column_from_name(table, item.trim(), -1); });
 
