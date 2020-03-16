@@ -449,9 +449,9 @@ function activate_ext_rubric_table(table) {
  
 function make_rubric(element) {
     let parent = element.parentElement;
-    let ta1 = create_text_area(20, 20, "Enter the names here", "jelena vasic\nanthony kelly\nada vasic\nluka kelly\n");
+    let ta1 = create_text_area(20, 20, "Enter the names here e.g.\n\nAmy Aiken\nBilly Blas\nConor Crumb\n", "");
     parent.insertBefore(ta1, element);
-    let ta2 = create_text_area(50, 20, "Enter the rubric items here, one item per line.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION, "be kind-----0-----10\nbe truthful-----0-----10\nbe happy-----0-----10\n");
+    let ta2 = create_text_area(50, 20, "Enter the rubric items here, one item per line.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION, "");
     parent.insertBefore(ta2, element);
     let button = create_button("Submit");
     parent.insertBefore(button, element);
