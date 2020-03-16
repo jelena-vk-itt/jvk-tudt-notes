@@ -41,6 +41,7 @@ function create_button(name) {
 function create_number_input_element(min, max, tab_index=0) {
     let nie = document.createElement("INPUT");
     nie.type = "number";
+    nie.style.width
     nie.min = min;
     nie.max = max;
     nie.value = max;
@@ -201,7 +202,7 @@ function make_ext_table_cell_add_handle(table, cell, row, add_func) {
 
 function activate_ext_table_add_element(table, element, add_func) {
     make_element_mouse_pointer_zone(element);
-    make_element_editable(element, "click", function(ta) { if (ta.value != ADD_SYMSTR) { add_func(table, ta); } return false; });
+    make_element_editable(element, "click", function(ta) { if (ta.value != ADD_SYMSTR) { add_func(ta); } return false; });
 }
 
 
@@ -443,7 +444,7 @@ function rubric_table_column_from_name(table, name, column_number) {
 function rubric_add_row_func(table, ta) { rubric_table_row_from_rubric_item_string(table, ta.value, table.rows.length - 1); }
 function rubric_add_col_func(table, ta) { rubric_table_column_from_name(table, ta.value, table.rows[0].cells.length - 1); }
 function activate_ext_rubric_table(table) {
-    activate_ext_table(table, rubric_add_row_func, rubric_add_col_func);
+    activate_ext_table(table,  function(ta) { rubric_add_row_func(table, ta); }, function(ta) { rubric_add_col_func(table, ta); });
     document.querySelectorAll(FEEDBACK_ELEMENT_SELECTOR).forEach(function(element) { make_feedback_text_element_editable(element); });
 }
 
@@ -462,9 +463,7 @@ function make_rubric(element) {
 	let table = document.querySelector("table.rubric");
 	make_table_extensible(table, function(ta) { rubric_add_row_func(table, ta); }, function(ta) { rubric_add_col_func(table, ta); });
 		
-	ta1.value.split("\n").filter(item => item).forEach(function(item) {
-	    rubric_table_column_from_name(table, item.trim(), -1);
-	});
+	ta1.value.split("\n").filter(item => item).forEach(function(item) { rubric_table_column_from_name(table, item.trim(), -1); });
 
 	ta2.value.split("\n").filter(item => item).forEach(function(item) { rubric_table_row_from_rubric_item_string(table, item, -1); });
 
