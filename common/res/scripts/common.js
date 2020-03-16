@@ -1,3 +1,4 @@
+
 function setup_xrefids (selector, num_prefix, start, alpha, func) {
     var counter = start;
     document.querySelectorAll(selector).forEach(function(element) {

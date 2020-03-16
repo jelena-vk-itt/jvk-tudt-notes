@@ -39,15 +39,7 @@ function init_all() {
 	});
     }
 
-    var clickTheseToSaveHtml = document.getElementsByClassName("savehtml");
-    if (clickTheseToSaveHtml) {
-	Array.prototype.forEach.call(clickTheseToSaveHtml, function(item) {
-	    item.addEventListener("click", function (e) {
-		save_html(e.target);
-	    })
-	});
-    }
-	    
+    
     var articleContainers = document.querySelectorAll(ARTICLE_FORM_SELECTOR);
     if (articleContainers) {
 	Array.prototype.forEach.call(articleContainers, function(item) {
@@ -78,11 +70,6 @@ function init_all() {
 	});
     }
 
-    var rubricTables = document.querySelectorAll("table.rubric");
-    if (rubricTables) {
-	rubricTables.forEach(table => make_table_heading_cells_editable(table));
-    }
-    
     var canvases = document.querySelectorAll(DETAILS_TAG_NAME + " " + CANVAS_TAG_NAME);
     if (canvases) {
 	Array.prototype.forEach.call(canvases, function(item) {
@@ -102,7 +89,7 @@ function init_specific() {
 }
 
 function handle_open_close_article(e) {
-   
+    
     if (e.target.closest(CLICK_PROTECTED_SELECTOR)) {
 	return;
     }
@@ -167,50 +154,6 @@ function close_all() {
 
 }
 
-function save_html(element) {
-
-    let elements = document.querySelectorAll("input");
-    for (let i = 0; i < elements.length; i++) {
-	elements[i].setAttribute("value", elements[i].value);
-    }
-    elements = document.querySelectorAll("textarea");
-    for (let i = 0; i < elements.length; i++) {
-	elements[i].innerHTML = elements[i].value;
-    }
-    elements = document.querySelectorAll("select");
-    for (let i = 0; i < elements.length; i++) {
-	let val = elements[i].value;
-	elements[i].innerHTML = elements[i].innerHTML.replace(/<option[^>]*>/g, "<option>");
-	elements[i].innerHTML = elements[i].innerHTML.replace("<option>" + val + "</option>", "<option selected=\"selected\">" + val + "</option>");
-    }
-    
-    let data = "<!DOCTYPE html><html>" + document.documentElement.innerHTML + "</html>";
-    // data = data.replace(/<header[\s\S]*<\/header>/, ""); 
-    // data = data.replace(/<nav[\s\S]*<\/nav>/, "");
-    // data = data.replace(/id=\"content\"/, "id=\"content-no-nav\"");
-
-    // Script copied from: https://www.encodedna.com/javascript/how-to-save-form-data-in-a-text-file-using-javascript.htm
-    const textToBLOB = new Blob([data], { type: 'text/html' });
-    const sFileName = element.getAttribute('data-filename');	   // The file to save the data.
-    if (!sFileName) {
-	sFileName = 'saved_cswd_file.html';
-    }
-    
-    let newLink = document.createElement("a");
-    newLink.download = sFileName;
-    
-    if (window.webkitURL != null) {
-	newLink.href = window.webkitURL.createObjectURL(textToBLOB);
-    }
-    else {
-	newLink.href = window.URL.createObjectURL(textToBLOB);
-	newLink.style.display = "none";
-	document.body.appendChild(newLink);
-    }
-    
-    newLink.click();
-}
-
 function save_open_close_article_state(elementToHide) {
 
     var close = elementToHide.tagName == OPEN_ARTICLE_TAG_NAME;
@@ -254,7 +197,7 @@ function save_open_close_article_state(elementToHide) {
 	}
     }
 }
-    
+
 function init_articles() {
     
     var openArticleIds = null;
@@ -287,217 +230,7 @@ function init_articles() {
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////// RUBRIC FUNCTIONS ///////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////
 
-// -------------------------------------- generic -----------------------------
-function populate_table(table, column_headers, sideways, row_headers, data) {
-    table.innerHTML = "";
-
-    let row = "<tr><th></th>"
-    column_headers.forEach(function(item) {
-	row += "<th"+ (sideways ? " style=\"transform:rotate(270deg);\"" : "")+">" + item + "</th>";
-    });
-    row += "</tr>";
-    table.innerHTML += row;
-
-    row_headers.forEach(function(item, index) {
-	row = "<tr><th>" + item + "</th>";
-
-	data[index].forEach(function(dataC) {
-	    row += "<td>" + dataC + "</td>";
-	});
-	row += "</tr>";
-	table.innerHTML += row; 
-    });
-}
-
-function add_element_at_element(new_element, element, mode) {
-    switch (mode) {
-    case "replace-element":
-	element.parentElement.replaceChild(new_element, element);
-	break;
-    case "before":
-	element.parentElement.insertBefore(new_element, element);
-	break;
-    case "after":
-	element.parentElement.insertBefore(new_element, element.nextSibling);
-	break;
-    case "replace-contents":
-	element.innerHTML = "";
-	element.appendChild(new_element);
-    default:
-    }
-}
-
-function add_element_at_element_reverse(new_element, element, mode) {
-    switch (mode) {
-    case "replace-element":
-	new_element.parentElement.replaceChild(element, new_element);
-	break;
-    case "before":
-    case "after":
-	new_element.parentElement.removeChild(new_element);
-	break;
-    case "replace-contents":
-	parentElement = new_element.parentElement;
-	parentElement.removeChild(new_element);
-	parentElement.innerHTML = element;
-    default:
-    }
-}
-
-function add_text_area_at_element(element, mode, cols, rows, placeholder) {
-    let newElement = document.createElement("textarea");
-    newElement.cols = cols;
-    newElement.rows = rows;
-    newElement.placeholder = placeholder;
-    add_element_at_element(newElement, element, mode);
-    return newElement;
-}
-
-function add_button_at_element(element, mode, name) {
-    let newElement = document.createElement("button");
-    newElement.type = "button";
-    newElement.innerHTML = name;    
-    add_element_at_element(newElement, element, mode);
-    return newElement;
-}
-
-let editingElement = null;
-function make_element_editable(element) {
-    let innerHTML = element.innerHTML;
-    if (element.innerHTML) {
-	element.addEventListener("dblclick", function() {
-	    if (!editingElement) {
-		let ta = add_text_area_at_element(element, "replace-contents", 20, 10, "");
-		ta.value = innerHTML;
-		ta.select();
-		editingElement = element;
-		
-		function stop_editing() {
-		    add_element_at_element_reverse(ta, ta.value, "replace-contents");
-		    editingElement = null;
-		}
-		document.body.addEventListener("click", function(event) { if (event.target != ta) { stop_editing(); } });
-		document.body.addEventListener("keydown", function(event) { if (event.keyCode === 27 || event.keyCode === 9) { stop_editing();} });
-	    }
-	});
-    }
-}
-
-// ------------------------ specific -------------------------------------------
-
-const RUBRIC_ITEM_DATA_LENGTH = 3;
-function make_rubric(element) {
-    let ta1 = add_text_area_at_element(element, "replace-element", 20, 30, "Enter the names here");
-    let ta2 = add_text_area_at_element(ta1, "after", 50, 30, "Enter the rubric items here, each line containing description, min and max, separated by -----");
-    let button = add_button_at_element(ta2, "after", "Submit");
-    button.addEventListener("click", function() {
-	let table = document.querySelector("table.rubric");
-
-	let names = ta1.value.split("\n");
-	names.forEach(function (item, index) { names[index] = names[index].trim().split(/\s/).join("<br/>"); });
-	names = names.filter(function (item) { return item; });
-
-	let rubricItems = [];
-	let rubricInputFields = [];
-	
-	let rubricItemLines = ta2.value.split("\n");
-	rubricItemLines = rubricItemLines.filter(function (item) { return item; });
-	
-	for (let i = 0; i < rubricItemLines.length; ++i) {
-	    let rubricItemData = rubricItemLines[i].split("-----");
-	    if (rubricItemData.length != RUBRIC_ITEM_DATA_LENGTH) {
-		alert("Rubric item line " + (i+1) + " (item '" + rubricItemData[0] + "') is not in the right format. Try again.");
-		return;
-	    }
-	    
-	    rubricItems.push(rubricItemData[0].trim());
-	    
-	    let rubricInputFieldRow = [];
-	    for (let c = 0; c < names.length; ++c) {
-		rubricInputFieldRow.push ("<input type=\"number\" min=\"" +
-					  parseInt(rubricItemData[1].trim()) + "\" max=\"" +
-					  parseInt(rubricItemData[2].trim()) + "\" value=\"" +
-					  parseInt(rubricItemData[2].trim()) + "\" tabindex=\"" +
-					  (c * rubricItemLines.length + i + 1) + "\">");
-	    }
-	    rubricInputFields.push(rubricInputFieldRow);
-	}
-	
-	populate_table(table, names, false, rubricItems, rubricInputFields);
-
-	ta1.remove();
-	ta2.remove();
-	button.remove();
-
-	make_table_heading_cells_editable(table);
-   });
-}
-
-function make_table_heading_cells_editable(table) {
-    table.querySelectorAll("th").forEach(item => make_element_editable(item));
-}
-
-function save_results(module, ca) {
-    
-    let table = document.querySelector("table.rubric");
-    let rows = table.querySelectorAll("tr");
-    
-    let headerRowCells = rows[0].querySelectorAll("th");
-    let totals = new Array(headerRowCells.length).fill(0);
-    let resultDocs = new Array(headerRowCells.length - 1).fill("<!DOCTYPE html><html><head><style>th{text-align:left;padding-right:1em;}</style></head><body>");
-    let names = new Array(headerRowCells.length - 1).fill("");
-    for (let h = 1; h < headerRowCells.length; ++h) {
-	names[h - 1] = headerRowCells[h].innerHTML.replace(/<br\/?>/, " ");
-	resultDocs[h - 1] += "<h2>" + names[h - 1] + "</h2><h3>" + module + " CA" + ca + "</h3><table>";
-    }
-    for (let r = 1; r < rows.length; ++r) {
-	let rowHeader = rows[r].querySelector("th");
-	let rowDataElements = rows[r].querySelectorAll("td");
-	for (let d = 0; d < rowDataElements.length; ++d) {
-	    resultDocs[d] += "<tr><th>" + rowHeader.innerHTML + "</th>";
-	    let mark = +rowDataElements[d].querySelector("input").value;
-	    totals[d] += mark;
-	    resultDocs[d] += "<td>" + mark + "</td></tr>";
-	}
-    }
-
-    for (let d = 0; d < resultDocs.length; ++d) {
-	resultDocs[d] += "</table><p>Your result for CA" + ca + " is <strong>" + totals[d] + "%</strong>.</p></body></html>";
-    }
-
-    for (let d = 0; d < resultDocs.length; ++d) {
-	const blob = new Blob([resultDocs[d]], { type: 'text/html' });
-	const fileName = names[d] + ".html";
-	let newLink = document.createElement("a");
-	newLink.download = fileName;
-	if (window.webkitURL != null) {
-	    newLink.href = window.webkitURL.createObjectURL(blob);
-	}
-	else {
-	    newLink.href = window.URL.createObjectURL(blob);
-	    newLink.style.display = "none";
-	    document.body.appendChild(newLink);
-	}
-    
-	newLink.click();
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////       CANVAS DRAWING
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -509,7 +242,7 @@ function draw_canvases() {
 	});
     }
 }
-    
+
 function draw_canvas(element){
 
     if (element.tagName != "CANVAS") {
@@ -527,7 +260,7 @@ function draw_canvas(element){
 
     draw_specific_canvas(element);
 }
-				
+
 
 function draw_specific_canvas(element) {
 }
