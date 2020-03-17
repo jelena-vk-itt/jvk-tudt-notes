@@ -5,10 +5,9 @@
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" type="image/x-icon" href="https://jelena-vk-itt.github.io/jvk-tudt-notes/cswd-pt-1239404852/res/images/logo.png">
 	<style>
-	 
 	 * { font-family: arial, helvetica, san-serif; box-sizing: border-box; }
-	 html { min-height: 100%; overflow: auto; }
-	 body { margin: 0; background-color: lightgray; min-width: 100%; min-height: 200%; }
+	 html, body { height: 100%; min-height: 100%; width: 100%; display: table; }
+	 body { margin: 0; background-color: lightgray; }
 	 
 	 header#tudheader { height: 4em; max-height: 4em; width: 100%; }
 	 header#tudheader > * {  display: inline-block; height: 100%; margin: 0; padding: 0; font-weight: bold;  }
@@ -23,12 +22,12 @@
 	 nav.horizontal>ul.commands>li { cursor: pointer; }
 
 	 #content-no-nav { padding: 1em; }
-
 	 button { padding: 0.5em; border-radius: 0.2em; font-weight: bold; font-size: large; }
-	 table{ border: 1px solid black; border-collapse: collapse; margin: 0.5em 0; }
-	 table th, table td { border: 1px solid black; padding: 0.3em; text-align: left; min-width: 5em; }
-	 table tr th:first-child { width: 15em; }
+	 table.rubric{ border: 1px solid black; border-collapse: collapse; margin: 0.5em 0; height: 100%; }
 
+	 /* styles for generated elements - perhaps it belongs in the code? */
+	 table.rubric th, table.rubric td { border: 1px solid black; padding: 0.3em; text-align: left; height: 100%; width: 3.6em; }
+	 table.rubric tr:first-of-type th:not(:last-of-type) { writing-mode: vertical-lr; line-height: 3em; transform: rotate(180deg); vertical-align: top;  }
 	</style>
 	<title>CA Rubric</title>
     </head>
@@ -63,6 +62,6 @@
 	    <script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/file.js"></script>
 	    <!-- <script src="../../notes-www/common/res/scripts/file.js"></script> -->
 	</div>
-    
+	
 
-</body></html>
+    </body></html>

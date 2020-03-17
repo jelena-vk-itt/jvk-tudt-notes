@@ -12,10 +12,6 @@ const REMOVE_SYMSTR = "-";
 const MOVE_H_SYMSTR = "\u2194";
 const MOVE_V_SYMSTR = "\u2195";
 
-const ESC_CCODE = 27;
-
-const FEEDBACK_ELEMENT_SELECTOR = "td>div>span";
-
 // ------------------------------------- initialisation -------------------------------------
 // Array.prototype.forEach.call(document.getElementsByClassName("rubric"), function(table) { activate_ext_rubric_table(table); });
 document.querySelectorAll(".rubric").forEach(function(table) { activate_ext_rubric_table(table); });
@@ -41,7 +37,7 @@ function create_button(name) {
 function create_number_input_element(min, max, tab_index=0) {
     let nie = document.createElement("INPUT");
     nie.type = "number";
-    nie.style.width = "3.5em";
+    nie.style.width = "3em";
     nie.min = min;
     nie.max = max;
     nie.value = max;
@@ -49,26 +45,6 @@ function create_number_input_element(min, max, tab_index=0) {
     return nie;
 }
 
-
-function make_feedback_text_element_editable(element) {
-    if (!element.getAttribute("data-text")) {
-	element.setAttribute("data-text", "");
-    }
-    make_element_editable(element, "dblclick", function(ta) {
-	ta.parentElement.setAttribute("data-text", ta.value);
-	element.style.fontWeight = ta.value ? "bold" : "normal";
-	return { close: true, value: null} ; 
-    }, function(element) {
-	return element.getAttribute("data-text");
-    });
-}
-
-function create_feedback_text_element() {
-    let divFE = document.createElement("SPAN");
-    divFE.innerHTML = "F";
-    make_feedback_text_element_editable(divFE);
-    return divFE;
-}
 
 function insert_table_cell(row, header, child_element, pos = null) {
     let tc = document.createElement(header ? "TH" : "TD");
@@ -96,21 +72,26 @@ function make_element_editable(element, event_type = "dblclick", stop_editing_fu
 	    editingElement = element;
 	    ta.select();
 
-	    function handleClickDuringCellEdit() { if (event.target != ta) { processEndOfCellEdit(ta); } }
-	    function handleKeydownDuringCellEdit() { if (event.keyCode === ESC_CCODE) { closeTextArea(innerHTML); } }
+	    function handleEventDuringCellEdit() {
+		if (event.type == "click" && event.target != ta) { processEndOfCellEdit(ta); }
+		else if (event.type == "keydown") {
+		    if (event.ctrlKey && event.code === "Space") { processEndOfCellEdit(ta); }
+		    else if (event.code === "Escape") { closeTextArea(innerHTML); }
+		}  
+	    }
 	    function closeTextArea(value) {
 		ta.parentElement.innerHTML = value;
 		editingElement = null;
-		document.body.removeEventListener("click", handleClickDuringCellEdit);
-		document.body.removeEventListener("keydown", handleKeydownDuringCellEdit);
+		document.body.removeEventListener("click", handleEventDuringCellEdit);
+		document.body.removeEventListener("keydown", handleEventDuringCellEdit);
 	    }
 	    function processEndOfCellEdit(ta) {
 		let ret = stop_editing_function(ta);
 		if (ret.close) { closeTextArea(ret.value ? ret.value : innerHTML); }
 		else { ta.value = ret.value ? ret.value : innerHTML; ta.select(); }
 	    }
-	    document.body.addEventListener("click", handleClickDuringCellEdit);
-	    document.body.addEventListener("keydown", handleKeydownDuringCellEdit);
+	    document.body.addEventListener("click", handleEventDuringCellEdit);
+	    document.body.addEventListener("keydown", handleEventDuringCellEdit);
 	}
     }, );
 }
@@ -159,11 +140,18 @@ function make_table_extensible(table, add_row_func, add_column_func) {
     style_ext_table_handle_elements(table);
 }
 
-function style_ext_table_handle_elements(table) {
-    let styleElement = document.createElement("STYLE");
-    styleElement.innerHTML = "[class$=\"-handle\"] { font-size: 2em; }";
+function activate_ext_table_handle_common(element) {
+    make_element_mouse_pointer_zone(element);
+    style_ext_table_handle_element(element);
+}
 
-    table.parentElement.insertBefore(styleElement, table);    
+function style_ext_table_handle_element(element) {
+    element.style.fontSize = "2em";
+    element.style.fontWeight = "bold";
+}
+
+function style_ext_table_handle_elements(table) {
+    document.querySelectorAll("[class$=\"-handle\"]").forEach(style_ext_table_handle_element);
 }
 
 
@@ -200,15 +188,16 @@ function make_ext_table_cell_add_handle(table, cell, row, add_func) {
 }
 
 function activate_ext_table_add_element(table, element, add_func) {
-    make_element_mouse_pointer_zone(element);
+    activate_ext_table_handle_common(element);
+    
     make_element_editable(element, "click", function(ta) { if (ta.value != ADD_SYMSTR) { return add_func(ta); } else { return { close: true, value: null }; } });
 }
 
 
-function make_ext_table_cell_modify_handle(table, cell, row) {
+function make_ext_table_cell_modify_handle(table, cell, row, vertical=true) {
     let rowColStr = row ? "row" : "col";
     cell.innerHTML =
-	"<div style=\"font-weight:bold;display:flex;justify-content:space-evenly;" + (row ? "width:3em;" : "") + "\">" +
+	"<div style=\"display:flex;justify-content:space-evenly;align-items:center;" + (vertical ? "flex-direction:column;" : "width:3em;") + "\">" +
 	"<div class=\"del-" + rowColStr + "-handle\">"+ REMOVE_SYMSTR + "</div>" +
 	"<div class=\"mv-" + rowColStr + "-handle\">" + (row ? MOVE_V_SYMSTR : MOVE_H_SYMSTR) + "</div></div>";
     
@@ -221,8 +210,8 @@ function make_ext_table_cell_modify_handle(table, cell, row) {
 let draggedRow = null;
 let draggedCol = null;
 function activate_ext_table_move_handle(table, element, row) {
-    make_element_mouse_pointer_zone(element);
-
+    activate_ext_table_handle_common(element);
+    
     element.draggable = true;
 
     if (row) {
@@ -301,8 +290,8 @@ function activate_ext_table_column_move_target_cell(table, cell) {
 
 
 function activate_ext_table_delete_handle(table, element, row) {
-    make_element_mouse_pointer_zone(element);
-    
+    activate_ext_table_handle_common(element);
+	
     element.addEventListener("click", function() {
 	if (row) {
 	    table.deleteRow(closest_parent_of_type(element, "TR").rowIndex);
@@ -368,6 +357,30 @@ function delete_ext_table_column(table, col_number) {
 
 // ------------------------ specific -------------------------------------------
 
+
+function create_feedback_text_element() {
+    let divFE = document.createElement("SPAN");
+    divFE.innerHTML = "F";
+    make_feedback_text_element_editable(divFE);
+    activate_ext_table_handle_common(divFE);
+    return divFE;
+}
+
+
+function make_feedback_text_element_editable(element) {
+    if (!element.getAttribute("data-text")) {
+	element.setAttribute("data-text", "");
+    }
+    element.style.color = "gray";
+    make_element_editable(element, "dblclick", function(ta) {
+	ta.parentElement.setAttribute("data-text", ta.value);
+	element.style.color = ta.value ? "black" : "gray";
+	return { close: true, value: null} ; 
+    }, function(element) {
+	return element.getAttribute("data-text");
+    });
+}
+
 function parse_rubric_item(item_string) {
     let dataArray = item_string.split(RUBRIC_ITEM_DATA_SEPARATOR);
     if (dataArray.length != RUBRIC_ITEM_DATA_LENGTH) {
@@ -411,6 +424,11 @@ function rubric_table_row_from_rubric_item_string(table, rubric_item_string, row
     let rowData = [ document.createTextNode(ri.name) ];
     for (let c = 1; c < table.rows[0].cells.length - 1; ++c) {
 	let divElement = document.createElement("DIV");
+	divElement.style.display = "flex";
+	divElement.style.flexDirection = "column";
+	divElement.style.alignItems = "center";
+	divElement.style.justifyContent = "space-evenly";
+	divElement.style.height = "100%";
 	divElement.appendChild(create_number_input_element(ri.min, ri.max));
 	divElement.appendChild(create_feedback_text_element());
 	rowData.push(divElement);
@@ -453,7 +471,10 @@ function rubric_add_col_func(table, ta) { rubric_table_column_from_name(table, t
 function activate_ext_rubric_table(table) {
     activate_ext_table(table,  function(ta) { return rubric_add_row_func(table, ta); }, function(ta) { return rubric_add_col_func(table, ta); });
 
-    document.querySelectorAll(FEEDBACK_ELEMENT_SELECTOR).forEach(function(element) { make_feedback_text_element_editable(element); });
+    document.querySelectorAll(".edit-feedback-handle").forEach(function(element) {
+	make_feedback_text_element_editable(element);
+	activate_ext_table_handle_common(element);
+    });
 }
 
  
@@ -511,7 +532,7 @@ function save_results(module, ca) {
 	let rowHeader = rows[r].querySelector("th");
 	let rowDataElements = rows[r].querySelectorAll("td");
 	for (let d = 0; d < rowDataElements.length - 1; ++d) {
-	    resultDocs[d] += "<tr><th>" + rowHeader.innerHTML.replace(/\n/g, "<br/>") + "</th>";
+	    resultDocs[d] += "<tr><th style=\"min-width:15em;\">" + rowHeader.innerHTML.replace(/\n/g, "<br/>") + "</th>";
 	    let inputElement = rowDataElements[d].querySelector("input");
 	    let feedbackElement = rowDataElements[d].querySelector("span[data-text]");
 	    let mark = +inputElement.value;
