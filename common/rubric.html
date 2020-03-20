@@ -45,19 +45,18 @@
 	<nav class="horizontal">
 	    <ul class="commands">
 		<li data-filename="rubric_backup.html" class="savehtml">Save file</li>
-		<li onclick="save_results('Client-Side Web Development', '1');">Save results</li>
+		<li data-module-name="Client-Side Web Development", data-ca-num="1" class="save-results">Save results</li>
 		<li class="export-csv" >Export to CSV</li>
+		<li class="bulk-table-add">Bulk add to table</li>
 	    </ul>
 
 	</nav>
 
 
 	<div id="content-no-nav">
-	    <table class="rubric-uninitialised ordinary">
+	    <table class="rubric uninitialised ordinary">
 	    </table>
 	    
-	    <button type="button" class="make-rubric-button">Create rubric</button>
-
 	    <!-- <script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/rubric.js"></script> -->
 	    <script src="../../notes-www/common/res/scripts/rubric.js"></script>
 	    <!-- <script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/file.js"></script> -->

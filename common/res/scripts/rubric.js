@@ -15,14 +15,6 @@ const TA_KEY_INSTRUCTIONS = "Press Ctrl+SPACE or click anywhere outside of the e
 //================================= GLOBAL HELPER FUNCTIONS ============================================
 //======================================================================================================
 
-function newlines_js_to_html(str) {
-    return str.replace(/\n/g, "<br/>");
-}
-
-function newlines_html_to_js(str) {
-    return str.replace(/<br\/?>/g,"\n");
-}
-
 function create_text_area(cols, rows, placeholder, value) {
     let newElement = document.createElement("textarea");
     newElement.cols = cols;
@@ -76,8 +68,8 @@ function make_element_editable(element, event_type = "dblclick",
 	    let data = start_editing_function(element);
 	    let ta = create_text_area(data.width ? data.width : 10,
 				      data.height ? data.height : 10,
-				      newlines_html_to_js(data.isPlaceholder ? data.value : ""),
-				      newlines_html_to_js(data.isPlaceholder ? "" : data.value));
+				      data.isPlaceholder ? data.value : "",
+				      data.isPlaceholder ? "" : data.value);
 	    element.innerHTML = "";
 	    element.insertBefore(ta, null);
 	    editingElement = element;
@@ -93,7 +85,7 @@ function make_element_editable(element, event_type = "dblclick",
 	    function closeTextArea(value) {
 		let parentElement = ta.parentElement;
 		parentElement.removeChild(ta);
-		parentElement.appendChild(document.createTextNode(newlines_js_to_html(value)));
+		parentElement.appendChild(document.createTextNode(value));
 		editingElement = null;
 		document.body.removeEventListener("click", handleEventDuringCellEdit);
 		document.body.removeEventListener("keydown", handleEventDuringCellEdit);
@@ -159,6 +151,7 @@ function recursive_apply(val_arrays, func_to_apply, curr_val_combination = []) {
 
 //-------------------------------------- DATA INITIALISATION  --------------------------------
 //--------------------------------------------------------------------------------------------
+ExtensibleTable.prototype.UNINITIALISED_CLASSNAME = "uninitialised";
 
 ExtensibleTable.prototype.addRowLabel = "+";
 ExtensibleTable.prototype.addColLabel = "+";
@@ -175,6 +168,7 @@ ExtensibleTable.prototype.STAGES = ['setup', 'activate', 'start', 'end'];
 ExtensibleTable.prototype.STAGES_MANDATORY = ['setup', 'activate', 'start'];
 
 ExtensibleTable.prototype.VCOL_CONTENTS_WIDTH = "3.5em";
+ExtensibleTable.prototype.ROW_HEADER_WIDTH = "20em";
 
 // ------- initialise events
 recursive_apply([ExtensibleTable.prototype.ACTIONS, ExtensibleTable.prototype.DIRECTIONS], function(action, direction) {
@@ -206,8 +200,12 @@ function ExtensibleTable(table) {
     this.edhdrColStartFunc = function(el) { et.textVerticalRevert(el); return { isPlaceholder: false, value: el.innerHTML } }
     this.edhdrColEndFunc = function(ta) { et.textVertical(ta.parentElement); return { close: true, value: ta.value } }
 
-    if (table.classList.contains("rubric-uninitialised")) {
+    if (table.classList.contains(this.UNINITIALISED_CLASSNAME)) {
 	this.setup();
+	this.fromUninitialised = true;
+	table.classList.remove(this.UNINITIALISED_CLASSNAME);
+    } else {
+	this.fromUninitialised = false;
     }
 }
 
@@ -248,7 +246,7 @@ ExtensibleTable.prototype.addColStartFunc = function(element) { return { isPlace
 // mvColStartFunc UNDEFINED (NOT APPLICABLE) 
 // mvColEndFunc UNDEFINED (NOT APPLICABLE)
 
-ExtensibleTable.prototype.edhdrRowSetupFunc = function(el) { el.classList.add("edhdr-row-handle"); };
+ExtensibleTable.prototype.edhdrRowSetupFunc = function(el) { el.classList.add("edhdr-row-handle"); el.style.whiteSpace = "pre"; };
 // edhdrRowActivateFunc GROUP2
 // edhdrRowStartFunc UNDEFINED (DEFAULT USED)
 // edhdrRowEndFunc UNDEFINED (DEFAULT USED)
@@ -531,8 +529,6 @@ ExtensibleTable.prototype.setup = function() {
     for (let r = 1; r < cutOffHdrRowNum; ++r) {
 	this.edhdrRowSetupFunc(rows[r].cells[0]);
     }
-
-    this.table.classList.replace("rubric-uninitialised", "rubric");
 };
 
 // activate to be used in any case
@@ -547,6 +543,8 @@ ExtensibleTable.prototype.activate = function() {
 	    }
 	}
     }
+
+    return this;
 };
 
  
@@ -564,6 +562,10 @@ function RubricTable(table) {
 
     this.addRowEndFunc = function(ta) { return et.rowFromRubricItemString(ta.value, -1) ?  {close: true, value: null} : {close: false, value: ta.value} };
     this.addColEndFunc = function(ta) { et.columnFromName(ta.value, -1); return { close: true, value: null } };
+
+    let colEl = document.createElement("COL");
+    table.insertBefore(colEl, table.firstChild);
+    colEl.style.width = this.ROW_HEADER_WIDTH;
 }
 
 RubricTable.prototype = Object.create(ExtensibleTable.prototype);
@@ -616,7 +618,7 @@ RubricTable.prototype.rowFromRubricItemString = function(rubric_item_string, row
     let ri = this.parseRubricItem(rubric_item_string);
     if (!ri) { return false; }
     if (this.table.rows[0].cells.length == 2) {
-	columnFromName("MAX", 1);
+	this.columnFromName("MAX", 1);
     }
     let rowData = [ document.createTextNode(ri.name) ];
     let cutOffCol = this.table.rows[0].cells.length - 1;
@@ -680,30 +682,31 @@ RubricTable.prototype.assignTabindexValues = function() {
 //======================================================================================================
 // ================================ file and data functions ============================================
 //======================================================================================================
-function make_rubric() {
-    let element = this;
-    let parent = element.parentElement;
+
+
+function bulk_add(rubric_table) {
+    let table = rubric_table.table;
+    table.hidden = true;
+    let tableParent = table.parentElement;
     // let ta1 = create_text_area(20, 20, "Enter the names here e.g.\n\nAmy Aiken\nBilly Blas\nConor Crumb\n", "");
     let ta1 = create_text_area(20, 20, "Enter the names here e.g.\n\nAmy Aiken\nBilly Blas\nConor Crumb\n", "Mister Man\nLady Lovelace\nCheeky Chap\nAmazing Annie\n");
-    parent.insertBefore(ta1, element);
+    tableParent.insertBefore(ta1, table);
     // let ta2 = create_text_area(50, 20, "Enter the rubric items here, one item per line.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION, "");
     let ta2 = create_text_area(50, 20, "Enter the rubric items here, one item per line.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION, "Kindness+++0+++10\nTrustworthiness+++0+++5\nTimeliness+++0+++1\n");
-    parent.insertBefore(ta2, element);
-    let button = create_button("Submit");
-    parent.insertBefore(button, element);
-    parent.removeChild(element);
-    
-    button.addEventListener("click", function() {
-	let rubricTable = new RubricTable(document.querySelector("table.rubric-uninitialised")); 
-	rubricTable.activate();
-	ta1.value.split("\n").filter(item => item).forEach(function(item) { rubricTable.columnFromName(item.trim(), -1); });
-	ta2.value.split("\n").filter(item => item).forEach(function(item) { rubricTable.rowFromRubricItemString(item, -1); });
+    tableParent.insertBefore(ta2, table);
+    let submitButton = create_button("Submit");
+    tableParent.insertBefore(submitButton, table);
+
+    let rubricTable = this;
+    submitButton.addEventListener("click", function() {
+	ta1.value.split("\n").filter(item => item).forEach(function(item) { rubric_table.columnFromName(item.trim(), -1); });
+	ta2.value.split("\n").filter(item => item).forEach(function(item) { rubric_table.rowFromRubricItemString(item, -1); });
 	ta1.remove();
 	ta2.remove();
-	button.remove();
-	rubricTables.push(rubricTable);
+	submitButton.remove();
+	rubric_table.table.hidden = false;
     });
-}
+};
 
 
 function save_results(module, ca) {
@@ -734,18 +737,18 @@ function save_results(module, ca) {
 	let rowHeader = rows[r].querySelector("th");
 	let rowDataElements = rows[r].querySelectorAll("td");
 	for (let d = 0; d < rowDataElements.length - 1; ++d) {
-	    resultDocs[d] += "<tr><th style=\"min-width:15em;\">" + rowHeader.innerHTML + "</th>";
+	    resultDocs[d] += "<tr><th style=\"min-width:15em;white-space:pre;\">" + rowHeader.innerHTML + "</th>";
 	    let inputElement = rowDataElements[d].querySelector("input");
 	    let feedbackElement = rowDataElements[d].querySelector(".ed-fdbk-handle");
-	    let feedbackText = newlines_js_to_html(feedbackElement.getAttribute("data-text").trim()); 
+	    let feedbackText = feedbackElement.getAttribute("data-text").trim(); 
 	    let mark = +inputElement.value;
 	    let maxMark = +inputElement.max;
 	    totals[d] += mark;
-	    if (d == 1) { maxTotal += maxMark; }
+	    if (d == 0) { maxTotal += maxMark; }
 	    resultDocs[d] +=
 		"<td style=\"text-align:right;border-right:none;padding-left:1em;\">" + mark + "/</td>" +
 		"<td style=\"text-align:left;border-left:none;padding-right:1em;\">" + maxMark  + "</td>" +
-		"<td style=\"padding:0.2em 1em;\">" + feedbackText + "</td></tr>";
+		"<td style=\"padding:0.2em 1em;white-space:pre;\">" + feedbackText + "</td></tr>";
 	}
     }
 
@@ -857,8 +860,10 @@ function export_to_csv() {
 //================================= DOCUMENT INITIALISATION ============================================
 //======================================================================================================
 
-document.querySelectorAll(".export-csv").forEach(function(item) { item.addEventListener("click", export_to_csv); });
-document.querySelectorAll(".make-rubric-button").forEach(function(item) { item.addEventListener("click", make_rubric); });
+    
+let rubricTable = new RubricTable (document.querySelector("table.rubric")).activate();
 
-let rubricTables = [];
-document.querySelectorAll("table.rubric").forEach(function(table) { rubricTables.push(new RubricTable (table).activate()); });
+document.querySelectorAll(".export-csv").forEach(function(item) { item.addEventListener("click", export_to_csv); });
+document.querySelectorAll(".save-results").forEach(function(item) { item.addEventListener("click", function() {
+    save_results(item.getAttribute("data-module-name"), item.getAttribute("data-ca-num")); }); });
+document.querySelectorAll(".bulk-table-add").forEach(function(item) { item.addEventListener("click", function() { bulk_add(rubricTable); }); });
