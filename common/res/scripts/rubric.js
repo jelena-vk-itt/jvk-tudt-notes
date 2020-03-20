@@ -14,6 +14,15 @@ const RUBRIC_ITEM_DATA_LENGTH = 3;
 //======================================================================================================
 //================================= GLOBAL HELPER FUNCTIONS ============================================
 //======================================================================================================
+
+function newlines_js_to_html(str) {
+    return str.replace(/\n/g, "<br/>");
+}
+
+function newlines_html_to_js(str) {
+    return str.replace(/<br\/?>/g,"\n");
+}
+
 function create_text_area(cols, rows, placeholder, value) {
     let newElement = document.createElement("textarea");
     newElement.cols = cols;
@@ -67,8 +76,8 @@ function make_element_editable(element, event_type = "dblclick",
 	    let data = start_editing_function(element);
 	    let ta = create_text_area(data.width ? data.width : 10,
 				      data.height ? data.height : 5,
-				      data.isPlaceholder ? data.value : "",
-				      data.isPlaceholder ? "" : data.value);
+				      newlines_html_to_js(data.isPlaceholder ? data.value : ""),
+				      newlines_html_to_js(data.isPlaceholder ? "" : data.value));
 	    element.innerHTML = "";
 	    element.insertBefore(ta, null);
 	    editingElement = element;
@@ -84,7 +93,7 @@ function make_element_editable(element, event_type = "dblclick",
 	    function closeTextArea(value) {
 		let parentElement = ta.parentElement;
 		parentElement.removeChild(ta);
-		parentElement.innerHTML = value;
+		parentElement.appendChild(document.createTextNode(newlines_js_to_html(value)));
 		editingElement = null;
 		document.body.removeEventListener("click", handleEventDuringCellEdit);
 		document.body.removeEventListener("keydown", handleEventDuringCellEdit);
@@ -142,6 +151,7 @@ function recursive_apply(val_arrays, func_to_apply, curr_val_combination = []) {
     });
 }
 
+    
 //======================================================================================================
 // ================================ GENERIC EXTENSIBLE TABLE ===========================================
 //======================================================================================================
@@ -203,10 +213,10 @@ function ExtensibleTable(table) {
 
 
 
-//--------------------------------- IN-SCHEME HELPER METHODS (USED FOR SETUP AND ACTIVATION) --------
+//--------------------------------- IN-SCHEME METHODS (USED FOR SETUP AND ACTIVATION) --------
 //---------------------------------------------------------------------------------------------------
 
-// -------------- 'in scheme' helper methods initialised directly
+// -------------- 'in scheme' methods initialised directly
 
 // addRowSetupFunc GROUP1
 // addRowActivateFunc GROUP2
@@ -248,7 +258,8 @@ ExtensibleTable.prototype.edhdrColSetupFunc = function(el) { el.classList.add("e
 // edhdrColStartFunc IN CONSTRUCTOR (AS NEEDS TO BE ASSOCIATED WITH TABLE INSTANCE)
 // edhdrColEndFunc IN CONSTRUCTOR (AS NEEDS TO BE ASSOCIATED WITH TABLE INSTANCE)
 
-// -------------- 'in scheme' helper methods initialised in groups
+
+// -------------- 'in scheme' helper methods 
 
 ExtensibleTable.prototype.textVertical = function (el) {
     el.style.lineHeight = this.VCOL_CONTENTS_WIDTH; 
@@ -284,13 +295,14 @@ ExtensibleTable.prototype.createEditActivateFunction = function(action, directio
     };
 };
 
+
+
+// -------------- 'in scheme' group initialisation 
 // GROUP1
 recursive_apply([ExtensibleTable.prototype.ACTIONS_NON_CONTENT, ExtensibleTable.prototype.DIRECTIONS], ExtensibleTable.prototype.createModifySetupFunction);
 
 // GROUP2
 recursive_apply([ExtensibleTable.prototype.ACTIONS_EDITING, ExtensibleTable.prototype.DIRECTIONS], ExtensibleTable.prototype.createEditActivateFunction);
-
-
 
 
 //--------------------------- HELPER METHODS ------------------------------------------------
@@ -557,12 +569,19 @@ RubricTable.prototype.constructor = RubricTable;
 // feedback element stuff
 RubricTable.prototype.edFdbkLabel = "F";
 RubricTable.prototype.edFdbkEvent = "dblclick";
-RubricTable.prototype.edFdbkStartFunc = function(element) { return { isFeedback: false, value: element["data-text"] ? element["data-text"] : ""}; }
+RubricTable.prototype.edFdbkStartFunc = function(el) { return { isFeedback: false, value: el.getAttribute("data-text") }; }
 RubricTable.prototype.edFdbkEndFunc = function(ta) {
-    let p = ta.parentElement; p.setAttribute("data-text", ta.value); p.style.color = ta.value ? "black" : "gray"; return { close: true, value: null} ; };
-RubricTable.prototype.createModifySetupFunction("ed", "fdbk", function(el) { el.style.color = "gray"; el.setAttribute("data-text", "") });
+    let p = ta.parentElement; p.setAttribute("data-text", ta.value + " "); p.style.color = ta.value.trim() ? "black" : "gray"; return { close: true, value: null} ; };
+
+// the init func is for initialising dynamic features (needs to be called after a clone)
+RubricTable.prototype.edFdbkInitFunc = function(el) { el.style.color = "gray"; el.setAttribute("data-text", " "); }
+// edFdbkSetupFunc:
+RubricTable.prototype.createModifySetupFunction("ed", "fdbk", RubricTable.prototype.edFdbkInitFunc);
+// edFdbkActivateFunc:
 RubricTable.prototype.createEditActivateFunction("ed", "fdbk");
 
+
+    
 RubricTable.prototype.columnFromName = function(name, column_number) {
     if (column_number == -1) {
 	column_number = this.table.rows[0].cells.length - 1;
@@ -575,7 +594,11 @@ RubricTable.prototype.columnFromName = function(name, column_number) {
 	}
 	let prevCol = this.getCol(column_number - 1);
 	for (let r = 1; r < prevCol.length; ++r) {
-	    colData.push(prevCol[r].firstChild.cloneNode(true));
+	    let assessmentElement = prevCol[r].firstChild.cloneNode(true);
+	    colData.push(assessmentElement);
+	    // full setup not needed as assessment element was cloned
+	    this.edFdbkInitFunc(assessmentElement.lastChild);
+	    this.edFdbkActivateFunc(assessmentElement.lastChild);
 	}
     }
     this.insertCol(colData, column_number);
@@ -605,6 +628,7 @@ RubricTable.prototype.rowFromRubricItemString = function(rubric_item_string, row
     this.assignTabindexValues();
     return true;
 }
+
 
 RubricTable.prototype.makeAssessmentElement = function(min, max) {
     let divElement = document.createElement("DIV");
@@ -705,10 +729,10 @@ function save_results(module, ca) {
 	let rowHeader = rows[r].querySelector("th");
 	let rowDataElements = rows[r].querySelectorAll("td");
 	for (let d = 0; d < rowDataElements.length - 1; ++d) {
-	    resultDocs[d] += "<tr><th style=\"min-width:15em;\">" + rowHeader.innerHTML.replace(/\n/g, "<br/>") + "</th>";
+	    resultDocs[d] += "<tr><th style=\"min-width:15em;\">" + rowHeader.innerHTML + "</th>";
 	    let inputElement = rowDataElements[d].querySelector("input");
 	    let feedbackElement = rowDataElements[d].querySelector(".ed-fdbk-handle");
-	    let feedbackText = feedbackElement.getAttribute("data-text").replace(/\n/g, "<br/>"); 
+	    let feedbackText = newlines_js_to_html(feedbackElement.getAttribute("data-text").trim()); 
 	    let mark = +inputElement.value;
 	    let maxMark = +inputElement.max;
 	    totals[d] += mark;
@@ -790,10 +814,10 @@ function export_to_csv() {
 	csvContents += "\"" + cells[0].textContent + " (feedback)" + "\"";
 	csvContents += ",";
 	for (let c = 1; c < numCellsLess2; ++c) {
-	    csvContents += "\"" + cells[c].firstChild.lastChild.getAttribute("data-text") + "\"";
+	    csvContents += "\"" + cells[c].firstChild.lastChild.getAttribute("data-text").trim() + "\"";
 	    csvContents += ",";
 	}
-	csvContents += "\"" + cells[numCellsLess2].firstChild.lastChild.getAttribute("data-text") + "\"";
+	csvContents += "\"" + cells[numCellsLess2].firstChild.lastChild.getAttribute("data-text").trim() + "\"";
 	csvContents += "\n";
     }
 
