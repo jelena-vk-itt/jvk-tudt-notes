@@ -4,12 +4,12 @@
 //================================= GLOBAL DATA ========================================================
 //======================================================================================================
 const RUBRIC_ITEM_DATA_SEPARATOR="+++";
+const RUBRIC_ITEM_DATA_LENGTH = 3;
 const RUBRIC_ITEM_DATA_DESCRIPTION =
       "Rubric item information should consist of a rubric item description, min marks and max marks, separated by " + RUBRIC_ITEM_DATA_SEPARATOR + ", e.g.\n\n" + 
       "Quality of user experience" + RUBRIC_ITEM_DATA_SEPARATOR + "0" + RUBRIC_ITEM_DATA_SEPARATOR + "10\n" +
       "Program runs without errors" + RUBRIC_ITEM_DATA_SEPARATOR + "0" + RUBRIC_ITEM_DATA_SEPARATOR + "15";
-const RUBRIC_ITEM_DATA_LENGTH = 3;
-
+const TA_KEY_INSTRUCTIONS = "Press Ctrl+SPACE or click anywhere outside of the editing box to save. Press ESC to cancel.";
 
 //======================================================================================================
 //================================= GLOBAL HELPER FUNCTIONS ============================================
@@ -75,7 +75,7 @@ function make_element_editable(element, event_type = "dblclick",
 	if (!editingElement) {
 	    let data = start_editing_function(element);
 	    let ta = create_text_area(data.width ? data.width : 10,
-				      data.height ? data.height : 5,
+				      data.height ? data.height : 10,
 				      newlines_html_to_js(data.isPlaceholder ? data.value : ""),
 				      newlines_html_to_js(data.isPlaceholder ? "" : data.value));
 	    element.innerHTML = "";
@@ -220,12 +220,12 @@ function ExtensibleTable(table) {
 
 // addRowSetupFunc GROUP1
 // addRowActivateFunc GROUP2
-ExtensibleTable.prototype.addRowStartFunc = function(element) { return { isPlaceholder: true, value: "Enter information for the new rubric item. Press ESC to cancel.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION, width: 30, height: 10}; };
+ExtensibleTable.prototype.addColStartFunc = function(element) { return { isPlaceholder: true, value: "Enter text for the new heading.\n\n" + TA_KEY_INSTRUCTIONS }; };
 // addRowEndFunc IN CONSTRUCTOR (AS NEEDS TO BE ASSOCIATED WITH TABLE INSTANCE)
 
 // addColSetupFunc GROUP1
 // addColActivateFunc GROUP2
-ExtensibleTable.prototype.addColStartFunc = function(element) { return { isPlaceholder: true, value: "Enter text for the new heading. Press ESC to cancel." }; };
+ExtensibleTable.prototype.addColStartFunc = function(element) { return { isPlaceholder: true, value: "Enter text for the new heading.\n\n" + TA_KEY_INSTRUCTIONS }; };
 // addColEndFunc IN CONSTRUCTOR (AS NEEDS TO BE ASSOCIATED WITH TABLE INSTANCE)
 
 // rmRowSetupFunc GROUP1
@@ -558,7 +558,10 @@ function RubricTable(table) {
     ExtensibleTable.call(this, table);
 
     let et = this;
-    
+
+    this.addRowStartFunc = function(element) { return { isPlaceholder: true, value: "Enter information for the new rubric item.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION + "\n\n" + TA_KEY_INSTRUCTIONS, width: 30, height: 15}; };
+    ExtensibleTable.prototype.addColStartFunc = function(element) { return { isPlaceholder: true, value: "Enter a new name.\n\n" + TA_KEY_INSTRUCTIONS }; };
+
     this.addRowEndFunc = function(ta) { return et.rowFromRubricItemString(ta.value, -1) ?  {close: true, value: null} : {close: false, value: ta.value} };
     this.addColEndFunc = function(ta) { et.columnFromName(ta.value, -1); return { close: true, value: null } };
 }
@@ -647,14 +650,14 @@ RubricTable.prototype.makeAssessmentElement = function(min, max) {
 RubricTable.prototype.parseRubricItem = function (item_string) {
     let dataArray = item_string.split(RUBRIC_ITEM_DATA_SEPARATOR);
     if (dataArray.length != RUBRIC_ITEM_DATA_LENGTH) {
-	alert("Rubric item '" + dataArray[0] + "' is not in the right format.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION);
+	alert("Rubric item '" + dataArray[0] + "' is not in the right format.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION + "\n\n" + TA_KEY_INSTRUCTIONS);
 	return null;
     }
 
     let min = parseInt(dataArray[1].trim());
     let max = parseInt(dataArray[2].trim());
     if (isNaN(min) || isNaN(max)) {
-	alert("The min and max marks for rubric item '" + dataArray[0] + "' should be numbers.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION);
+	alert("The min and max marks for rubric item '" + dataArray[0] + "' should be numbers.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION + "\n\n" + TA_KEY_INSTRUCTIONS);
 	return null;
     }
 
@@ -680,9 +683,11 @@ RubricTable.prototype.assignTabindexValues = function() {
 function make_rubric() {
     let element = this;
     let parent = element.parentElement;
+    // let ta1 = create_text_area(20, 20, "Enter the names here e.g.\n\nAmy Aiken\nBilly Blas\nConor Crumb\n", "");
     let ta1 = create_text_area(20, 20, "Enter the names here e.g.\n\nAmy Aiken\nBilly Blas\nConor Crumb\n", "Mister Man\nLady Lovelace\nCheeky Chap\nAmazing Annie\n");
     parent.insertBefore(ta1, element);
-    let ta2 = create_text_area(50, 20, "Enter the rubric items here, one item per line.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION, "Kindness+++0+++100\nTrustworthiness+++0+++50\nTimeliness+++0+++10\n");
+    // let ta2 = create_text_area(50, 20, "Enter the rubric items here, one item per line.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION, "");
+    let ta2 = create_text_area(50, 20, "Enter the rubric items here, one item per line.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION, "Kindness+++0+++10\nTrustworthiness+++0+++5\nTimeliness+++0+++1\n");
     parent.insertBefore(ta2, element);
     let button = create_button("Submit");
     parent.insertBefore(button, element);
