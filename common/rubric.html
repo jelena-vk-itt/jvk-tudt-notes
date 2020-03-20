@@ -3,7 +3,8 @@
     <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
-	<link rel="shortcut icon" type="image/x-icon" href="https://jelena-vk-itt.github.io/jvk-tudt-notes/cswd-pt-1239404852/res/images/logo.png">
+	<!-- <link rel="shortcut icon" type="image/x-icon" href="https://jelena-vk-itt.github.io/jvk-tudt-notes/cswd-pt-1239404852/res/images/logo.png"> -->
+	<link rel="shortcut icon" type="image/x-icon" href="../../notes-www/cswd-pt-1239404852/res/images/logo.png">
 	<title>Rubric</title>
 	<style>
 	 * { font-family: arial, helvetica, san-serif; box-sizing: border-box; }
@@ -25,42 +26,42 @@
 	 #content-no-nav { padding: 1em; }
 	 button { padding: 0.5em; border-radius: 0.2em; font-weight: bold; font-size: large; }
 	 table.rubric{ border: 1px solid black; border-collapse: collapse; margin: 0.5em 0; height: 100%; }
-
-	 /* styles for generated elements - perhaps it belongs in the code? */
-	 table.rubric th, table.rubric td { border: 1px solid black; padding: 0.3em; text-align: left; height: 100%; width: 3.6em; }
-	 table.rubric tr:first-of-type th:not(:last-of-type) { writing-mode: vertical-lr; line-height: 3em; transform: rotate(180deg); vertical-align: top;  }
+	 table.rubric th, table.rubric td { border: 1px solid black; padding: 0.3em; text-align: left; height: 100%;  }
 	</style>
     </head>
 
     <body>
 	<header id="tudheader">
-	    <img src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <!-- <img src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/images/tudublin_logo.png" alt="TU Dublin Logo"> -->
+	    <img src="../../notes-www/common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
 	    <div id="tuddepttext">
 		<p>Tallaght Campus</p>
 		<p>Department of Computing</p>
 	    </div>
-	    <img id="rightlogo" src="https://jelena-vk-itt.github.io/jvk-tudt-notes/cswd-pt-1239404852/res/images/logo.png" alt="CSWD Logo">
+	    <!-- <img id="rightlogo" src="https://jelena-vk-itt.github.io/jvk-tudt-notes/cswd-pt-1239404852/res/images/logo.png" alt="CSWD Logo"> -->
+	    <img id="rightlogo" src="../../notes-www/cswd-pt-1239404852/res/images/logo.png" alt="CSWD Logo">
 	</header>
 
 	<nav class="horizontal">
 	    <ul class="commands">
 		<li data-filename="rubric_backup.html" class="savehtml">Save file</li>
 		<li onclick="save_results('Client-Side Web Development', '1');">Save results</li>
-		<li onclick="export_to_csv()">Export to CSV</li>
+		<li class="export-csv" >Export to CSV</li>
 	    </ul>
 
 	</nav>
 
+
 	<div id="content-no-nav">
-	    <table class="rubric ordinary">
+	    <table class="rubric-uninitialised ordinary">
 	    </table>
 	    
-	    <button type="button" onclick="make_rubric(this);">Create rubric</button>
+	    <button type="button" class="make-rubric-button">Create rubric</button>
 
-	    <script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/rubric.js"></script>
-	    <!-- <script src="../../notes-www/common/res/scripts/rubric.js"></script> -->
-	    <script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/file.js"></script>
-	    <!-- <script src="../../notes-www/common/res/scripts/file.js"></script> -->
+	    <!-- <script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/rubric.js"></script> -->
+	    <script src="../../notes-www/common/res/scripts/rubric.js"></script>
+	    <!-- <script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/file.js"></script> -->
+	    <script src="../../notes-www/common/res/scripts/file.js"></script>
 	</div>
 	
 
