@@ -34,7 +34,9 @@ function create_button(name) {
 function create_number_input_element(min, max, tab_index=0) {
     let nie = document.createElement("INPUT");
     nie.type = "number";
+    nie.step = "0.5";
     nie.style.width = ExtensibleTable.prototype.VCOL_CONTENTS_WIDTH;
+    nie.style.maxWidth = ExtensibleTable.prototype.VCOL_CONTENTS_WIDTH;
     nie.min = min;
     nie.max = max;
     nie.value = max;
@@ -66,7 +68,7 @@ function make_element_editable(element, event_type = "dblclick",
 	let innerHTML = element.innerHTML;
 	if (!editingElement) {
 	    let data = start_editing_function(element);
-	    let ta = create_text_area(data.width ? data.width : 10,
+	    let ta = create_text_area(data.width ? data.width : 20,
 				      data.height ? data.height : 10,
 				      data.isPlaceholder ? data.value : "",
 				      data.isPlaceholder ? "" : data.value);
@@ -260,7 +262,9 @@ ExtensibleTable.prototype.edhdrColSetupFunc = function(el) { el.classList.add("e
 // -------------- 'in scheme' helper methods 
 
 ExtensibleTable.prototype.textVertical = function (el) {
-    el.style.lineHeight = this.VCOL_CONTENTS_WIDTH; 
+    el.style.lineHeight = this.VCOL_CONTENTS_WIDTH;
+    el.style.width = this.VCOL_CONTENTS_WIDTH;
+    el.style.maxWidth = this.VCOL_CONTENTS_WIDTH;
     el.style.writingMode = "vertical-lr";
     el.style.transform = "rotate(180deg)";
     el.style.verticalAlign = "top";
@@ -656,8 +660,8 @@ RubricTable.prototype.parseRubricItem = function (item_string) {
 	return null;
     }
 
-    let min = parseInt(dataArray[1].trim());
-    let max = parseInt(dataArray[2].trim());
+    let min = parseFloat(dataArray[1].trim());
+    let max = parseFloat(dataArray[2].trim());
     if (isNaN(min) || isNaN(max)) {
 	alert("The min and max marks for rubric item '" + dataArray[0] + "' should be numbers.\n\n" + RUBRIC_ITEM_DATA_DESCRIPTION + "\n\n" + TA_KEY_INSTRUCTIONS);
 	return null;
@@ -709,8 +713,10 @@ function bulk_add(rubric_table) {
 };
 
 
+
 function save_results(module, ca) {
-    
+
+    let partial = true;
     let table = document.querySelector("table.rubric");
 
     if (!table || !table.rows.length) {
@@ -722,22 +728,30 @@ function save_results(module, ca) {
     
     let headerRowCells = rows[0].querySelectorAll("th");
     let totals = new Array(headerRowCells.length - 2).fill(0);
-    let resultDocs = new Array(headerRowCells.length - 2).fill("<!DOCTYPE html><html><head><style>" + 
-							       "th{text-align:left;padding-right:1em;}" +
-							       "td,th{border:0.5px solid gray;}" +
-							       "table{border-collapse:collapse;}" +
-							       "</style></head><body>");
+    let resultDocs = new Array(headerRowCells.length - 2).fill((partial ? "" :
+								"<!DOCTYPE html><html><head><style>" + 
+								"td,th{border:0.5px solid gray;padding:0.5em;}" +
+								"th{text-align:left;min-width:15em;white-space:pre}" +
+								"td:nth-child(2){text-align:right;border-right:none;padding-right:0;}" +
+								"td:nth-child(3){text-align:left;border-left:none;padding-left:0;}" +
+								"td:nth-child(4){white-space:pre}" + 
+								"table{border-collapse:collapse;}" +
+								"</style></head><body>"));
     let names = new Array(headerRowCells.length - 2).fill("");
     for (let h = 1; h < headerRowCells.length - 1; ++h) {
 	names[h - 1] = headerRowCells[h].innerHTML.replace(/<br\/?>/, " ");
-	resultDocs[h - 1] += "<h2>" + names[h - 1] + "</h2><h3>" + module + " CA" + ca + "</h3><table>";
+	resultDocs[h - 1] +=
+	    "<h2>" + names[h - 1] + "</h2>" +
+	    "<h3>" + module + " CA" + ca + "</h3>" +
+	    "<p>Your result for CA" + ca + " is <strong>" + "_____RESULT_PLACEHOLDER_____" + "%</strong>.</p><table" + (partial ? " style=\"border-collapse:collapse;\"" : "") + ">";
     }
     let maxTotal = 0;
     for (let r = 1; r < rows.length - 1; ++r) {
 	let rowHeader = rows[r].querySelector("th");
 	let rowDataElements = rows[r].querySelectorAll("td");
 	for (let d = 0; d < rowDataElements.length - 1; ++d) {
-	    resultDocs[d] += "<tr><th style=\"min-width:15em;white-space:pre;\">" + rowHeader.innerHTML + "</th>";
+	    resultDocs[d] += "<tr>" +
+		"<th" + (partial ? " style=\"border:0.5px solid gray;padding:0.5em;text-align:left;min-width:15em;white-space:pre\"" : "") + ">" + rowHeader.innerHTML + "</th>";
 	    let inputElement = rowDataElements[d].querySelector("input");
 	    let feedbackElement = rowDataElements[d].querySelector(".ed-fdbk-handle");
 	    let feedbackText = feedbackElement.getAttribute("data-text").trim(); 
@@ -746,19 +760,21 @@ function save_results(module, ca) {
 	    totals[d] += mark;
 	    if (d == 0) { maxTotal += maxMark; }
 	    resultDocs[d] +=
-		"<td style=\"text-align:right;border-right:none;padding-left:1em;\">" + mark + "/</td>" +
-		"<td style=\"text-align:left;border-left:none;padding-right:1em;\">" + maxMark  + "</td>" +
-		"<td style=\"padding:0.2em 1em;white-space:pre;\">" + feedbackText + "</td></tr>";
+		"<td" + (partial ? " style=\"border:0.5px solid gray;padding:0.5em;text-align:right;border-right:none;padding-right:0;\"" : "") + ">" + mark + "/</td>" +
+		"<td" + (partial ? " style=\"border:0.5px solid gray;padding:0.5em;text-align:left;border-left:none;padding-left:0;\"" : "") + ">" + maxMark  + "</td>" +
+		"<td" + (partial ? " style=\"border:0.5px solid gray;padding:0.5em;white-space:pre\"" : "") + ">" + feedbackText + "</td></tr>";
 	}
     }
 
     for (let d = 0; d < resultDocs.length; ++d) {
+	resultDocs[d] += "</table>";
+	resultDocs[d] += partial ? "" : "</body></html>";
 	let percentage = totals[d]/maxTotal*100;
-	resultDocs[d] += "</table><p>Your result for CA" + ca + " is <strong>" + percentage.toFixed(2) + "%</strong>.</p></body></html>";
+	resultDocs[d] = resultDocs[d].replace("_____RESULT_PLACEHOLDER_____", String(percentage.toFixed(2)));	
     }
 
     for (let d = 0; d < resultDocs.length; ++d) {
-	const blob = new Blob([resultDocs[d]], { type: 'text/html' });
+	const blob = new Blob([resultDocs[d]], { type: partial ? '' : 'text/html' });
 	const fileName = names[d] + ".html";
 	let newLink = document.createElement("a");
 	newLink.download = fileName;
