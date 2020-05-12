@@ -741,7 +741,7 @@ function save_results(module, ca) {
     for (let h = 1; h < headerRowCells.length - 1; ++h) {
 	names[h - 1] = headerRowCells[h].innerHTML.replace(/<br\/?>/, " ");
 	resultDocs[h - 1] +=
-	    "<h2>" + names[h - 1] + "</h2>" +
+	    "<h4>" + names[h - 1] + "</h4>" +
 	    "<h3>" + module + " CA" + ca + "</h3>" +
 	    "<p>Your result for CA" + ca + " is <strong>" + "_____RESULT_PLACEHOLDER_____" + "%</strong>.</p><table" + (partial ? " style=\"border-collapse:collapse;\"" : "") + ">";
     }
