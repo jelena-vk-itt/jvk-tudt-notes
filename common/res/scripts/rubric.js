@@ -734,7 +734,7 @@ function save_results(module, ca) {
 								"th{text-align:left;min-width:15em;white-space:pre}" +
 								"td:nth-child(2){text-align:right;border-right:none;padding-right:0;}" +
 								"td:nth-child(3){text-align:left;border-left:none;padding-left:0;}" +
-								"td:nth-child(4){white-space:pre}" + 
+								"td:nth-child(4){white-space:pre-wrap;}" + 
 								"table{border-collapse:collapse;}" +
 								"</style></head><body>"));
     let names = new Array(headerRowCells.length - 2).fill("");
@@ -762,7 +762,7 @@ function save_results(module, ca) {
 	    resultDocs[d] +=
 		"<td" + (partial ? " style=\"border:0.5px solid gray;padding:0.5em;text-align:right;border-right:none;padding-right:0;\"" : "") + ">" + mark + "/</td>" +
 		"<td" + (partial ? " style=\"border:0.5px solid gray;padding:0.5em;text-align:left;border-left:none;padding-left:0;\"" : "") + ">" + maxMark  + "</td>" +
-		"<td" + (partial ? " style=\"border:0.5px solid gray;padding:0.5em;white-space:pre\"" : "") + ">" + feedbackText + "</td></tr>";
+		"<td" + (partial ? " style=\"border:0.5px solid gray;padding:0.5em;white-space:pre-wrap;\"" : "") + ">" + feedbackText + "</td></tr>";
 	}
     }
 
