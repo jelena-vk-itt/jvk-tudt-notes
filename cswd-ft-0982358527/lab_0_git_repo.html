@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>	
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="res/styles/cswd-ft.css"/>
+	<title>LAB: Setup of Git Repository for CSWD Labs</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
+	</header>
+	
+	<nav>
+	    <ul class="links">
+		<li><a href="index.html">Home</a></li>
+	    </ul>
+	    <ul class="commands">
+		<li class="openall">Open all</li>
+		<li class="closeall">Close all</li>
+	    </ul>
+
+	</nav>
+
+	<div id="content">
+
+	    <h1>Uploading a first lab</h1>
+	    <ol class="toc_grp newline">
+		<li id="cswd-git-01">
+		    <p>Setting up the CSWD Lab Git Repository</p>
+		    <article>
+			<h2>Setting up the CSWD Lab Git Repository</h2>
+
+			<p>All lab work is to be uploaded to your private repository in GitHub Classroom CSWD-FT_2020-21-S1. To create this repository, do the following:
+			    <ol>
+				<li>Click on <a href="https://classroom.github.com/classrooms/43472202-cswd-ft_2020-21-s1">this GitHub Classroom invitation link</a>.</li>
+				<li>If you see the following page, log into GitHub or create an account if you do not have one. 
+				    <figure><img src="res/images/labs/github_classroom_join_1.png"/></figure>
+				</li>
+				<li>If you see the following page, click "Authorize github".
+				    <figure><img src="res/images/labs/github_classroom_join_2.png"/></figure>
+				</li>
+				<li>On the following page, pick your X-number. If you do not have an X-number, your name should appear towards the top of the list of X-numbers (initial + surname) and you should pick that.
+				    <figure><img src="res/images/labs/github_classroom_join_3.png"/></figure>
+				</li>
+				<li>When the pop-up shown below appears, check your number and click 'Ok'.
+				    <figure><img src="res/images/labs/github_classroom_join_4.png"/></figure>
+				</li>
+				<li>On the next page click 'Accept this assignment'.
+				    <figure><img src="res/images/labs/github_classroom_join_5.png"/></figure>
+				</li>
+				<li>Now you should see the page shown below. The given URL is the URL of your repository for CSWD labs.
+				    <figure><img src="res/images/labs/github_classroom_join_6.png"/></figure>
+				</li>
+				<li>Click on the link to open your CSWD labs repository. Yous hould see the following page telling you how to initialise the repository. Click on 'README' (blue text).
+				    <figure><img src="res/images/labs/github_classroom_join_7.png"/></figure>
+				</li>
+				<li>The following page allows you to edit the README file before saving. Type in your real name here if your GitHub id does not identify you. Click 'Commit new file'.
+				    <figure><img src="res/images/labs/github_classroom_join_8.png"/></figure>
+				</li>
+				<li>The next page shows your initialised repository.
+				    <figure><img src="res/images/labs/github_classroom_join_9.png"/></figure>
+				</li>
+				<li>Next, download the lab 'HTML and CSS', then use the commands from the next section to clone your repository and add that lab into the repository. If you do not have a git client installed on your computer, you will first have to install it from https://git-scm.com/downloads.</li> 
+				
+			    </ol>
+			</p>
+		    </article>
+		</li>
+		<li id="cswd-git-02">
+		    <p>Useful git commands</p>
+		    <article>
+			<h2>Useful git commands</h2>
+			<dl>
+			    <p>Run the following to <strong>create a copy of a repository</strong> on your computer.</p>
+			    <dt><span class="fw">git clone &lt;repository URL></span></dt><dd>Clones a repository to your computer file system. A repository working directory is created in the directory where the command was executed.</dd>
+			    
+			    <br/><p>To <strong>push your work to the online repository</strong>, run the following commands from within the repository working directory created by <span class="fw">clone</span>.</p>
+			    <dt><span class="fw">git config --global user.email "&lt;the email address with which you registered with GitHub>"</span></dt><dd>let git know your email</dd>
+			    <dt><span class="fw">git config --global user.name "&lt;your name (not username)>"</span></dt><dd>let git know your name</dd>
+			    <dt><span class="fw">git add .</span></dt><dd>adds any files new to the repository to the 'staged' (for commit) state</dd>
+			    <dt><span class="fw">git commit -m "&lt;some comment>"</span></dt><dd>commits the staged files, but does not push them to the online repository</dd>
+			    <dt><span class="fw">git push -u origin master</span></dt><dd>pushes the commited changes to the online repository</dd>
+			</dl>
+		    </article>
+		</li>
+	    </ol>
+	</div>
+	
+	<script src="../common/res/scripts/main.js"></script>
+	<script>
+	 init_all();
+	</script>
+
+    </body>
+</html>
