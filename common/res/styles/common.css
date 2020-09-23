@@ -144,7 +144,7 @@ details.examples>summary::before, details.contraexs>summary::before { content: "
 details.examples::before, details.contraexs::before { content: ""; }
 
 .question { color: blue; font-weight: bold; }
-.answer { border-width: 3px; border-color: blue; border-style: none none solid none; padding-bottom: 3px;  }
+.answer { line-height: 2em; inline-box; border-width: 2px; border-color: blue; border-style: solid none solid none; padding: 3px 0; }
 
 .lab-answer-form { margin-top: 3em; }
 

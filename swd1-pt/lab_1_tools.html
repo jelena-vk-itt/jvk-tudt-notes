@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="res/styles/swd1-pt.css"/>
+	<title>Software Development 1</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="../common/res/images/python_logo.png" alt="Python Logo">
+	</header>
+	
+	<nav>
+	    <ul class="links">
+		<li><a href="index.html">Home</a></li>
+	    </ul>
+	    <ul class="commands">
+		<li class="openall">Open all</li>
+		<li class="closeall">Close all</li>
+	    </ul>
+
+	</nav>
+
+	<div id="content">
+	    <h1>Installation of Tools for Software Development 1 and Introduction to their Use</h1>
+	    
+	    <ol class="toc_grp newline">
+		<li id="swd1-pt-p1-01">
+		    <p>The tools and how to install them</p>
+		    <article style="display:none">
+			<h2>The tools and how to install them</h2>
+
+			<ul>
+			    <li><strong>Python</strong>
+				<ul>
+				    <li>this is the interpreter for the language</li>
+				    <li>it also includes essential libraries of code</li>
+				    <li>when installed alone, it must be interacted with from the command line</li>
+				    <li>it is installed in the labs</li>
+				    <li>if working at home, you will need to install Python (<a href="https://www.python.org/downloads/">the latest version</a>) on your computer</li>
+				    <li>Python is free to download and use</li>
+				</ul>
+			    </li>
+			    <li>The integrated development environment (IDE) <strong>PyCharm</strong>
+				<ul>
+				    <li>this is an environment that makes development with a programming language easier</li>
+				    <li>it relies on Python to be installed in order to be in any way useful (it cannot interpret the language!)</li>
+				    <li>is also installed on the lab computers</li>
+				    <li>if working at home, you will have to install PyCharm (<a href="https://www.jetbrains.com/pycharm/download/">community edition</a>)</li>
+				    <li>the community edition is free</li>
+				</ul>
+			    </li>
+			</ul>
+		    </article>
+		</li>
+
+	    	<li id="swd1-pt-p1-01">
+		    <p>Running Python code</p>
+		    <article style="display:none">
+			<h2>Running Python code</h2>
+			<p><strong>Note:</strong> Sample commands are preceded by the characters '> ', representing a cursor. If the command is shown as <pre>
+> python
+			</pre>
+			then all you have to type in at the command line is <span class="fw">python</span>.</p>
+			
+			<ul>
+			    <li>Interactively from the command line (command-by-command)
+				<ol>
+				    <li>open a command line window on your computer (this will differ from OS to OS)</li>
+				    <li>type in<pre>
+
+> python
+				    </pre>
+				    </li>
+				    <li>check that the cursor <span class="fw">>>></span> is being displayed; this means that you are in the Python environment and can type Python code into the command line</li>
+				    <li>type in <pre>
+
+> 3 + 4
+				    </pre>
+				    and press <strong>Enter</strong>; what happens then?
+				    </li>
+				    <li>we will be trying out a few more commands in class...</li>
+				</ol>
+			    </li>
+			    <li>As a script from the command line
+				<ol>
+				    <li>create and save a text file called <em>lab1.py</em> with the following line in it:<pre>
+3 + 4
+				    </pre>
+				    </li>
+				    <li>on the command line, change the current directory to the one containing the file <em>lab.py</em>
+				    </li>
+				    <li>type in<pre>
+python lab1.py
+				    </pre>
+				    what happens then?
+				    </li>
+				    <li>notice that this way of invoking Python code can be added to a script i.e. does not necessarily have to be called by typing in the line interactively</li>
+				</ol>
+			    </li>
+			    <li>From PyCharm
+				<figure><img src="res/images/pycharm_run.png"/></figure>
+			    </li>
+			</ul>
+		    </article>
+		</li>
+	    </ol>
+	    <p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/3rdpty/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/common.js"></script>
+	<script type="text/javascript" src="res/scripts/swd1-pt.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>
+
+
