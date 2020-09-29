@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link type="text/css" rel="stylesheet" href="res/styles/jquery.qtip.min.css">
+	<link rel="stylesheet" type="text/css" href="res/styles/swd1-pt.css"/>
+	<title>Software Development 1</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="../common/res/images/python_logo.png" alt="Python Logo">
+	</header>
+
+	<nav>
+	    <ul class="links">
+		<li><a href="index.html">Home</a></li>
+	    </ul>
+	    <ul class="commands">
+		<li class="openall">Open all</li>
+		<li class="closeall">Close all</li>
+	    </ul>
+
+	</nav>
+
+	<div id="content">
+	    <h1>Variables and input</h1>
+
+	    <ol class="toc_grp newline">
+
+		<!--------------------------------------------------------------------->            
+                <li id="swd1-pt-l3-01">
+                    <p>Variables</p>
+                    <article>
+                        <h2>Variables</h2>
+			<p>So far we have learnt about data types and how pieces of data can be manipulated, individually or in groups. However, the functionality that we have used for this has all been Python built-in functionality and the instances of data manipulation carried out have been tied to particular fixed data values or <strong>literals</strong>. We have more or less used Python as a sophisticated kind of calculator.</p>
+			<p>To create some reusable functionality, in most cases we need to be able to manipulate <strong>placeholders</strong>, rather than only known data values.</p>
+
+			<section class="ice">
+<p>Can you think of two cases where a useful program can be defined without placeholders i.e. work without inputs from the outside world?</p>
+</section>
+			
+			<p>There are broadly two types of placeholders in programs:</p>
+			<ul>
+			    <li><strong>function parameters</strong> (the pieces of data that a function says it accepts), which are used as placeholders for defining what the function does and are replaced by arguments (actual pieces of data) when the function is called</li>
+			    <li><strong>variables</strong>, which are, within a context, standalone placeholders for pieces of data</li>
+			</ul>
+
+			<p>Writing programs using only functions, with function parameters the only kind of placeholder, is called <em>functional programming</em> and can be pursued in Python (although it is not optimised for it), but this is not what we are going to do (especially since funcitions are not even on the syllabus!). So let's look at variables.</p>
+			<p>Python has a very simple approach to variables. They are <strong>named</strong> and <strong>given a value</strong> in one expression, which can be placed anywhere in the code.</p>
+			<h3>Variable naming and value assignment</h3>
+			<ul>
+			    <li>a variable name
+				<ul>
+				    <li>can include only alphanumeric characters and underscores ('_')</li>
+				    <li>must not start with a number</li>
+				    <li>must not be a <a href="https://docs.python.org/3/reference/lexical_analysis.html#keywords"><strong class="maroon">Python keyword</strong></a></li>
+				</ul>
+			    </li>
+			    <li>the assignment is made with the <strong>assignment operator <span class="fw">=</span></strong> (this is different from the equality operator, <span class="fw">==</span>, which tests values for equality)</li>
+			    <li>the assigned value can be of any type</li>
+				    <li>if a new value is assigned to the same name further in the program flow, the variable takes on the new value and its type</li>
+				    <li>the value assigned to a variable can be that of a <em>literal</em>, of <em>another variable</em> or of a <em>more complex expression</em></li> 
+			</ul>
+			
+			<figure id="py-var-create" class="my1">
+				    <figcaption>Naming a variable and giving it a value (run interactively)</figcaption><pre class="code-listing">
+# setting variables with literal values
+number = 3
+a_decimal_number = 3.3
+myname = "Jane"
+isItTrue = True
+r2d2Status = 'active'
+
+# setting variables from other variables
+ano0therNum = number
+C3POStatus = r2d2Status
+
+# some invalid names:
+True = "the value of true"
+2bOrNot2b = 22
+
+# setting a new value to an existing variable
+a_decimal_number = 5.5		    </pre>
+			</figure>
+			
+			<h3>Variable use</h3>
+			<ul>
+			    <li>a variable must be named and set (given a value) before it is used in the program flow</li>
+			    <li>a variable is used in the same way that a literal value would be used, for example to provide the value of another variable</li>
+			</ul>
+			<figure id="py-var-use" class="my1">
+			    <figcaption>Using variables (run interactively, after <a class="xref" href="#py-var-create">?</a>)</figcaption><pre class="code-listing">
+# display values in the Python console
+a_decimal_number
+C3POStatus
+
+# add two numbers
+number + a_decimal_number
+
+# create a new variable and print it
+status = "Like r2d2, " + myname + " is " + r2d2Status
+print(status)
+			    </pre>
+			</figure>
+
+			<h3>Assignment operators</h3>
+
+			<p>Apart from the standard assignment operator, <span class="fw">=</span>, there are the <strong>augmented assignment</strong> operators, which combine another operation with assignment: <span class="fw">+=</span>, <span class="fw">-=</span>, <span class="fw">*=</span>, <span class="fw">/=</span> etc.</p>
+			<p>For example, <span class="fw">x += 3</span> means the same as <span class="fw">x = x + 3</span>, but is generally more efficiently implemented under the hood.</p>
+			    
+			<figure id="py-aug-asgn" class="my1">
+			    <figcaption>Augmented assignment operators (run interactively)</figcaption><pre class="code-listing">
+x = 3
+x += 4
+print(x)
+
+name = "John"
+name += " Doe"
+print(name)</pre>
+			</figure>			
+		    </article>
+		</li>
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="swd1-pt-l3-01">
+                    <p>Input</p>
+                    <article>
+                        <h2>Input</h2>
+			<p>One way of setting variables that we will use a lot in this module is input from the console. At this beginner level of programming, reading data from the console, in conjunction with printing, is an easy way to achieve two-way communication with the outside world and make a program useful.</p>
+			<p>When the function <span class="fw">input()</span> is called, it waits for a line to be typed in and the Enter key pressed on the console. Then it returns the text contained in the submitted line, as a string value.</p>
+			<figure id="py-input" class="my1">
+<figcaption>Input (run as script)</figcaption><pre class="code-listing">
+print("Enter some text:")
+input()
+# enter text on console, press Enter
+
+print("Enter your name:")
+name = input()
+# enter name on console, press Enter
+print("Your name is", name)
+</pre>
+			</figure>
+
+			<p>The code using <span class="fw">input()</span> in <a class="xref" href="#py-input">?</a> can be shortened by using an argument to <span class="fw">input()</span>. This argument is printed to prompt the user, rather than relying on a separate call to <span class="fw">print()</span>.</p>
+
+			<figure id="py-input2" class="my1">
+			    <figcaption>Input with argument (run as script)</figcaption><pre class="code-listing">
+input("Enter some text: ")
+# enter text on console, press Enter
+
+name = input("Enter your name: ")
+# enter name on console, press Enter
+print("Your name is", name)
+			    </pre>
+			</figure>
+
+
+			<p>It is important to remember that the value returned by <span class="fw">input()</span> is always a string. If a different type is required, a conversion needs to take place.</p>
+
+			<figure id="py-input3" class="my1">
+<figcaption>Input with type conversion (run as script)</figcaption><pre class="code-listing">
+x = input("Enter a whole number: ")
+y = input("Enter another whole number: ")
+# x and y are both of type string
+print("The sum of your numbers without conversion is", x + y)
+# int(x) and int(y) will be integers and so will their sum
+print("The sum of your numbers with conversion is", int(x) + int(y))
+</pre>
+</figure>
+		    </article>
+                </li>
+
+
+	    </ol>
+
+
+		<p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/3rdpty/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/common.js"></script>
+	<script type="text/javascript" src="res/scripts/swd1-pt.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>

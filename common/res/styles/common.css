@@ -33,7 +33,7 @@ header#tudheader > #rightlogo { float: right; }
 header#tudheader > #tuddepttext { vertical-align: top; }
 header#tudheader > #tuddepttext > p { padding: 0; margin: 0.5em;}
 
-table#module-info th { width: 7em; text-align: left; }
+table#module-info th { width: 7em; text-align: left; padding: 0.5em 0; }
 table#ca-info th { width: 8em; text-align: left; }
 table.ordinary { border: 1px solid black; border-collapse: collapse; margin: 0.5em 0; }
 table.ordinary th, table.ordinary td { border: 1px solid black; padding: 0.3em; text-align: left; }
@@ -90,7 +90,7 @@ nav>ul.commands>li { cursor: pointer; }
 
 table.rubric input[type="number"] { width: 5em; }
 
-section:after, section:before, article:after, header:after, .tutorial-panel:after, figure:after, .figgroup:after, .code-listing:after {
+section:after, article:after, header:after, .tutorial-panel:after, figure:after, .figgroup:after, .code-listing:after, .console:after {
     content: "."; 
     display: block;
     visibility: hidden; 
@@ -124,7 +124,7 @@ figure.cmdline { width: 40em; }
 .box { border: 1px solid black; padding: 0.5em;}
 .tbox { border: 1px solid black; padding: 0.1em;}
 .inline { display: inline-block; }
-.instructions, .demo, .exercise, .code-listing, .badcode-listing { border: 1px solid black; margin: 1em 0; padding: 0.5em; }
+.instructions, .demo, .exercise, .code-listing, .badcode-listing, .console { border: 1px solid black; margin: 1em 0; padding: 0.5em; }
 .demo > p:first-child, .exercise > p:first-child, .instructions > p:first-child { font-weight: bold; }
 .example, .contraex, .example-no-leader, .contraex-no-leader { border: 0.5px solid black; padding: 0.25em; margin: 0.25em 0; display: inline-block; }
 .contraex, .contraex-no-leader { text-decoration-line: line-through; }
@@ -232,8 +232,10 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 .w-fournh { width: 45em; }
 .w-five { width: 50em; }
 
-/* special scaled and responsive elements */
-
+/* special scaled 
+and responsive elements */
+.sc-rt { float: right; font-size: 0.9vw; }
+.sc-t { font-size: small; }
 .sc-frl { float: right;}
 .sc-25 { width: 25%; }
 .sc-50 { width: 50%; }
@@ -243,19 +245,20 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 .sc-75-m1 { width: calc(75% - 1em); }
 
 @media only screen and (max-width: 90em) {
-    .sc-t { font-size: 1.3vw; }
+    .sc-t { font-size: min(1.3vw, small); }
 }
 
 @media only screen and (max-width: 65em) {
+    .sc-rt { float: none; width: 100%; font-size: 1.3vw; }
     .sc-frl { float: left; margin-left: 0; }
-    .sc-t { font-size: 1.5vw; }
+    .sc-t { font-size: min(1.5vw, small); }
     .sc-25, .sc-25-m1 { width: 50%; }
     .sc-50, .sc-50-m1 { width: 100%; }
     .sc-75, .sc-75-m1 { width: 100%; }
 }
 
 @media only screen and (max-width: 40em) {
-    .sc-t { font-size: 1.7vw; }
+    .sc-t { font-size: min(1.7vw, small); }
 }
 
 @media only screen and (max-width: 40em) {

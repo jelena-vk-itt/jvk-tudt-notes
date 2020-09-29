@@ -40,21 +40,21 @@
 
 			<dl>
 			    <dt>What is software?</dt>
-			    <dd>The word software denotes instructions for a machine, organised into helping humans use the machine. The physical machine (the hardware) can be anything but to be controlled by software it must include a microprocessor.</dd>
+			    <dd>The word software denotes instructions for a machine, organised into helping humans use the machine. The physical machine (the hardware) can be anything, but to be controlled by software it must include a microprocessor.</dd>
 
 			    <dt>Why not just have the machine and use it? Why software?</dt>
 			    <dd>Every machine's functionality is embodied in its hardware, but some machines are more limited than others. An old-fashioned hairdryer blows air at two or three heat settings and that is all. Controls can be implemented using fairly simple electrical circuits.
 				<br/><br/>
 				A programmable washing machine is also limited in what it can do but there is scope for variation. To allow users to configure a washing machine, an electronic circuit (pure hardware) could be used, but it this would have to be more complicated than the simple circuits of the hairdryer. The alternative is to have a processor and software. The processor consists of circuits that perform a limited number of primitive operations and software is a recipe for how these primitive operations should be combined to achieve something. For all but very simple functionality, this is <strong>cheaper to produce than a specialised electronic circuit</strong>.
 				<br/><br/>
-				However, the true value of this setup (processor + software) lies in another property it has. While a washing machine can only wash clothes (admittedly in several different ways), less specialised hardware and a more complex user interface can provide user-defined functionality through the <strong>combinatorial power of sofware as a recipe</strong>. This is what computers and smartphones do. The versatility of their user interfaces allows for ever new functionality to be invented and their internal programmabiliy supports its implementation.<br/>
+				However, the true value of this setup (processor + software) lies in another property it has. While a washing machine can only wash clothes (admittedly in several different ways), less specialised hardware and a more complex user interface can provide user-defined functionality through the <strong>theoretically infinite combinatorial power of sofware as a recipe</strong>. This is what computers and smartphones do. The versatility of their user interfaces allows for ever new functionality to be invented and their internal programmabiliy supports its implementation.<br/>
 			    </dd>
 
 			    <dt>What is software physically?</dt>
 			    <dd>A unit of software usable for some purpose is called a software program, application, app or product. One of these is like the contents of a book, e.g. Oliver Twist by Charles Dickens. When we call out that name we generally do not mean any particular paper or electronic copy of the story, we mean the words that Dickens wrote and that we read. It is like that with software, which, although contained in a file on disk or in the memory of a device, cannot be equated with where it is stored but consists of abstract instructional content, which can be copied and stored in multiple places at once. <strong>It is not physical.</strong></dd>
 		
 			    <dt>How does software development fit into all this?</dt>
-			    <dd>Putting together a program does not require listing of primitive instructions understood by a processor. These are packed into higher level constructs and ready-made software chuncks of a programming language, which is less granular and more user-friendly for humans. Different programming languages present the underlying processor capabilities in different ways, depending on their purpose but also simply on the preferences of their designers.</dd>
+			    <dd>Putting together a program does not require listing of primitive instructions understood by a processor. These are packed into higher level constructs and ready-made software chunks of a programming language, which is less granular and more user-friendly for humans. Different programming languages present the underlying processor capabilities in different ways, depending on their purpose but also simply on the preferences of their designers.</dd>
 
 			    <dt>What is the difference between software development, programming and coding?</dt>
 			    <dd>Different people and even different dictionaries will give you different definitions, with the distinction between the terms varying from huge to none. However, when a distinction is made, software development is thought of as broader than programming, which in turn is treated as broader than coding. So, coding is simply writing the instructions (or code) in the language; programming involves a bit more e.g. design and testing but is still perfomed by one person; software development is the entire process that starts with an idea and ends in a product and could involve many people and organisations. Software development can also be used as a term for the entire industry involved in producing software.</dd>
@@ -172,21 +172,23 @@
 		</li>
 
 		<li id="swd1-pt-1.0-04">
-		    <p>Software and programming languages</p>
+		    <p>The substance of software and programming languages</p>
 		    <article style="display:none">
-			<h2>Sofware and programming languages</h2>
+			<h2>The substance of sofware and programming languages</h2>
 			<p>Software has two aspects, both equally important:
 			    <ul>
 				<li><strong>information</strong>, represented in a program by <strong>data structures</strong></li>
 				<li><strong>behaviour</strong>, represented in a program by <strong>algorithms</strong></li>
 			    </ul>
 			</p>
-			<p>A <strong>programming language</strong>
+			<p>A <strong>programming language</strong> consists of vocabulary, syntax and rules for representing <em>information</em> and <em>behaviour</em>.</p>
+			<p>Here are some broad classifications of programming languages:</p>
 			    <ul>
-				<li>consists of vocabulary, syntax and rules for representing <em>information</em> and <em>behaviour</em></li>
-				<li>can be high-level (e.g. C++) or low-level (e.g. assembly)</li>
-				<li>compiled (e.g. C++) or interpreted (e.g. Python)</li>
-				<li>special-purpose (e.g. R for data analysis) or general-purpose (e.g. Python)</li>
+				<li>imperative (Java) vs. declarative (SQL), by focus, on controlling behaviour vs. information</li>
+				<li>object-oriented (C++) vs. procedural (C), by how behaviour and information are organised</li>
+				<li>high-level (e.g. C++) vs. low-level (e.g. assembly), by closeness to the processor</li>
+				<li>compiled (e.g. C++) vs. interpreted (e.g. Python), by mode of translation, in advance as a whole vs. during execution</li>
+				<li>special-purpose (e.g. R for data analysis) vs. general-purpose (e.g. Python)</li>
 			    </ul>
 			</p>
 		    </article>
@@ -244,34 +246,6 @@
 		    </article>
 		</li>
 
-		<li id="swd1-pt-1.0-07">
-		    <p>Python tools used in <em>Software Development 1</em></p>
-		    <article style="display:none">
-			<h2>Python tools used in <em>Software Development 1</em></h2>
-
-			<ul>
-			    <li><strong>Python</strong>
-				<ul>
-				    <li>this is the interpreter for the language</li>
-				    <li>it also includes essential libraries of code</li>
-				    <li>when installed alone, must be interacted with from the command line</li>
-				    <li>it is installed in the labs</li>
-				    <li>if working at home, you will need to install Python (<a href="https://www.python.org/downloads/">the latest version</a>) on your computer</li>
-				    <li>Python is free to download and use</li>
-				</ul>
-			    </li>
-			    <li>The integrated development environment (IDE) <strong>PyCharm</strong>
-				<ul>
-				    <li>this is an environment that makes development with a programming language easier</li>
-				    <li>it relies on Python to be installed in order to be in any way useful (it cannot interpret the language!)</li>
-				    <li>is also installed on the lab computers</li>
-				    <li>if working at home, you will have to install PyCharm (<a href="https://www.jetbrains.com/pycharm/download/">community edition</a>)</li>
-				    <li>the community edition is free</li>
-				</ul>
-			    </li>
-			</ul>
-		    </article>
-		</li>
 	    </ol>
 	    <p id="sig">Jelena Vasić</p>
 	</div>

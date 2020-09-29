@@ -25,6 +25,7 @@ details {background-color: tomato; }
 .contraex, .contraexs, .contraex-no-leader { background-color: #ff4d4d; }
 .code-listing { background-color: #cc9999; }
 .badcode-listing { background-color: gray; } 
+.console { background-color: darkslategray; }
 
 .hasTT { background-color: maroon; }
 
