@@ -185,8 +185,14 @@ round(0.2 + 0.1, 15) == round(0.3, 15) </pre>
 			    <li>In Python, <em>strings</em> are a type of sequence and represent pieces of <strong>textual data</strong>.</li>
 			    <li>A string is an ordered sequence of characters coded using UTF-8.</li>
 			    <li>A character on its own is not a 'thing' in Python. A character is represented as a sequence of length 1.</li>
-			    <li>A string can be of any length, including 0.</li>
-			    <li>String values are denoted using quotes (single or double), with the contained characters placed between them.</li>
+			    <li>A string can be of any length, including 0.
+<figure id="py-str-len" class="my1">
+<figcaption>Getting the length of a string (run interactively)</figcaption><pre class="code-listing">
+len("Bob")
+len("construction")</pre>
+</figure>
+			    </li>
+			    <li>String values are denoted using quotes (single or double), with the characters of the string placed between them.</li>
 			    <li>Characters such as new lines and tabs can be included in a string. These must represented with the appropriate <strong>escape sequence</strong>: '\n' for a new line and '\t' for a tab. Other escape sequences that we will use a lot are those for representing quotes within quotes. For reference, you might like to have a look at a <a href="https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals"><strong class="maroon">complete list of escape sequences</strong></a> (you need to scroll down a bit)
 				<figure id="py-escapes" class="my1">
 				    <figcaption>Using escape characters (run interactively)</figcaption><pre class="code-listing">
@@ -197,32 +203,16 @@ print("one line\nanother line\thop\thop again")
 				Notice that the escape sequences for new line and tab remain intact when the string is displayed. A string needs to be written to a file or screen for these characters to be rendered. We will see them rendered in section 'Printing'.
 			</ul>
 			
-			<h3>String concatenation and format</h3>
+			<h3>String concatenation</h3>
 			<p>There are many useful string operations in Python, but for the moment we will look at concatenation using the <span class="fw">+</span> and <span class="fw">*</span> operators and formatting.</p>
 
-			<ul>
-			    <li>We can concatenate two or more different strings of 'multiply' the same string.
-				<figure id="py-concat" class="my1">
-				    <figcaption>String concatenation with + and * (run interactively)</figcaption><pre class="code-listing">
+			<p>We can concatenate two or more different strings of 'multiply' the same string.</p>
+			<figure id="py-concat" class="my1">
+			    <figcaption>String concatenation with + and * (run interactively)</figcaption><pre class="code-listing">
 "hello" + " " + "there"
 "bye bye" + ' ' + 'here'
 "blah " * 3</pre>
-				</figure>
-			    </li>
-
-			    
-			    <li>A very useful way of constructing strings is to use the <a href="https://docs.python.org/3/tutorial/inputoutput.html#the-string-format-method"><strong class="maroon">format()</strong></a> method (methods are like functions, but are associated with a piece of data and called 'on it'). This particular method allows inserting values of any type into other strings. 
-
-				<figure id="py-string-temp" class="my1">
-<figcaption>String format (run interactively)</figcaption><pre class="code-listing">
-"Hello {0}, it must be {1} years since we last met!".format("Bob", 7)</pre>
-</figure>
-				
-
-			    </li>
-
-			</ul>
-			
+			</figure>			
 		    </article>
 		</li>
 
@@ -280,7 +270,8 @@ str(True)</pre>
                     <article>
                         <h2>The value and type of expressions</h2>
 
-			<p>Expressions in Python all <strong>evaluate to a value and a type</strong>, even if it is the value <span class="fw">None</span>, with type <span class="fw">NoneType</span>. For this reason, most expressions can be used as pieces of data, in the same ways that literal values, such as <span class="fw">5</span> or <span class="fw">"Some text"</span>, can be used.</p>
+			<p><strong>An expression</strong> in Python is an executable construct that when executed results in <strong>a value with a type</strong> i.e. can be evaluated. Expressions can be used as pieces of data, in all the ways that literal values, such as <span class="fw">5</span> or <span class="fw">"Some text"</span>, can be used.</p>
+
 			<h3>Example 1</h3>
 			<p>The interactive interpreter console evaluates any expression passed to it and displays the value obtained (in batch mode, this automatic displaying of values does not occur and they must be explicitly shown if needed, e.g. with <span class="fw">print()</span>).</p>
 			
@@ -293,8 +284,20 @@ str(True)</pre>
 type(3 + 4)			    </pre>
 			</figure>
 
+
 			<h3>Example 2</h3>
-			<p>The function call <span class="fw">print("a")</span> is also an expression, but if we run it in the interactive interpreter, the output is <span class="fw">a</span>, printed as part of the activity of the function. Nothing else is displayed. This is because the value of a function call expression is equal to the return value and <span class="fw">print()</span> does not return a value, hence a call to <span class="fw">print()</span> has no value.
+			<p>A function call is also an expression and it evaluates to the returned value. The casting functions are a clear example of this. For example, <span class="fw">int("34")</span> returns the integer 34 and thus evaluates to 34. If we make this call inside the interactive interpreter, 34 is printed as this is the value of the expression.</p>
+
+			<figure id="py-func-eval" class="my1">
+			    <figcaption>Checking the types of casting function calls (run interactively)</figcaption><pre class="code-listing">
+type(bool("abc"))
+type(int(4.3))
+type(float("3"))
+type(str(True))</pre>
+			</figure>
+
+			<h3>Example 3</h3>
+			<p>The function call <span class="fw">print("a")</span> is not really an expression, as it does not return a value and thus does not evaluate to anything. However, if we try to treat is as an expression, checking its value and type, we do not get an error but the value <span class="fw">None</span> and type <span class="fw">NoneType</span> are returned. Functions that do not return a value could thus be thought of as quasi-expressions. This differenciates them from <string>statements</string>, the other type of executable language construct, which represent <em>actions</em> rather than <em>things</em> and cannot be evaluated. Statements will be treated later in this module.</p>
 			<figure id="py-print-eval" class="my1">
 <figcaption>Value and type of print()</figcaption><pre class="code-listing">
 # the function call
@@ -307,16 +310,6 @@ print(print("a"))
 type(print("a"))</pre>
 			</figure>
 
-			<h3>Example 3</h3>
-			<p>When we call the casting functions, as in <a class="xref" href="#py-casting">?</a>, the interactive interpreter  displays the values to which the function call expressions evaluate. As expected, they are the same as the return values from the calls to the casting functions and their types can be checked as well.</p>
-
-			<figure id="py-func-eval" class="my1">
-			    <figcaption>Checking the types of casting function calls (run interactively)</figcaption><pre class="code-listing">
-type(bool("abc"))
-type(int(4.3))
-type(float("3"))
-type(str(True))</pre>
-			</figure>
                     </article>
                 </li>
 

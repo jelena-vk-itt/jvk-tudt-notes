@@ -65,7 +65,7 @@ quit()			    </pre>
 print(3)</pre>
 				</figure>
 			    </li>
-			    <li>Functions <strong>can return values</strong> and this is often their purpose (to create a value by calculating, converting or performing some other action that results in some data.</li>
+			    <li>Functions <strong>can return values</strong> and this is often their purpose (to create a value by calculating, converting or performing some other action that results in some data).</li>
 			    <figure id="py-func-round" class="my1">
 <figcaption>A function that returns a value (run interactively)</figcaption><pre class="code-listing">
 round(4.3)</pre>
@@ -76,6 +76,37 @@ round(4.3)</pre>
 		</li>
 
 		<li id="swd1-pt-l1-02">
+		    <p>The help function</p>
+		    <article style="display:none">
+			<h2>The help function</h2>
+			<p>While Python documentation is available on the <a href=https://www.python.org/doc/><strong class="maroon">Python documents page</strong></a>, it is also possible to get information on individual items programmatically, using the function <span class="fw">help()</span>.</p>
+			<figure id="py-help" class="my1">
+<figcaption>Using the help() function (run interactively)</figcaption><pre class="code-listing">
+help(str)
+help(True)
+help(help)</pre>
+</figure>
+		    </article>
+		</li>
+		
+		<li id="swd1-pt-l1-03">
+		    <p>Objects and methods</p>
+		    <article style="display:none">
+			<h2>Objects and methods</h2>
+			<p>Roughly anything of substance, i.e. anything that has a value and a type, is an <strong>object</strong> in Python. Thus a number or a piece of text is an object, as are more complicated structures with many pieces of individual information.</p>
+			<p>A function can be associated with a particular type of object and in that case it is called a <strong>method</strong>. Methods are called with the syntax</p>
+			<span class="fw">&lt;object name or value>.&lt;method_name>()</span>
+
+			<p>The example in code snippet <a class="xref" href="#py-method-example">?</a> is that of the method <span class="fw">upper</span> called on an object containing the text "hello". Try it out.</p>
+			
+			<figure id="py-method-example" class="my1">
+<figcaption>Example of a method (run interactively)</figcaption><pre class="code-listing">
+"hello".upper()</pre>
+</figure>
+		    </article>
+		</li>
+
+		<li id="swd1-pt-l1-04">
 		    <p>Comments</p>
 		    <article style="display:none">
 			<h2>Comments</h2>
@@ -88,7 +119,7 @@ exit() # exit() runs but his part of the line is ignored
 			</figure>
 
 		    </article>
-		</li>		
+		</li>	
 	    </ol>
 	    <p id="sig">Jelena Vasić</p>
 	</div>

@@ -30,28 +30,126 @@
 	</nav>
 
 	<div id="content">
-	    <h1>Strings</h1>
+	    <h1>Strings again</h1>
 
 	    <ol class="toc_grp newline">
 
 		<!--------------------------------------------------------------------->            
                 <li id="swd1-pt-l4-01">
-                    <p></p>
+                    <p>Strings as objects</p>
                     <article>
-			<h2></h2>
+			<h2>Strings as objects</h2>
 
-			https://commons.wikimedia.org/wiki/File:ASCII-Table.svg
+			<p>Objects and methods were <a href="lec_1_begin.html#swd1-pt-l1-03">briefly introduced</a> at the beginning. Here we will look at some methods that can be callled on string object. A full list can be found <a href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str"><strong class="maroon">here</strong></a>.</p>
 
+			<h3>Some string methods</h3>
+			<ul>
+			    <li>A very useful way of constructing strings is to use the <a href="https://docs.python.org/3/tutorial/inputoutput.html#the-string-format-method"><strong class="maroon">format()</strong></a> method (methods are like functions, but are associated with a piece of data and called 'on it'). This particular method allows inserting values of any type into other strings. 
+				
+				<figure id="py-string-temp" class="my1">
+				    <figcaption>String format (run interactively)</figcaption><pre class="code-listing">
+"Hello {0}, it must be {1} years since we last met!".format("Bob", 7)</pre>
+				</figure>
+				
+			    </li>
+
+			    <li>There are various useful text modification string methods.
+				<figure id="py-string-var" class="my1">
+<figcaption>Various text modification methods (run interactively)</figcaption><pre class="code-listing">
+# call on literal 
+"hello".upper()
+
+# call on variable
+name = "tyrannosaurus rex"
+name.upper()
+name.capitalize()
+name.isnumeric()
+
+"234".isnumeric()</pre>
+				</figure>
+
+			    </li>
+			</ul>
+
+			<h3>Operators</h3>
+			<p>We have already seen the concatenation operators <span class="fw">+</span> and <span class="fw">*</span>, but there are others that can be used with the string type.</p>
+			<p>Operators are implemented as methods behind the scene. If you run <span class="fw">help(str)</span> in the interactive interpreter to get information on the string type, you will notice a number of methods listed at the beginning that start and end with double underscores (__). These methods are not intended to be called directly but are implementations of operators. For example, the method <span class="fw">__contains__()</span> will be called when the operator <span class="fw">in</span> is used. We can use both operator and method to the same effect, but it is the operator that should be used.</p>
+
+			<ul>
+			    <li>Operator <span class="fw">in</span>
+				<figure id="py-str-in" class="my1">
+<figcaption>Checking for a substring with the in operator (run interactively)</figcaption><pre class="code-listing">
+dinosaur = "tyrannosaurus rex"
+"ran" in dinosaur
+"swam" in dinosaur
+
+# method works but should not be used!
+dinosaur.__contains__("ran")
+dinosaur.__contains__("swam")</pre>
+				</figure>
+			    </li>
+			    <li>Comparison 
+				<figure id="py-str-comparison" class="my1">
+				    <figcaption>Comparing strings (run interactively)</figcaption><pre class="code-listing">
+name1 = "Jane"
+name2 = "Jack"
+name1 == name2
+name1 < name2
+
+"." < ":"			    </pre>
+				</figure>
+
+				In code snippet <a class="xref" href="#py-str-comparison">?</a> the result of the last expression may be surprising, but will be explained in the next section, 'UTF-8'.</li>
+			</ul>
+			<h3>UTF-8</h3>
+			<p>In Python 3 strings are encoded using the UTF-8 character encoding system. An encoding system maps the visual appearance of characters to numeric values that can be stored and manipulated in a computer. A full list of characters mapped by UTF-8 can be found <a href="https://mcdlr.com/utf-8"><strong class="maroon">here</strong></a>.</p>
+			<ul>
+			    <li>When strings are compared, what is really compared is the UTF-8 numbers that underlie them.</li>
+			    <li>The functions <span class="fw">ord()</span> and <span class="fw">chr()</span> convert between the character and an integer representing its UTF-8 code.
+				<figure id="py-str-utf8" class="my1">
+				    <figcaption>Converting between characters and their UTF-8 codes (run interactively)</figcaption><pre class="code-listing">
+# ord() must be called on a string of length 1
+ord("a")
+ord("abc")    # cases an error
+
+chr(45)
+chr(ord("a"))
+
+ord('ć')		    </pre>
+				</figure>
+			    </li>
+			    <li><p>The first 128 characters in the UTF-8 mapping are exactly the same as the ASCII encoding map. ASCII (from American Standard Code for Information Interchange) was designed in the 1960s and widely used in computing ever since. Backward compatibility is thus important and UTF-8 provides it.</p>
+				<p>In code snippet <a class="xref" href="#py-str-utf8">?</a> the function call <span class="fw">ord('a')</span> yields 97, which is in the ASCII range. The call <span class="fw">ord('ć')</span> yields 263, which is outside of the ASCII range.</p>
+			    </li>	    
+			</ul>
 			<section class="ice">
-			    <p>Write a short program that takes two inputs: a character and an integer (call it an encryption key). The program should then encrypt the character into another character and print this new character out. The encryption algorithm is as follows: add the encryption key to the character's ascii code to get the ascii code of the character's encrypted value.
-			    </p>
+			    <p>Write a short program that takes two inputs: a character and an integer (call it an encryption key). The program should then encrypt the character into another character and print this new character out. The encryption algorithm is as follows: add the encryption key to the character's UTF-8 code to get the UTF-8 code of the character's encrypted value.</p>		   
+			    <p><a href="res/files/python/strings/str_encoding.py">EXAMPLE SOLUTION</a></p>
+			</section>
+			</ul>
+			    
+			<h3>Alphabetical ordering</h3>
+			<p>String comparison does not provide a direct facility for alphabetical ordering. Consider the example in code snippet <a class="xref" href="#py-str-alpha-ord">?</a>. Lower case 'a' is considered to be greater than upper case 'a', because the UTF-8 code for the upper case letter is lower, but for alphabetical ordering we would like all letters 'a' to have the same value, regarless of case. This can be solved by converting all the text to either upper case or lower case before comparison.</p>
+			
+			
+			<figure id="py-str-alpha-ord" class="my1">
+			    <figcaption>Alphabetical ordering of strings (run interactively)</figcaption><pre class="code-listing">
+'a' > 'A'
+# the above is true because
+ord('a') > ord('A')
 
-			   
-<p hidden><a href="res/files/python/">EXAMPLE SOLUTION</a></p>
-</section>
+name = 'Jack'
+name_again = 'jack'
+name == name_again
+# the above yields False
+
+# alphabetical ordering
+name.lower() == name_again.lower()				</pre>
+			</figure>
+				
 		    </article>                        
-                </li>
-
+        </li>
+	
 
 	    </ol>
 
