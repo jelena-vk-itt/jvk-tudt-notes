@@ -90,7 +90,7 @@ nav>ul.commands>li { cursor: pointer; }
 
 table.rubric input[type="number"] { width: 5em; }
 
-section:after, article:after, header:after, .tutorial-panel:after, figure:after, .figgroup:after, .code-listing:after, .console:after {
+section:after, article:after, header:after, .tutorial-panel:after, figure:after, .figgroup:after, .code-listing:after, .console:after, .cf:after {
     content: "."; 
     display: block;
     visibility: hidden; 
