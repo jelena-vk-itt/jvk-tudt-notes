@@ -76,7 +76,9 @@ name.isnumeric()
 			<p>Operators are implemented as methods behind the scene. If you run <span class="fw">help(str)</span> in the interactive interpreter to get information on the string type, you will notice a number of methods listed at the beginning that start and end with double underscores (__). These methods are not intended to be called directly but are implementations of operators. For example, the method <span class="fw">__contains__()</span> will be called when the operator <span class="fw">in</span> is used. We can use both operator and method to the same effect, but it is the operator that should be used.</p>
 
 			<ul>
+			
 			    <li>Operator <span class="fw">in</span>
+				<p>The return value of this operator is of type <strong>boolean</strong>.
 				<figure id="py-str-in" class="my1">
 <figcaption>Checking for a substring with the in operator (run interactively)</figcaption><pre class="code-listing">
 dinosaur = "tyrannosaurus rex"
@@ -88,7 +90,8 @@ dinosaur.__contains__("ran")
 dinosaur.__contains__("swam")</pre>
 				</figure>
 			    </li>
-			    <li>Comparison 
+			    <li>Comparison
+				<p>The return value of this operator is of type <strong>boolean</strong>.
 				<figure id="py-str-comparison" class="my1">
 				    <figcaption>Comparing strings (run interactively)</figcaption><pre class="code-listing">
 name1 = "Jane"
@@ -100,8 +103,50 @@ name1 < name2
 				</figure>
 
 				In code snippet <a class="xref" href="#py-str-comparison">?</a> the result of the last expression may be surprising, but will be explained in the next section, 'UTF-8'.</li>
+			    <li>Operator <span class="fw">[]</span>
+				<p>Square brackets can be used to read an individual character or a range of characters from a string (slicing).</p>
+				<p>The return value of this operator is a <strong>string</strong>.</p>
+				<dl>
+				    <dt><span class="fw">some_string[i]</span></dt><dd>get a single character at index i</dd>
+				    <dt><span class="fw">some_string[i:j]</span></dt><dd>get a substring starting at index i and ending before index j</dd>
+				    <dt><span class="fw">some_string[:j]</span></dt><dd>get a substring starting at the beginning of the original string and ending before index j</dd>
+				    <dt><span class="fw">some_string[i:]</span></dt><dd>get a substring starting with the character at index i and containing the remainder of the original string</dd>
+				</dl>
+				<figure id="py-str-sq-brack" class="my1">
+				    <figcaption>Accessing a substring using square brackets (run interactively)</figcaption><pre class="code-listing">
+name = "Charlie"
+name[0]
+name[3]
+name[2:4]
+name[4:]
+name[:3]
+name[:]
+name[:3] + name[5]
+				    </pre>
+				</figure>
+			    </li>
 			</ul>
-			<h3>UTF-8</h3>
+
+			<h3>Immutability</h3>
+
+			<p>Strings are <strong>immutable</strong> objects, which means that a string value cannot be changed 'in place'. A string can be read and its value or parts thereof used as a basis for the creation of new strings, but these will be stored in a different memory location from the original string, the original string remaining intact.</p>
+			<figure id="py-str-immut" class="my1">
+<figcaption>Replacing substrings to demonstrate immutability (run interactively)</figcaption><pre class="code-listing">
+name = "Johnathan"
+shorter = name.replace("natha", "")
+name
+shorter
+</pre>
+			</figure>
+			<p>In code snippet <a class="xref" href="#py-str-immut">?</a> a call is made on the variable <span class="fw">name</span> for the string "natha" to be replaced with an empty string "". The function does not modify the string stored in variable <span class="fw">name</span> (this would not be allowed because strings are immutable) but creates a new string with the new value and returns that new value. We store it in variable <span class="fw">shorter</span>.</p>
+		    </article>
+		</li>
+		
+                <li id="swd1-pt-l4-02">
+                    <p>UTF-8 Encoding</p>
+                    <article>
+			<h2>UTF-8 Encoding</h2>
+			
 			<p>In Python 3 strings are encoded using the UTF-8 character encoding system. An encoding system maps the visual appearance of characters to numeric values that can be stored and manipulated in a computer. A full list of characters mapped by UTF-8 can be found <a href="https://mcdlr.com/utf-8"><strong class="maroon">here</strong></a>.</p>
 			<ul>
 			    <li>When strings are compared, what is really compared is the UTF-8 numbers that underlie them.</li>
@@ -127,9 +172,8 @@ ord('ć')		    </pre>
 			    <p><a href="res/files/python/strings/str_encoding.py">EXAMPLE SOLUTION</a></p>
 			</section>
 			</ul>
-			    
-			<h3>Alphabetical ordering</h3>
-			<p>String comparison does not provide a direct facility for alphabetical ordering. Consider the example in code snippet <a class="xref" href="#py-str-alpha-ord">?</a>. Lower case 'a' is considered to be greater than upper case 'a', because the UTF-8 code for the upper case letter is lower, but for alphabetical ordering we would like all letters 'a' to have the same value, regarless of case. This can be solved by converting all the text to either upper case or lower case before comparison.</p>
+			
+			<p>String comparison cannot be used directly for <strong>alphabetical ordering</strong>. Consider the example in code snippet <a class="xref" href="#py-str-alpha-ord">?</a>. Lower case 'a' is considered to be greater than upper case 'a', because the UTF-8 code for the upper case letter is lower, but for alphabetical ordering we would like all letters 'a' to have the same value, regarless of case. This can be solved by converting all the text to either upper case or lower case before comparison.</p>
 			
 			
 			<figure id="py-str-alpha-ord" class="my1">
