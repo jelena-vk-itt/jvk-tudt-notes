@@ -16,6 +16,9 @@ nav>ul.commands>li { background-color: #012332; color: white; }
 
 .toc_grp>li>p { background-color: #d27979; }
 .toc_grp>li>article {background-color:  #d27979; }
+.toc_grp>li>article .toc_grp>li>p {background-color:  #c65353; }
+.toc_grp>li>article .toc_grp>li>article {background-color:  #c65353; }
+
 details {background-color: tomato; }
 
 
