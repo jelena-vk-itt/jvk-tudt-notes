@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -29,72 +30,62 @@
 	</nav>
 
 	<div id="content">
-	    <h1>HTML and CSS Development Tools</h1>
+	    <h1>HTML and CSS Tips</h1>
 
-	    <ol class="toc_grp">
-		<li id="cswd-ttr-html-css-tools-01">
-		    <p>HTML and CSS development tools</p>
-		    <article>
-			<h2>HTML and CSS development tools</h2>
-			<p>This is a list of some tools that can help with HTML and CSS development.</p>
-
-			<h3>Browser developer tools</h3>
-			<figure class="twonh fr ml1">
-			    <img src="res/images/tutorials/dev_tools.png">
-			</figure>
-			<ul>
-			    <li>HTML and CSS are special purpose declarative languages that rely on a special purpose interpreter (most often a <em>browser</em>) to do something with the declarations (most often to display something).</li>
-			    <li>We can use browser developer tools to get more detailed and behind-the-scenes information about what the browser is doing, including about how it interprets the HTML and CSS.</li>
-			    <li>In most browsers the developer tools are opened by pressing the <strong>F12</strong> key.</li>
-			    <li>HTML and CSS information is in a module of the tools called <em>Inspector</em> in Firefox and in one called <em>Elements</em> in Chrome. Here styles can be edited on the fly with temporary effect, for testing</li>
-			    <li>Firefox has a module called <em>Style Editor</em>, which allows the editing and permanent update of currently open CSS files.</li>
-			</ul>
-			<br class="clb">
-
-			<h3>HTML online validator</h3>
-			<p>The W3 Consortium provides this HTML validation tool: <a href="http://validator.w3.org" target="_blank">http://validator.w3.org</a>.
-		    </article>
-		</li>
+	    <ol class="toc_grp">	    
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000002">
+                    <p>Elements with more than one class</p>
+                    <article>
+                        <h2>Elements with more than one class</h2>
+			More than one class can be specified for an element, e.g.: <pre class="my1">
+&lt;h1 class="spaced red">My title&lt;/h1></pre>
+			<details class="example"><summary></summary>
+			    <p>The following <span class="fw">style</span> and <span class="fw">h1</span> elements in an HTML document:</p>
+			    <div class="code">
+				<span class="fw">...</span><br/>
+				<span class="fw">.spaced { letter-spacing: 1em; }</span><br/>
+				<span class="fw">.red { color: red; }</span><br/>
+				<span class="fw">...</span><br/>
+				<span class="fw">&lt;h1 class="spaced red">My title&lt;/h1></span><br/>
+				<span class="fw">...</span><br/>
+			    </div>
+			    <p>will be rendered as follows:</p>
+			    <div id="ex1" class="box">
+				<style>
+				 #ex1 .spaced { letter-spacing: 1em; }
+				 #ex1 .red { color: red; }
+				</style>
+				<h1 class="spaced red">My title</h1>
+			    </div>
+			</details>
+                    </article>
+                </li>
 
 		
-		<li id="cswd-ttr-html-css-tools-03">
-		    <p>CSS Tips and tricks</p>
-		    <article>
-			<h2>CSS Tips and tricks</h2>
-			<ul>
-			    <li><strong>More than one class</strong> can be specified for an element, e.g.: <pre class="my1">
-&lt;h1 class="spaced red">My title&lt;/h1></pre>
-				<details class="example"><summary></summary>
-				    <p>The following <span class="fw">style</span> and <span class="fw">h1</span> elements in an HTML document:</p>
-				    <div class="code">
-					<span class="fw">...</span><br/>
-					<span class="fw">.spaced { letter-spacing: 1em; }</span><br/>
-					<span class="fw">.red { color: red; }</span><br/>
-					<span class="fw">...</span><br/>
-					<span class="fw">&lt;h1 class="spaced red">My title&lt;/h1></span><br/>
-					<span class="fw">...</span><br/>
-				    </div>
-				    <p>will be rendered as follows:</p>
-				    <div id="ex1" class="box">
-					<style>
-					 #ex1 .spaced { letter-spacing: 1em; }
-					 #ex1 .red { color: red; }
-					</style>
-					<h1 class="spaced red">My title</h1>
-				    </div>
-				</details>
-			    </li>
-			    <li>Often it is easiest to <strong>center</strong> content by using the CSS declaration <span class="fw">margin: auto;</span></li>
-			    <li><strong>Border</strong> settings can be specified using the shortcut CSS property <span class="fw">border</span>. So instead of:<pre class="my1">
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000003">
+                    <p>Centering content</p>
+                    <article>
+                        <h2>Centering content</h2>
+			<p>Often it is easiest to <strong>center</strong> content by using the CSS declaration <span class="fw">margin: auto;</span></p>
+                    </article>
+                </li>
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000004">
+                    <p>Shortcut for specifying border properties</p>
+                    <article>
+                        <h2>Shortcut for specifying border properties</h2>
+			<p>Border settings can be specified using the shortcut CSS property <span class="fw">border</span>. So instead of:</p><pre class="my1">
 border-width: 5px;
 border-style: solid;
 border-color: black;</pre>
-				we can use a single CSS declaration:<pre class="my1">
+			we can use a single CSS declaration:<pre class="my1">
 border: 5px solid black;</pre>
-			    </li>
-			</ul>
-		    </article>
-		</li>
+                    </article>
+                </li>
 	    </ol>
 	</div>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
