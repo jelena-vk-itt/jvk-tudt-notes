@@ -30,62 +30,191 @@
 	</nav>
 
 	<div id="content">
-	    <h1>HTML and CSS Tips</h1>
+	    <h1>HTML and CSS Topicss</h1>
 
-	    <ol class="toc_grp">	    
+	    <ol class="toc_grp">
+
 	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000002">
-                    <p>Elements with more than one class</p>
+                <li id="ARTCLID000005">
+                    <p>Various tips</p>
                     <article>
-                        <h2>Elements with more than one class</h2>
-			More than one class can be specified for an element, e.g.: <pre class="my1">
+                        <h2>Various tips</h2>
+			<ol class="toc_grp">	    
+			    <!--------------------------------------------------------------------->            
+			    <li id="ARTCLID000002">
+				<p>Elements with more than one class</p>
+				<article>
+				    <h2>Elements with more than one class</h2>
+				    More than one class can be specified for an element, e.g.: <pre class="my1">
 &lt;h1 class="spaced red">My title&lt;/h1></pre>
-			<details class="example"><summary></summary>
-			    <p>The following <span class="fw">style</span> and <span class="fw">h1</span> elements in an HTML document:</p>
-			    <div class="code">
-				<span class="fw">...</span><br/>
-				<span class="fw">.spaced { letter-spacing: 1em; }</span><br/>
-				<span class="fw">.red { color: red; }</span><br/>
-				<span class="fw">...</span><br/>
-				<span class="fw">&lt;h1 class="spaced red">My title&lt;/h1></span><br/>
-				<span class="fw">...</span><br/>
-			    </div>
-			    <p>will be rendered as follows:</p>
-			    <div id="ex1" class="box">
-				<style>
-				 #ex1 .spaced { letter-spacing: 1em; }
-				 #ex1 .red { color: red; }
-				</style>
-				<h1 class="spaced red">My title</h1>
-			    </div>
-			</details>
-                    </article>
-                </li>
+				    <details class="example"><summary></summary>
+					<p>The following <span class="fw">style</span> and <span class="fw">h1</span> elements in an HTML document:</p>
+					<div class="code-listing">
+					    <span class="fw">...</span><br/>
+					    <span class="fw">.spaced { letter-spacing: 1em; }</span><br/>
+					    <span class="fw">.red { color: red; }</span><br/>
+					    <span class="fw">...</span><br/>
+					    <span class="fw">&lt;h1 class="spaced red">My title&lt;/h1></span><br/>
+					    <span class="fw">...</span><br/>
+					</div>
+					<p>will be rendered as follows:</p>
+					<div id="ex1" class="box">
+					    <style>
+					     #ex1 .spaced { letter-spacing: 1em; }
+					     #ex1 .red { color: red; }
+					    </style>
+					    <h1 class="spaced red">My title</h1>
+					</div>
+				    </details>
+				</article>
+			    </li>
 
-		
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000003">
-                    <p>Centering content</p>
-                    <article>
-                        <h2>Centering content</h2>
-			<p>Often it is easiest to <strong>center</strong> content by using the CSS declaration <span class="fw">margin: auto;</span></p>
-                    </article>
-                </li>
+			    
+			    <!--------------------------------------------------------------------->            
+			    <li id="ARTCLID000003">
+				<p>Centering content</p>
+				<article>
+				    <h2>Centering content</h2>
+				    <p>Often it is easiest to <strong>center</strong> content by using the CSS declaration <span class="fw">margin: auto;</span></p>
+				</article>
+			    </li>
 
-		
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000004">
-                    <p>Shortcut for specifying border properties</p>
-                    <article>
-                        <h2>Shortcut for specifying border properties</h2>
-			<p>Border settings can be specified using the shortcut CSS property <span class="fw">border</span>. So instead of:</p><pre class="my1">
+			    
+			    <!--------------------------------------------------------------------->            
+			    <li id="ARTCLID000004">
+				<p>Shortcut for specifying border properties</p>
+				<article>
+				    <h2>Shortcut for specifying border properties</h2>
+				    <p>Border settings can be specified using the shortcut CSS property <span class="fw">border</span>. So instead of:</p><pre class="code-listing">
 border-width: 5px;
 border-style: solid;
 border-color: black;</pre>
-			we can use a single CSS declaration:<pre class="my1">
+				    we can use a single CSS declaration:<pre class="code-listing">
 border: 5px solid black;</pre>
+				</article>
+			    </li>
+
+			    
+			    <!--------------------------------------------------------------------->            
+			    <li id="ARTCLID000006">
+				<p>Padding and margins</p>
+				<article>
+				    <h2>Margin and padding</h2>
+				    <p>Creating space around elements and content is an important aspect of HTML page layout. For this we use <strong>margins</strong> and <strong>padding</strong>.</p>
+				    <p>The picture shows the parts of the HTML element box model:</p>
+				    <ul>
+					<li>the area taken up by the element's <strong>content</strong> is shown in blue</li>
+					<li><strong>padding</strong> is shown in purple - it is <em>inner</em> spacing, between the border and the contents</li>
+					<li>the element <strong>border</strong> is shown in black</li>
+					<li><strong>margins</strong> are shown in yellow - these are the <em>outer</em> spacing, between the element and other elements surrounding it</li>
+				    </ul>
+				    <figure class="onenh">
+					<img src="res/images/box_model.jpg">
+				    </figure>
+
+				    <p>Margins and padding can both be specified separately for each side of the element:</p>
+				    <figure id="html-css-pandm" class="my1">
+<figcaption>Examples of CSS declarations that specify margins and padding for individual sides of an element</figcaption><pre class="code-listing">
+margin-top: 1em;
+margin-right: 0;
+margin-bottom: 1px;
+margin-left: 0.2em;
+padding-top: 1em;
+padding-right: 0.5em;
+padding-bottom: 1em;
+padding-left: 0.5em;</pre>
+				    </figure>
+				    <p>A number of shortcut declarations also exist, taking the following syntax:</p>
+				    <p>
+					<span class="fw">margin: &lt;top value> &lt;right value> &lt;bottom value> &lt;left value>;</span><br/>
+					<span class="fw">margin: &lt;top and bottom value> &lt;right and left value>;</span><br/>
+					<span class="fw">margin: &lt;value for all margins>;</span><br/><br/>
+					<span class="fw">padding: &lt;top value> &lt;right value> &lt;bottom value> &lt;left value>; </span><br/>
+					<span class="fw">padding: &lt;top and bottom value> &lt;right and left value>;</span><br/>
+					<span class="fw">padding: &lt;value for all margins>;</span>
+				    </p>
+				    
+				    <figure id="html-css-pandm-shtcts" class="my1">
+					<figcaption>Examples of CSS shortcut declarations for margins and padding</figcaption><pre class="code-listing">
+margin: 1em 0 1em 0;
+margin: 1em 0; // same effect as above
+margin: 1em;
+
+padding: 1em 2em 1em 2em;
+padding: 1em 2em; // same effect as above
+padding: 1em;					</pre>
+				    </figure>
+				    
+				</article>
+			    </li>
+
+			</ol>
                     </article>
                 </li>
+
+
+
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000007">
+                    <p>HTML Tables</p>
+                    <article>
+                        <h2>HTML Tables</h2>
+
+			<p>HTML tables are built using the following main elements:</p>
+			<ul>
+			    <li><span class="fw">table</span> - the top-level table element</li>
+			    <li><span class="fw">tr</span> - row element, always contained in a table element</li>
+			    <li><span class="fw">th</span> - header cell element, always contained in a row element</li>
+			    <li><span class="fw">td</span> - data cell element, always contained in a row element</li>
+			    <li>content, which is contained in the cell elements and which can be anything</li>
+			</ul>
+
+			<details class="example"><summary><strong>A basic 3x3 HTML table</strong></summary>		    
+			    <figure id="html-css-table" class="">
+				<figcaption>A basic 3x3 HTML table: HTML code and rendered</figcaption>
+				<pre class="code-listing fl mt1 mr2">
+&lt;table>
+   &lt;tr>
+      &lt;th>heading1&lt;/th>
+      &lt;th>heading2&lt;/th>
+      &lt;th>heading3&lt;/th>
+   &lt;/tr>
+   &lt;tr>
+      &lt;th>data11&lt;/th>
+      &lt;th>data21&lt;/th>
+      &lt;th>data31&lt;/th>
+   &lt;/tr>
+   &lt;tr>
+      &lt;th>data12&lt;/th>
+      &lt;th>data22&lt;/th>
+      &lt;th>data32&lt;/th>
+   &lt;/tr>
+&lt/table></pre>
+				
+				<table class="mt1">
+				    <tr>
+					<th>heading1</th>
+					<th>heading2</th>
+					<th>heading3</th>
+				    </tr>
+				    <tr>
+					<th>data11</th>
+					<th>data21</th>
+					<th>data31</th>
+				    </tr>
+				    <tr>
+					<th>data12</th>
+					<th>data22</th>
+					<th>data32</th>
+				    </tr>
+				</table>			
+			    </figure>
+			</details>
+
+			
+		    </article>
+                </li>
+
 	    </ol>
 	</div>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

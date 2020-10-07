@@ -128,7 +128,7 @@ figure.cmdline { width: 40em; }
 .demo > p:first-child, .exercise > p:first-child, .instructions > p:first-child { font-weight: bold; }
 .example, .contraex, .example-no-leader, .contraex-no-leader { border: 0.5px solid black; padding: 0.25em; margin: 0.25em 0; display: inline-block; }
 .contraex, .contraex-no-leader { text-decoration: line-through; }
-.example::before, .contraex::before { content: "EXAMPLE: "; font-family: Arial, Helvetica, sans-serif; }
+.example::before, .contraex::before { content: "EXAMPLE:"; font-family: Arial, Helvetica, sans-serif; }
 .code-listing-leader { margin: 1em 0.5em 1em 0; padding: 0.5em 0; font-weight: bold;}
 
 .flcont { display: flex; padding: 0.5em 0; }
@@ -138,9 +138,10 @@ figure.cmdline { width: 40em; }
 .fljust-spar { justify-content: space-around; }
 .fljust-spev { justify-content: space-evenly; }
 
-details.example>summary::before, details.contraex>summary::before { content: "EXAMPLE "; font-family: Arial, Helvetica, sans-serif; }
+details.example>summary, details.contraex>summary, details.examples>summary, details.contraexs>summary { font-weight: bold; }
+details.example>summary::before, details.contraex>summary::before { content: "EXAMPLE: "; font-family: Arial, Helvetica, sans-serif; }
 details.example::before, details.contraex::before { content: ""; }
-details.examples>summary::before, details.contraexs>summary::before { content: "EXAMPLES "; font-family: Arial, Helvetica, sans-serif; }
+details.examples>summary::before, details.contraexs>summary::before { content: "EXAMPLES: "; font-family: Arial, Helvetica, sans-serif; }
 details.examples::before, details.contraexs::before { content: ""; }
 
 .question { color: blue; font-weight: bold; }
@@ -168,6 +169,7 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 .m0  { margin: 0; }
 .m1  { margin: 1em; }
 .m2  { margin: 2em; }
+.mt0 { margin-top: 0; }
 .mt1 { margin-top: 1em; }
 .mt3 { margin-top: 3em; }
 .mt4 { margin-top: 4em; }
