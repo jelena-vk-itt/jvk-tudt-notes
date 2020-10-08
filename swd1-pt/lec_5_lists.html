@@ -411,6 +411,50 @@ wordsStr.split(sep=", ")</pre>
 				</article>
 			    </li>
 
+
+			    <!--------------------------------------------------------------------->            
+			    <li id="ARTCLID000009">
+				<p>Creating strings from lists</p>
+				<article style="display:none">
+				    <h2>Creating strings from lists</h2>
+
+				    <h3>Casting</h3>
+				    <p>Casting from list to string will not produce the result we generally want. The returned string is just the list, printed out.</p>
+				    <figure id="py-cast-list-to-str" class="my1">
+					<figcaption>Casting list to string (run interactively)</figcaption><pre class="code-listing">
+string(["a", "b", "c"])			</pre>
+				    </figure>
+
+				    <h3>Joining elements into a string</h3>
+				    <p>The string type provides a method <a href="https://docs.python.org/3/library/stdtypes.html#str.join"><strong class="maroon">join()</strong></a> for joining elements of an iterable object (which a list is) into a string.</p>
+				    <p>The syntax for calling the method is <span class="fw">&lt;separator string object>.join(&lt;list object>)</span>, i.e. the method is called on a string object that should act as separator in the resulting string.</p>
+				    <figure id="py-join-list-to-str" class="my1">
+					<figcaption>Joining list elements into a string (run interactively)</figcaption><pre class="code-listing">
+' '.join(["a", "b", "c"])
+''.join(["A", "n", "n"])
+separator = ", "
+list = ["python", "javascript", "java"]
+separator.join(list)</pre>
+				    </figure>
+				</article>
+			    </li>
+
+
+			    <!--------------------------------------------------------------------->            
+			    <li id="ARTCLID000010">
+				<p>Mapping lists to lists</p>
+				<article style="display:none">
+				    <h2>Mapping lists to lists</h2>
+				    <p>We can create lists from other lists using the <a href="https://docs.python.org/3/library/functions.html#map"><strong class="maroon">map()</strong></a> function, which applies a mapping function to each element on the list to get a corresponding element.</p>
+				    <p>The syntax of this function is <span class="fw">map(&lt;mapping function>, &lt;list to be mapped>)</span>. The function returns an iterable object, which means that we need to cast it to a list to get a list with the elements resulting from the mapping. The full expression for mapping a list to a list is so <span class="fw">list(map(&lt;mapping function>, &lt;list to be mapped>))</span>.</p>
+				    <figure id="py-map" class="my1">
+					<figcaption>Mapping lists to new lists</figcaption><pre class="code-listing">
+names = ['jim', 'john', 'jane', 'jen']
+list(map(len, names))
+list(map(lambda s : s.upper(), names))</pre>
+				    </figure>			    
+				</article>
+			    </li>
 			    
 			    <!--------------------------------------------------------------------->            
 			    <li id="swd1-pt-l5-s02-e">
