@@ -180,14 +180,14 @@ padding: 1em;					</pre>
       &lt;th>heading3&lt;/th>
    &lt;/tr>
    &lt;tr>
-      &lt;th>data11&lt;/th>
-      &lt;th>data21&lt;/th>
-      &lt;th>data31&lt;/th>
+      &lt;td>data11&lt;/td>
+      &lt;td>data21&lt;/td>
+      &lt;td>data31&lt;/td>
    &lt;/tr>
    &lt;tr>
-      &lt;th>data12&lt;/th>
-      &lt;th>data22&lt;/th>
-      &lt;th>data32&lt;/th>
+      &lt;td>data12&lt;/td>
+      &lt;td>data22&lt;/td>
+      &lt;td>data32&lt;/td>
    &lt;/tr>
 &lt/table></pre>
 				
@@ -198,20 +198,79 @@ padding: 1em;					</pre>
 					<th>heading3</th>
 				    </tr>
 				    <tr>
-					<th>data11</th>
-					<th>data21</th>
-					<th>data31</th>
+					<td>data11</td>
+					<td>data21</td>
+					<td>data31</td>
 				    </tr>
 				    <tr>
-					<th>data12</th>
-					<th>data22</th>
-					<th>data32</th>
+					<td>data12</td>
+					<td>data22</td>
+					<td>data32</td>
 				    </tr>
 				</table>			
 			    </figure>
-			</details>
+			</details>			
 
-			
+
+			<details class="example"><summary><strong>A CSS-styled 3x3 HTML table</strong></summary>		    
+			    <figure id="html-css-table" class="">
+				<figcaption>A CSS-styled 3x3 HTML table: HTML code and rendered</figcaption>
+				<pre class="code-listing fl mt1 mr2">
+&lt;style>
+   table { border-collapse: collapse; }
+   th, td { border: 1px solid black; padding: 0.2em 1em; }
+   td { color: blue; }
+&lt;/style>
+&lt;table>
+   &lt;tr>
+      &lt;th>&lt;/th>
+      &lt;th>heading1&lt;/th>
+      &lt;th>heading2&lt;/th>
+      &lt;th>heading3&lt;/th>
+   &lt;/tr>
+   &lt;tr>
+      &lt;th>rowHeading1&lt;/th>
+      &lt;td>data11&lt;/td>
+      &lt;td>data21&lt;/td>
+      &lt;td>data31&lt;/td>
+   &lt;/tr>
+   &lt;tr>
+      &lt;th>rowHeading2&lt;/th>
+      &lt;td>data12&lt;/td>
+      &lt;td>data22&lt;/td>
+      &lt;td>data32&lt;/td>
+   &lt;/tr>
+&lt/table></pre>
+				<style>
+				 table#styled-example { border-collapse: collapse; }
+				 table#styled-example th, table#styled-example td { border: 1px solid black; padding: 0.2em 1em; }
+				 table#styled-example td { color: blue; }
+				</style>
+				
+				<table id="styled-example" class="mt1">
+				    <tr>
+					<th></th>
+					<th>heading1</th>
+					<th>heading2</th>
+					<th>heading3</th>
+				    </tr>
+				    <tr>
+					<th>rowHeading1</th>
+					<td>data11</td>
+					<td>data21</td>
+					<td>data31</td>
+				    </tr>
+				    <tr>
+					<th>rowHeading2</th>
+					<td>data12</td>
+					<td>data22</td>
+					<td>data32</td>
+				    </tr>
+				</table>			
+			    </figure>
+			</details>			
+
+
 		    </article>
                 </li>
 
