@@ -37,7 +37,7 @@
 		<!--------------------------------------------------------------------->            
                 <li id="swd1-pt-l5-01">
                     <p>What is a list in Python?</p>
-                    <article>
+                    <article style="display:none">
 			<h2>What is a list in Python?</h2>
 			<ul>
 			    <li>A list is an <strong>ordered collection of objects</strong> of any type. A list is itself an <strong>object</strong>.</li>
@@ -63,13 +63,13 @@ listWithListElement = ["hi", ["Jane", "Doe", 21], True, 55.3]</pre>
 	        <!--------------------------------------------------------------------->            
                 <li id="swd1-pt-l5-02">
                     <p>List operations and methods</p>
-                    <article>
+                    <article style="display:none">
                         <h2>List operations and methods</h2>
 			<p>As lists are mutable, they support both <a href="https://docs.python.org/3/library/stdtypes.html#common-sequence-operations"><strong class="maroon">operations that do not change the sequence object</strong></a> and <a href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types"><strong class="maroon">those that do</strong></a>.</p>
 			<ol class="toc_grp newline">
 			    <li id="swd1-pt-l5-s02-a">
 				<p>Operations that do not change the list object</p>
-				<article>
+				<article style="display:none">
 				    <h3>Operations that do not change the list object</h3>
 				    <p>These operations are the ones also supported by the string sequence type.</p>
 				    <ul>
@@ -150,7 +150,7 @@ a_list[5][:2]</pre>
 			    <!--------------------------------------------------------------------->            
 			    <li id="swd1-pt-l5-s02-b">
 				<p>Operations that change the list object</p>
-				<article>
+				<article style="display:none">
 				    <h3>Operations that change the list object</h3>
 				    <ul>
 					<li>With square brackets (the <span class="fw">[]</span> operator) we can:
@@ -185,9 +185,9 @@ myList</pre>
 			    <!--------------------------------------------------------------------->            
 			    <li id="swd1-pt-l5-s02-c">
 				<p>Sorting lists</p>
-				<article>
+				<article style="display:none">
 				    <h2>Sorting lists</h2>
-				    <p>Lists can be sorted using the <span class="fw">sort</span> method, which modifies the list <strong>in place</strong>. Documentation for the method can be found <a href="https://docs.python.org/3/library/stdtypes.html#list.sort"><strong class="maroon">here</strong></a>.</p>
+				    <p>Lists can be sorted using the <a href="https://docs.python.org/3/library/stdtypes.html#list.sort"><strong class="maroon">sort()</strong></a> method, which modifies the list <strong>in place</strong>. The function <a href="https://docs.python.org/3/library/functions.html#sorted"><strong class="maroon">sorted()</strong></a><span class="fw"></span> has the same functionality but does not modify the list, creating a copy of it to sort and return.</p>
 				    <p>For a list to be sortable, either</p>
 				    <ul>
 					<li>the values of all its elements need to be comparable
@@ -196,17 +196,32 @@ myList</pre>
 names = ['ben', 'con', 'don', 'ann']
 names
 names.sort()
+# names has changed in place
 names
 
+# now try using sorted() to preserve the original list
+games = ['scrabble', 'ludo', 'monopoly', 'carcasonne']
+games
+sorted(games)
+# check games again (should not have changed)
+games
+
+# try to sort a list with types that cannot be compared
 mixed_list = ['abcd', 34, '', 'aaa', 0, 4, 0.0]
-mixed_list.sort() # error!			    </pre>
-						
+mixed_list.sort() # error!
+# however if all types can be compared:
+another_mixed_list = [2, True, 0.2]
+another_mixed_list.sort
+# True compared as 1 and the sort works
+another_mixed_list	</pre>				
 					    </figure>
 					</li>
 					
-					<li>the key argument is a function that converts all the elements to comparable values
+					<li>the key argument is a function (either named or <a href="lec_6_lambda.html">lambda expression</a>) that converts all the elements to comparable values
 					    <figure id="py-sort-key" class="my1">
 						<figcaption>Sorting a list with a key (run interactively)</figcaption><pre class="code-listing">
+# use the bool() casting function as key
+#-------------------
 mixed_list = ['abcd', 34, '', 'aaa', 0, 4, 0.0]
 mixed_list.sort() # error
 # pass key to convert to boolean
@@ -214,14 +229,27 @@ mixed_list.sort(key=bool)
 # elements that equate to False are listed first
 mixed_list
 
+# use the len() function as key
+#-------------------
 word_list = ['hello', 'hi', 'how are you']
 word_list
 word_list.sort(key=len)
 # words are sorted by length
-word_list			    </pre>
-					    </figure>
-					</li>
-				    </ul>
+word_list
+
+# use a lambda expression as key
+#-------------------
+# some names
+names = ["ben", "Con", "ann", "Dan"]
+# try to sort them
+names.sort()
+# order is not alphabetical because
+# because some names are capitalised;
+# we use a lambda expression to
+# convert to all-lower before sorting
+names.sort(key=lambda n : n.lower())</pre>
+					</figure>	
+				    </ul>			    
 				</article>
 			    </li>
 
@@ -229,7 +257,7 @@ word_list			    </pre>
 			    <!--------------------------------------------------------------------->            
 			    <li id="swd1-pt-l5-s02-d">
 				<p>Copying lists</p>
-				<article>
+				<article style="display:none">
 				    <h2>Copying lists</h2>
 
 				    <p>There are several levels of copying that can be carried out with lists.</p>
@@ -353,7 +381,7 @@ list2	</pre>
 			    <!--------------------------------------------------------------------->            
 			    <li id="swd1-pt-l5-s02-d">
 				<p>Creating lists from strings</p>
-				<article>
+				<article style="display:none">
 				    <h2>Creating lists from strings</h2>
 
 				    <h3>Casting a string to list</h3>
@@ -387,7 +415,7 @@ wordsStr.split(sep=", ")</pre>
 			    <!--------------------------------------------------------------------->            
 			    <li id="swd1-pt-l5-s02-e">
 				<p>Picking a random element from a list</p>
-				<article>
+				<article style="display:none">
 				    <h2>Picking a random element from a list</h2>
 				    <p>Many programs will require the generation of some sort of random information. Usually, a random number is generated in a set range.</p>
 				    <p>Python has a function that allows picking a random item from a list directly, <span class="fw">random.choice()</span>.</p>
