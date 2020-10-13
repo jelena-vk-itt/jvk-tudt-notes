@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="https://jelena-vk-itt.github.io/jvk-tudt-notes/cswd-pt-1239404852/res/images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css" />
+
+	<style> #content { background: lightgray; } </style>
+	<title>TUDTC CSWD</title>
+    </head>
+
+    <body>
+	<header id="tudheader">
+	    <img src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="https://jelena-vk-itt.github.io/jvk-tudt-notes/cswd-ft-0982358527/res/images/logo.png" alt="CSWD Logo">
+	</header>
+
+	<nav>
+	    <ul class="links">
+		<li><a href="index.html">Home</a></li>
+	    </ul>
+	    <ul class="commands">
+		<li class="openall">Open all</li>
+		<li class="closeall">Close all</li>
+	    </ul>
+	</nav>
+
+	<div id="content">
+	    
+	    <h1>Javascript Introduction</h1>
+
+	    <ol class="toc_grp newline">
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="cswd-ttr-js-01">
+                    <p>Programming</p>
+                    <article>
+                        <h2>Programming with Javascript</h2>
+			<h4>Programming</h4>
+			<ul>
+			    <li><span class="question">What is a computer program?</span><p class="answer" hidden>A set of instructions that a computer knows how to carry out.</p></li>
+			    <li><span class="question">What is a programming language?</span><p class="answer" hidden>Rules for how the program is specified (syntax and semantics).</p></li>
+			    
+			    <li><span class="question">What is a scripting language?</span><p class="answer" hidden>A scripting language is generally a high-level interpreted language, used to automate tasks in some domain, e.g. operating system (e.g. bash in Linux), databases (e.g. SQL) or Web content (e.g. Javascript).</p></li>
+			</ul>
+			<h4>Concepts</h4>
+			<ul>
+			    <li><span class="question">What are the two conceptual aspects of a program?</span><p class="answer" hidden>Data (information) and algorithms (behaviour).</p></li>
+			    <li><span class="question">What concrete constructs correspond to the two conceptual aspects of a program?</span><ul class="answer" hidden>
+				<li>Data-representative constructs
+				    <ul>
+					<li>literals</li>
+					<li>variables</li>
+					<li>types (primitive and classes)</li>
+				    </ul>
+				</li>
+				<li>Algorithm-representative constructs
+				    <ul>
+					<li>flow control (i.e. conditional statements and loops)</li>
+					<li>data manipulation (operators).</li>
+				    </ul>
+				</li>
+			    </ul>
+			    </li>
+			</ul>
+			<h4>Input/output</h4>
+			<ul>
+			    <li><span class="question">How does a computer program communicate with its environment (users, machines, other programs)?</span><p class="answer" hidden>Through input and output in various forms.</p></li>
+			    <li><span class="question">What are a Web application's input and output with respect to the end-user?</span><div class="answer" hidden>
+				<p>The input and output are contained in the Web user interface.</p>
+				<dl>
+				    <dt>Input</dt><dd>anything that the user does (click, move mouse, reload page, scroll...)</dd>
+				    <dt>Output</dt><dd>the appearance of the page, including media such as sounds and video</dd>
+				</dl>	
+			    </div>
+			    </li>
+			</ul>
+		    </article>
+		</li>
+
+		
+		<!--------------------------------------------------------------------->            
+		<li id="cswd-ttr-js-03">
+		    <p>Learning to Program (with Javascript)</p>
+		    <article>
+			<h2>Learning to Program (with Javascript)</h2>
+			
+			<ul>
+			    <li>Learning to program is an infinite feedback loop involving <strong>understanding</strong> and <strong>practice</strong>: practice, practice, practice, work hard to understand, then again practice, practice, practice. Like with any language of any kind, it takes time and effort to acquire automatic understanding and become fluent.</li>
+			    <li>Class work alone is <strong>not enough</strong></li>
+			    <li>The outcomes of successfully learning to program:
+				<ul>
+				    <li>the <strong>knowledge</strong> of
+					<ul>
+					    <li>a basic set of syntactic and semantic <strong>rules</strong> and how to apply them</li>
+					    <li>what <strong>tools</strong> are available and how to use them</li>
+					    <li>where to find required constructs and libraries and how to search <strong>reference material</strong></li>
+					</ul>
+				    </li>
+				    <li>the <strong>skill</strong> to
+					<ul>
+					    <li><strong>abstract</strong> real-world things into data and algorithms (design)</li>
+					    <li>translate the abstractions <strong>into a programming language</strong></li>
+					</ul>
+				    </li>
+				    <li>the <strong>patience</strong> to
+					<ul>
+					    <li>persist through <strong>many iterations</strong> of testing, debugging, correction and improvement of code</li>
+					    <li>work through documentation and lack thereof to <strong>successfully integrate</strong> third-party elements into your code</li>
+					</ul>
+				    </li>
+				</ul>
+			    </li>
+			</ul>
+		    </article>
+		</li>
+
+		
+		<!--------------------------------------------------------------------->            
+		<li id="cswd-ttr-js-02">
+		    <p>How does Javascript work?</p>
+		    <article>
+			<h2>How does Javascript work?</h2>
+			<ul>
+			    <li>Javascript code is part of <strong>Web content</strong>, which is expressed using HTML, CSS and Javascript.</li>
+			    <li>It resides either in an <strong>HTML file</strong> or in a <strong>Javascript file</strong> that can be included in HTML (like external CSS).</li>
+			    <li>Javascript is an imperative language that allows us to define <strong>behaviour</strong>. By contrast, HTML and CSS are declarative languages that focus on the desired end result (leaving any required actions to the browser).</li>
+			    
+			    <li>Javascript <strong>is interpreted</strong> (runs) in a browser. It is also in the browser the the <strong>effects of the instructions come about</strong>.
+				<figure class="fournh">
+				    <img src="res/images/js_in_browser.png">
+				</figure>
+			    </li>
+			    <li>There is more information about Javascript as a client-side Web scripting language <a href="lec_6_dynamic_web_content.html#cswd-ft-dyn-web-cont-03">here (section <strong>Client-Side-Generated Dynamic Content</strong>)</a>.</li>
+			</ul>
+		    </article>
+		</li>
+		
+		
+		<!--------------------------------------------------------------------->            
+		<li id="cswd-ttr-js-04">
+		    <p>Tools for Developing in Javascript</p>
+		    <article>
+			<h2>Tools for Developing in Javascript</h2>
+			
+			<p>To develop client-side code for the WWW in Javascript you will not need many tools and most of them will already be installed on your computer:</p>
+			<ul>
+			    <li>A <strong>text editor</strong> (MS Visual Studio Code is recommended for this module)</li>
+			    <li>A <strong>browser</strong> (Chrome or Firefox are recommended for this module), which provides:
+				<ul>
+				    <li><strong>rendering functionality</strong> for displaying and user-testing created content</li>
+				    <li><strong>browser developer tools</strong>
+					<ul>
+					    <li>to open these in the browser, press key <strong>F12</strong> or key combination <strong>Ctrl-Shift-i</strong></li>
+					    <li>of particular interest when developing in Javascript are
+						<ul>
+						    <li>the <strong>Javascript console</strong>
+							<ul>
+							    <li>to open, click the <strong>Console</strong> tab of the developer tools or press key combination <strong>Ctrl-Shift-k</strong> (Firefox only)</li>
+							    <li>used by the Javascript interpreter inside the browser to <strong>communicate</strong> (info, warning and error messages)</li>
+							    <li>can run Javascript code <strong>interactively</strong> (you type in an instruction and it is interpreted immediately)</li>
+							</ul>
+						    </li>
+						    <li>the <strong>debugger</strong>
+							<ul>
+							    <li>to open, click the <strong>Debugger</strong> (Firefox) or <strong>Sources</strong> (Chrome) tab of the developer tools</li>
+							    <li>use the <strong>Sources</strong> (Firefox) or <strong>Page</strong> (Chrome) panel to navigate through the file system and open files</li>
+							    <li><strong>breakpoints</strong> can be set by clicking to the left of line numbers and <strong>execution controlled</strong> with the run/pause, step over, step in and step out arrows</li>
+							</ul>
+						    </li>
+						</ul>
+					    </li>
+					</ul>
+				    </li>
+				</ul>
+			    </li>
+			    <li>Linting tools
+				<p>A <strong>linting tool</strong> checks the style, syntax and semantics of code. You will find an online Javascript linter <a href="https://www.jslint.com/">here</a>.</p>
+			    </li>
+			    <li>Reference material and tutorials
+				<ul>
+				    <li>tutorials from scratch
+					<ul>
+					    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript">Mozilla Developer Network (MDN)</a></li>
+					    <li><a href="https://www.w3schools.com/js/default.asp">W3 Schools</a></li>
+					</ul>
+				    </li>
+				    <li>reference material
+					<ul>
+					    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript">Mozilla Developer Network (MDN)</a></li>
+					    <li><a href="https://www.w3schools.com/js/default.asp">W3 Schools</a></li>
+					</ul>
+				    </li>
+				</ul>
+			    </li>
+			</ul>
+		    </article>
+		</li>
+		
+		<!--------------------------------------------------------------------->            
+                <li id="ARTCLID000013">
+                    <p>Comments and Other Preliminaries</p>
+                    <article style="display:none">
+                        <h2>Comments and Other Preliminaries</h2>
+			<h3>Comments</h3>
+			<p>As in other programming languages, Javascript allows for comments to be included with code. These are ignored by the Javascript interpreter. Comments can be placed to the right of the symbol combination <span class="fw">//</span> or between symbol combinations <span class="fw">/*</span> and <span class="fw">*/</span>. Examples: </p><pre>
+3 + 4 // this is a comment beside the code '3 + 4'
+/* this is a multi-line
+comment, possible when using
+the slash-star notation */</pre>
+
+                    </article>
+                </li>
+
+		<!--------------------------------------------------------------------->            
+		<li id="cswd-ttr-js-05">
+		    <p>Elements of the Javascript Language</p>
+		    <article>
+			<h2>Elements of the Javascript Language</h2>
+
+			<ul>
+			    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures/">Data Types</a></li>
+			    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators/">Operators</a></li>
+			    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions/">Functions</a></li>
+			    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables/">Variables</a></li>
+			    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Events#Standard_events">Events</a></li>
+			    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">Document Object Model (DOM)</a></li>
+			    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements">Statements and Declarations</a></li>
+			</ul>
+		    </article>
+		</li>
+
+	    </ol>
+	</div>
+	<script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/main.js"></script>
+	<script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/common.js"></script>
+	<script>init_all();</script>
+    </body>
+</html>

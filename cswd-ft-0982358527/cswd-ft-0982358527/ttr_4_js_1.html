@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="../common/res/styles/common.css" />
+
+	<style> #content { background: lightgray; } </style>
+	<title>TUDTC CSWD</title>
+    </head>
+
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
+	</header>
+
+	<nav>
+	    <ul class="links">
+		<li><a href="index.html">Home</a></li>
+	    </ul>
+	    <ul class="commands">
+		<li class="openall">Open all</li>
+		<li class="closeall">Close all</li>
+	    </ul>
+	</nav>
+
+	<div id="content">
+	    
+	    <h1>Javascript Datatypes, Operators and Functions</h1>
+
+	    <ol class="toc_grp newline">
+
+
+
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000014">
+                    <p>Notation in the notes</p>
+                    <article style="display:none">
+                        <h2>Notation in the notes</h2>
+			<ul>
+			    <li><strong>Placeholders</strong> are denoted with angular brackets (<span class="fw">&lt;</span> and <span class="fw">></span>). When you see a placeholder in example code, it means you should type in something that meets the description between the brackets instead of the brackets and what is in them. For example, if an example to type into the console is:<pre>
+
+console.log("&lt;your name>")
+			    </pre>
+			    that means that, if your name is Bob, you should really type in:<pre>
+
+console.log("Bob")
+			    </pre>
+			    </li>
+			    <li>Code in a pink box, like below, is for you to try out. The caption explains where and how.
+				<figure id= class="my1">
+				    <figcaption>Using the console as a calculator: type the following lines into the cosole + press <strong>Enter</strong></figcaption><pre class="code-listing">
+7 + 5
+"catch" + 22
+</pre>
+</figure>
+			    </li>
+			</ul>
+                    </article>
+                </li>
+
+
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000012">
+                    <p>Javascript Data Types</p>
+                    <article style="display:none">
+                        <h2>Javascript Data Types</h2>
+			<p>A full list of Javascript datatypes can be found <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures"><strong class="maroon">here</strong></a>. In this module, we will be using these <strong>primitive data types</strong>:</p>
+			<ul>
+			    <li>boolean</li>
+			    <li>number</li>
+			    <li>string</li>
+			    <li>undefined</li>
+			</ul>
+			<p>and <strong>the structural data types</strong>:</p>
+			<ul>
+			    <li>function</li>
+			    <li>object</li>
+			</ul>
+			<figure id="js-primitive-dts" class="my1">
+			    <figcaption>Primitive datatypes: type the following expressions in the console + press <strong>Enter</strong> to see the expressions evaluated</figcaption><pre class="code-listing">
+34
+"abcd"
+true
+3.44
+undefined		    </pre>
+			</figure>
+                    </article>
+                </li>
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000015">
+                    <p>Javascript Operators</p>
+                    <article style="display:none">
+                        <h2>Javascript Operators</h2>
+			<p>A full list of Javascript operators can be found <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators"><strong class="maroon">here</strong></a> but we will be working with only some of them, introducing them gradually.</p>
+
+			<h3>Arithmetic operators</h3><pre class="box">
++  -  *  /  **</pre>
+			<ul>
+			    <li>Operand (input) type: <strong>number</strong></li>
+			    <li>Return (result) type: <strong>number</strong></li>
+			    <li>Type w.r.t. number of operands: <strong>binary</strong></li>
+			</ul>
+			<figure id="js-ops-arithmetic" class="my1">
+			    <figcaption>Arithmetic operators: type the following expressions in the console + press <strong>Enter</strong></figcaption><pre class="code-listing">
+3 + 4
+7.77 - 0.77
+12 / 3.1
+18 * 0.5
+3**2</pre>
+			</figure>
+
+			<h3>Comparison operators</h3><pre class="box">
+>  >=  <  <=  ==  !=  ===  !==		    </pre>
+			<ul>
+			    <li>Operand (input) type: <strong>number</strong></li>
+			    <li>Return (result) type: <strong>boolean (true or false)</strong></li>
+			    <li>Type w.r.t. number of operands: <strong>binary</strong></li>
+			</ul>
+			<figure id="js-ops-comparison" class="my1">
+			    <figcaption>Comparison operators: type the following expressions in the console + press <strong>Enter</strong></figcaption><pre class="code-listing">
+3 < 4      // less than
+3 > 4      // greater than
+4 <= 3     // less or equal
+4 <= 4 
+5 >= 2     // greater or equal
+4 == 4.0
+1 == true
+4 != 4     // not equal
+1 === true // strict equal
+1 === "1"
+1 == "1"
+1 !== "1"  // strict not equal
+			    </pre>
+			</figure>
+			<p>Strict comparison (<span class="fw">===</span>) requires the value and the type to be equal. Lenient comparison (<span class="fw">==</span>) converts the values to the same type before comparing.</p>
+
+			<h3>Logical operators</h3><pre class="box">
+&&  ||  !</pre>
+			<ul>
+			    <li>Operand (input) type: <strong>boolean</strong></li>
+			    <li>Return (result) type: <strong>boolean</strong></li>
+			    <li>Type w.r.t. number of operands: <strong>binary</strong> (&&, ||) and <strong>unary</strong> (!)</li>
+			</ul>
+			<figure id="js-ops-logical" class="my1">
+			    <figcaption>Logical operators: type the following expressions in the console + press <strong>Enter</strong></figcaption><pre class="code-listing">
+3 < 4 && 3 == 3 // and (both expressions must be true)
+3 > 4 && 3 == 3 
+3 > 4 || 3 == 3 // or (at least one expression must be true)
+!(3 > 4)        // not (is the expression not true?)
+			    </pre>
+			</figure>
+
+			<h3><span class="fw">typeof</span> operator</h3><pre class="box">
+typeof</pre>
+			<ul>
+			    <li>Operand (input) type: <strong>[any]</strong></li>
+			    <li>Return (result) type: <strong>string</strong></li>
+			    <li>Type w.r.t. number of operands: <strong>unary</strong></li>
+			</ul>
+			<p>The operator <span class="fw">typeof</span> takes any value or expression and returns its type. </p>
+			<figure id="js-typeof" class="my1">
+			    <figcaption>The typeof operator: type the following expressions in the console + press <strong>Enter</strong></figcaption><pre class="code-listing">
+typeof "abc"
+typeof 4
+typeof true
+typeof undefined
+typeof 4 - 22
+typeof (4 < 22) // try without parentheses as well</pre>
+			</figure>
+
+			<h3>String operators</h3><pre class="box">
+[] +  <  <=  >  >=  ==  !=  ===  !===</pre>
+
+			<p>All the operators we will be looking at here are used on other types, except for <span class="fw">[]</span>. When operators or functions operate on entirely different types and do slightly different things as a consequence, this is called <em>overloading</em>.</p>
+
+			<ul>
+			    <li><span class="fw">+</span> (concatenation operator):
+				<ul>
+				    <li>puts strings together into a single string</li>
+				    <li>concatenation with other types also allowed (other types are converted to string first)</li>
+				</ul>
+			    </li>
+			    <li><span class="fw">&lt;  &lt;=  >  >=  ==  !=  ===  !==</span> (comparison): 
+				<ul>
+				    <li>this is based on underlying character codes</li>
+				    <li>alphabetic if characters all lower case or all upper case</li>
+				    <li>comparison with other types possible for equality</li>
+				</ul>
+			    </li>
+			    <li><span clalss="fw">[]</span> (indexing operator): returns the character at given position, as a string</li>
+			</ul>
+			<figure id="js-ops-str" class="my1">
+<figcaption>String operators: type the following expressions in the console + press <strong>Enter</strong></figcaption><pre class="code-listing">
+"abc" + "123"
+"abc" + 123 // concatenate with other type
+"abc" == "abc"
+"abc" == "ABC"
+"abc"[0] // indexing: first element has index 0 etc.
+"abc"[1] </pre>
+</figure>
+                    </article>
+                </li>
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000016">
+                    <p>Operator precedence</p>
+                    <article style="display:none">
+                        <h2>Operator precedence and associativity</h2>
+			<ul>
+			    <li>When using operators, we must keep in mind <strong>precedence</strong> and <strong>associativity</strong>. Precedence defines the order in which different operators are applied when appearing in the same expression (higher precedence means earlier execution, e.g. multiplication has a higher precedence than addition). Associativity defines whether a chain of the same operator is executed from left to right or the other way around (for example in 12 / 6 / 2 division is applied from left to right, resulting in the answer 1, but if division were right-associative then the first calculation would be 6 / 2 = 3 and the second one 12 / 3, with the final result of 4).
+			    </li>
+			    <li>Operators are listed by precedence <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Operator_precedence"><strong class="maroon">here</strong></a>. A more detailed table, including associativity information is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table"><strong class="maroon">here</strong></a>.</li>
+			    <li>A chain of different operators with the same precedence is always executed from left to right.</li>
+			    <li>Parentheses can be used to change the order of operation.</li>
+			</ul>
+			<figure id="js-precedence" class="my1">
+			    <figcaption>Operator precedence and associativity: type the following expressions in the console + press <strong>Enter</strong></figcaption><pre class="code-listing">
+2 + 3 * 2
+(2 + 3) * 2
+typeof 3 * 7 // error! why?
+typeof (3 * 7)
+typeof 3 + 7 // ok. why? </pre>
+typeof typeof 2 // apply from the right
+</figure>
+                    </article>
+                </li>
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000017">
+                    <p>Functions and methods</p>
+                    <article style="display:none">
+                        <h2>Functions and methods</h2>
+			<ul>
+			    <li>Functions and methods are reusable pieces of Javascript code.</li>
+			    <li>Once a function or method is <strong>defined</strong> (i.e. a specification is made as to what the function should do), it can be <strong>called</strong> i.e. executed over and over again. This is the main benefit of a function or method. The other advantage to using functions and methods is that code organised into smaller chunks is easier to understand and maintain.</li>
+			    <li>There are many functions and methods that come with Javascript. These are already defined and are available to the developer to call when needed. They are organised into standard APIs (application programming interfaces).</li>
+			    <li>Other functions and methods, defined by third parties (e.g. Google Maps API) can be included and used by the developer.</li>
+			    <li>New functions and methods can be defined by the developer and this is something we will learn to do as part of the module.</li>
+			    <li>The difference between functions and methods will be discussed later in the module but for the moment it is enough to know that they are both reusable chunks of functionality.</li>
+			</ul>
+			<figure id="js-functions" class="my1">
+			    <figcaption>Some functions and methods available with Javascript</figcaption><pre class="code-listing">
+alert("Hello world")
+console.log("Hello again")
+"abc".toUpperCase()
+typeof alert
+"abc".toUpperCase	</pre>
+</figure>
+			
+                    </article>
+                </li>
+	    </ol>
+	</div>
+	<script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/main.js"></script>
+	<script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/common.js"></script>
+	<script>init_all();</script>
+    </body>
+</html>
