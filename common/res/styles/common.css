@@ -124,7 +124,7 @@ figure.cmdline { width: 40em; }
 .box { border: 1px solid black; padding: 0.5em;}
 .tbox { border: 1px solid black; padding: 0.1em;}
 .inline { display: inline-block; }
-.instructions, .demo, .exercise, .code-listing, .badcode-listing, .console { border: 1px solid black; margin: 1em 0; padding: 0.5em; }
+.instructions, .demo, .exercise, .code-listing, .badcode-listing, .console { border: 1px solid black; margin: 0.5em 0; padding: 0.5em; }
 .demo > p:first-child, .exercise > p:first-child, .instructions > p:first-child { font-weight: bold; }
 .example, .contraex, .example-no-leader, .contraex-no-leader { border: 0.5px solid black; padding: 0.25em; margin: 0.25em 0; display: inline-block; }
 .contraex, .contraex-no-leader { text-decoration: line-through; }
