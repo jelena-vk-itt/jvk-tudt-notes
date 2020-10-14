@@ -1,7 +1,7 @@
 function init_specific() {
 
     setup_xrefids ('[id^=py-]', 'CS', 1, false, function (element, xrefid) { element.getElementsByTagName('figcaption')[0].innerHTML += ' [' + xrefid + ']'; });
-    setup_xrefids ('.ice', 'CS', 'A', true, function (element, xrefid) { element.setAttribute('data-heading', '[' + xrefid + ']'); });
+    setup_xrefids ('.ice', 'CE', 'A', true, function (element, xrefid) { element.setAttribute('data-heading', '[' + xrefid + ']'); });
     setup_xrefs();
 }
 
