@@ -30,197 +30,182 @@
 	</nav>
 
 	<div id="content">
-	    <h1>Loops</h1>
+	    <h1>For loops</h1>
 
 	    <ol class="toc_grp newline">
 
-		<li id="swd1-pt-4.0-01">
-		    <p>What is a loop in programming?</p>
-		    <article style="display:none">
-			<h2>What is a loop in programming?</h2>
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000016">
+                    <p>Ranges</p>
+                    <article style="display:none">
+                        <h2>Ranges</h2>
+			<p>The range is an <strong>immutable</strong> sequence type that allows easy definition of <strong>integer sequences</strong>. We introduce it here as for loops in Python are often defined with the use of ranges.</p>
 
-			<figure class="twonh ml1 fr">
-			    <figcaption>The flowchart of a generic loop in a computer program</figcaption>
-			    <img src="res/images/loop_gen_flowchart.png">
-			</figure>
-			<p>The loop is one of the three essential ingredients needed for expressing algorithms:
-			    <ul>
-				<li>assignments</li>
-				<li>conditional statements</li>
-				<li class="maroon">loops</li>
-			    </ul>
-			</p>
-			<p>A loop is used when the same instructions need to be iterated (repeated several times):
-			    <ul>
-				<li>to improve the development process (better readability and maintainability, easier than cutting and pasting!)</li>
-				<li>to optimise the program (smaller code size)</li>
-				<li>to allow the program to be written at all:
-				    <ul>
-					<li>the number of iterations may not be known in advance if it depends on environment communication or is random</li>
-					<li>if the program represents a 'server' (runs infinitely)</li>
-				    </ul>
-				</li>
-			    </ul>
-			</p>
-		    </article>
-		</li>
-
-		<li id="swd1-pt-4.0-02">
-		    <p>Loops in Python</p>
-		    <article style="display:none">
-			<h2>The while loop in Python</h2>
-			<p>The main function of a loop is to <strong>repeat some group of instructions over and over again</strong>. The loop in code snippet <a class="xref" href="#py-while-inf">?</a> does exactly that: it prints out the number 1 over and over again. The condition is <span class="fw">True</span>, therefore always true. The call to <span class="fw">time.sleep()</span> has been added to space the iterations by 1 second, to avoid looping at a speed that hogs the CPU and freezes the computer running it. Once running, this little program will have to be stopped externally (<strong>Ctrl-C</strong> on the command line or stop button in PyCharm).</p>
-			<figure id="py-while-inf" class="my1">
-			    <figcaption>Example of an infinite while loop in Python</figcaption>
-			    <code><pre class="code-listing">
-import time
-number = 1
-while number == 1:
-   print(number)
-   time.sleep(1)</pre></code>
-			    
+			<figure class="my2">
+			    <figcaption>The syntax of a range expression (BNF)</figcaption><pre  class="box">
+range(&lt;first value, optional>, &lt;first not-included value>, &lt;step>)</pre>
 			</figure>
 
-			<figure class="threenh mt1">
-			    <figcaption>Relating a Python while loop to the generic flowchart</figcaption>
-			    <img src="res/images/while_loop_mapping.png">
+			<figure class="two my2">
+			    <figcaption>The syntax of a range expression (example)</figcaption>
+			    <img class="fl" src="res/images/range_syntax.png">
 			</figure>
 
-			<figure class="two mt1">
-			    <figcaption>The syntax of a Python while loop</figcaption>
-			    <img src="res/images/while_loop_syntax.png">
-			</figure>
 			
-			
-		    </article>
-		</li>
+
+			<figure id="py-ranges" class="my2">
+			    <figcaption>Examples of ranges</figcaption><pre class="code-listing">
+range(0, 10, 1)  # contains 0 1 2 3 4 5 6 7 8 9
+range(0, 10)     # same as above (step 1 is default)
+range(10)        # same as above (start value 0 is default)
+range(0, 10, 3)  # contains 0 3 6 9
+range(10, 0, -1) # contains 10 9 8 7 6 5 4 3 2 1
+		    
+			</figure>
+                    </article>
+                </li>
+		
 
 		
 	        <!--------------------------------------------------------------------->            
                 <li id="ARTCLID000018">
-                    <p>Exiting the loop</p>
+                    <p>For loop syntax in Python</p>
                     <article style="display:none">
-                        <h2>Exiting the loop</h2>
+                        <h2>For loop syntax in Python</h2>
+			<p>In Python, a for loop iterates over the members of any iterable object. A statement block is defined, like in the while loop, with instructions to be executed at each iteration.</p>
 
-			<p>Most of the time, loops are not written to run infinitely. For the loop not to run infinitely, it must be possible for the conditional expression to have the value <span class="fw">False</span> after a finite number of iterations and this is the case either</p>
-			<ul>
-			    <li>if the conditional expression has the value <span class="fw">False</span> to start with (e.g. <span class="fw">False</span> or <span class="fw">x = 3; x > 4</span>), in which case the loop statement block executes 0 times
-				<figure id="py-while-noninf-0" class="my1">
-				    <figcaption>Loop with condition initially equal to False</figcaption><pre class="code-listing">
-number = 1
-while number == 11:
-   print(1)</pre>
-				</figure>
-			    </li>
-			    <li>if the conditional expression has the value <span class="fw">True</span> to start with but at least one variable is modified in the loop statement block so as to change the value of the expression to <span class="fw">False</span> after a finite number of iterations
-				<p>Two examples are given below: one that involves a <strong>fully determined route</strong> towards a false condition (<span class="fw">number</span> starts at 1 and is incremented in each iteration until it reaches 11, after 10 iterations) and one that involves a <strong>random route</strong> (<span class="fw">number</span> again starts at 1 but randomly changes until it reaches 11 after a random number of iterations - the probability of this never happening is practically 0).</p>
-				
-				<figure id="py-while-noninf-det" class="my1">
-				    <figcaption>Example of a finite while loop with fully determined iterations </figcaption><pre class="code-listing">
-number = 1
-while number != 11:
-   print(1)
-   number = number + 1	    </pre>
-				</figure>
+			<p>The picture shows the flowchart for a for loop, alongside the generic flow chart.</p>
+			<figure class="fl">
+			    <figcaption>Generic loop flowchart</figcaption>
+			    <img src="res/images/loop_gen_flowchart.png">
+			</figure>
+			<figure class="fl ml3">
+			    <figcaption>For loop flowchart</figcaption>
+			    <img src="res/images/loop_for_flowchart.png">
+			</figure>
+			
+			<p class="cb"> </p>
 
-				<section class="ice">
-				    <p>Write a Python script that produces the output below. Use a loop to print the lines between the first and the last one.</p><pre>
-**********
-*        *
-*        *
-*        *
-*        *
-**********</pre>
-				    <p><a href="res/files/python/loops/rectangle.py">EXAMPLE SOLUTION</a></p>
-				</section>
-				
-				<figure id="py-while-noninf-indet" class="my1">
-				    <figcaption>Example of a finite while loop without fully determined iterations</figcaption>
-				    <code><pre class="code-listing">
-import random
-number = 1
-while number != 11:
-   print(1)
-   number = random.randint(1, 11)			    </pre></code>
-				</figure>	    
-
-				<section class="ice">
-				    <p>Rewrite code snippet <a class="xref" href="#py-while-noninf-indet">?</a> so that instead of printing 1 the loop statement block prints the random number. It should not print the value of number set outside of the loop.</p>
-				    <p><a href="res/files/python/loops/print_rand.py">EXAMPLE SOLUTION 1</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="res/files/python/loops/print_rand2.py">EXAMPLE SOLUTION 2</a></p>
-				</section>
-			    </li>
-			</ul>
+			<figure class="three mt3">
+			    <figcaption>For loop syntax in Python</figcaption>
+			    <img src="res/images/for_loop_syntax.png">
+			</figure>
+			
 		    </article>
-		</li>
-		
+                </li>
 		
 	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000019">
-                    <p>The variable with two jobs</p>
+                <li id="ARTCLID000017">
+                    <p>Using for loops</p>
                     <article style="display:none">
-                        <h2>The variable with two jobs</h2>
+                        <h2>Using for loops</h2>
+			<p>Sequence types are iterable objects in Python. This means that we can design for loops that iterate over any of the sequence types we have covered so far.</p>
+			<p>In terms of the types mentioned in chapter <em>While loops</em>, section <a href="lec_8_loops_while.html#ARTCLID000018"><em>Exiting the loop</em></a>, it is the iteration processes for which the iterations are determined before execution starts (either at coding time or at run time) that are suitable for implementation using for loops.</p>
+			    <ol class="toc_grp">
 
-			<p>In our examples so far the variable in the condition was being calculated in the statement block only to control the number of iterations. However, loops are often used to <strong>process sequences</strong> of some kind, which <strong>naturally provide a variable that can be checked in the condition</strong>.</p>
+			    
+			    <!--------------------------------------------------------------------->            
+			    <li id="ARTCLID000019">
+				<p>Iterating over ranges</p>
+				<article style="display:none">
+				    <h2>Iterating over ranges</h2>
+				    
+				    <figure id="py-for-range" class="my1">
+					<figcaption>Iterating over ranges with for loops</figcaption><pre class="code-listing">
+for number in range(0, 10, 1):
+   print(number)
 
-			<h3>Example 1</h3>
-			<p>Let's say we want to print out all the numbers from 1 to 10. We want the first iteration to print 1, the second to print 2 etc. - 10 iterations in all.</p>
-			<ul>
-			    <li>First, let's <strong>design the statement block</strong>:
-				<ul>
-				    <li>Because the number printed is changing from iteration to iteration, it needs to be a variable, e.g. <span class="fw">n</span></li>
-				    <li>Then we can easily write the main part of the statement block as <span class="fw">print(n)</span></li>
-				    <li>The last thing that is missing in the statement block is some code to change <span class="fw">n</span> between iterations: <span class="fw">n = n + 1</span></li>
-				</ul>
+for number in range(1, 11, 2):
+   print(number)
+
+for number in range(11, 0, -3):
+   print(number)	   </pre>
+				    </figure>
+
+				    <details class="ice"><summary></summary>
+					<p>Write a script that uses a for loop to print out 11 random integers between 1 and 11.</p>
+					<p><a href="res/files/python/loops/for_range_rands.py">EXAMPLE SOLUTION</a></p>
+				    </details>
+
+				    <details class="ice"><summary></summary>
+					<p>Write a script that uses a for loop to print out all the even integers between 1 and 100, inclusive, separated by spaces.</p>
+					<p><a href="res/files/python/loops/for_range_ints.py">EXAMPLE SOLUTION</a></p>
+				    </details>
+				</article>
 			    </li>
-			    <li>Now we need to wrap the statement block in a <strong>while loop with a condition</strong>. This takes a small bit of analysis: <span class="fw">n</span> is moving upwards by one in each iteration and we want the looping to stop when <span class="fw">n</span> goes beyond 10. So <span class="fw">n</span> naturally lends itself as the basis for the condition, <span class="fw">n &lt; 11</span> or <span class="fw">n != 11</span>.</li>
-			    <li>Outside of the loop, we set the <strong>initial conditions</strong>, which in this case is done with the statement <span class="fw">n = 1</span>, as we need <span class="fw">n</span> to be 1 in the first iteration.</li>
-			</ul>
-			<p>We can now write the short program. It is provided as code snippet <a class="xref" href="#py-var2jobs1">?</a>.</p>
-			<figure id="py-var2jobs1" class="my1">
-			    <figcaption>A loop designed to use a variable with two jobs</figcaption><pre class="code-listing">
-n = 1
-while n < 11:
-   print(n)
-   n = n + 1</pre>
-			</figure>
+			    
+			    <!--------------------------------------------------------------------->            
+			    <li id="ARTCLID000020">
+				<p>Iterating over strings</p>
+				<article style="display:none">
+				    <h2>Iterating over strings</h2>
 
-			<h3>Example 2</h3>
-			<p>Let's say we want to print out all the characters in a word input by the user, each character on a separate line followed by its UTF code in square brackets.</p>
+				    <figure id="py-for-string" class="my1">
+					<figcaption>Iterating over strings with for loops</figcaption><pre class="code-listing">
+for character in "TU Dublin":
+   print(character)
 
-			<ul>
-			    <li>Again, let's design the statement block first:
-				<ul>
-				    <li>The character changes between iterations so must be a variable, e.g. <span class="fw">c</span></li>
-				    <li>This makes it easy to write the printing code: <span class="fw">print("{0}[{1}]".format(c, ord(c)))</span></li>
-				    <li>We need to move from character to character between iterations. We do not know what the characters will be, but they are in the word that we will get from the user and can place in a variable. Let's call the word variable <span class="fw">theWord</span> and we'll worry about obtaining it later.</li>
-				    <li>Now what thing can be changed generically between iterations to move from character to character? Not the character itself, because there is no regularity there (from x to y to l to o p to h to o to n to e? maybe if it were always that word...). But the index of the character in the word, which can be used to get the character, can be incremented. That is a generic operation, the same for each move from one character to the next. Let's name the index <span class="fw">i</span>. Then we access the character with <span class="fw">c = theWord[i]</span> and move to the next one with <span class="fw">i = i + 1</span></li>
-				</ul>
+word = "computing"
+for character in word:
+   print("{}: {}".format(word.index(character), character))
+
+# try the above with word = "Tallaght"
+
+# better solution for above:
+word = "Tallaght"
+for index in range(0, len(word)):
+   print("{}: {}".format(index, word[index])) </pre>
+				    </figure>
+
+				    <details class="ice"><summary></summary>
+					<p>Write a Python script that reads in a character string input by the user into a variable called <span class="fw">inputString</span>. Then, using a for loop, it should invert the order of the characters in the word. Finally, it should print out the string resulting from the inversion, the output of expression <span class="fw">inputString[::-1]</span> and the result of comparing the two.</p>
+					<p><a href="res/files/python/loops/for_string.py">EXAMPLE SOLUTION</a></p>
+				    </details>
+				</article>
 			    </li>
-			    <li>To wrap the statement block in a while loop with a condition. We want the loop to stop when it gets to the end of the word. The first character has index 0 and the last has index <span class="fw">len(theWord) - 1</span>. We don't want the index <span class="fw">len(theWord)</span> to 'pass'. Also, the index is moving upwards. Thus we should make the condition <span class="fw">i < len(theWord)</span>.</li>
-			    <li>Finally, we make the initial conditions <span class="fw">i = 0</span> as we  want the first index to be 0.</li>
-			    <li>Also, we must remember to fetch the word before anything else.    </li>
-			</ul>
-			<p>We can now write the short program. It is provided as code snippet <a class="xref" href="#py-var2jobs2">?</a>. The length of the word is stored in a variable for optimisation (i.e. so that the length is not calculated in every iteration).</p>
-			<figure id="py-var2jobs2" class="my1">
-			    <figcaption>Another loop designed to use a variable with two jobs</figcaption><pre class="code-listing">
-theWord = input("Please enter a word: ")
-wordLength = len(theWord)
-i = 0
-while i < wordLength:
-   c = theWord[i]
-   print("{0}[{1}]".format(c, ord(c)))
-   i = i + 1</pre>
-			</figure>
+			    
+			    <!--------------------------------------------------------------------->            
+			    <li id="ARTCLID000021">
+				<p>Iterating over lists</p>
+				<article style="display:none">
+				    <h2>Iterating over lists</h2>
 
-			<section class="ice">
-			    <p>Write a Python script that reads in three words separated by whitespace, entered by the user. The program should check the number of words entered and that they contain only alphabetic characters. If the input does not meet these requirements the program should ask the user to try again and repeat the process until the input is valid.</p>
-			    <p>Next, the program should print the words, each in a new line and followed by its length in square brackets.</p>
-			    <p><a href="res/files/python/loops/three_words.py">EXAMPLE SOLUTION</a></p>
-			</section>
-			
+				    <figure id="py-for-string" class="my1">
+					<figcaption>Iterating over lists with for loops</figcaption><pre class="code-listing">
+nonMotorised = [ "rollerblades", "bicycle", "scooter", "sail wagon", "legs" ]
+maxWordLen = max(map(len, nonMotorised))
+for mode in sorted(nonMotorised):
+   print("--< " + mode.center(maxWordLen, ' ') + " >--")</pre>
+				    </figure>
+
+				    <details class="ice"><summary></summary>
+					<p>Write a Python program that defines a list of items and stores it in a variable. Print out a menu, using the list items as menu items, each on a separate line and preceded by its ordinal number (1, not 0, for the first item etc.). You must use a for loop, iterating over the list rather than over list indices.</p>
+					<p><a href="res/files/python/loops/for_list.py">EXAMPLE SOLUTION</a></p>
+				    </details>
+				    
+				</article>
+			    </li>
+			</ol>
                     </article>
                 </li>
-                
+
+
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000026">
+                    <p>Using break, continue and else with for loops</p>
+                    <article style="display:none">
+                        <h2>Using break, continue and else with for loops</h2>
+			<p>The <span class="fw">break</span>, <span class="fw">continue</span> and <span class="fw">else</span> constructs can be used with a for loop in the same way as they are used with while loops.</p>
+
+
+			<details class="ice"><summary></summary>
+			    <p>Rewrite code snippet <a class="xref" href="lec_8_loops_while.html#py-continue">CS-16</a> with a for loop instead of the while loop.</p>
+			    <p><a href="res/files/python/loops/for_continue.py">EXAMPLE SOLUTION</a></p>
+			</details>
+                    </article>
+                </li>
+	
 	    </ol>
 	    <p id="sig">Jelena Vasić</p>
 	</div>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link type="text/css" rel="stylesheet" href="res/styles/jquery.qtip.min.css">
+	<link rel="stylesheet" type="text/css" href="res/styles/swd1-pt.css"/>
+	<title>SDev1 DMLAI</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="../common/res/images/python_logo.png" alt="Python Logo">
+	</header>
+
+	<nav>
+	    <ul class="links">
+		<li><a href="index.html">Home</a></li>
+	    </ul>
+	    <ul class="commands">
+		<li class="openall">Open all</li>
+		<li class="closeall">Close all</li>
+	    </ul>
+
+	</nav>
+
+	<div id="content">
+	    <h1>Nested loops</h1>
+	    <ul>
+		<li>Nested loops do not involve any new language constructs.</li>
+		<li>Both while and for loops can be nested within either while or for loops.</li>
+		<li>Loops can be nested to any depth, with loops nested within other loops that are already nested themselves.</li>
+	    </ul>
+	    
+	    <ol class="toc_grp newline">
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000022">
+                    <p>Nested for loops</p>
+                    <article style="display:none">
+                        <h2>Nesting for loops</h2>
+			<p>Nested for loops are fairly straightforward as a concept. They can be viewed as representing multi-dimensional tables, with an execution of the statement block in every cell. An example of printing out such a table is shown in code snippet <a class="xref" href="#py-for-2dimtab">?</a>.</p>
+
+			<figure id="py-for-2dimtab" class="my1">
+			    <figcaption>Printing a table with nested for loops</figcaption><pre class="code-listing">
+cellWidth = 6
+columnCount = 3
+rowCount = 7
+for rowNum in range(1, rowCount + 1):
+   for colNum in range(1, columnCount + 1):
+      print(("r" + str(rowNum) + "c" + str(colNum)).center(cellWidth, " "), end="")
+   print("") </pre>
+			</figure>
+
+			<details class="ice"><summary></summary>
+			    <p>Use the nested loops in code snippet <a class="xref" href="#py-for-2dimtab">?</a> to create a 2-dimensional list of elements that each contain the product of the row number and column number for the cell they are stored in. Print out the 2d list.</p>
+			    <p><a href="res/files/python/loops_nested/for_nested_2dlist.py">EXAMPLE SOLUTION</a></p>
+			</details>
+                    </article>
+                </li>
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000023">
+                    <p>Choosing the loops to use</p>
+                    <article style="display:none">
+                        <h2>Choosing the loops to use</h2>
+			<p>Whether nested or not, we can be guided by the following when deciding if a loop should be 'while' or 'for':</p>
+			<ul>
+			    <li>use a for loop when the iterations will be determined before execution of the loop</li>
+			    <li>use a while loop when the iterations depend on an external or random process</li>
+			</ul>
+			
+			<h4>Example 1</h4>
+			<p>For example, let's say we want our program to draw random numbers between 0 and 5, looping until a 0 is drawn. Every time a number is drawn, the sequence of numbers from 1 up to the drawn number is printed.</p>
+			<ul>
+			    <li>The loop drawing random numbers until 0 needs to be a while loop (exit defined by random process)</li>
+			    <li>Printing out the sequence from 1 up to the drawn number needs to be done within the statement block of the while loop and requires a loop of its own, one that has it's iterations enumerated before it starts [1..drawn_number], hence a for loop.</li>
+			</ul>
+			<figure id="py-for-in-while" class="my1">
+			    <figcaption>Example of a for loop nested in a while loop</figcaption><pre class="code-listing">
+import random
+n = random.randint(0, 5)
+while n != 0:
+    for i in range(1, n + 1):
+        print(str(i) + " ", end="")
+    print("")
+    n = random.randint(0, 5)</pre>
+			</figure>
+
+			
+			<details class="ice"><summary></summary>
+			    <p>Rewrite code snippet <a class="xref" href="#py-for-in-while">?</a> so that, instead of printing the range from 1 to the drawn number, it prints numbers in the range [&lt;drawn number>, &lt;random number between 6 and 10>].</p>
+			    <p>Did you have to change the types of loop used? Why?</p>
+			    <p><a href="res/files/python/loops_nested/while_for.py">EXAMPLE SOLUTION</a></p>
+			</details>			
+
+			<h4>Example 2</h4>
+			<p>Now let's write a script that repeats the following 10 times: draws random numbers between 0 and 5 until it gets a 5 and prints how many draws it took to get to a 5. A solution is in code snippet <a class="xref" href="#py-while-in-for">?</a>.</p>
+			<ul>
+			    <li>At the top level we have the requirement to do something 10 times. That is a for loop, as the number of iterations is defined.</li>
+			    <li>Inside the loop there is a repetitive (drawing random numbers) with a random process determining the end. This needs to be in a while loop.</li>
+			    <li>This is also a case where we do not need to store the value of the random draw but just check it, which means we can use the call to <span class="fw">random.randint</span> directly in the conditional expression.</li>
+			    <li>We need to add a counter for the number of draws, which we set to 1 to account for the final draw of a 5.</li>
+			</ul>
+
+			<figure id="py-while-in-for" class="my1">
+			    <figcaption>Random draws until 5, 10 times</figcaption><pre class="code-listing">
+import random
+for i in range(0, 10):
+    counter = 1
+    while random.randint(0, 5) != 5:
+        counter +=1
+    print(counter)	    </pre>
+			</figure>
+
+			<details class="ice"><summary></summary>
+			    <p>Change the requirements for code snippet <a class="xref" href="#py-while-in-for">?</a> so that a while loop is a better fit for the outer iteration. Write the corresponding code.</p>
+			    <p><a href="res/files/python/loops_nested/while_while.py">EXAMPLE SOLUTION</a></p>
+			</details>
+			
+                    </article>
+                </li>
+
+	    </ol>
+	    <p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/3rdpty/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/common.js"></script>
+	<script type="text/javascript" src="res/scripts/swd1-pt.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>
