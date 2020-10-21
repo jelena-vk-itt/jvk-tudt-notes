@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="../common/res/styles/common.css" />
+
+	<style> #content { background: lightgray; } </style>
+	<title>TUDTC CSWD</title>
+    </head>
+
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
+	</header>
+
+	<nav>
+	    <ul class="links">
+		<li><a href="index.html">Home</a></li>
+	    </ul>
+	    <ul class="commands">
+		<li class="openall">Open all</li>
+		<li class="closeall">Close all</li>
+	    </ul>
+	</nav>
+
+	<div id="content">
+	    
+	    <h1>Javascript Events and Handlers</h1>
+
+	    <ol class="toc_grp newline">
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000025">
+                    <p>Notes on notation</p>
+                    <article style="display:none">
+                        <h2>Notes on notation</h2>
+			<p>Instructions starting with <strong>ACTION:</strong>, like the one below, are for the student to carry out while reading the tutorial.</p>
+			<p class="box"><strong>ACTION: </strong>Open your browser.</p>
+                    </article>
+                </li>
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000024">
+                    <p>Events and handlers</p>
+                    <article style="display:none">
+                        <h2>Events and handlers</h2>
+
+			<ul>
+			    <div id="nice-day-box" class="box fr ml1 mb1"><strong>It is a nice day today :-).</strong></div>
+			    
+			    <li>When being interpreted in the browser, <strong class="underline maroon">Javascript code</strong> can manipulate the currently loaded HTML page or other aspects of the browser environment. For example, we can write Javascript code to change the contents of the box on the right. The HTML representation of the box is:<pre class="code-listing ">
+&lt;div id="nice-day-box" class="box fr ml1">&lt;strong>It is a nice day today :-).&lt;/strong>&lt;/div></pre>
+				<p class="box"><strong>ACTION:</strong> Open this HTML file in a text editor to find the element.</p>
+				<p>As this element has the id <span class="fw">nice-day-box</span>, we can 'get at' the DOM object representing that element with the method <span class="fw">getElementById</span>. The next line of code gets the object representing the element with id <span class="fw">nice-day-box</span> and assigns it to a variable called <span class="fw">nice_day_box_element</span>.</p>
+				<p class="box"><strong>ACTION:</strong> Type the following instructions into the console, each followed by <strong>Enter</strong>.</p><pre class="code-listing">
+let nice_day_box_element = document.getElementById("nice-day-box");
+nice_day_box_element</pre>
+				<p>The variable value is displayed. It is an object that can be expanded to reveal sub-structures (attributes of the object).</p>
+				<p class="box"><strong>ACTION:</strong> Among the substructures find <span class="fw">innerHTML</span>, <span class="fw">children</span> and <span class="fw">style</span>.</p>
+				<span class="question">What are these substructures?</span><div class="answer" hidden>
+				    <ul>
+					<li>innerHTML: the content of the element (as a string)</li>
+					<li>children: collection of objects representing the child elements</li>
+					<li>style: a sub-structure containing information about styles applied to the element</li>
+				    </ul>
+				</div>
+				
+				<p>We can change the contents of the element by directly modifying the <span class="fw">innerHTML</span> data member of the object.</p>
+				<p class="box"><strong>ACTION:</strong> Run the following instruction in the console:</p><pre class="code-listing">
+nice_day_box_element.innerHTML = ":-) :-) :-) :-) :-)"</pre>
+				The contents of the box should have changed.
+			    </li>
+			    <li>To get the code to run, we need to feed it <strong class="underline maroon">to the browser's Javascript interpreter for execution</strong>. There are three ways to do this:
+				<ul>
+				    <li>through the Javascript <strong>console</strong> in the browser (as demonstrated above)</li>
+				    <li>by including the code in an HTML page with the use of a <strong>script</strong> element - in this case the code will be executed whenever encountered during the loading of the page (demonstrated in lab <em>Javascript in HTML</em>)</li>
+				    <li>by making this piece of code the <strong>handler</strong> for an event - so that when the event happens, the code is executed (demonstrated just below)</li>
+				</ul>
+			    </li>
+			    <li>An <strong class="underline maroon">event</strong> is something that happens in the context of a browser and currently loaded page, for example a mouse click, such as a mouse click on the button:
+				<section class="flcont fljust-start">
+				    <button type="button">My Button</button>
+				</section>
+				or the mouse pointer entering the box:<br/>
+				<section class="flcont fljust-start">
+				    <div class="box">Bring your mouse pointer over this box.</div>
+				</section>
+				This file does not have a handler set up (not yet) for these two example events i.e. nothing happens when we click the button or place the mouse pointer over the box.
+			    </li>
+			    
+			    <li>It is the developer (you!) that specifies code to be executed when an event happens. Making a connection between the event and some Javascript code is called <strong class="underline maroon">setting an event handler</strong>. Event handlers can be set:
+				<ul>
+				    <li>programmatically from within Javascript code (we will be doing this in the next few weeks)</li>
+				    <li>using HTML attributes called <strong>event handler properties</strong>, as follows (for the moment we will be using this method only):
+					<ol>
+					    <li>the <strong>event handler property</strong> is identified for the chosen event (see <a href="https://developer.mozilla.org/en-US/docs/Web/Events">here</a> for a comprehensive list of events); event handler property names follow the pattern <span class="fw">"on" + &lt;event name></span>, for example the event handler property for the <span class="fw">click</span> event is <span class="fw">onclick</span></li>
+					    <li>the browser can listen for an event only if it is associated with a particular element (click, on what?), called <strong>the target element</strong>, for example if we want the event to be a click on the button <strong>My Button</strong> then that button is the target element</li>
+					    <li>the event handler property is <strong>added as an attribute</strong> to the target element</li>
+					    <li>the handler code is <strong>added as the attribute's value</strong></li>
+					</ol>
+					<figure class="box seven">
+					    <figcaption>Adding an event handler in HTML</figcaption>
+					    <div class="ml3">event: <span class="fw">click</span><br/>target element: button <strong>My Button</strong><br/>event handling code: <span class="fw">alert('Here's the handler code saying hello!')</span></div><br/>
+					    <img src="res/images/tutorials/event-handler-inline.png">
+					</figure>
+					<div class="box">
+					    <p class="maroon"><strong>Note</strong> that if quotes appear in the handler code, they should be single quotes. If apostrophes or further single quotes appear enclosed within the quotes in the code, they need to be escaped (preceded by a backslash i.e. <span class="fw">\'</span>). If double quotes appear enclosed within the quotes in the code, they need to be html-escaped (<span class="fw">&amp;quot;</span> used instead of <span class="fw">"</span>).</p>
+					    <details class="examples"> <summary>of code with quotes used properly in event handler attributes</summary>
+						<p>Single-quoted text in the code:</p>
+						<span class="fw">&lt;button onclick="alert('Hello')">Click me&lt;/button></span>
+						<p>Try it:</p>
+						<button onclick="alert('Hello')">Click me</button>
+						<p>Single-quoted text in the code containing an apostrophe and double quotes:</p>
+						<span class="fw">&lt;button onclick="alert('&amp;quot;Mum\'s the word&amp;quot;, said my Mum')">Click me&lt;/button></span>
+						<p>Try it:</p>
+						<button onclick="alert('&quot;Mum\'s the word&quot;, said my Mum')">Click me</button>
+					    </details>
+					</div>
+				    </li>
+				</ul>
+				<div class="box mt1">
+
+				    <p><strong>ACTION:</strong> With this HTML file open in a text editor, find the button <strong>My Button</strong>. Then add an event handler to the button as shown in figure <strong>Adding an event handler in HTML</strong> above. Test the result by reloading this HTML page and clicking on the button.</p> 
+				    <span class="question">See answer</span><div class="answer" hidden><pre class="texts">
+&lt;button type="button" onclick="alert('Here\'s the handler code saying hello!');">My Button&lt;/button></pre></div>
+				</div>
+				
+				<div class="box mt1">
+				    <p><strong>ACTION:</strong> With this HTML file open in a text editor, find the element with text <strong>Bring your mouse pointer over this box</strong>. Then add an event handler to that element so that when the mouse pointer is brought over the element in the browser (the event for this is <span class="fw">mouseover</span>), an alert pops up.</p>
+				    <span class="question">See answer</span><div class="answer" hidden><pre class="texts">
+&lt;div class="box" onmouseover="alert('An alert from the box!');">Bring your mouse pointer over this box.&lt;/div></pre></div>
+			    </li>
+			</ul>
+                    </article>
+                </li>
+
+	    </ol>
+	</div>
+	<script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/main.js"></script>
+	<script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/common.js"></script>
+	<script>init_all();</script>
+    </body>
+</html>
