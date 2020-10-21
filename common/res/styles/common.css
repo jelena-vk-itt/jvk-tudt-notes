@@ -98,7 +98,7 @@ section:after, article:after, header:after, .tutorial-panel:after, figure:after,
     clear: both;
 }
 
-details {border: 1px solid black; padding: 0.5em; margin: 1em 0; max-width: 90%}
+details {border: 1px solid black; padding: 0.5em; margin: 1em 0; max-width: 100%}
 
 canvas {border: 1px solid black; }
 
@@ -145,7 +145,7 @@ details.examples>summary::before, details.contraexs>summary::before { content: "
 details.examples::before, details.contraexs::before { content: ""; }
 
 .question { color: blue; font-weight: bold; }
-.answer { line-height: 2em; inline-box; border-width: 2px; border-color: blue; border-style: solid none solid none; padding: 3px 0; }
+.answer { line-height: 2em; border-width: 2px; border-color: blue; border-style: solid none solid none; padding: 3px 0; }
 
 .lab-answer-form { margin-top: 3em; }
 
@@ -154,7 +154,8 @@ pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; whi
 .nowrap { white-space: pre; }
 
 .ice { background: #9999cc; border: 1px solid black; padding: 0.5em; margin: 1.5em 0;  }
-.ice::before { font-weight: bold; font-size: 1.2em; content: "In-class exercise " attr(data-heading); }
+section.ice::before { font-weight: bold; font-size: 1.2em; content: "In-class exercise " attr(data-heading); }
+details.ice > summary::before { font-weight: bold; font-size: 1.2em; content: "In-class exercise " attr(data-heading); }
 .ttStyle * {font-size: 1.5em; line-height: 1.5em}
 .hasTT { border-radius: 0.1em; }
 
