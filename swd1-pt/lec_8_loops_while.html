@@ -312,7 +312,7 @@ while currSentenceStr != '.':
 
 print("Your sentences:\n------------------\n" + "\n".join(sentenceList))</pre>			    
 			</figure>
-		   
+			
 			<details class="ice"><summary></summary>
 			    <p>Write a Python script that reads in three words separated by whitespace, entered by the user. The program should check the number of words entered and that they contain only alphabetic characters. If the input does not meet these requirements the program should ask the user to try again and repeat the process in a while loop until the input is valid.</p>
 			    <p>Next, the program should print the words, each in a new line and followed by its length in square brackets.</p>
@@ -374,8 +374,8 @@ while random.randint(1, 11) != 11:
 
 			<details class="ice"><summary></summary>
 			    <p>Rewrite the loop in code snippet <a class="xref" href="#py-while-no-init">?</a> to use a value input by the user in the condition, rather than a random value.</p>
-<p><a href="res/files/python/loops/while_no_init.py">EXAMPLE SOLUTION</a></p>
-</details>
+			    <p><a href="res/files/python/loops/while_no_init.py">EXAMPLE SOLUTION</a></p>
+			</details>
 			
 			<h4>The front-loaded loop statement block (do-while loop)</h4>
 			<p>Let's have a look at a loop that has nothing in the <em>stuff 2</em> part of the model.</p>
@@ -511,7 +511,7 @@ print("Your number list: ", ' '.join(map(str, numList)))                    #   
 			<h4>Fluidity of form and transformations</h4>
 
 			<p>Now that we have seen some statement block forms, it is important to say that in almost all cases it is possible to transform between them, particularly with the use of functions to implement some parts of the functionality. The chosen form will be dictated by optimisation, readability and other considerations.</p>
-			    
+			
 			<details class="ice"><summary></summary>
 			    <p>Rewrite code snippet <a class="xref" href="#py-mid-check-with-break">?</a> to subsume 'stuff 2' into the conditional structure in 'stuff 1' and introduce a conditional variable (<span class="fw">end</span>) that is prepared in the conditional structure, turning the loop into one with a do-while pattern.</p>
 			    <p><a href="res/files/python/loops/do_while_if_else.py">EXAMPLE SOLUTION</a></p>
@@ -569,6 +569,7 @@ else:
 			    <figcaption>Printing numbers with no zeroes</figcaption><pre class="code-listing">
 count = 0
 while count < 101:
+   count += 1
    if '0' in str(count):
       continue
    print(count)		    </pre>
