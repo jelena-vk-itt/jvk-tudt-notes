@@ -182,11 +182,11 @@ while number != 11:
 numList = []
 f = open("data.txt", 'r')  # opens file data.txt for reading
 l = f.readline()           # reads a line from the file
-isNum = ''.join(l.strip().split('.')).isnumeric()
+isNum = ''.join(l.strip().split('.', 1)).isnumeric()
 while isNum:
    numList += [ float(l) ]
    l = f.readline()
-   isNum = ''.join(l.strip().split('.')).isnumeric()
+   isNum = ''.join(l.strip().split('.', 1)).isnumeric()
 
 f.close()                  # closes the file
 
