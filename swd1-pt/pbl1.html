@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="https://jelena-vk-itt.github.io/jvk-tudt-notes/swd1-pt/res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css"/>
+	<!-- link rel="stylesheet" type="text/css" href="../../common/res/styles/common.css"/-->
+	<title>SWD1 PBL</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/images/python_logo.png" alt="Python Logo">
+	</header>
+
+	<div id="content-no-nav">
+	    
+
+	    <h1>Problem-Based Learning Assignment: House Insulation Quotes</h1>
+
+	    <ul>
+		<li>Your assignment is to write a Python program that automates the process of providing initial quotes to potential customers, for KeepWarm, a company that fits internal insulation.</li>
+		<li>You may use any development tools available on the lab PC but PyCharm is recommended (mostly for its debugging facility).</li>
+		<li>You may approach the task in any way you prefer, however, desiging the program on paper before you write any code is recommended.</li>
+		<li>Except where indicated, your program may assume that user input is going to be valid (i.e. error handling should be implemented only if stated as an explicit requirement).</li>
+		<li>Where user input is required, suitable prompts must be provided, e.g. <span class="fw">Please enter your name: </span></li>
+		<li>Your solution must not use collections such as lists.</li>
+		<li>You should test your program and fix any problems before submitting.</li>
+		<li>The program should:
+		    <ul>
+			<li>print a title banner e.g. <span class="fw">*********** KeepWarm Quick Quotes ***********</span> when it starts</li>
+			<li>read in the user's name and surname</li>
+			<li>read in the user's email address, check that the email address contains the <span class="fw">@</span> symbol, then request a new one if not and repeat the process until an email address with the symbol is obtained</li>
+			<li>read in the height of the ceiling in the house for which the quote is being sought</li>
+			<li>read in the dimensions of a room, then ask the user if they wish to enter information for another room; repeat the process of reading in room dimensions until the user answers that they do not wish to enter information for another room</li>
+			<li>ask the user if they would be willing to have the work done during the summer months</li>
+			<li>calculate the estimated price for the internal insulation fitting, if it costs €50 per 1m<sup>2</sup> of internal wall surface, including a €150 discount if the work can be done in the summer months</li>
+			<li>prepare a reference string, which should consist of
+			    <ul>
+				<li>the first letter of the user's first name, capitalised</li>
+				<li>if the surname is 5 characters or longer, the first 5 letters of the user's surname, capitalised</li>
+				<li>if the surname is less than 5 characters long, the user's surname, capitalised and padded with the character <span class="fw">X</span></li>
+			    </ul>
+			    Examples:
+			    <ul>
+				<li>name: Jane, surname: Sullivan, reference: JSULLI</li>
+				<li>name: Luke, surname: Kelly, reference: LKELLY</li>
+				<li>name: Bruce, surname: Lee, reference BLEEXX</li>
+			    </ul>
+			</li>
+			<li>print <span class="fw">Your reference: &lt;the prepared reference string></span></li>
+			<li>print <span class="fw">Your quote: €&lt;the calculated estimated price></span></li>
+		    </ul>
+		</li>
+	    </ul>
+	</div>
+    </body>
+</html>
