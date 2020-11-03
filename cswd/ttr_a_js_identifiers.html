@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="../common/res/styles/common.css" />
+
+	<style> #content { background: lightgray; } </style>
+	<title>TUDTC CSWD</title>
+    </head>
+
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
+	</header>
+
+	<div id="content-no-nav">
+	    
+	    <h1>Javascript Identifiers</h1>
+	    <p>Javascript identifiers are used for naming functions and variables. These must be defined in accordance with the following rules:</p>
+	    <ol>
+		<li>must not be a Javascript reserved word (<a href="https://www.w3schools.com/js/js_reserved.asp"><strong class="maroon">list</strong></a>)</li>
+		<li>must start with a dollar sign (<span class="fw">$</span>), an underscore (<span class="fw">_</span>) or a letter</li>
+		<li>may contain digits (0 to 9) but not as the leading character</li>
+		<li>must be case-sensitively unique to its context (you cannot have two variables with the same name)</li> 
+	    </ol>
+	    <details class="examples"><summary></summary>
+		<p class="green">Valid:</p>
+		<ul>
+		    <li>_aVar</li>
+		    <li>var123</li>
+		    <li>my_function</li>
+		</ul>
+		<p class="red">Invalid:</p>
+		<ul>
+		    <li>var (breaks rule 1)</li>
+		    <li>my#Function (breaks rule 2)</li>
+		    <li>1goodVar (breaks rule 3)</li>
+		</ul>
+		    
+	    </details>
+	    
+	</div>
+	<script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/main.js"></script>
+	<script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/common.js"></script>
+	<script>init_all();</script>
+    </body>
+</html>

@@ -126,7 +126,7 @@ figure.cmdline { width: 40em; }
 .inline { display: inline-block; }
 .instructions, .demo, .exercise, .code-listing, .badcode-listing, .console { border: 1px solid black; margin: 0.5em 0; padding: 0.5em; }
 .demo > p:first-child, .exercise > p:first-child, .instructions > p:first-child { font-weight: bold; }
-.example, .contraex, .example-no-leader, .contraex-no-leader { border: 0.5px solid black; padding: 0.25em; margin: 0.25em 0; display: inline-block; }
+.example, .examples, .contraex, .example-no-leader, .contraex-no-leader { border: 0.5px solid black; padding: 0.25em; margin: 0.25em 0; display: inline-block; }
 .contraex, .contraex-no-leader { text-decoration: line-through; }
 .example::before, .contraex::before { content: "EXAMPLE:"; font-family: Arial, Helvetica, sans-serif; }
 .code-listing-leader { margin: 1em 0.5em 1em 0; padding: 0.5em 0; font-weight: bold;}
@@ -191,7 +191,7 @@ details.ice > summary::before { font-weight: bold; font-size: 1.2em; content: "I
 .mx4 { margin-left: 4em; margin-right: 4em; }
 .my1 { margin-top: 1em; margin-bottom: 1em; }
 .my2 { margin-top: 2em; margin-bottom: 2em; }
-
+.my3 { margin-top: 3em; margin-bottom: 3em; }
 
 .ph { padding: 0.5em; }
 .p1 { padding: 1em; }
