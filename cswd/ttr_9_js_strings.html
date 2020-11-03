@@ -75,6 +75,7 @@ s1</pre>
 	    <dl>
 		<dt><span class="fw">length</span> property</dt><dd>Contains the length of the string in characters.</dd>
 		<dt><span class="fw">charAt(i)</span> method</dt><dd>Extracts and returns the character at index <span class="fw">i</span>.</dd>
+		<dt><span class="fw">[i]</span> operator</dt><dd>Same as charAt. Extracts and returns the character at index <span class="fw">i</span>.</dd>	
 		<dt><span class="fw">+</span> operator i.e. concatenation operator</dt><dd>Concatenates strings with strings or with other types converted to strings.</dd>
 	    </dl>
 	    <figure>
@@ -88,7 +89,7 @@ let s1 = "Jane Jensen";
 let c0 = s1.charAt(0);
 
 // declare variable <span class="fw">c8</span> and initialise with ninth character from string <span class="fw">s1</span>
-let c8 = s1.charAt(8);
+let c8 = s1[8];
 
 // declare variable <span class="fw">sLength</span> and initialise with the length of string  <span class="fw">s1</span>
 let sLength = s1.length;
