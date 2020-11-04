@@ -172,6 +172,7 @@ details.ice > summary::before { font-weight: bold; font-size: 1.2em; content: "I
 .m2  { margin: 2em; }
 .mt0 { margin-top: 0; }
 .mt1 { margin-top: 1em; }
+.mt2 { margin-top: 2em; }
 .mt3 { margin-top: 3em; }
 .mt4 { margin-top: 4em; }
 .mbh { margin-bottom: 0.5em; }

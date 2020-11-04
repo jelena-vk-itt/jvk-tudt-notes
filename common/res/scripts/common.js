@@ -36,4 +36,3 @@ function get_parent_content_width(element) {
     }
     return cmParentWidthInPx;
 }
-
