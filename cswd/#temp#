@@ -1,5 +1,0 @@
-&lt;form action="https://303bha.duckdns.org/tudt/cswd/process_example_form.php" method="post">
-    &lt;label for="fn">First name:&lt;/label> &lt;input type="text" name="firstname" id="fn">&lt;br/>
-    &lt;label for="mn">Middle name:&lt;/label> &lt;input type="text" name="middlename" id="mn">&lt;br/>
-    &lt;label for="sn">Surname:&lt;/label> &lt;input type="text" name="surname" id="sn">&lt;br/>
-&lt;input type="submit" value="Submit">&lt;/form>
