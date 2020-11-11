@@ -1,11 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8"/>
-	<link rel="shortcut icon" type="image/x-icon" href="res/images/dalogo.png"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
 	<link rel="stylesheet" type="text/css" href="res/styles/da.css"/>
-	<title>Data Analysis [DATAH3008]</title>
+	<title>Data Analysis</title>
+	<style>
+	 .links a { background: dimgray; color: white; margin: 0 0.3em 0 0; padding: 0.2em;}
+	 #toc { margin-top: 0.7em; }
+	</style>
     </head>
     <body>
 	<header id="tudheader">
@@ -18,90 +23,81 @@
 	</header>
 	
 	<div id="content-no-nav">
+	    <h1>Data Analysis</h1>
 	    
-	    <h1>Data Analysis [DATAH3008]</h1>
+	    <table id="module-info">
+		<tr><th>Term:</th><td>2020/21 Semester 1</td></tr>
+		<tr><th>Lecturer:</th><td>Jelena Vasić</td></tr>
+	    </table>
 
-	    <section class="flcont">
-		<h4 class="mr1"><a class="ph bg-darkcyan" href="res/files/lectures/00DA_Introduction/ITTCompDA_Introduction.pdf">Introductory notes</a></h4>
-		<h4 class="mr1"><a class="ph bg-darkcyan" href="tools.html">Tools</a></h4>
-		<h4 class="mr1"><a class="ph bg-darkcyan" href="../common/about_the_notes.html">About the online notes</a></h4>
-	    </section>
-	    
-	    <h2>Types of Data Analysis</h2>
-	    <section class="fbc">
-		<a href="descriptive.html">
-		    <section class="module">
-			<h3>Descriptive</h3>
-			<p>Summarisation and description of data, using statistical measures and visualisation.</p>
-			<ul>
-			    <li>Measures of central tendency (mean, median, mode)</li>
-			    <li>Measures of variability (variance, standard deviation)</li>
-			    <li>Visualisation of distribution (barchart, histogram, boxplot, probability density curve)</li>
-			</ul>
-		    </section>
-		</a>
-		<a href="exploratory.html">
-		    <section class="module">
-			<h3>Exploratory</h3>
-			<p>A look at connections that are not immediately obvious, that is, correlations between variables.</p>
-			<ul>
-			    <li>Pearson's correlation coefficient</li>
-			    <li>Kendall's Tau</li>
-			    <li>Chi-square test</li>
-			    <li>ANOVA</li>
-			    <li>Information gain</li>
-			    <li>Lift</li>
-			</ul>
-		    </section>
-		</a>
-		<a href="inferential.html">
-		    <section class="module">
-			<h3>Inferential</h3>
-			<p>Drawing conclusions about populations based on samples.</p>
-			<ul>
-			    <li>Estimation of population parameters from samples (all the measures under 'Descriptive')</li>
-			    <li>Confidence intervals</li>
-			    <li>Hypothesis testing</li>
-			</ul>
-		    </section>
-		</a>
-		<a href="predictive.html">
-		    <section class="module">
-			<h3>Predictive</h3>
-			<p>Building of models from known data for the prediction of unknown data values.</p>
-		    </section>
-		</a>
-		<a class="dummy">
-		    <section>
-			<h3>Causal</h3>
-			<p class="maroon">[Not treated in this module]</p>
-			<p>Prediction of what happens to one variable if another changes.</p>
-		    </section>
-		</a>
-		<a class="dummy">
-		    <section>
-			<h3>Mechanistic</h3>
-			<p class="maroon">[Not treated in this module]</p>
-			<p>Even more exact than causal. Looks to explain the mechanism of causation between two variables.</p>
-		    </section>
-		</a>
+	    <br/>
+	    <div class="links">
+		<a href="tools.html">Tools</a>
+		<a href="../common/about_the_notes.html">About the online notes</a>
+		<a href="res/files/labs/formulae_and_tables.pdf">Formulae and Tables</a>
+	    </div>
+	    <table id="toc">
+		<tr><th>Week<br/>start date</th><th>Class<br/>date</th><th>Week<br/>number</th><th>Lecture</th><th>Lab</th><th>Lab solution</th><th>CA</th></tr>
+		
+		<tr><th>09/11/2019</th><th>11/11/2019</th><th>8</th>
+		    <td class="lec">
+			<a href="res/files/lectures/00DA_Introduction/DA_Introduction.pdf">Introductory notes</a>
+			<a href="da_types.html">Types of Data Analysis</a>
+			<a href="res/files/lectures/01DA_DataPreparationAndDescription/DA_DataPreparationAndDescription.pdf">Data Preparation and Description</a>	
+			
+		    </td>
+		    <td class="lab">
+			<a href="lab_datacamp.html">DataCamp Lessons</a>
+		    </td>
+		    <td class="sol"></td>
+		    <td class="ca">
+		    </td>
+		</tr>
 
-	    </section>
+		<tr><th>16/11/2020</th><th>18/11/2020</th><th>9</th>
+		    <td class="lec"></td>
+		    <td class="lab"></td>
+		    <td class="sol"></td>
+		    <td class="ca"></td>
+		</tr>
 
-	    <figure class="four mid">
-		<img src="res/images/data_cycle_and_types_of_analysis.png">
-	    </figure>
-	    
-	    <section class="refs">
-		<h2>References</h2>
-		<ol>
-		    <li><em>The Workflow of Data Analytics</em> <a href="https://www.cuelogic.com/blog/the-workflow-of-data-analytics/">[https://www.cuelogic.com/blog/the-workflow-of-data-analytics/]</a></li>		
-		</ol>
-		<br/><br/>
-	    </section>
+		<tr><th>23/11/2020</th><th>25/11/2020</th><th>10</th>
+		    <td class="lec"></td>
+		    <td class="lab"></td>
+		    <td class="sol"></td>
+		    <td class="ca">
+			<strong class="maroon">CA2 GIVEN OUT</strong>			
+		    </td>
+		</tr>
 
+		<tr><th>30/11/2020</th><th>02/12/2020</th><th>11</th>
+		    <td class="lec"></td>
+		    <td class="lab"></td>
+		    <td class="sol"></td>
+		    <td class="ca">
+			<strong class="maroon">CA1[20%]: In-class in Jupyter Notebooks with Python, 75mins</strong>
+		    </td>
+		</tr>
+
+		<tr><th>07/12/2020</th><th>09/12/2020</th><th>12</th>
+		    <td class="lec"></td>
+		    <td class="lab"></td>
+		    <td class="sol"></td>
+		    <td class="ca"></td>
+		</tr>
+
+		<tr><th>14/12/2020</th><th>16/12/2020</th><th>13</th>
+		    <td class="lec"></td>
+		    <td class="lab"></td>
+		    <td class="sol"></td>
+		    <td class="ca">
+			<strong class="maroon">CA2[30%]: Homework assignment in Jupyter Notebooks with Python, deadline 21/12/20</strong>			
+		    </td>
+		</tr>		
+	    </table>
 	</div>
     </body>
 </html>
+
 
 
