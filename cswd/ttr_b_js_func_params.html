@@ -58,7 +58,7 @@ alert("My alert message");
 alert(100000);</pre>
 			</figure>
 
-			<p>Consider the method <span class="fw">console.log()</span>. This method knows how to find the console and print something on it. It doesn't know in advance what needs to be printed, so its definition includes a <strong>parameter</strong>, stating that the method needs a value to be given to it when it is called. A parameter is essentially a variable, for which the value is provided by the caller of the function or method.</p>
+			<p>Consider the method <span class="fw">console.log()</span>. This method knows how to find the console and print something on it. It doesn't know in advance what needs to be printed, so its definition includes a <strong>parameter</strong>, stating that the method needs a value to be given to it when it is called. A parameter is essentially a variable, for which the value is provided by the caller of the function or method. The rules for naming parameters are the same as for any Javascript identifier. They are listed <a href="ttr_u_js_identifiers.html">here</a>.</p>
 			<p>The value provided for the parameter when the function is called, is named an <strong>argument</strong>. Another way to to say that the value is provided is 'the argument is passed in' to the function or method. In the case of <span class="fw">console.log</span>, once the method receives the argument, it knows what to print to the console: it prints the argument (which can be a string, a number or anything else).</p>
 			<p>Parameters are specified in the parameter list (in brackets after the function name) and arguments are specified in the argument list (also brackets after the function name). Despite looking the same, the two lists are quite different: one is a list of variables, the other a list of values for those variables.</p>
 			<p>The <span class="fw">alert</span> method pops up a dialogue window with some text in it. It also does not know in advance what the message should be and its definition includes a parameter i.e. specifies that an argument can be passed into the method when it is called. The argument is displayed by the method in the dialogue window.</p>
@@ -77,15 +77,12 @@ alert(100000);</pre>
                         <h2>Why use parameters?</h2>
 
 			<ul>
+			    <li>For the purpose of reusing functionality with different data (the parameter(s) contain the data)</li>
+			    <li>For the purpose of reusing functionality in slightly different contexts (the parameter(s) define the context)</li>
 			    <li>Because functions and methods most often work with data that is unknown at the time when the function is being defined
 				<ul>
 				    <li>The parameter is a placeholder for the unknown data</li>
 				    <li>Several parameters represent several pieces of unknown data</li>
-				</ul>
-			    </li>
-			    <li>For the purpose of reusing functionality in slightly different contexts
-				<ul>
-				    <li>The parameter(s) define the context</li>
 				</ul>
 			    </li>
 			</ul>

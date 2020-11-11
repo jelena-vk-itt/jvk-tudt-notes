@@ -1,4 +1,4 @@
-function toUpperAndDisplayN(number) {
+function toUpperAndDisplay(number) {
 
     let inputId = // add code here to create the input id using the number parameter
     let outputId = // add code here to create the output id using the number parameter
