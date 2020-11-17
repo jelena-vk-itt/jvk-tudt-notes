@@ -36,3 +36,7 @@ function get_parent_content_width(element) {
     }
     return cmParentWidthInPx;
 }
+
+function toggle_hide(id) {
+    document.getElementById(id).hidden = !document.getElementById(id).hidden;
+}
