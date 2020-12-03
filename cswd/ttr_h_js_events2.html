@@ -37,7 +37,7 @@
 	    
 	    <h1>Javascript Event Handlers - Dynamic Setup from Code</h1>
 
-	    <p><a href="res/files/tutfiles/eh2.zip">Exercise file bundle download</a></p>
+	    <p><a href="res/files/tutfiles/eh2.zip">Download exercise file bundle</a></p>
 	    
 	    <ol class="toc_grp">
 		<p>So far we have learnt one method for setting up event handlers - with an event handler property on the HTML element (for example <span class="fw">onclick</span>). Another way to set up an event handler is programmatically from Javascript code. This method of setting up handlers is the topic of this tutorial.</p>
@@ -131,9 +131,9 @@ document.getElementById("chgbdycol").removeEventListener("click", changeBodyColo
 
 	        <!--------------------------------------------------------------------->            
                 <li id="ARTCLID000059">
-                    <p>Adding a handler with parameters</p>
+                    <p>Adding a handler with a parameter</p>
                     <article style="display:none">
-                        <h2>Adding a handler with parameters</h2>
+                        <h2>Adding a handler with a parameter</h2>
 			<p>The second argument that needs to be passed into the <span class="fw">addEventListener()</span> method is a handler function with no parameters. In the examples above we needed to set the function <span class="fw">changeBodyColour</span> as handler and it met this requirement. To add a function with parameters, we need to wrap it in a function without parameters.</p>
 			<ul>
 			    <li>We add yet another button to our HTML file: 'Make background red', with id 'makered'.</li>
@@ -147,9 +147,44 @@ document.getElementById("makered").addEventListener("click", function() { change
 			</ul>
                     </article>
                 </li>
-	    </ol>	    
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000060">
+                    <p>Adding an array of handlers</p>
+                    <article style="display:none">
+                        <h2>Adding an array of handlers</h2>
+
+			<ul>
+			    <li>
+				<p>Insert the following html snippet into the HTML file, below the last button:</p>
+				<pre class="box">
+&lt;hr>
+&lt;button class="gb">
+    &lt;h4>One&lt;/h4>
+&lt;/button>
+
+&lt;button class="gb">
+    &lt;h4>Two&lt;/h4>
+&lt;/button>
+
+&lt;button class="gb">
+    &lt;h4>Three&lt;/h4>
+&lt;/button>
+
+&lt;p>&lt;/p></pre></li>
+			    <li>We want to write some code so that when the first button is clicked the text "I am button number 1 and my name is One" appears in the paragraph element. Analogous text should appear when the other two buttons are clicked.</li>
+			    <li>The behaviour is practically the same for the three buttons, which means we can use one function.</li>
+			    <li>As the text varies from button to button, we know that the function has to have a parameter.</li>
+			    <li>The code should iterate through the buttons to set the same handler but with a different number as parameter.</li>
+			</ul>
+		    </article>
+                </li>
+	    </ol>
+	    <p><a href="res/files/tutfiles/eh2C.zip">Download completed exercises</a></p>
+
 	</div>
 
+	
 	
 	<script src="../common/res/scripts/main.js"></script>
 	<script src="../common/res/scripts/common.js"></script>
