@@ -357,9 +357,7 @@ function draw_cascade(element) {
 
     ctx.fillStyle = "gold";
     ctx.strokeStyle = "gold";
-    specBox2Width = specialBoxWidth * 0.7; // arbitrary
-    specBox2Height = specialBoxHeight - 2 * nestedPadding - fontSize - boxHeight - verticalSpace;
-    ctx.strokeRect(xNested, yNested, specBox2Width, specBox2Height);
+    ctx.strokeRect(xNested, yNested, specialBoxWidth - 2 * nestedPadding, specialBoxHeight - 2 * nestedPadding - fontSize);
     ctx.fillText("Specificity", xNested + 0.2 * fontSize, yNested + fontSize);
     xNested += nestedPadding;
     yNested += nestedPadding + fontSize;
@@ -367,11 +365,12 @@ function draw_cascade(element) {
     /* nested cascade for normal author declarations */
     ctx.fillStyle = "cyan";
     ctx.strokeStyle = "cyan";
-    var nestedBoxLabels = [ "External styles", "Internal styles"];
-    var numNestedBoxes = 2;
-    var nestedBoxWidth = specialBoxWidth * 0.4; /* arbitrary */
+    var nestedBoxLabels = [ "External styles", "Internal styles", "Inline styles" ];
+    var numNestedBoxes = 3; /* arbitrary */
+    var nestedBoxWidth = specialBoxWidth / 3; /* arbitrary */
     var nestedBoxHeight = boxHeight;
-    var nestedLevelWidth = (specBox2Width - 2 * nestedPadding - nestedBoxWidth) / (numNestedBoxes - 1);
+    var widthForDrawing = specialBoxWidth - 4 * nestedPadding;
+    var nestedLevelWidth = (widthForDrawing - nestedBoxWidth) / (numNestedBoxes - 1);
     for (i = 0; i < numNestedBoxes; ++i) {
 	ctx.strokeRect(xNested, yNested, nestedBoxWidth, nestedBoxHeight);
 	ctx.fillText(nestedBoxLabels[i], xNested + 0.2 * fontSize, yNested + fontSize);
@@ -381,11 +380,6 @@ function draw_cascade(element) {
 	    yNested += nestedBoxHeight + verticalSpace;
 	}
     }
-    draw_drop_line(ctx, xNested, yNested, nestedBoxWidth, nestedBoxHeight, nestedLevelWidth * 2, verticalSpace + nestedPadding);
-    xNested += specialBoxWidth - 3 * nestedPadding - nestedLevelWidth - nestedBoxWidth;
-    yNested += nestedBoxHeight + verticalSpace + nestedPadding;
-    ctx.strokeRect(xNested, yNested, nestedBoxWidth, nestedBoxHeight);
-    ctx.fillText("Inline styles", xNested + 0.2 * fontSize, yNested + fontSize);
 }
 
 
