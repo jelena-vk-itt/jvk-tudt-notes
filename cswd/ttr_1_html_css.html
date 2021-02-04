@@ -30,75 +30,51 @@
 	</nav>
 
 	<div id="content">
-	    <h1>HTML and CSS Topicss</h1>
+	    <h1>HTML and CSS Topics</h1>
 
 	    <ol class="toc_grp">
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000005">
-                    <p>Various tips</p>
-                    <article>
-                        <h2>Various tips</h2>
-			<ol class="toc_grp">	    
-			    <!--------------------------------------------------------------------->            
-			    <li id="ARTCLID000002">
-				<p>Elements with more than one class</p>
-				<article>
-				    <h2>Elements with more than one class</h2>
-				    More than one class can be specified for an element, e.g.: <pre class="my1">
+		<!--------------------------------------------------------------------->            
+		<li id="ARTCLID000002">
+		    <p>Elements with more than one class</p>
+		    <article>
+			<h2>Elements with more than one class</h2>
+			More than one class can be specified for an element, e.g.: <pre class="my1">
 &lt;h1 class="spaced red">My title&lt;/h1></pre>
-				    <details class="example"><summary></summary>
-					<p>The following <span class="fw">style</span> and <span class="fw">h1</span> elements in an HTML document:</p>
-					<div class="code-listing">
-					    <span class="fw">...</span><br/>
-					    <span class="fw">.spaced { letter-spacing: 1em; }</span><br/>
-					    <span class="fw">.red { color: red; }</span><br/>
-					    <span class="fw">...</span><br/>
-					    <span class="fw">&lt;h1 class="spaced red">My title&lt;/h1></span><br/>
-					    <span class="fw">...</span><br/>
-					</div>
-					<p>will be rendered as follows:</p>
-					<div id="ex1" class="box">
-					    <style>
-					     #ex1 .spaced { letter-spacing: 1em; }
-					     #ex1 .red { color: red; }
-					    </style>
-					    <h1 class="spaced red">My title</h1>
-					</div>
-				    </details>
-				</article>
-			    </li>
+			<details class="example"><summary></summary>
+			    <p>The following <span class="fw">style</span> and <span class="fw">h1</span> elements in an HTML document:</p>
+			    <div class="code-listing">
+				<span class="fw">...</span><br/>
+				<span class="fw">.spaced { letter-spacing: 1em; }</span><br/>
+				<span class="fw">.red { color: red; }</span><br/>
+				<span class="fw">...</span><br/>
+				<span class="fw">&lt;h1 class="spaced red">My title&lt;/h1></span><br/>
+				<span class="fw">...</span><br/>
+			    </div>
+			    <p>will be rendered as follows:</p>
+			    <div id="ex1" class="box">
+				<style>
+				 #ex1 .spaced { letter-spacing: 1em; }
+				 #ex1 .red { color: red; }
+				</style>
+				<h1 class="spaced red">My title</h1>
+			    </div>
+			</details>
+		    </article>
+		</li>
 
-			    
-			    <!--------------------------------------------------------------------->            
-			    <li id="ARTCLID000003">
-				<p>Centering content</p>
-				<article>
-				    <h2>Centering content</h2>
-				    <p>Often it is easiest to <strong>center</strong> content by using the CSS declaration <span class="fw">margin: auto;</span></p>
-				</article>
-			    </li>
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000062">
+                    <p>Box model and sizing</p>
+                    <article style="display:none">
+                        <h2>Box model and sizing</h2>
 
-			    
-			    <!--------------------------------------------------------------------->            
-			    <li id="ARTCLID000004">
-				<p>Shortcut for specifying border properties</p>
-				<article>
-				    <h2>Shortcut for specifying border properties</h2>
-				    <p>Border settings can be specified using the shortcut CSS property <span class="fw">border</span>. So instead of:</p><pre class="code-listing">
-border-width: 5px;
-border-style: solid;
-border-color: black;</pre>
-				    we can use a single CSS declaration:<pre class="code-listing">
-border: 5px solid black;</pre>
-				</article>
-			    </li>
-
-			    
+			<ol class="toc_grp">
 			    <!--------------------------------------------------------------------->            
 			    <li id="ARTCLID000006">
-				<p>Padding and margins</p>
+				<p>Box model</p>
 				<article>
-				    <h2>Margin and padding</h2>
+				    <h2>Box model</h2>
 				    <p>Creating space around elements and content is an important aspect of HTML page layout. For this we use <strong>margins</strong> and <strong>padding</strong>.</p>
 				    <p>The picture shows the parts of the HTML element box model:</p>
 				    <ul>
@@ -111,9 +87,10 @@ border: 5px solid black;</pre>
 					<img src="res/images/box_model.jpg">
 				    </figure>
 
+				    <h3>Specifying margins and padding</h3>
 				    <p>Margins and padding can both be specified separately for each side of the element:</p>
 				    <figure id="html-css-pandm" class="my1">
-<figcaption>Examples of CSS declarations that specify margins and padding for individual sides of an element</figcaption><pre class="code-listing">
+					<figcaption>Examples of CSS declarations that specify margins and padding for individual sides of an element</figcaption><pre class="code-listing">
 margin-top: 1em;
 margin-right: 0;
 margin-bottom: 1px;
@@ -121,8 +98,10 @@ margin-left: 0.2em;
 padding-top: 1em;
 padding-right: 0.5em;
 padding-bottom: 1em;
-padding-left: 0.5em;</pre>
+padding-left: 0.5em;	</pre>
 				    </figure>
+				    
+				    <h3>Margin and padding shortcuts</h3>
 				    <p>A number of shortcut declarations also exist, taking the following syntax:</p>
 				    <p>
 					<span class="fw">margin: &lt;top value> &lt;right value> &lt;bottom value> &lt;left value>;</span><br/>
@@ -143,22 +122,247 @@ padding: 1em 2em 1em 2em;
 padding: 1em 2em; // same effect as above
 padding: 1em;					</pre>
 				    </figure>
-				    
+
+
+				    <h3>Specifying borders</h3>
+				    <p>The three border properties, <strong>width</strong>, <strong>style</strong> and <strong>color</strong>, can each be specified separately for the different sides of the box.</p>
+				    <figure class="my1">
+					<figcaption>Examples of CSS rules for border properties and a box with these styles applied</figcaption><pre class="code-listing fl">
+border-top-width: 6px;
+border-top-style: dotted;
+border-top-color: black;
+border-right-width: 8px;
+border-right-style: dashed;
+border-right-color: blue;
+border-bottom-width: 4px;
+border-bottom-style: solid;
+border-bottom-color: yellow;
+border-left-width: 50px;
+border-left-style: none;
+border-left-color: black;
+					</pre>
+
+					<style>
+					    #borders-demo-box1 {
+					    min-width: 20rem;
+					    line-height: 15rem;
+					    text-align: center;
+					    margin-left: 3rem;
+					    background-color: grey;
+					    border-top-width: 6px;
+					    border-top-style: dotted;
+					    border-top-color: black;
+					    border-right-width: 8px;
+					    border-right-style: dashed;
+					    border-right-color: blue;
+					    border-bottom-width: 4px;
+					    border-bottom-style: solid;
+					    border-bottom-color: yellow;
+					    border-left-width: 50px;
+					    border-left-style: none;
+					    border-left-color: black;
+					    }
+					</style>
+					<p class="fl" id="borders-demo-box1">A box with interesting borders</p>
+				    </figure>
+
+				    <h3>Border shortcuts</h3>
+				    <ul>
+					<li>
+					    <p>The three border properties, <strong>width</strong>, <strong>style</strong> and <strong>color</strong>, can be specified together using the CSS shortcut properties <strong>border-*</strong>, where the asterisk stands for <strong>top</strong>, <strong>right</strong>, <strong>bottom</strong> or <strong>left</strong>.</p>
+					    <figure class="my1">
+						<figcaption>Using shortcuts to specify all border properties together (same values as in the previous example)</figcaption><pre class="code-listing fl">
+border-top: 6px dotted black;
+border-right: 8px dashed blue;
+border-bottom: 4px solid yellow;
+border-left: 50px none black;		</pre>
+						
+						<style>
+						 #borders-demo-box2 {
+						     min-width: 20rem;
+						     line-height: 5rem;
+						     text-align: center;
+						     margin-left: 3rem;
+						     background-color: grey;
+						     border-top: 6px dotted black;
+						     border-right: 8px dashed blue;
+						     border-bottom: 4px solid yellow;
+						     border-left: 50px none black;		</pre>
+						 }
+						</style>
+						<p class="fl" id="borders-demo-box2">A box with interesting borders</p>
+					    </figure>
+					</li>
+					<li>
+					    <p>Border properties can be specified for all four border sides at once, using the CSS shortcut properties <strong>border-*</strong>, where the asterisk stands for <strong>width</strong>, <strong>style</strong> or <strong>color</strong>.</p>
+					    <figure class="my1">
+						<figcaption>Using shortcuts to specify properties for all sides at once</figcaption><pre class="code-listing fl">
+border-width: 8px;
+border-style: dotted;
+border-color: green; </pre>
+
+						<style>
+						 #borders-demo-box3 {
+						     min-width: 20rem;
+						     line-height: 5rem;
+						     text-align: center;
+						     margin-left: 3rem;
+						     background-color: grey;
+						     border-width: 8px;
+						     border-style: dotted;
+						     border-color: green;</pre>
+						 }
+						</style>
+						<p class="fl" id="borders-demo-box3">A box with interesting borders</p>
+					    </figure>
+					</li>
+
+					<li>
+					    <p>The CSS shortcut property <strong>border</strong> can be used to specify all border properties for all sides of the border in one rule.</p>
+					    <figure class="my1">
+						<figcaption>Using a shortcut to specify all border properties for all sides (same values as in the previous example)</figcaption><pre class="code-listing fl">
+border: 8px dotted green; </pre>
+
+						<style>
+						 #borders-demo-box4 {
+						     min-width: 20rem;
+						     line-height: 2rem;
+						     text-align: center;
+						     margin-left: 3rem;
+						     background-color: grey;
+						     border: 8px dotted green;</pre>
+						 }
+						</style>
+						<p class="fl" id="borders-demo-box4">A box with interesting borders</p>
+					    </figure>
+					</li>
+				    </ul>
+
+					
 				</article>
 			    </li>
+			    <!--------------------------------------------------------------------->            
+			    <li id="ARTCLID000061">
+				<p>Box sizing</p>
+				<article style="display:none">
+				    <style>
+				     .parent { height:5em; width:5em; border: 10px solid yellow; }
+				     .child { width:100%; border: 10px solid blue; }
+				    </style>
+				    
+				    <h2>Box sizing</h2>
 
+				    <p>Dimensions of an element can be specified either so that they exclude padding and border width or so that they include them (the default). The CSS property used for this is <span class="fw">box-sizing</span>.</p>
+				    <div class="fl">
+					<p class="underline">Code</p>
+					<pre class="code-listing">
+
+&lt;style>
+.parent { height:5em; width:5em; border: 10px solid yellow; }
+.child { width:100%; border: 10px solid blue; }
+&lt;/style>
+
+&lt;div class="parent" style="box-sizing:content-box;">
+    Parent
+    &lt;div class="child" style="box-sizing:content-box;">
+        Child
+    &lt;/div>
+&lt;/div>
+
+&lt;div class="parent" style="box-sizing:content-box;">
+    Parent
+    &lt;div class="child" style="box-sizing:border-box;">
+        Child
+    &lt;/div>
+&lt;/div>
+
+&lt;div class="parent" style="box-sizing:border-box;">
+    Parent
+    &lt;div class="child" style="box-sizing:content-box;">
+        Child
+    &lt;/div>
+&lt;/div>
+
+&lt;div class="parent" style="box-sizing:border-box;">
+    Parent
+    &lt;div class="child" style="box-sizing:border-box;">
+        Child
+    &lt;/div>
+&lt;/div>				</pre>					    
+				    </div>
+
+				    
+				    <div class="fr">
+					<p class="underline">Rendering</p>
+					
+					<br/><br/><br/><br/><br/><br/>
+					<div class="parent" style="box-sizing:content-box;">
+					    Parent
+					    <div class="child" style="box-sizing:content-box;">
+						Child
+					    </div>
+					</div>
+					<br/><br/>
+					<div class="parent" style="box-sizing:content-box;">
+					    Parent
+					    <div class="child" style="box-sizing:border-box;">
+						Child
+					    </div>
+					</div>
+					<br/><br/>
+					<div class="parent" style="box-sizing:border-box;">
+					    Parent
+					    <div class="child" style="box-sizing:content-box;">
+						Child
+					    </div>
+					</div>
+					<br/><br/>
+					<div class="parent" style="box-sizing:border-box;">
+					    Parent
+					    <div class="child" style="box-sizing:border-box;">
+						Child
+					    </div>
+					</div>
+				    </div>
+				</article>
+			    </li>
 			</ol>
                     </article>
-                </li>
+		</li>
 
 
 
 	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000007">
-                    <p>HTML Tables</p>
-                    <article>
-                        <h2>HTML Tables</h2>
+                <li id="ARTCLID000063">
+                    <p>CSS for layout</p>
+                    <article style="display:none">
+                        <h2>CSS for layout</h2>
 
+			<p>CSS contans several constructs that are specifically designed for visually laying out content.</p>
+
+			<h3>Floats</h3>
+			<p> The CSS property <span class="fw">float</span> places an element to the left or the right of its parent element and allows any content that follows to wrap around it. The CSS rules used to specify that an element should 'float' are:</p><pre class="code-listing">
+float: left;
+float: right; </pre>
+			<h3>Flexbox</h3>
+			<p>Flexbox is a construct that styles a container and any number of elements inside it. The contained elements are treated as a one-dimensional array, which can be wrapped over multiple rows or columns if needed.</p>
+			<p>To specify an element as a flexbox container, specify the following CSS rule for it:</p><pre class="code-listing">
+display: flex; </pre>
+			<p>The flexbox is styled further using various rules applicable either to the container or the contained elements. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><strong class="maroon">This article</strong></a> provides detailed information on all the rules.</p>
+
+			    <h3>Grid</h3>
+			    <p>Grid is a newer construct that allows two-dimensional positioning of child elements in a container element. We do not cover the grid layout system in this module but you can read more about it <a href="https://css-tricks.com/snippets/css/complete-guide-grid/"><strong class="maroon">here</strong></a>.</p>
+			
+                    </article>
+                </li>
+		
+		
+		<!--------------------------------------------------------------------->            
+		<li id="ARTCLID000007">
+		    <p>HTML tables</p>
+		    <article>
+			<h2>HTML tables</h2>
+			<p>The HTML table is an element type for presenting data. Tables should not be used for layout.</p>
 			<p>HTML tables are built using the following main elements:</p>
 			<ul>
 			    <li><span class="fw">table</span> - the top-level table element</li>
@@ -210,7 +414,7 @@ padding: 1em;					</pre>
 			    </figure>
 			</details>			
 
-
+			<br/>
 			<details class="example"><summary><strong>A CSS-styled 3x3 HTML table</strong></summary>		    
 			    <figure id="html-css-table" class="">
 				<figcaption>A CSS-styled 3x3 HTML table: HTML code and rendered</figcaption>
@@ -271,6 +475,46 @@ padding: 1em;					</pre>
 
 
 		    </article>
+		</li>
+
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000064">
+                    <p>Media queries</p>
+                    <article style="display:none">
+                        <h2>Media queries</h2>
+			<p>Media queries are a way of specifying media types and features (a full list can be found <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries"><strong class="maroon">here</strong></a>) in any combination. They are used to control conditional application of CSS rulesets in two different ways.</p>
+			<ol>
+			    <li>The media query is specified as the value of a <strong>media</strong> attribute on an HTML element such as <strong>style</strong> or <strong>link</strong>. The CSS content associated with the element is then applied to the HTML page only if the media type and features of the client parsing the page match those contained in the media query.
+				<figure>
+				    <figcaption>Example of using the <strong>media</strong> attribute: <br/>
+					<ul>
+					    <li>media query: <strong>speech</strong></li>
+					    <li>effect: the CSS in print.css is applied only if the client is a reader device</li>
+					</ul>
+				    </figcaption><pre class="code-listing">
+&lt;link rel="stylesheet" type="text/css" href="reader.css" media="speech">  </pre>
+				</figure>
+			    </li>
+			    <li>The media query is specified as part of a <strong>@media</strong> construct. In this case the CSS content in the body of the construct is applied to the HTML page only if the media type and features of the client parsing the page match those contained in the media query.
+				<figure>
+				    <figcaption>Example using <strong>@media</strong>: <br/>
+					<ul>
+					    <li>media query: <strong>screen and (max-width: 150px)</strong></li>
+					    <li>effect: the CSS in curly brackets is applied only if the client screen is equal to or narrower than 150px</li>
+					</ul>
+				    </figcaption><pre class="code-listing">
+@media screen and (max-width: 150px) {
+    .panel {
+        width: 100%;
+        background-color: gray;
+    }
+} </pre>
+				</figure>
+			    </li>
+			</ol>
+                    </article>
                 </li>
 
 	    </ol>

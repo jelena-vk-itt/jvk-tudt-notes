@@ -31,17 +31,11 @@
 	<div id="content">
 
 	    <h1>Uploading Lab Work to your CSWD git Repository</h1>
-
-	    <p>At this stage you should have:</p>
-	    <ul>
-		<li>created your CSWD git repository</li>
-		<li>uploaded a first lab (HTML and CSS Revision 1) using the <strong>Add file</strong> button in your repository</li>
-		<li>completed the second lab (HTML and CSS Revision 2)</li>
-	    </ul>
-	    <p>This document contains instructions on how to upload lab work using git commands. This is the upload method you should use for lab 'HTML and CSS Revision 2' and all subsequent labs.</p>
+	    
+	    <p>This document contains instructions on how to upload lab work using git commands.</p>
 	    
 	    <p><strong>Note:</strong> Angular brackets with text between them are placeholders, to be replaced in commands by your own particular information. For example, if in a command you saw <span class="fw">&lt;your name></span>, you would not type literally what you see but replace the entire bracket and what is inside it with your actual name e.g. <span class="fw">Joe Bloggs</span> (<span class="fw">&lt;your name></span> turns into <span class="fw">Joe Bloggs</span>).</p>
-
+	    
 	    <ol class="toc_grp newline">
 		<li id="cswd-ugit-01">
 		    <p>Installing git</p>
@@ -69,12 +63,12 @@
 			    </li>
 			    <li>Next, you need to create a copy of your repository on the computer. You do this by <em>cloning</em> the repository with the following command:
 				    <dl>
-					<dt><span class="fw">git clone &lt;repository URL></span></dt><dd>clones a repository to your computer file system (a <strong>repository working directory</strong> is created in the directory where the command was executed); the directory name is of the form <span class="fw">lab-work-joe-bloggs</span></dd>
+					<dt><span class="fw">git clone &lt;repository URL></span></dt><dd>clones a repository to your computer file system (a <strong>repository working directory</strong> is created in the directory where the command was executed); the directory name is of the form <span class="fw">cswd-labs-joe-bloggs</span></dd>
 				    </dl>
 			    </li>
-			    <li>Now unzip file HtmlAndCssRevision2.zip into the repository working directory.</li>
+			    <li>Now unzip file HTMLAndCSS.zip into the repository working directory.</li>
 			    
-			    <li>To <strong>commit</strong> your changes (i.e. adding the files from HtmlAndCssRevision2.zip) to the repository locally, use the following two commands, while in the repository working directory as the current directory:
+			    <li>To <strong>commit</strong> your changes (i.e. adding the files from HTMLAndCSS.zip) to the repository locally, use the following two commands, while in the repository working directory as the current directory:
 				<dl>
 				    <dt><span class="fw">git add .</span></dt><dd>moves any modified files or files new to the repository into the 'staged' state</dd>
 				    <dt><span class="fw">git commit -m "&lt;some comment describing the changes>"</span></dt><dd>commits the staged files, but does not push them to the online repository</dd>
