@@ -204,6 +204,8 @@ details.ice > summary::before { font-weight: bold; font-size: 1.2em; content: "I
 .pl8 { padding-left: 8em; }
 .pl10 { padding-left: 10em; }
 
+.l1q {line-height: 1.25; }
+.l1h {line-height: 1.5; }
 
 /* text sizes */
 .texts { font-size: small; }
