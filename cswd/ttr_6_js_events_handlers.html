@@ -71,92 +71,86 @@
 			    <p>followed by <strong>Enter</strong>. What has changed and why do you think that is?</p>
 			</div>
 
-			<h4>Main concepts</h4>
+			<h2>Document Object Model (DOM)</h2>
+			<p>Whenever an HTML page is loaded in the browser, its DOM equivalent is also created. The <span class="underline">DOM</span></p>
 			<ul>
-			    <li>The <strong>Document Object Model (DOM)</strong>
-				<ul>
-				    <li>replicates the loaded page in the form of a hierarchy of objects (see the rounded hierarchy of objects in the picture)</li>
-				    <li>is built based on the elements of the page: there is an object for every HTML element in the page (red arrows in the picture)</li>
-				    <li>allows easy programmatic manipulation of the page: if something changes in the DOM, it changes in the rendered page (red arrows in the picture)</li>
-				    <li>it is Javascript code that is used for this programmatic manipulation i.e. acting on the DOM objects</li>
-				</ul>
+			    <li>replicates the loaded page in the form of a hierarchy of objects (see the rounded hierarchy of objects in the picture)</li>
+			    <li>is built based on the elements of the page: there is an object for every HTML element in the page (red arrows in the picture)</li>
+			    <li>allows easy programmatic (with Javascript) manipulation of the page: if something changes in the DOM, it changes in the rendered page (red arrows in the picture)</li>
+			</ul>
+			
+			<div class="box"><p><strong>ACTION:</strong> Open the console with the <em>Wallpaper</em> page open, then</p>
+			    <ul>
+				<li>type in <span class="fw">document</span> and press <strong>Enter</strong>; this evaluates to the object corresponding to the whole document (see in picture)</li>
 				
-				<div class="box"><p><strong>ACTION:</strong> Open the console with the <em>Wallpaper</em> page open, then</p>
+				<li>explore the object by opening up some of the substructures</li>
+				<li>type in <span class="fw">document.getElementById("pgtt")</span>; this evaluates to the object corresponding to the HTML element with id <em>pgtt</em> in the currently loaded page (in our case this is <em>page.html</em>)</li>
+				<li>explore the object in the console by clicking to expand substructures; try to find the following properties directly on the object:
 				    <ul>
-					<li>type in <span class="fw">document</span> and press <strong>Enter</strong>; this evaluates to the object representing the whole document (see in picture)</li>
-					
-					<li>explore the object by opening up some of the substructures</li>
-					<li>type in <span class="fw">document.getElementById("pgtt")</span>; this evaluates to the object representing the element with id <em>pgtt</em></li>
-					<li>can you find this element in the file <em>page.html</em>?</li>
-					<li>explore the object and try to find the following sub-structures:
-					    <ul>
-						<li>innerHTML: the content of the element (as a string)</li>
-						<li>children: collection of objects representing the child elements</li>
-						<li>style: a sub-object containing information about styles applied to the element</li>
-					    </ul>
-					</li>
-					
-					<li>type in <span class="fw">document.getElementById("pgtt").innerHTML = "Hello :-)"</span>; this sets a new string value for the contents of the element with id <em>pgtt</em>; what has happened in the page?</li>
-					<li>type in <span class="fw">document.getElementById("pgtt").style.fontSize = "xx-small"</span>; this sets a new style on the element with id</li>
+					<li>innerHTML: the content of the element (as a string)</li>
+					<li>children: collection of objects representing the child elements</li>
+					<li>style: a sub-object containing information about styles applied to the element</li>
 				    </ul>
-				</div>
-			    </li>
-
-			    <li>Javascript code runs in the <strong class="underline">Javascript interpreter</strong>, which
+				</li>
+				
+				<li>type in <span class="fw">document.getElementById("pgtt").innerHTML = "Hello :-)"</span>; this sets a new string value for the contents of the element with id <em>pgtt</em>; what has happened in the page?</li>
+				<li>type in <span class="fw">document.getElementById("pgtt").style.fontSize = "xx-small"</span>; this sets a new style on the element with id <em>pgtt</em></li>
+			    </ul>
+			</div>
+		
+			<h2>Javascript interpreter</h2>
+			<p>Javascript code runs in the <span class="underline">Javascript interpreter</span>, which</p>
+			<ul>
+			    <li>resides in the browser (black rectangle in picture)</li>
+			    <li>receives Javascript code for execution in one of three ways
 				<ul>
-				    <li>resides in the browser (black rectangle in picture)</li>
-				    <li>receives Javascript code for execution in one of three ways
-					<ul>
-					    <li>through the console</li>
-					    <li>from <span class="fw">script</span> elements in the loaded HTML page</li>
-					    <li>as a handler for an event (the code is interpreted and executed when an event happens in the browser)</li>
+				    <li>through the console</li>
+				    <li>from <span class="fw">script</span> elements in the loaded HTML page</li>
+				    <li>as a handler for an event (the code is interpreted and executed when an event happens in the browser)</li>
 					</ul>
 					We have used the first two in previous lab work. Today we are focusing on the third, event handlers.
-				    </li>
-				</ul>
 			    </li>
-			    
-			    <li>An <strong class="underline">event</strong> is something that happens in the context of a browser and currently loaded page, for example
-				<ul>
-				    <li>a mouse click</li>
-				    <li>the mouse pointer entering and elements' area on the rendered page</li>
-				    <li>scrolling</li>
-				    <li>the page loading</li>
-				    <li>keystrokes</li>
-				</ul>
-			    </li>
-			    
-			    <li>It is the developer (you!) that specifies code to be executed when an event happens. Making a connection between the event and some Javascript code is called <strong class="underline">setting an event handler</strong>. Event handlers can be set:
-				<ul>
-				    <li>programmatically from within Javascript code (we will be doing this in the next few weeks)</li>
-				    <li>using HTML attributes called <strong>event handler properties</strong>:
-					<ol>
-					    <li>the <strong>event handler property</strong> is identified for the chosen event (see <a href="https://developer.mozilla.org/en-US/docs/Web/Events">here</a> for a comprehensive list of events); event handler property names follow the pattern <span class="fw">"on" + &lt;event name></span>, for example the event handler property for the <span class="fw">click</span> event is <span class="fw">onclick</span></li>
-					    <li>the browser can listen for an event only if it is associated with a particular element (click, on what?), called <strong>the target element</strong>, for example if we want the event to be a click on the button <strong>My Button</strong> then that button is the target element</li>
-					    <li>the event handler property is <strong>added as an attribute</strong> to the target element</li>
-					    <li>the handler code is <strong>added as the attribute's value</strong></li>
-					</ol>
-					<figure class="box seven">
-					    <figcaption>Adding an event handler in HTML</figcaption>
-					    <div class="ml3">event: <span class="fw">click</span><br/>target element: button <strong>My Button</strong><br/>event handling code: <span class="fw">alert('Here's the handler code saying hello!')</span></div><br/>
-					    <img src="res/images/tutorials/event-handler-inline.png">
-					</figure>
-					<div class="box">
-					    <p class="maroon"><strong>Note</strong> that if quotes appear in the handler code, they should be single quotes. If apostrophes or further single quotes appear enclosed within the quotes in the code, they need to be escaped (preceded by a backslash i.e. <span class="fw">\'</span>). If double quotes appear enclosed within the quotes in the code, they need to be html-escaped (<span class="fw">&amp;quot;</span> used instead of <span class="fw">"</span>).</p>
-					    <details class="examples"> <summary>of code with quotes used properly in event handler attributes</summary>
-						<p>Single-quoted text in the code:</p>
-						<span class="fw">&lt;button onclick="alert('Hello')">Click me&lt;/button></span>
-						<p>Try it:</p>
-						<button onclick="alert('Hello')">Click me</button>
-						<p>Single-quoted text in the code containing an apostrophe and double quotes:</p>
-						<span class="fw">&lt;button onclick="alert('&amp;quot;Mum\'s the word&amp;quot;, said my Mum')">Click me&lt;/button></span>
-						<p>Try it:</p>
-						<button onclick="alert('&quot;Mum\'s the word&quot;, said my Mum')">Click me</button>
-					    </details>
-					</div>
-				    </li>
-				</ul>
-
+			</ul>
+		
+			<h2>Events</h2>
+			<p>An <span class="underline">event</span> is something that happens in the context of a browser and currently loaded page, for example</p>
+			<ul>
+			    <li>a mouse click</li>
+			    <li>the mouse pointer entering and elements' area on the rendered page</li>
+			    <li>scrolling</li>
+			    <li>the page loading</li>
+			    <li>keystrokes</li>
+			</ul>
+		
+			<h2>Setting event handlers</h2>    
+			It is the developer (you!) that specifies code to be executed when an event happens. Making a connection between the event and some Javascript code is called <span class="underline">setting an event handler</span>. Event handlers can be set:
+			<ul>
+			    <li>programmatically from within Javascript code (we will be doing this in the next few weeks)</li>
+			    <li>using HTML attributes called <strong>event handler properties</strong>:
+				<ol>
+				    <li>the <strong>event handler property</strong> is identified for the chosen event (see <a href="https://developer.mozilla.org/en-US/docs/Web/Events">here</a> for a comprehensive list of events); event handler property names follow the pattern <span class="fw">"on" + &lt;event name></span>, for example the event handler property for the <span class="fw">click</span> event is <span class="fw">onclick</span></li>
+				    <li>the browser can listen for an event only if it is associated with a particular element (click, on what?), called <strong>the target element</strong>, for example if we want the event to be a click on the button <strong>My Button</strong> then that button is the target element</li>
+				    <li>the event handler property is <strong>added as an attribute</strong> to the target element</li>
+				    <li>the handler code is <strong>added as the attribute's value</strong></li>
+				</ol>
+				<figure class="box seven">
+				    <figcaption>Adding an event handler in HTML</figcaption>
+				    <div class="ml3">event: <span class="fw">click</span><br/>target element: button <strong>My Button</strong><br/>event handling code: <span class="fw">alert('Here's the handler code saying hello!')</span></div><br/>
+				    <img src="res/images/tutorials/event-handler-inline.png">
+				</figure>
+				<div class="box">
+				    <p class="maroon"><strong>Note</strong> that if quotes appear in the handler code, they should be single quotes. If apostrophes or further single quotes appear enclosed within the quotes in the code, they need to be escaped (preceded by a backslash i.e. <span class="fw">\'</span>). If double quotes appear enclosed within the quotes in the code, they need to be html-escaped (<span class="fw">&amp;quot;</span> used instead of <span class="fw">"</span>).</p>
+				    <details class="examples"> <summary>of code with quotes used properly in event handler attributes</summary>
+					<p>Single-quoted text in the code:</p>
+					<span class="fw">&lt;button onclick="alert('Hello')">Click me&lt;/button></span>
+					<p>Try it:</p>
+					<button onclick="alert('Hello')">Click me</button>
+					<p>Single-quoted text in the code containing an apostrophe and double quotes:</p>
+					<span class="fw">&lt;button onclick="alert('&amp;quot;Mum\'s the word&amp;quot;, said my Mum')">Click me&lt;/button></span>
+					<p>Try it:</p>
+					<button onclick="alert('&quot;Mum\'s the word&quot;, said my Mum')">Click me</button>
+				    </details>
+				</div>
 				<div class="box mt1">
 				    <p><strong>ACTION:</strong> With file <em>page.html</em> open in a text editor, find the <span class="fw">button</span> element. Examine it to find the event handler set on it, then answer the following questions.</p>
 				    <ul>
@@ -167,7 +161,8 @@
 					<li>Reload the file in the browser, then open the console in the developer tools and from there call the function by typing in <span class="fw">changePage()</span>. The same changes should happen in the page, as it makes no difference whether the function is called as an event handler or explicitly from the console.</li>
 				    </ul>
 				</div>
-
+				
+				
 				<div class="box mt1">
 				    <p><strong>ACTION:</strong> With file <em>page.html</em> open in a text editor, find the <span class="fw">image</span> element. Then add an event handler to the image element so that when the mouse pointer is brought over the element in the browser (the event for this is <span class="fw">mouseover</span>), an alert pops up.</p>
 				    <span class="question">See answer</span><div class="answer" hidden><pre class="texts">
