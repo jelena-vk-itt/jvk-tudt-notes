@@ -3,18 +3,18 @@
     <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8"/>	
-	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
-	<link rel="stylesheet" type="text/css" href="res/styles/da.css"/>
+	<link rel="shortcut icon" type="image/x-icon" href="../res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="../res/styles/da.css"/>
 	<title>HTML and CSS</title>
     </head>
     <body>
 	<header id="tudheader">
-	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <img src="../../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
 	    <div id="tuddepttext">
 		<p>Tallaght Campus</p>
 		<p>Department of Computing</p>
 	    </div>
-	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
+	    <img id="rightlogo" src="../res/images/logo.png" alt="CSWD Logo">
 	</header>
 	
 	<nav>
@@ -39,7 +39,7 @@
 			<p>Let's have a look at a data set and associated terminology, including the target variable.</p>
 			<figure class="three lft">
 			    <figcaption><strong>Figure:</strong> Dataset components</figcaption>
-			    <img src="res/images/table_general_terms_tgt.png">
+			    <img src="../res/images/table_general_terms_tgt.png">
 			</figure>
 			
 			<h3>The models</h3>
@@ -127,7 +127,7 @@
 			    <p>This example shows how to predict a categorical target variable from categorical attributes. However, by using probability densities of estimated distributions, Na&iuml;ve Bayes can include numeric variables as attributes as well.</p>
 			    <figure class="two lft">
 				<figcaption>Figure: Weather and game data. Source: [DAMA].</figcaption>
-				<img src="res/images/dm_play_data_table.png">
+				<img src="../res/images/dm_play_data_table.png">
 			    </figure>
 			    <p>We want to find out the probability of the game going ahead when the attribute values are <span class="fw">Sunny</span>, <span class="fw">Cool</span>, <span class="fw">High</span> and <span class="fw">True</span>. That combination of values doesn't even appear in the table (with many attributes, the number of instances with the 'right' combination will generally be low and would not form a good basis for direct probability calculatioins).</p>
 			    <p>The trick is to approach this 'from the other side', using Bayes' formula, which says:</p>
@@ -168,7 +168,7 @@ P(Yes) = P(E|Yes)P(Yes) / [P(E|Yes)P(Yes) + P(E|No)P(No)] =
 			<h2>Classification Trees</h2>
 			<figure class="three">
 			    <figcaption>Figure: Classification tree example. Source: [DSB].</figcaption>
-			    <img src="res/images/3-10c_classification_tree.jpg">
+			    <img src="../res/images/3-10c_classification_tree.jpg">
 			</figure>
 			<br/>
 			<ul>
@@ -229,14 +229,14 @@ P(Yes) = P(E|Yes)P(Yes) / [P(E|Yes)P(Yes) + P(E|No)P(No)] =
 			<h2>Linear Classifiers</h2>
 			<figure class="three">
 			    <figcaption>Figure: Linear classifier illustration. Source: [DSB].</figcaption>
-			    <img src="res/images/4-7c.jpg">
+			    <img src="../res/images/4-7c.jpg">
 			</figure>
 			<br/>
 			<ul>
 			    <li>A linear classifier is a model that predicts a categorical target variable from one or more numeric variables.</li>
 			    <li><p>This kind of model is built around a linear function of the numeric attributes used for the prediction:</p>
 				<figure class="three">
-				    <img class="formula" src="res/formulae/linear_function.png"/>
+				    <img class="formula" src="../res/formulae/linear_function.png"/>
 				</figure>
 				<p>where <span class="ob">w<sub>1</sub>, w<sub>2</sub>...</span> are weights (coefficients), <span class="ob">x<sub>1</sub>, x<sub>2</sub>...</span> are the independent numeric variables (attributes) and <span class="ob">n</span> is the number of attributes. The function defines a hyperplane in an <span class="ob">(n+1)</span>-dimensional space. In the case of a single attribute, it is a line in a two-dimensional space.</p>
 			    </li>
@@ -261,7 +261,7 @@ P(Yes) = P(E|Yes)P(Yes) / [P(E|Yes)P(Yes) + P(E|No)P(No)] =
 			    <li>Linear regression is a member of a group of predicitive models defined in statistics, which use mathematical functions to model a dependent variable in terms of independent variables.</li>
 			    <li>In the case of linear regression, the function is linear. It has the same form as the one used with linear classifiers, but in this case the function represents the model of the target, rather than being a class-defining delineator as with the classifiers.<br/><br/>
 				<figure class="three">
-				    <img class="formula" src="res/formulae/linear_function.png"/>
+				    <img class="formula" src="../res/formulae/linear_function.png"/>
 				</figure>
 			    </li>
 			    <li>The function above is for the general case, where any number of independent variables may be used in the model. In the case that there are more than one variable, it is called a <strong>multiple</strong> linear regression model.
@@ -269,15 +269,15 @@ P(Yes) = P(E|Yes)P(Yes) / [P(E|Yes)P(Yes) + P(E|No)P(No)] =
 			    <li>There are also <strong>non-linear regression</strong> models, which use non-linear functions in a similar way that linear regression uses the linear function.</li>
 			    <li>In the case of simple linear regression, the dependent variable is expressed in terms of a single independent variable and the function represents a straight line:
 				<figure class="one">
-				    <img class="formula" src="res/formulae/simple_linear.png"><br/><br/>
+				    <img class="formula" src="../res/formulae/simple_linear.png"><br/><br/>
 				</figure>
 				<p>While with multiple and non-linear regression the calculation of the coefficients is more complicated and in some cases must rely on numerical or computational methods, there is a straightforward formula for calculating the line coefficients for simple linear regression. The formula minimises the sum of square distances of actual dependent values and predicted values (on the line).</p>
 				<div class="fbc-m">
 				    <figure class="onenh fl">
-					<img class="formula6" src="res/formulae/simple_linear_slope.png">
+					<img class="formula6" src="../res/formulae/simple_linear_slope.png">
 				    </figure>
 				    <figure class="one fl ml4 mt5">
-					<img class="formula" src="res/formulae/simple_linear_shift.png">
+					<img class="formula" src="../res/formulae/simple_linear_shift.png">
 				    </figure>
 				</div>
 			    </li>
@@ -292,7 +292,7 @@ P(Yes) = P(E|Yes)P(Yes) / [P(E|Yes)P(Yes) + P(E|No)P(No)] =
 			<h2>K Nearest Neighbours (KNN)</h2>
 			<figure class="three">
 			    <figcaption>Figure: Example of K-Nearest Neighbours. Source: [MSD].</figcaption>
-			    <img src="res/images/msd6-13_k_nearest_neighbours.png"/>
+			    <img src="../res/images/msd6-13_k_nearest_neighbours.png"/>
 			</figure>
 			<br/>
 			<ul>
@@ -490,7 +490,7 @@ P(Yes) = P(E|Yes)P(Yes) / [P(E|Yes)P(Yes) + P(E|No)P(No)] =
 			<h3>Regression model evaluation</h3>
 			<p>Regression models are most often evaluated using the root mean square error (RMSE), which is a measure of how distant on average are the predicted values from the real values.</p>
 			<figure class="twonh">
-			    <img class="formula3" src="res/formulae/RMSE.png"/>
+			    <img class="formula3" src="../res/formulae/RMSE.png"/>
 			</figure>
 			
 		    </article>
@@ -502,9 +502,9 @@ P(Yes) = P(E|Yes)P(Yes) / [P(E|Yes)P(Yes) + P(E|No)P(No)] =
 			<h2>Model Overfitting</h2>
 			<figure class="three">
 			    <figcaption>Figure: Fitting graph example. Source: [DSB].</figcaption>
-			    <img src="res/images/5-1c_overfitting.jpg"/>
+			    <img src="../res/images/5-1c_overfitting.jpg"/>
 			    <br/><br/><figcaption>Figure: Another fitting graph example. Source: [DSB].</figcaption>
-			    <img src="res/images/5-3c_tree_overfitting.jpg"/>
+			    <img src="../res/images/5-3c_tree_overfitting.jpg"/>
 			</figure>
 			<br/>
 			<ul>
@@ -536,7 +536,7 @@ P(Yes) = P(E|Yes)P(Yes) / [P(E|Yes)P(Yes) + P(E|No)P(No)] =
 	</li>
 	    </ol>
 	    
-	    <script src="../common/res/scripts/main.js"></script>
+	    <script src="../../common/res/scripts/main.js"></script>
 	    <script>
 	     init_all();
 	    </script>
