@@ -238,8 +238,8 @@ for (let i = 0; i < text.length; ++i) {
 			<!-- ------------------------------------------------------------------ -->
 			<h3 class="mt3">For/of loop examples</h3>
 			<ol>
-			    <li><p>Revisit for loop example 4, implementing the iteration through the characters of the word with a for/of loop.<button type="button" onclick="toggle_hide('exC')">Click to reveal/hide solution</button></p>
-				<pre id="exC" class="code-listing" hidden>
+			    <li><p>Revisit for loop example 4, implementing the iteration through the characters of the word with a for/of loop.<button type="button" onclick="toggle_hide('exD')">Click to reveal/hide solution</button></p>
+				<pre id="exD" class="code-listing" hidden>
 const text = "TU Dublin";
 for (c in text) {
     console.log(c);
@@ -416,8 +416,8 @@ while (goAgain()) {} </pre>
 			<ol>
 			    <li>
 				<p>If we examine while loop example 1, we see that the code that gets a random number and prints it to the console needs to be executed before the condition is checked for the first time. We will now rewrite this scenario to use a do/while loop, which suits it a lot better.
-				    <button type="button" onclick="toggle_hide('exD')">Click to reveal/hide solution</button></p>
-				<pre id="exD" class="code-listing fl" hidden>
+				    <button type="button" onclick="toggle_hide('exE')">Click to reveal/hide solution</button></p>
+				<pre id="exE" class="code-listing fl" hidden>
 let randNum;
 do {
     randNum = Math.floor(Math.random() * 10) + 1;
@@ -439,7 +439,7 @@ do {
 			<!-- -------------------------------------------------------------------- -->
 			<h3>Nested loop examples</h3>
 			<ol>
-			    <li>
+			    <li class="cf">
 				<p>Write some Javascript code that prints out to the console all combinations of letter and number for letters a, b, c, d and numbers 1, 2, 3. The first three combinations are a1, a2 and a3. Use nested loops <button type="button" onclick="toggle_hide('exA')">Click to reveal/hide solution</button></p>
 				
 				<pre id="exA" class="code-listing fl" hidden>
@@ -450,10 +450,10 @@ for (let l = 0; l < letters.length; ++l) {
     }    
 }	</pre>
 			    </li>
-			    <li>
-				<p>Write a couple of Javascript loops, one nested inside the other, that repeat the random number printing from the first while loop exercise 10 times. <button type="button" onclick="toggle_hide('exA')">Click to reveal/hide solution</button></p>
+			    <li class="cf">
+				<p>Write a couple of Javascript loops, one nested inside the other, that repeat the random number printing from the first while loop exercise 10 times. <button type="button" onclick="toggle_hide('exB')">Click to reveal/hide solution</button></p>
 				
-				<pre id="exA" class="code-listing fl" hidden>
+				<pre id="exB" class="code-listing fl" hidden>
 for (let i = 0; i < 10; ++i) {
     let randNum = Math.floor(Math.random() * 10) + 1;
     console.log(randNum);
@@ -463,9 +463,9 @@ for (let i = 0; i < 10; ++i) {
     }
 }</pre>
 				
-				<p class="cb">As an additional exercise, instead of printing the random numbers, count how many 'draws' it takes to get a 10 and print the number of tries (with appropriate text). You should have this printed 10 times, since the 'random number drawing until a 10 is drawn' is repeated 10 times. At the end of it all, print the average number of draws it took (with appropriate text). <button type="button" onclick="toggle_hide('exB')">Click to reveal/hide solution</button></p>
+				<p class="cb">As an additional exercise, instead of printing the random numbers, count how many 'draws' it takes to get a 10 and print the number of tries (with appropriate text). You should have this printed 10 times, since the 'random number drawing until a 10 is drawn' is repeated 10 times. At the end of it all, print the average number of draws it took (with appropriate text). <button type="button" onclick="toggle_hide('exC')">Click to reveal/hide solution</button></p>
 				
-				<pre id="exB" class="code-listing fl" hidden>
+				<pre id="exC" class="code-listing fl" hidden>
 let sum = 0;
 for (let i = 0; i < 10; ++i) {
     let randNum = Math.floor(Math.random() * 10) + 1;
