@@ -6,12 +6,6 @@
 	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
 	<link rel="stylesheet" type="text/css" href="res/styles/cswd.css"/>
 	<title>Client-Side Web Development</title>
-	<style>
-	 * { font-size: medium; }
-	 .links a { background: dimgray; color: white; margin: 0 0.3em 0 0; padding: 0.2em;}
-	 h1 { margin: 0; }
-	 #toc { margin-top: 0.7em; }
-	</style>
     </head>
     <body>
 	<header id="tudheader">
@@ -24,214 +18,212 @@
 	</header>
 
 	<div id="content-no-nav">
-	    <!-- a class="textn cr fr" href="res/files/offline_notes/offline_notes_blackandwhite.zip">Notes and schedule - downloadable zip file BLACK AND WHITE (unzip then open README.txt)</a -->
-	    <!-- a class="textn cr fr" href="res/files/offline_notes/offline_notes_colour.zip">Notes and schedule - downloadable zip file COLOUR (unzip then open README.txt)</a -->
-
-	    <br class="cl"/>
+	    <a class="textn cr fr" href="res/files/offline_notes/offline_notes_colour.zip">Notes and schedule - downloadable zip file (unzip then open README.txt)</a>
 	    
 	    <h1>Client-Side Web Development</h1>
 
 	    
-	    <p><strong>Term:</strong> 2020/21 Semester 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Lecturer:</strong> Jelena Vasić</p>
-
+	    <table id="module-info" class="fl mr2">
+		<tr><th>Group:</th><td>Year 2 Sofware Development and IT Management (full-time)</td></tr>
+		<tr><th>Term:</th><td>2021/22 Semester 1</td></tr>
+		<tr><th>Office hours:</th><td>??? ??:?? (online, please use Teams Meeting URL given in Moodle)</td></tr>
+	    </table>
 	    
-	    <div class="links mt1">
-		<a href="../common/about_the_notes.html">About the online notes</a>
-		<a href="ttr_0_git.html">Git and GitHub</a>
-		<a href="ttr_0_Q&A.html">Q&A</a>
-	    </div>
+	    <table id="toc" class="fl">
+		<tr><th>Week<br/>start date</th><th>Week<br/>number</th><th>Lecture</th><th>Tutorial</th><th>Lab</th><th>Lab solutions</th><th>CA</th></tr>
 
-	    <table id="toc">
-		<tr><th>Week<br/>number</th><th>Week<br/>start date</th><th>Class<br/>date</th><th>Lecture</th><th>Tutorial</th><th>Lab</th><th>Lab solution</th><th>Assessment</th></tr>
-		<tr><th>1</th><th>25/01/2021</th><th></th> 
-		    <td class="banner" colspan="4">NO CLASS</td>
-		</tr>
-		<tr><th>2</th><th>01/02/2021</th><th class="maroon">04/02/2021</th>
+		<tr><th>20/09/2021</th><th>1</th>
 		    <td class="lec">
-			<a href="lec_1_html_and_css.html">HTML and CSS</a>
-			<a href="lec_2_www.html">The World Wide Web</a>
+			<a href="../common/about_the_notes.html">About the notes</a>
 		    </td>
 		    <td class="tut">
-		    	<a href="ttr_0_tools.html">The tools</a>
-			<a href="ttr_1_html_css.html">HTML and CSS Topics</a>
+			<a href="ttr_0_tools.html">The tools</a>
+			<a href="ttr_0_git.html">Git and GitHub</a>
 		    </td>
 		    <td class="lab">
 			<a href="lab_0_git_repo.html">Create GitHub Repository</a>
 			<a href="lab_0_git_use.html">Use GitHub Repository</a>
-			<a href="res/files/labfiles/HTMLAndCSS.zip">HTML and CSS <span class="norm fr">&nbsp;&nbsp;[DUE 14/02/21 23:59]</span><span class="cf"></span></a>
-			<a href="res/files/labfiles/FlexboxIntro.zip">Flexbox Introduction <span class="norm fr">&nbsp;&nbsp;[DUE 14/02/21 23:59]</span><span class="cf"></span></a>
-			<a href="res/files/labfiles/FlexboxGallery.zip">Flexbox Gallery  <span class="norm fr">&nbsp;&nbsp;[DUE 14/02/21 23:59]</span><span class="cf"></span></a>
+			<a href="res/files/labfiles/HTMLAndCSS.zip">HTML and CSS <span class="norm fr">&nbsp;&nbsp;[MARKED]</span><span class="cf"></span></a>
+			<a href="res/files/labfiles/FlexboxIntro.zip">Flexbox Introduction <span class="norm fr">&nbsp;&nbsp;[MARKED]</span><span class="cf"></span></a>
 		    </td>
+
 		    <td class="sol">
-			<a>&nbsp;</a>
-			<a>&nbsp;</a>
-			<a href="res/files/labfiles/HTMLAndCSSC.zip">HTML and CSS</a>
-			<a href="res/files/labfiles/FlexboxIntroC.zip">Flexbox Introduction</a>
-			<a href="res/files/labfiles/FlexboxGalleryC.zip">Flexbox Gallery</a>
 		    </td>
-		    <td class="ca"></td>
+		    <td class="ca">
+			<p class="maroon">10% of overall marks is awarded for lab work. </p>
+			<p>Please see information at <a href="#lab_info">the bottom of this table</a>.</p>
+		    </td>
 		</tr>
-		<tr><th>3</th><th>08/02/2021</th><th></th>
-		    <td class="banner" colspan="4">NO CLASS</td>
-		</tr>
-		<tr><th>4</th><th>15/02/2021</th><th class="maroon">18/02/2021</th> 
+
+		<tr><th>27/09/2021</th><th>2</th>
 		    <td class="lec">
-			<a href="lec_3_clients_and_servers.html">Clients and Servers</a>
+			
 		    </td>
 		    <td class="tut">
-		    	<a href="ttr_2_bootstrap.html">Bootstrap</a>
 		    </td>
 		    <td class="lab">
-			<a href="res/files/labfiles/MediaQueryPrint.zip">Media Query Print <span class="norm fr">&nbsp;&nbsp;[DUE 28/02/21 23:59]</span><span class="cf"></span></a>
-			<a href="res/files/labfiles/Bootstrap1.zip">Bootstrap 1<span class="norm fr">&nbsp;&nbsp;[DUE 26/02/21 23:59]</span><span class="cf"></span></a>
-			<a href="res/files/labfiles/Bootstrap2.zip">Bootstrap 2<span class="norm fr">&nbsp;&nbsp;[DUE 26/02/21 23:59]</span><span class="cf"></span></a>
-			<a href="res/files/labfiles/Bootstrap3.zip">Bootstrap 3<span class="norm fr">&nbsp;&nbsp;[DUE 26/02/21 23:59]</span><span class="cf"></span></a>
-			<a href="res/files/labfiles/Bootstrap4.zip">Bootstrap 4<span class="norm fr">&nbsp;&nbsp;[DUE 26/02/21 23:59]</span><span class="cf"></span></a>
 		    </td>
 		    <td class="sol">
-			<a href="res/files/labfiles/MediaQueryPrintC.zip">Media Query Print</a>
-			<a href="res/files/labfiles/Bootstrap1C.zip">Bootstrap 1</a>
-			<a href="res/files/labfiles/Bootstrap2C.zip">Bootstrap 2</a>
-			<a href="res/files/labfiles/Bootstrap3C.zip">Bootstrap 3</a>
-			<a href="res/files/labfiles/Bootstrap4C.zip">Bootstrap 4</a>
 		    </td>
 		    <td class="ca">
-			<a href="res/files/labfiles/BootstrapExerciseAWithSolution.zip">Practice for CA1: Bootstrap A (with solution)</a>
-			<a href="res/files/labfiles/BootstrapExerciseBWithSolution.zip">Practice for CA1: Bootstrap B (with solution)</a>
-			<a href="res/files/labfiles/BootstrapExerciseCWithSolution.zip">Practice for CA1: Bootstrap C (with solution)</a>
-			<a href="res/files/labfiles/FlexboxExerciseWithSolution.zip">Practice for CA1: Flexbox (with solution)</a>
 		    </td>
 		</tr>
-		<tr><th>5</th><th>22/02/2021</th><th></th>
-		    <td class="banner" colspan="4">NO CLASS</td>
-		</tr>
-		<tr><th>6</th><th>01/03/2021</th><th class="maroon">04/03/2021</th> 
-		    <td class="lec"></td>
-		    <td class="tut">
-			<a href="ttr_3_js_intro.html">Javascript Introduction</a>
-			<a href="ttr_4_js_datatypes_ops.html">Javascript Data Types and Operations</a>
-		    </td>
-		    <td class="lab">
-			<a href="res/files/labfiles/js_dts_ops_funcs.html"><small>JS Datatypes and Operations<span class="norm fr">&nbsp;&nbsp;[DUE 18/03/21 18:00]</span><span class="cf"></span></small></a>
-			<a href="res/files/labfiles/js_in_html.zip">JS in HTML<span class="norm fr">&nbsp;&nbsp;[DUE 18/03/21 18:00]</span><span class="cf"></span></a>
-		    </td>
-		    <td class="sol">
-			<a>&nbsp;</a>
-			<a href="res/files/labfiles/js_in_htmlC.zip">JS in HTML</a>			
-		    </td>
-		    <td class="ca">
-			<strong class="maroon">CA1 [20%], HTML, CSS, Bootstrap<br/><strong>In-class, timed (1h 20m)</strong></strong>
-		    </td>
-		</tr>
-		<tr><th>7</th><th>08/03/2021</th><th></th>
-		    <td class="banner" colspan="4">NO CLASS</td>
-		</tr>
-		<tr><th>8</th><th>15/03/2021</th><th class="maroon">18/03/2021</th> 
+		
+		<tr><th>04/10/2021</th><th>3</th>
 		    <td class="lec">
-			<a href="lec_4_http.html">HTTP</a>
-			<a href="lec_5_web_application_architecture.html">Web Application Architecture</a>
 		    </td>
 		    <td class="tut">
-			<a href="ttr_6_js_events_handlers.html">Javascript Events and Handlers</a>
-			<a href="ttr_7_js_functions.html">Javascript Functions</a>
-			<a href="ttr_8_js_variables.html">Javascript Variables</a>
-			<a href="ttr_9_js_strings.html">Javascript Strings</a>
-			<a href="ttr_a_js_inputs.html">Javascript Inputs</a>
-			<a href="ttr_b_js_func_params.html">Javascript Function Parameters</a>
 		    </td>
 		    <td class="lab">
-			<a href="res/files/labfiles/js_events_and_handlers.zip">JS Events and Handlers<span class="norm fr">&nbsp;&nbsp;[DUE 15/04/21 18:00]</span><span class="cf"></span></a>
-			<a href="res/files/labfiles/js_ips1.zip">JS Independent Problem Solving 1<span class="norm fr">&nbsp;&nbsp;[DUE 15/04/21 18:00]</span><span class="cf"></span></a>
-			<a href="res/files/labfiles/js_funcs_vars.zip">JS Functions and Variables<span class="norm fr">&nbsp;&nbsp;[DUE 15/04/21 18:00]</span><span class="cf"></span></a>
-			<a href="res/files/labfiles/js_strings.zip">JS Strings<span class="norm fr">&nbsp;&nbsp;[DUE 15/04/21 18:00]</span><span class="cf"></span></a>
-			<a href="res/files/labfiles/js_input.zip">JS Input<span class="norm fr">&nbsp;&nbsp;[DUE 15/04/21 18:00]</span><span class="cf"></span></a>
 		    </td>
 		    <td class="sol">
-			<a href="res/files/labfiles/js_events_and_handlersC.zip">JS Events and Handlers</a>
-			<a href="res/files/labfiles/js_ips1C.zip">JS Independent Problem Solving 1</a>
-			<a href="res/files/labfiles/js_funcs_varsC.zip">JS Functions and Variables</a>
-			<a href="res/files/labfiles/js_stringsC.zip">JS Strings</a>
-			<a href="res/files/labfiles/js_inputC.zip">JS Input</a>
 		    </td>
-		    <td class="ca"></td>
+		    <td class="ca">
+		    </td>
 		</tr>
-		<tr><th>9</th><th>22/03/2021</th><th></th>
-		    <td class="banner" colspan="4">NO CLASS</td>
-		</tr>
-		<tr><th></th> <th>29/03/2021</th><th></th> 
-		    <td class="banner" colspan="4">EASTER</td>
-		</tr>
-		<tr><th></th> <th>05/04/2021</th><th></th> 
-		    <td class="banner" colspan="4">EASTER</td>
-		</tr>
-		<tr><th>10</th><th>12/04/2021</th><th class="maroon">15/04/2021</th> 
+
+		<tr><th>11/10/2021</th><th>4</th>
 		    <td class="lec">
-			<a href="lec_6_dynamic_web_content.html">Dynamic Web Content</a>
-			<a href="lec_7_session_management.html">Session Management</a>
 		    </td>
 		    <td class="tut">
-			<a href="ttr_c_js_conditionals.html">Javascript Conditionals</a>
-			<a href="ttr_d_js_loops.html">Javascript Loops</a>
-			<a href="ttr_e_js_arrays.html">Javascript Arrays</a>
 		    </td>
 		    <td class="lab">
-			<a href="res/files/labfiles/js_conditionals.zip">JS Conditionals<span class="norm fr">&nbsp;&nbsp;[DUE 25/04/21 14:00]</span><span class="cf"></span></a>
-			<a href="res/files/labfiles/jsips_guessing_game.zip">JS Independent Problem Solving 2</a>
-			<a href="res/files/labfiles/js_loops.zip">JS Loops<span class="norm fr">&nbsp;&nbsp;[DUE 25/04/21 14:00]</span><span class="cf"></span></a>
-			<a href="res/files/labfiles/jsips_table.zip">JS Independent Problem Solving 3</a>
-			<a href="res/files/labfiles/js_arrays.zip">JS Arrays</a>
 		    </td>
 		    <td class="sol">
-			<a href="res/files/labfiles/js_conditionalsC.zip">JS Conditionals</a>
-			<a href="res/files/labfiles/jsips_guessing_gameC.zip">JS IPS 2</a>
-			<a href="res/files/labfiles/js_loopsC.zip">JS Loops</a>
-			<a href="res/files/labfiles/jsips_tableC.zip">JS IPS 3</a>
-			<a href="res/files/labfiles/js_arraysC.zip">JS Arrays</a>
 		    </td>
-		    <td class="ca"></td>
+		    <td class="ca"><span class="maroon">CA1 [20%, open-book in-class development]:</span> <br>HTML, CSS, Bootstrap<br/>
+			<strong>SWA: ??/??/2021 ??:?? - ??:??<br>SWB: ??/??/2021 ??:?? - ??:??<br>ITM: ??/??/2021 ??:?? - ??:??</strong>
+		    </td>
+
 		</tr>
-		<tr><th>11</th><th>19/04/2021</th><th></th>
-		    <td class="banner" colspan="4">NO CLASS</td>
+
+		<tr><th>18/10/2021</th><th>5</th>
+		    <td class="lec">
+		    </td>
+		    <td class="tut">			
+		    </td>
+		    <td class="lab">
+		    </td>
+		    <td class="sol">
+		    </td>
+		    <td class="ca">
+		    </td>
 		</tr>
-		<tr><th>12</th><th>26/04/2021</th><th class="maroon">29/04/2021</th> 
-		    <td class="lec"></td>
+
+		<tr><th>25/10/2021</th><th>6</th>
+		    <td class="banner" colspan="4">READING WEEK</td>
+		</tr>
+
+		<tr><th>01/11/2021</th><th>7</th>
+		    <td class="lec">
+		    </td>
 		    <td class="tut">
-			<a href="ttr_f_js_objects.html">JS Objects</a>
-			<a href="ttr_g_js_dom.html">JS DOM</a>
-			<a href="ttr_h_js_events2.html">JS Event Handlers 2</a>
 		    </td>
 		    <td class="lab">
-			<a href="res/files/labfiles/js_objects.zip">JS Objects</a>
-			<a href="res/files/labfiles/js_dom.zip">JS DOM</a>
-			<a href="res/files/labfiles/jsips_ebook_reader.zip">JS Independent Problem Solving 4</a>
-			<a href="res/files/labfiles/js_event_handlers2.zip">JS Event Handlers 2</a>
-			<a href="res/files/labfiles/zjs_processing_words.zip">JS Sample CA3 (1)</a>
-			<a href="res/files/labfiles/zjs_gallery_info.zip">JS Sample CA3 (2)</a>
 		    </td>
 		    <td class="sol">
-			<a href="res/files/labfiles/js_objectsC.zip">JS Objects</a>
-			<a href="res/files/labfiles/js_domC.zip">JS DOM</a>
-			<a href="res/files/labfiles/jsips_ebook_readerC.zip">JS IPS 4</a>
-			<a href="res/files/labfiles/js_event_handlers2C.zip">JS Event Handlers 2</a>
-			<a href="res/files/labfiles/zjs_processing_wordsC.zip">JS Sample CA3 (1)</a>
-			<a href="res/files/labfiles/zjs_gallery_infoC.zip">JS Sample CA3 (2)</a>
 		    </td>
-		    <td class="ca"></td>
+		    <td class="ca">
+		    </td>
 		</tr>
-		<tr><th>13</th><th>03/05/2021</th><th class="maroon">04/05/2021</th>
-		    <td class="banner" colspan="4">NO CLASS</td>
-		    <td class="ca">
-			<strong class="maroon">CA2 [30%], Multiple-Choice Quiz (Theory)<br/><strong>In-class, timed (45m)</strong></strong><br/><br/>			
-			<strong class="maroon">CA3 [45%], Javascript<br/><strong>In-class, timed (2.5h)</strong></strong>
+
+		<tr><th>08/11/2021</th><th>8</th>
+		    <td class="lec">
 		    </td>
-		</tr>		    
-		<tr>
-		    <th>ALL</th>
-		    <td colspan="6"></td>
-		    <td class="ca">
-			<strong class="maroon">Marks [5%] will be awarded for lab work submitted in time.<br/>
+		    <td class="tut">
 		    </td>
-		</tr>		
+		    <td class="lab">
+		    </td>
+		    <td class="sol">
+		    </td>
+		    <td class="ca">			
+		    </td>
+		</tr>
+
+		<tr><th>15/11/2021</th><th>9</th>
+		    <td class="lec">
+		    </td>
+		    <td class="tut">
+		    </td>
+		    <td class="lab">
+		    </td>
+		    <td class="sol">
+		    </td>
+		    <td class="ca">
+		    </td>
+		</tr>
+
+		<tr><th>22/11/2021</th><th>10</th>
+		    <td class="lec">
+		    </td>
+		    <td class="tut">
+		    </td>
+		    <td class="lab">
+		    </td>
+		    <td class="sol">
+		    </td>
+		    <td class="ca"><span class="maroon">CA2 [30%, open-book in-class Moodle quiz]:</span> <br>Material covered in lectures<br/>
+			<strong>SWA: ??/??/2021 ??:?? - ??:??<br>SWB: ??/??/2021 ??:?? - ??:??<br>ITM: ??/??/2021 ??:?? - ??:??</strong>
+		    </td>
+		</tr>
+
+		<tr><th>29/11/2021</th><th>11</th>
+		    <td class="lec">
+		    </td>
+		    <td class="tut">
+		    </td>
+		    <td class="lab">
+		    </td>
+		    <td class="sol">
+		    </td>
+		    <td class="ca">
+		    </td>
+		</tr>
+		
+		<tr><th>06/12/2021</th><th>12</th>
+		    <td class="lec">
+		    </td>
+		    <td class="tut">
+		    </td>
+		    <td class="lab">
+		    </td>
+		    <td class="sol">
+		    </td>
+		    <td class="ca">
+		    </td>
+		</tr>
+		
+		<tr><th>13/12/2021</th><th>13</th>
+		    <td class="lec">
+		    </td>
+		    <td class="tut">
+		    </td>
+		    <td class="lab">
+		    </td>
+		    <td class="sol">
+		    </td>
+		    <td class="ca"><span class="maroon">CA3 [40%, open-book in-class development]:</span> <br>HTML, CSS, Bootstrap, Javascript<br/>
+			<strong>SWA: ??/??/2021 ??:?? - ??:??<br>SWB: ??/??/2021 ??:?? - ??:??<br>ITM: ??/??/2021 ??:?? - ??:??</strong>
+		    </td>
+		</tr>
+		
+		<tr id="lab_info">
+		    <td colspan="8">
+			<p class="maroon bold">10% of overall marks is awarded for lab work. </p>
+			<ul>
+			    <li>Information on <strong>how to upload your work</strong> is given in the first two labs, named <em>Create GitHub Repository</em> and <em>Use GitHub Repository</em>.</li>
+			    <li>Labs are <strong>always due just before the first lab period</strong> in the week following the posting of the assignment.</li>
+			    <li>Lab assignment labels:
+				<ul>
+				    <li>[MANDATORY] denotes an assignment that <strong>must be completed</strong> but is not marked</li>
+				    <li>[MARKED] denotes an assignment that <strong>will be taken into account for the lab marks</strong></li>
+				    <li>[PRACTICE] denotes an assignment for additional practice before CAs</li>
+				</ul>
+			    </li>
+			</ul>
+
+		    </td>
+		</tr>
 	    </table>
 	</div>
     </body>
