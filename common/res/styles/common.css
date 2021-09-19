@@ -28,10 +28,12 @@ dt { font-weight: bold; margin-top: 0.5em}
 #sig { font-size: small; transform: rotate(270deg); position: fixed; bottom: 1.8em; right: -2.2em;}
 
 header#tudheader { height: 4em; max-height: 4em; width: 100%; }
-header#tudheader > * {  display: inline-block; height: 100%; margin: 0; padding: 0; font-weight: bold;  }
+header#tudheader > * {  display: inline-block; height: 100%; margin: 0; padding: 0; font-weight: bold; vertical-align: top; }
 header#tudheader > #rightlogo { float: right; }
 header#tudheader > #tuddepttext { vertical-align: top; }
 header#tudheader > #tuddepttext > p { padding: 0; margin: 0.5em;}
+header#tudheader #title { font-size: 2em; margin: 0 0 0 2em; padding-top: 0.5em;}
+
 
 table#module-info th { width: 7em; text-align: left; padding: 0.2em 0; }
 table#ca-info th { width: 8em; text-align: left; }
@@ -191,6 +193,7 @@ details.ice > summary::before { font-weight: bold; font-size: 1.2em; content: "I
 .mx2 { margin-left: 2em; margin-right: 2em; }
 .mx3 { margin-left: 3em; margin-right: 3em; }
 .mx4 { margin-left: 4em; margin-right: 4em; }
+.myh { margin-top: 0.5em; margin-bottom: 0.5em; }
 .my1 { margin-top: 1em; margin-bottom: 1em; }
 .my2 { margin-top: 2em; margin-bottom: 2em; }
 .my3 { margin-top: 3em; margin-bottom: 3em; }
@@ -272,13 +275,26 @@ and responsive elements */
     .sc-t { font-size: min(1.7vw, small); }
 }
 
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 115em) {
+    header#tudheader #title { font-size: 1.3em; margin: 0 0 0 2em; padding-top: 0.5em; width: 20em; }
+}
+
+@media only screen and (max-width: 62em) {
+    header#tudheader #title { font-size: 1em; margin: 0 0 0 2em; padding-top: 0.5em; width: 15em; }
+}
+
+@media only screen and (max-width: 49em) {
+    header#tudheader #title { font-size: 0.8em; margin: 0 0 0 2em; padding-top: 0.5em; width: 11em; }
+}
+
+@media only screen and (max-width: 41em) {
     body { align-items: flex-end; }
     nav { order: 1; width: 100% ; min-height: 7.4em; }
     nav>ul.links { top: 0.2em; width: calc(100% - 0.4em); }
     nav>ul.commands { top: 2.6em; width: calc(100% - 0.4em); }
     header#tudheader > #tuddepttext { font-size: 2.5vw;} 
     header#tudheader { order: 2; height: 10vw; }
+    header#tudheader #title { font-size: 2vw; }
     
     #content { order: 3; width: 100%; height: auto; }
     #content-no-nav { order: 3; }
