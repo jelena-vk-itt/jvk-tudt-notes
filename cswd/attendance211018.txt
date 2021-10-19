@@ -1,0 +1,106 @@
+Full Name	User Action	Timestamp
+Jelena Vasic	Joined	18/10/2021, 14:03:01
+X00175432 Suibhne Esan	Joined before	18/10/2021, 14:03:01
+X00165318 Gary Mahon	Joined before	18/10/2021, 14:03:01
+X00165318 Gary Mahon	Left	18/10/2021, 15:48:50
+X00173318 Liam Osinuga	Joined before	18/10/2021, 14:03:01
+X00173318 Liam Osinuga	Left	18/10/2021, 15:21:02
+X00173481 George Avram	Joined before	18/10/2021, 14:03:01
+X00174990 Jamie El Mayss	Joined before	18/10/2021, 14:03:01
+X00176109 Kyle Goucher Capocci	Joined before	18/10/2021, 14:03:01
+X00179468 William Akingba	Joined before	18/10/2021, 14:03:01
+X00166061 Ryan Coulahan	Joined before	18/10/2021, 14:03:01
+X00174488 Jack Grassick	Joined before	18/10/2021, 14:03:01
+X00177116 Kevin Lorenczi	Joined before	18/10/2021, 14:03:01
+X00166942 Joseph Itshiari	Joined	18/10/2021, 14:03:31
+X00166942 Joseph Itshiari	Left	18/10/2021, 14:18:30
+X00166942 Joseph Itshiari	Joined	18/10/2021, 14:18:37
+X00181490 Liam Glennie	Joined	18/10/2021, 14:03:42
+X00181490 Liam Glennie	Left	18/10/2021, 15:13:24
+X00181490 Liam Glennie	Joined	18/10/2021, 15:18:08
+X00181490 Liam Glennie	Left	18/10/2021, 16:00:14
+X00181493 Nicolas Alvarez Llopis	Joined	18/10/2021, 14:07:18
+X00128826 James Norris	Joined	18/10/2021, 14:09:40
+X00178618 Adelaide Poufong	Joined	18/10/2021, 14:10:33
+X00177535 Conor O Dea	Joined	18/10/2021, 14:10:37
+X00177535 Conor O Dea	Left	18/10/2021, 15:35:01
+X00173088 Adam Temple	Joined	18/10/2021, 14:11:12
+X00173088 Adam Temple	Left	18/10/2021, 16:01:31
+X00179592 Mykhailo Trush	Joined	18/10/2021, 14:11:19
+X00171995 Nicholas Soldea	Joined	18/10/2021, 14:12:39
+X00176538 Uzoma Ihebinike	Joined	18/10/2021, 14:12:57
+X00176538 Uzoma Ihebinike	Left	18/10/2021, 15:58:24
+X00177596 Yago Pirolo	Joined	18/10/2021, 14:13:14
+X00177596 Yago Pirolo	Left	18/10/2021, 15:18:51
+X00162764 Christian Patrick	Joined	18/10/2021, 14:13:17
+X00174911 Adam Ridgeway	Joined	18/10/2021, 14:13:36
+X00176853 Padraig Nolan	Joined	18/10/2021, 14:15:59
+X00177982 Evan Stirling	Joined	18/10/2021, 14:16:19
+X00177982 Evan Stirling	Left	18/10/2021, 15:07:47
+X00177982 Evan Stirling	Joined	18/10/2021, 15:07:47
+X00177982 Evan Stirling	Left	18/10/2021, 15:45:55
+X00177982 Evan Stirling	Joined	18/10/2021, 15:46:55
+X00161465 Andre Keegan	Joined	18/10/2021, 14:17:17
+X00176910 Fernandez Badejo	Joined	18/10/2021, 14:22:19
+X00062870 Adnan Hanbouz	Joined	18/10/2021, 14:36:53
+X00062870 Adnan Hanbouz	Left	18/10/2021, 15:07:31
+X00062870 Adnan Hanbouz	Joined	18/10/2021, 15:45:29
+X00165514 Babatomiwa Amzat	Joined	18/10/2021, 14:40:05
+X00171114 Michael Olaogun	Joined	18/10/2021, 14:42:55
+﻿Full Name	User Action	Timestamp
+Jelena Vasic	Joined	18/10/2021, 11:02:38
+X00171663 Talha Muhammad	Joined	18/10/2021, 11:02:39
+X00167239 David Dunne	Joined	18/10/2021, 11:02:39
+X00175187 Shane Mc Garry	Joined	18/10/2021, 11:02:39
+X00172752 Aaron Doyle	Joined	18/10/2021, 11:02:39
+X00174865 Kacper Razniak	Joined	18/10/2021, 11:02:39
+X00176261 Deborah Peter	Joined	18/10/2021, 11:02:39
+X00179585 Matthew Byrne	Joined	18/10/2021, 11:02:39
+X00176187 Gongyu Yang	Joined	18/10/2021, 11:02:39
+X00165796 Stephen Murphy	Joined	18/10/2021, 11:02:39
+X00176727 Maksymilian Witalec	Joined	18/10/2021, 11:02:39
+X00171166 Megan Tate	Joined	18/10/2021, 11:02:39
+X00177647 Abdullah Zaidi	Joined	18/10/2021, 11:02:39
+X00171562 Dean Farrelly	Joined	18/10/2021, 11:02:39
+X00178774 Jordan Murphy	Joined	18/10/2021, 11:02:39
+X00175685 Rachel Ring	Joined	18/10/2021, 11:02:39
+X00175685 Rachel Ring	Left	18/10/2021, 11:36:59
+X00175685 Rachel Ring	Joined	18/10/2021, 11:36:59
+X00174641 Jason Fung	Joined	18/10/2021, 11:02:39
+X00174339 Ciara Agar	Joined	18/10/2021, 11:02:39
+X00179789 Ciara Shelley	Joined	18/10/2021, 11:02:39
+X00167885 Alan Byrne	Joined	18/10/2021, 11:02:39
+X00157067 Mukhammad Anasov	Joined	18/10/2021, 11:02:39
+X00177316 James Skinner	Joined	18/10/2021, 11:02:39
+X00171454 Chad Rice	Joined	18/10/2021, 11:02:39
+X00176345 Mahnoor Atif	Joined	18/10/2021, 11:02:39
+X00176155 Florin Popa	Joined	18/10/2021, 11:02:39
+X00177210 Zuzanna Mienkowska	Joined	18/10/2021, 11:02:39
+X00176474 Eoin Merriman	Joined	18/10/2021, 11:02:39
+X00176047 Jason Hallinan	Joined	18/10/2021, 11:02:39
+X00173636 Corbin Langton	Joined	18/10/2021, 11:02:39
+X00171809 Katrina Murphy	Joined	18/10/2021, 11:02:39
+X00175744 Luke Geraghty	Joined	18/10/2021, 11:02:39
+X00176807 Ghiath Shaal	Joined	18/10/2021, 11:02:39
+Cian Donegan (Guest)	Joined	18/10/2021, 11:02:39
+X00178070 Mary Grigoryan	Joined	18/10/2021, 11:02:52
+X00178070 Mary Grigoryan	Left	18/10/2021, 11:53:52
+X00178070 Mary Grigoryan	Joined	18/10/2021, 11:57:07
+X00176988 Sergio Covaci	Joined	18/10/2021, 11:03:05
+X00179539 Fionnuala Hyndman	Joined	18/10/2021, 11:03:29
+X00179539 Fionnuala Hyndman	Left	18/10/2021, 11:09:28
+X00179539 Fionnuala Hyndman	Joined	18/10/2021, 11:10:19
+X00179021 Michal Kos-Sliwinski	Joined	18/10/2021, 11:03:52
+X00176318 Emeka Obasi	Joined	18/10/2021, 11:04:14
+X00176318 Emeka Obasi	Left	18/10/2021, 12:08:45
+X00170939 Jamie Melvin	Joined	18/10/2021, 11:07:22
+X00177005 Ethan Cunningham	Joined	18/10/2021, 11:07:48
+X00177005 Ethan Cunningham	Left	18/10/2021, 11:59:00
+X00173557 Daniel Mc Carthy	Joined	18/10/2021, 11:07:48
+X00149270 Owen Mc Garr	Joined	18/10/2021, 11:08:31
+X00149270 Owen Mc Garr	Left	18/10/2021, 12:08:06
+X00179792 Miriam Berberoglu	Joined	18/10/2021, 11:09:16
+X00191169@myTUDublin.ie (Guest)	Joined	18/10/2021, 11:17:34
+X00179536 Grahame Connolly	Joined	18/10/2021, 11:24:02
+X00174800 Sean Akanbi	Joined	18/10/2021, 11:46:03
+X00177094 Jakub Capala	Joined	18/10/2021, 11:47:36
