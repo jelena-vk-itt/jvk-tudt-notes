@@ -41,14 +41,14 @@
 
 			<p>Access to the web has changed dramatically in the last 10 years, with mobile device use now exceeding that of PCs. For this reason there is a great demand for mobile web content.</p>
 			<figure class="four">
-			    <img src="res/images/StatCounter-comparison-ww-monthly-200901-201811.png">
-			    <figcaption>Source: <a href="http://gs.statcounter.com/platform-market-share/desktop-mobile-tablet/worldwide/#monthly-200901-201811">StatCounter Global Stats - Platform Comparison Market Share</a></figcaption>
+			    <img src="res/images/StatCounter-comparison-ww-monthly-202001-202110.png">
+			    <figcaption>Source: <a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet/worldwide/#monthly-202001-202110">StatCounter Global Stats - Platform Comparison Market Share</a></figcaption>
 			</figure>
 			<figure class="four">
-			    <img src="res/images/digital_media_usage.png">
+			    <img src="res/images/statistic_id319732_daily-internet-usage-per-capita-worldwide-2011-2021-by-device.png">
 			    
 			</figure>
-			<a href="https://www.statista.com/statistics/241462/global-mobile-phone-website-traffic-share/">Percentage of all global web pages served to mobile phones from 2009 to 2018</a>
+			<a href="https://www.statista.com/statistics/319732/daily-time-spent-online-device/">Percentage of all global web pages served to mobile phones from 2009 to 2018</a>
 		    </article>
 		</li>
 		
@@ -70,41 +70,41 @@
 					<details>
 					    <summary>Media queries</summary>
 					    <p>Media queries are:</p>
-						<ul>
-						    <li>the main tool for the creation of responsive web designs</li>
-						    <li>constructs included in CSS that allow the inspection of device characteristics and selective application of CSS rules based on those characteristics</li>
-						    <li>what can be queried?
-							<ul>
-							    <li>media type
-								<ul>
-								    <li>all - all media</li>
-								    <li>braille - braille and tactile feedback devices</li>
-								    <li>embossed - paged braille printers</li>
-								    <li>handheld - small-screen, low-bandwidth handheld devices</li>
-								    <li>print - paged media and documents in print preview mode</li>
-								    <li>projection - projected presentations</li>
-								    <li>screen - computer, tablet and phone screen (most commonly used)</li>
-								    <li>speech - speech synthesizers</li>
-								    <li>tty - teletypes and media with a fixed-pitch character grid</li>
-								    <li>tv – television</li>
-								</ul>
-								The media type can be specified in the link element tag when including a media-specific CSS file:<pre>
+					    <ul>
+						<li>the main tool for the creation of responsive web designs</li>
+						<li>constructs included in CSS that allow the inspection of device characteristics and selective application of CSS rules based on those characteristics</li>
+						<li>what can be queried?
+						    <ul>
+							<li>media type
+							    <ul>
+								<li>all - all media</li>
+								<li>braille - braille and tactile feedback devices</li>
+								<li>embossed - paged braille printers</li>
+								<li>handheld - small-screen, low-bandwidth handheld devices</li>
+								<li>print - paged media and documents in print preview mode</li>
+								<li>projection - projected presentations</li>
+								<li>screen - computer, tablet and phone screen (most commonly used)</li>
+								<li>speech - speech synthesizers</li>
+								<li>tty - teletypes and media with a fixed-pitch character grid</li>
+								<li>tv – television</li>
+							    </ul>
+							    The media type can be specified in the link element tag when including a media-specific CSS file:<pre>
 &lt;link href="print.css" rel="stylesheet" media="print"></pre>
-							    </li>
-							    <li>various characteristics of the device
-								<ul>
-								    <li>aspect-ratio - the width/height ratio</li>
-								    <li>color - the number of bits per color component</li>
-								    <li>color-index - the number of colors in the device’s color lookup table</li>
-								    <li>device-aspect-ratio - the device-width/device-height ratio</li>
-								    <li>device-height - the height of the rendering surface</li>
-								    <li>device-width - the width of the rendering surface</li>
-								    <li>height - the height of the display area</li>
-								    <li>width - the width of the display area</li>
-								    <li>orientation - whether the device is in portrait or landscape mode</li>
-								    <li>resolution - the pixel density of the device (in print, this is the dpi of the printer)</li>
-								</ul>
-								The characteristics are used in conditional statements placed 'around' CSS rulesets:<pre>
+							</li>
+							<li>various characteristics of the device
+							    <ul>
+								<li>aspect-ratio - the width/height ratio</li>
+								<li>color - the number of bits per color component</li>
+								<li>color-index - the number of colors in the device’s color lookup table</li>
+								<li>device-aspect-ratio - the device-width/device-height ratio</li>
+								<li>device-height - the height of the rendering surface</li>
+								<li>device-width - the width of the rendering surface</li>
+								<li>height - the height of the display area</li>
+								<li>width - the width of the display area</li>
+								<li>orientation - whether the device is in portrait or landscape mode</li>
+								<li>resolution - the pixel density of the device (in print, this is the dpi of the printer)</li>
+							    </ul>
+							    The characteristics are used in conditional statements placed 'around' CSS rulesets:<pre>
 @media all and (max-width: 600px) {
 	body {
 		// additional styles for mobile
@@ -116,14 +116,14 @@
 		// additional styles for desktop
 	}
 }</pre>
-								Logic operators can be used to form complex media query expressions:<br/><br/>
-								Logic operator <strong>and</strong>:<pre>
+							    Logic operators can be used to form complex media query expressions:<br/><br/>
+							    Logic operator <strong>and</strong>:<pre>
 @media all and (max-width: 600px) <strong>and</strong> (orientation: portrait) {
 	body {
 		// additional styles for mobile
 	}
 }</pre>
-								Logic operator <strong>or</strong>:<pre>
+							    Logic operator <strong>or</strong>:<pre>
 @media all and (min-width: 600px)<strong>,</strong> (orientation: landscape) {
 	body {
 		// additional styles for desktop
@@ -131,21 +131,21 @@
 }</pre>	
 
 
-								
-							    </li>
-							</ul>
-						    </li>
-						    <li>what is styled differently?
-							<ul>
-							    <li>background colour</li>
-							    <li>image positioning</li>
-							    <li>page breaks</li>
-							    <li>font style</li>
-							    <li>etc.</li>
-							</ul>
-						    </li>
-						    <li>CSS media <strong>breakpoints</strong> (sizes at which styles change) can be obtained for currently used devices, e.g. <a href="https://responsivedesign.is/develop/browser-feature-support/media-queries-for-common-device-breakpoints/">here</a></li>
-						</ul>
+							    
+							</li>
+						    </ul>
+						</li>
+						<li>what is styled differently?
+						    <ul>
+							<li>background colour</li>
+							<li>image positioning</li>
+							<li>page breaks</li>
+							<li>font style</li>
+							<li>etc.</li>
+						    </ul>
+						</li>
+						<li>CSS media <strong>breakpoints</strong> (sizes at which styles change) can be obtained for currently used devices, e.g. <a href="https://responsivedesign.is/develop/browser-feature-support/media-queries-for-common-device-breakpoints/">here</a></li>
+					    </ul>
 					</details>
 					Other than with media queries, responsive design can be achieved with relative sizing of elements (% and em) i.e. elastic layout.
 				    </li>
