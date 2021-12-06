@@ -103,6 +103,16 @@ person["address"] = "Yellow cottage at the end of the village";
 // delete a property
 delete person.address;</pre>
 
+			<p class="mt2">Checking if an object has a property</p>
+			<pre class="code-listing">
+let prop = "firstname";
+if (prop in person) {
+    console.log("The object person has a property called " + prop);
+} else {
+    console.log("The object person does not have a property called " + prop);
+}			</pre>
+
+
 			<p class="mt2">Iterating through properties of an object</p>
 			<pre class="code-listing">
 for (property in person) {
@@ -184,7 +194,7 @@ let friendsForTea = [
 				</ul>
 			    </li>
 			</ol>
-			    
+			
 			<p><a href="res/files/tutfiles/objectsC.zip">Download completed exercises</a></p>
 		    </article>
                 </li>
