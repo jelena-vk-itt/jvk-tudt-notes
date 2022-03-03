@@ -1,3 +1,4 @@
+
 @import "colours-default.css";
 @import "colours-custom.css"; 
 @import "3rdpty/jquery.qtip.min.css";
@@ -148,6 +149,7 @@ details.examples::before, details.contraexs::before { content: ""; }
 
 .question { color: blue; font-weight: bold; }
 .answer { line-height: 2em; border-width: 2px; border-color: blue; border-style: solid none solid none; padding: 3px 0; }
+.answer pre { line-height: 1em; }
 
 .lab-answer-form { margin-top: 3em; }
 
@@ -172,6 +174,7 @@ details.ice > summary::before { font-weight: bold; font-size: 1.2em; content: "I
 .m0  { margin: 0; }
 .m1  { margin: 1em; }
 .m2  { margin: 2em; }
+.m3  { margin: 3em; }
 .mt0 { margin-top: 0; }
 .mt1 { margin-top: 1em; }
 .mt2 { margin-top: 2em; }
