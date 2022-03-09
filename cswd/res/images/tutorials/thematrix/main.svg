@@ -524,7 +524,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.25191891"
-     inkscape:cx="1528.0352"
+     inkscape:cx="1795.9786"
      inkscape:cy="919.42254"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -552,7 +552,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1219,7 +1219,7 @@
          x="719.85132"
          y="347.61252"
          style="stroke-width:0.264583"
-         id="tspan1075-3">TThe button element is 'hooked up' to the function </tspan><tspan
+         id="tspan1075-3">The button element is 'hooked up' to the function </tspan><tspan
          sodipodi:role="line"
          x="719.85132"
          y="360.84164"
