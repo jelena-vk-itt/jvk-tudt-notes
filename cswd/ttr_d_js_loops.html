@@ -272,10 +272,10 @@ for (c in text) {
         &lt;script>
          function writeCharsOfWord() {
              let word = document.getElementById("inword").value;
-             let paragraphElement = document.getElementById("ulst");
-             paragraphElement.innerHTML = "";
+             let ulElement = document.getElementById("ulst");
+             ulElement.innerHTML = "";
              for (c of word) {
-                 paragraphElement.innerHTML += "&lt;li>" + c + "&lt;/li>";
+                 ulElement.innerHTML += "&lt;li>" + c + "&lt;/li>";
              }
          }
         &lt;/script>
