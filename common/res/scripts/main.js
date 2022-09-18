@@ -16,7 +16,7 @@ function init_all() {
 
     init_articles();
     draw_canvases();
-
+    
     window.addEventListener ("resize", function (e) {
     	draw_canvases();
     });
@@ -53,7 +53,10 @@ function init_all() {
     if (questions) {
 	Array.prototype.forEach.call(questions, function(item) {
 	    item.addEventListener("mouseover", function(e) {
+		let x = window.scrollX;
+		let y = window.scrollY;
 		item.nextSibling.hidden = false;
+		window.scrollTo(x, y);
 	    });
 	    item.addEventListener("mouseout", function(e) {
 		if (!item.hasAttribute("openfix")) {
@@ -63,6 +66,7 @@ function init_all() {
 	    item.addEventListener("click", function(e) {
 		if (item.hasAttribute("openfix")) {
 		    item.removeAttribute("openfix");
+		    
 		} else {
 		    item.setAttribute("openfix", "");
 		}
