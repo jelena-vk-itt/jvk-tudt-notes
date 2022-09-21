@@ -61,9 +61,9 @@ table .vtext { width: 2em; writing-mode: vertical-rl; transform: rotate(180deg);
 #toc td.banner { letter-spacing: 1em; text-align: center; }
 
 
-nav { margin: 0; padding: 0; display: flex; flex-direction: column; row-gap: 40%; }
+nav { margin: 0; padding: 0; display: flex; flex-direction: column; }
 nav>ul { list-style-type: none; padding: 0; margin: 0; width: 6em; }
-nav>ul.commands { position: fixed; top: calc(50% - 4em);}
+nav>ul.commands { position: fixed; top: calc(50% - 2em);}
 nav>ul>li { text-align: center; padding-top: 0.5em; padding-bottom: 0.5em; margin: 0.2em; border-radius: 0.2em; font-weight: bold; }
 nav>ul.links>li>a { text-decoration: none; border: none; font-weight: bold; }
 nav>ul.commands>li { cursor: pointer; }
