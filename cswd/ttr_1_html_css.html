@@ -492,11 +492,11 @@ display: flex; </pre>
 				    <figure>
 					<figcaption>Example of using the <strong>media</strong> attribute: <br/>
 					    <ul>
-						<li>media query: <strong>speech</strong></li>
-						<li>effect: the CSS in print.css is applied only if the client is a reader device</li>
+						<li>media query: <strong>print</strong></li>
+						<li>effect: the CSS in print_styles.css is applied only if the client is preparing the page for printing</li>
 					    </ul>
 					</figcaption><pre class="code-listing">
-&lt;link rel="stylesheet" type="text/css" href="reader.css" media="speech">  </pre>
+&lt;link rel="stylesheet" type="text/css" href="print_styles.css" media="print">  </pre>
 				    </figure>
 				</li>
 				<li>The media query is specified as part of a <strong>@media</strong> construct. In this case the CSS content in the body of the construct is applied to the HTML page only if the media type and features of the client parsing the page match those contained in the media query.
