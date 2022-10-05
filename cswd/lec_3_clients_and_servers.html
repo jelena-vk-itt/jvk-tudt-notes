@@ -9,257 +9,263 @@
     </head>
     <body>
 	<header id="tudheader">
-	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
 	    <div id="tuddepttext">
 		<p>Tallaght Campus</p>
 		<p>Department of Computing</p>
 	    </div>
+	    <div id="titlecontainer">
+		<p id="title">
+		    Clients, Servers and the WWW3
+		</p>
+	    </div>
 	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
 	</header>
-	
-	<nav>
-	    <ul class="links">
-		<li><a href="index.html">Home</a></li>
-	    </ul>
-	    <ul class="commands">
-		<li class="openall">Open all</li>
-		<li class="closeall">Close all</li>
-	    </ul>
-
-	</nav>
-
 	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+
+	    </nav>
+
 	    
-	    <h1>Clients, Servers and the WWW</h1>
-	    
-	    <ol class="toc_grp newline">
-		<!-------------------- SECTION 01 -------------------->
-		<li id="cswd-ft-clts-svrs-01">
-		    <p>Clients and Servers - Overview</p>
-		    <article>
-			<figure class="section_symbol"><pre>
+
+	    <article>
+		
+		<ol class="toc_grp newline">
+		    <!-------------------- SECTION 01 -------------------->
+		    <li id="cswd-ft-clts-svrs-01">
+			<p>Clients and Servers - Overview</p>
+			<article>
+			    <figure class="section_symbol"><pre>
     ____________
    /   //||\\   \
   /   ////\\\\   \
   \   \\\\////   /   
    \___\\||//___/
-</pre>
-			</figure>
-			<h2>Clients and Servers - Overview</h2>
-			<ul>
-			    <li>The client-server model describes a <strong>pattern of communication</strong> in a distributed application (e.g. an application on the Internet)</li>
-			    <li>This pattern is used by the majority of Internet applications today, including the WWW and email</li>
-			    <li>In applications that follow the client-server model there are two roles played by participating network nodes:
-				<ul>
-				    <li><strong>server</strong> <aside class="example">Web server; Email server</aside>
-					<ul>
-					    <li>always connected to the network</li>
-					    <li>listens for requests and carries out some action based on the request, for example
-						<ul>
-						    <li>returns the content of a URL (WWW server)</li>
-						    <li>receives an email message and adds it to the recipients inbox (mail server)</li>
-						    <li>carries out a back-end action such as a bank transaction and returns a status update in the form of a web page (WWW+application server)</li>
-						</ul>
-					    </li>
-					</ul>
-				    </li>
-				    <li><strong>client</strong> <aside class="example">Browser; email client application such as MS Outlook</aside>
-					<ul>
-					    <li>connects to the network as required</li>
-					    <li>makes requests and receives responses</li>
-					    <li>presents response to the user or processes it in some other way<br>
-						<aside class="example">A web server could act as client when requesting some information from another server in order to update it in its own database. It does not display the response to a user.</aside>
-					    </li>
-					    <li>many clients connect to one server</li>
-					</ul>
-				    </li>
-				</ul>
+			    </pre>
+			    </figure>
+			    <h2>Clients and Servers - Overview</h2>
+			    <ul>
+				<li>The client-server model describes a <strong>pattern of communication</strong> in a distributed application (e.g. an application on the Internet)</li>
+				<li>This pattern is used by the majority of Internet applications today, including the WWW and email</li>
+				<li>In applications that follow the client-server model there are two roles played by participating network nodes:
+				    <ul>
+					<li><strong>server</strong> <aside class="example">Web server; Email server</aside>
+					    <ul>
+						<li>always connected to the network</li>
+						<li>listens for requests and carries out some action based on the request, for example
+						    <ul>
+							<li>returns the content of a URL (WWW server)</li>
+							<li>receives an email message and adds it to the recipients inbox (mail server)</li>
+							<li>carries out a back-end action such as a bank transaction and returns a status update in the form of a web page (WWW+application server)</li>
+						    </ul>
+						</li>
+					    </ul>
+					</li>
+					<li><strong>client</strong> <aside class="example">Browser; email client application such as MS Outlook</aside>
+					    <ul>
+						<li>connects to the network as required</li>
+						<li>makes requests and receives responses</li>
+						<li>presents response to the user or processes it in some other way<br>
+						    <aside class="example">A web server could act as client when requesting some information from another server in order to update it in its own database. It does not display the response to a user.</aside>
+						</li>
+						<li>many clients connect to one server</li>
+					    </ul>
+					</li>
+				    </ul>
 
-				<aside class="example">
-				    When we type a URL into the browser and press the 'enter' key, the browser sends a request to the server associated with that URL. The server parses the URL to determine what resource exactly we are asking for, fetches it and responds by sending the resource back to the browser. Fetching a resource may be as simple as retrieving a file but may include running one or more scripts, including access to database information, to 'put together' a document. The browser then displays it.
-				    <figure class="four">
-					<img src="res/images/client_server_example_by_elee.png">
-					<figcaption> Figure: Client-Server Example (by E. Lee)</figcaption>
-				    </figure>
-				</aside>		   
-			    </li>
-			</ul>
-		    </article>
-		</li>
+				    <aside class="example">
+					When we type a URL into the browser and press the 'enter' key, the browser sends a request to the server associated with that URL. The server parses the URL to determine what resource exactly we are asking for, fetches it and responds by sending the resource back to the browser. Fetching a resource may be as simple as retrieving a file but may include running one or more scripts, including access to database information, to 'put together' a document. The browser then displays it.
+					<figure class="four">
+					    <img src="res/images/client_server_example_by_elee.png">
+					    <figcaption> Figure: Client-Server Example (by E. Lee)</figcaption>
+					</figure>
+				    </aside>		   
+				</li>
+			    </ul>
+			</article>
+		    </li>
 
-		<!-------------------- SECTION 02 -------------------->
-		<li id="cswd-ft-clts-svrs-02">
-		    <p>Web Servers and Clients</p>
-		    <article>
-			<figure class="section_symbol"><pre>
+		    <!-------------------- SECTION 02 -------------------->
+		    <li id="cswd-ft-clts-svrs-02">
+			<p>Web Servers and Clients</p>
+			<article>
+			    <figure class="section_symbol"><pre>
   | BR| --req--> |WWW|
   |OWS|          |SER|
   |ER | <--res-- |VER|
-</pre>
-			</figure>
-			<h2>Web Clients and Servers</h2>
-			<ul>
-			    <li>On the World Wide Web (WWW), clients and servers communicate using the <strong>Hypertext Transfer Protocol (HTTP)</strong></li>
-			    <li>The <strong>WWW client</strong> is typically a browser
-				<ul>
-				    <li>Browsers
-					<ul>
-					    <li>implement the HTTP protocol</li>
-					    <li>know how to interpret HTML, CSS and Javascript</li>
-					    <li>display information to users based on the interpretation of documents in those languages</li>
-					</ul>
-				    </li>
-				    <li>
-					They were initially text based but very quickly became GUI-able
-				    </li>
-				    <li>
-					There are may browser implementations (for a timeline of browser 'lives' see <a href="https://en.wikipedia.org/wiki/Timeline_of_web_browsers">the very detailed graphical information in this Wikipedia article</a>), such as:
-					<ul>
-					    <li>Mozilla Firefox</li>
-					    <li>Microsoft Internet Explorer</li>
-					    <li>Apple Safari (based on the opensource WebKit project)</li>
-					    <li>Google Chrome (also originally based on the WebKit project)</li>
-					    
-					</ul>
-				    </li>
-				</ul>
-			    </li>
-			    <li>A <strong>WWW server</strong> or <strong>web server</strong> is a type of software application that
-				<ul>
-				    <li>may be implemented to run on any platform (MS Windows, Linux, Mac OS)</li>
-				    <li>when operational, runs continuously, waiting for client requests and responding to them</li>
-				    <li>currently has many implementations (see <a href="https://news.netcraft.com/archives/2017/12/26/december-2017-web-server-survey.html">netcraft</a> for details of market share), the most popular of which are
-					<ul>
-					    <li>Apache
-						<ul>
-						    <li>originally developed by the National Center for Supercomputing Applications (NCSA), University of Illinois, Urbana/Champaign</li>
-						    <li>now an opensource project by the Apache Software Foundation (apache.org)</li>
-						    <li>the market leader</li>
-						    <li>available for almost any platform</li>
-						</ul>
-					    </li>
-					    <li>Microsoft Internet Information Server
-						<ul>
-						    <li>implements a number of Internet applications: FTP, SMTP, NNTP, and HTTP/HTTPS</li>
-						</ul>
-					    </li>
-					    <li>nginx
-						<ul>
-						    <li>at first based on Apache</li>
-						    <li>can also be used as reverse proxy and load balancer</li>
-						</ul>
-					    </li>
-					</ul>
-				    </li>
-				</ul>
-			    </li>
-			</ul>
-		    </article>
-		</li>
-		
-		<!-------------------- SECTION 03 -------------------->
-		<li id="cswd-ft-clts-svrs-03">
-		    <p>Web Servers - A Closer Look</p>
-		    <article>
-			<figure class="section_symbol"><pre>
+			    </pre>
+			    </figure>
+			    <h2>Web Clients and Servers</h2>
+			    <ul>
+				<li>On the World Wide Web (WWW), clients and servers communicate using the <strong>Hypertext Transfer Protocol (HTTP)</strong></li>
+				<li>The <strong>WWW client</strong> is typically a browser
+				    <ul>
+					<li>Browsers
+					    <ul>
+						<li>implement the HTTP protocol</li>
+						<li>know how to interpret HTML, CSS and Javascript</li>
+						<li>display information to users based on the interpretation of documents in those languages</li>
+					    </ul>
+					</li>
+					<li>
+					    They were initially text based but very quickly became GUI-able
+					</li>
+					<li>
+					    There are may browser implementations (for a timeline of browser 'lives' see <a href="https://en.wikipedia.org/wiki/Timeline_of_web_browsers">the very detailed graphical information in this Wikipedia article</a>), such as:
+					    <ul>
+						<li>Mozilla Firefox</li>
+						<li>Microsoft Internet Explorer</li>
+						<li>Apple Safari (based on the opensource WebKit project)</li>
+						<li>Google Chrome (also originally based on the WebKit project)</li>
+						
+					    </ul>
+					</li>
+				    </ul>
+				</li>
+				<li>A <strong>WWW server</strong> or <strong>web server</strong> is a type of software application that
+				    <ul>
+					<li>may be implemented to run on any platform (MS Windows, Linux, Mac OS)</li>
+					<li>when operational, runs continuously, waiting for client requests and responding to them</li>
+					<li>currently has many implementations (see <a href="https://news.netcraft.com/archives/2017/12/26/december-2017-web-server-survey.html">netcraft</a> for details of market share), the most popular of which are
+					    <ul>
+						<li>Apache
+						    <ul>
+							<li>originally developed by the National Center for Supercomputing Applications (NCSA), University of Illinois, Urbana/Champaign</li>
+							<li>now an opensource project by the Apache Software Foundation (apache.org)</li>
+							<li>the market leader</li>
+							<li>available for almost any platform</li>
+						    </ul>
+						</li>
+						<li>Microsoft Internet Information Server
+						    <ul>
+							<li>implements a number of Internet applications: FTP, SMTP, NNTP, and HTTP/HTTPS</li>
+						    </ul>
+						</li>
+						<li>nginx
+						    <ul>
+							<li>at first based on Apache</li>
+							<li>can also be used as reverse proxy and load balancer</li>
+						    </ul>
+						</li>
+					    </ul>
+					</li>
+				    </ul>
+				</li>
+			    </ul>
+			</article>
+		    </li>
+		    
+		    <!-------------------- SECTION 03 -------------------->
+		    <li id="cswd-ft-clts-svrs-03">
+			<p>Web Servers - A Closer Look</p>
+			<article>
+			    <figure class="section_symbol"><pre>
    |WWW|
    |SER|
    |VER|
-</pre>
-			</figure>
-			<h2>Web Servers - A Closer Look</h2>
-			<ul>
-			    <li>Apart from denoting the web server as a type of application,  term 'web server' is used for the entire <strong>hardware-platform-application</strong> stack of a deployed server. This consists of
-				<ul>
-				    <li>hardware, which can vary greatly
-					<ul>
-					    <li>typically high-end multi-processor PCs, with large amounts of memory and disk space</li>
-					    <li>blade servers (many multi-processor boards, placed into rack-mounted frames)
-						<details><summary>More about blade servers</summary>
-						    
-						    <figure class="four">
-							<img src="res/images/blade_server.png">
-							<figcaption>Figure: Blade servers in enclosure</figcaption>
-						    </figure>
-						</details>
-					    </li>
-					    <li>any sort of PC for hobby deployments</li>	
-					</ul>
-				    </li>
-				    <li>platform
-					<ul>
-					    <li>examples
-						<ul>
-						    <li>Windows</li>
-						    <li>Linux</li>
-						    <li>Mac OS (has an inbuilt server)</li>
-						</ul>
-					    </li>
-					    <li>may act as a <strong>virtual server</strong>, where multiple servers are hosted on one machine (how does this work from the point of view of domains and subdomains?)</li>
-					</ul>
-				    </li>
-				    <li>web server application (Apache, MS IIS, nginx)</li>
-				</ul>
-			    </li>
-			</ul>
-		    </article>
-		</li>
+			    </pre>
+			    </figure>
+			    <h2>Web Servers - A Closer Look</h2>
+			    <ul>
+				<li>Apart from denoting the web server as a type of application,  term 'web server' is used for the entire <strong>hardware-platform-application</strong> stack of a deployed server. This consists of
+				    <ul>
+					<li>hardware, which can vary greatly
+					    <ul>
+						<li>typically high-end multi-processor PCs, with large amounts of memory and disk space</li>
+						<li>blade servers (many multi-processor boards, placed into rack-mounted frames)
+						    <details><summary>More about blade servers</summary>
+							
+							<figure class="four">
+							    <img src="res/images/blade_server.png">
+							    <figcaption>Figure: Blade servers in enclosure</figcaption>
+							</figure>
+						    </details>
+						</li>
+						<li>any sort of PC for hobby deployments</li>	
+					    </ul>
+					</li>
+					<li>platform
+					    <ul>
+						<li>examples
+						    <ul>
+							<li>Windows</li>
+							<li>Linux</li>
+							<li>Mac OS (has an inbuilt server)</li>
+						    </ul>
+						</li>
+						<li>may act as a <strong>virtual server</strong>, where multiple servers are hosted on one machine (how does this work from the point of view of domains and subdomains?)</li>
+					    </ul>
+					</li>
+					<li>web server application (Apache, MS IIS, nginx)</li>
+				    </ul>
+				</li>
+			    </ul>
+			</article>
+		    </li>
 
-		<!-------------------- SECTION 04 -------------------->
-		<li id="cswd-ft-clts-svrs-04">
-		    <p>Cloud Computing</p>
-		    <article>
-			<figure class="section_symbol">
-			    <pre>
+		    <!-------------------- SECTION 04 -------------------->
+		    <li id="cswd-ft-clts-svrs-04">
+			<p>Cloud Computing</p>
+			<article>
+			    <figure class="section_symbol">
+				<pre>
         ______
        /      \_
      _/         \_
     /             \
    /          ____/
    \_________/ 
-</pre>
-			</figure>
-			<h2>Cloud Computing</h2>
-			<ul>
-			    <li>Cloud computing employs a special form of web server, which is
-				<ul>
-				    <li>carries out the functionality of a conventional application</li>
-				    <li>provides a user interface to the application using the web client-server communication mechanism</li> 
-				</ul>
-			    </li>
-			    <li>
-				With cloud computing
-				<ul>
-				    <li>resources such as processing power, disk storage and memory are all harnessed on the server, rather than client, side</li>
-				    <li>users have access to high-end security, reliability, accessibility and other categories of features</li>
-				    <li>cost is reduced for users</li>
-				</ul>
-			    </li>
-			    <li>
-				Services are offered at different levels:
-				<ul>
-				    <li>Infrastructure as a Service (IaaS) - virtual machines <span class="example"> Amazon Elastic Compute Cloud (EC2)</span> </li>
-				    <li>Platform as a Service (PaaS) - development environment <span class="example"> Heroku, Google App Engine </li>
-				    <li>Software as a Service (SaaS) - cloud applications <span class="example"> Google Docs, Dropbox</span> </li>
-				    <li>Backend as a Service (BaaS) - database, authentication, push notifications (mostly for mobile apps)<span class="example"> Google Firebase, OAuth</span> </li>
-				    <li>Container as a Service (CaaS) - containers <span class="example"> GKE, Amazon EC2</span></li>
-				    <li>Function as a Service (FaaS) - functions in any language <span class="example"> Amazon Lambda, Google Cloud Functions</span></li>
-				</ul>
-			    </li>
-			    <li>
-				Providers of cloud computing are, for example
-				<ul>
-				    <li>Amazon Web Services</li>
-				    <li>Microsoft Azure</li>
-				    <li>Microsoft Office 365</li>
-				    <li>Google Drive, Cloud etc.</li>
-				    <li>web hosting companies</li>
-				</ul>
-			    </li>
-			</ul>
-		    </article>
-		</li>
-	    </ol>	    
+				</pre>
+			    </figure>
+			    <h2>Cloud Computing</h2>
+			    <ul>
+				<li>Cloud computing employs a special form of web server, which is
+				    <ul>
+					<li>carries out the functionality of a conventional application</li>
+					<li>provides a user interface to the application using the web client-server communication mechanism</li> 
+				    </ul>
+				</li>
+				<li>
+				    With cloud computing
+				    <ul>
+					<li>resources such as processing power, disk storage and memory are all harnessed on the server, rather than client, side</li>
+					<li>users have access to high-end security, reliability, accessibility and other categories of features</li>
+					<li>cost is reduced for users</li>
+				    </ul>
+				</li>
+				<li>
+				    Services are offered at different levels:
+				    <ul>
+					<li>Infrastructure as a Service (IaaS) - virtual machines <span class="example"> Amazon Elastic Compute Cloud (EC2)</span> </li>
+					<li>Platform as a Service (PaaS) - development environment <span class="example"> Heroku, Google App Engine</span> </li>
+					<li>Software as a Service (SaaS) - cloud applications <span class="example"> Google Docs, Dropbox</span> </li>
+					<li>Backend as a Service (BaaS) - database, authentication, push notifications (mostly for mobile apps)<span class="example"> Google Firebase, OAuth</span> </li>
+					<li>Container as a Service (CaaS) - containers <span class="example"> GKE, Amazon EC2</span></li>
+					<li>Function as a Service (FaaS) - functions in any language <span class="example"> Amazon Lambda, Google Cloud Functions</span></li>
+				    </ul>
+				</li>
+				<li>
+				    Providers of cloud computing are, for example
+				    <ul>
+					<li>Amazon Web Services</li>
+					<li>Microsoft Azure</li>
+					<li>Microsoft Office 365</li>
+					<li>Google Drive, Cloud etc.</li>
+					<li>web hosting companies</li>
+				    </ul>
+				</li>
+			    </ul>
+			</article>
+		    </li>
+		</ol>	    
+	    </article>
 	</div>
 
 	<script src="../common/res/scripts/main.js"></script>
