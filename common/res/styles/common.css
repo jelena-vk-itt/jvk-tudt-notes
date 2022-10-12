@@ -284,7 +284,8 @@ and responsive elements */
     #content { flex-direction: column; }
     nav { row-gap: 0; }
     nav>ul { width: 100%; }
-
+    nav>ul.commands { position: relative; top: 0; }
+    
     header#tudheader { flex-wrap: wrap; }
     header#tudheader #titlecontainer { order: 2; width: 100%; font-size: 2.5vw;  }
     header#tudheader #tuddepttext { height: 10vw; flex-grow: 1; font-size: 2.5vw; }
