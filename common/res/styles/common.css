@@ -148,8 +148,9 @@ details.example::before, details.contraex::before { content: ""; }
 details.examples>summary::before, details.contraexs>summary::before { content: "EXAMPLES: "; font-family: Arial, Helvetica, sans-serif; }
 details.examples::before, details.contraexs::before { content: ""; }
 
-.question { color: blue; font-weight: bold; }
-.answer { line-height: 2em; border-width: 2px; border-color: blue; border-style: solid none solid none; padding: 3px 0; }
+
+.question { color: indigo; font-weight: bold; }
+.answer { line-height: 2em; border-width: 2px; border-color: indigo; border-style: solid none solid none; padding: 3px 0; }
 .answer pre { line-height: 1em; }
 
 .lab-answer-form { margin-top: 3em; }

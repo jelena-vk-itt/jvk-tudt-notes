@@ -52,24 +52,9 @@ function init_all() {
     var questions = document.getElementsByClassName("question");
     if (questions) {
 	Array.prototype.forEach.call(questions, function(item) {
-	    item.addEventListener("mouseover", function(e) {
-		let x = window.scrollX;
-		let y = window.scrollY;
-		item.nextSibling.hidden = false;
-		window.scrollTo(x, y);
-	    });
-	    item.addEventListener("mouseout", function(e) {
-		if (!item.hasAttribute("openfix")) {
-		    item.nextSibling.hidden = true;
-		}
-	    });
+	    item.nextSibling.hidden = true;
 	    item.addEventListener("click", function(e) {
-		if (item.hasAttribute("openfix")) {
-		    item.removeAttribute("openfix");
-		    
-		} else {
-		    item.setAttribute("openfix", "");
-		}
+		item.nextSibling.hidden = !item.nextSibling.hidden;
 	    });
 	});
     }
