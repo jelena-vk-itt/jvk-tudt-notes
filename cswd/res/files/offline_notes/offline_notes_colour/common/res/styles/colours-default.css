@@ -1,0 +1,49 @@
+body { background-color: #038ac9; } 
+body { background-color: lightblue; } 
+
+header#tudheader { background-color: white; }
+header#tudheader > * {  color: #014C6F;  }
+
+#toc  { background-color: gray; }
+#toc td.tut:not(:empty) { background: dodgerblue; }
+#toc td.lec:not(:empty) { background: indianred; }
+#toc td.sol:not(:empty) { background: #32a852; }
+#toc td.lab:not(:empty) { background: darkgoldenrod; }
+
+nav { background-color: #014C6F; }
+nav>ul.links>li { background-color: white; }
+nav>ul.links>li>a { color: #014C6F; }
+nav>ul.commands>li { background-color: #012332; color: white; }
+
+.toc_grp>li>p { background-color: #d27979; }
+.toc_grp>li>article {background-color:  #d27979; }
+.toc_grp>li>article .toc_grp>li>p {background-color:  #c65353; }
+.toc_grp>li>article .toc_grp>li>article {background-color:  #c65353; }
+
+details {background-color: tomato; }
+
+
+.example, .examples, .example-no-leader { background-color: #53c68c; }
+.instructions, .instructions-no-leader { background-color: darkgray; }
+.exercise, .exercise-no-leader { background-color: lightgray; }
+.contraex, .contraexs, .contraex-no-leader { background-color: #ff4d4d; }
+.code-listing { background-color: #cc9999; }
+.badcode-listing { background-color: gray; } 
+.console { background-color: darkslategray; }
+
+.hasTT { background-color: maroon; }
+
+.red { color: red; }
+.maroon { color: maroon; }
+.green { color: green; }
+.darkgreen { color: darkgreen; }
+.blue { color: blue; }
+.lightblue { color: lightblue; }
+.purple {color: purple; }
+.yellow {color: yellow; }
+.orange {color: orange; }
+.white { color: white; }
+.bg-darkcyan { background: darkcyan; }
+.bg-lightseagreen { background: lightseagreen; }
+.bg-black { background: black; }
+.bg-lightgray { background: lightgray; }

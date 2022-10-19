@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="../common/res/styles/common.css" />
+
+	<style> #content { background: lightgray; } </style>
+	<title>TUDTC CSWD</title>
+    </head>
+
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <div id="titlecontainer">
+		<div id="title">
+		    Javascript in HTML
+		</div>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
+	</header>
+
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+	    </nav>
+
+	    <article>
+		
+		To follow this tutorial, download and unzip <a href="res/files/tutfiles/js_in_html.zip">this file bundle</a>.
+		
+		<h4>Part 1</h4>
+
+		Open the file <em>js_in_html_1.html</em> in a browser and in a text editor.
+		<ol type="a">
+		    <li>
+			<span class="question">The pop-up alert windows that appear when you load the <em>js_in_html_1.html</em> file in the browser are being created by some Javascript code. It can be found inside HTML <span class="fw">script</span> elements. What code causes the windows to pop up?</span><p class="answer" hidden><span class="fw">alert("some text")</span></p>
+		    </li>
+		    <li>
+			<span class="question">Several alerts pop up. Examine the HTML file and explain what determines the order in which they pop up.</span><p class="answer" hidden>The order in which they appear in the file is the order in which they pop up.</p>
+		    </li>
+		    <li>
+			<span class="question">From the way that the alert pop-ups interweave with the appearance of parts of the page, when do you think the code for creating the alerts is called?</span><p class="answer" hidden>In some browsers, the alerts block the loading of the visible content. In newer browsers this is not the case.</p>			
+		    </li>
+
+		    <li>
+			<span class="question">All the <span class="fw">script</span> elements in <em>js_in_html_1.html</em> are valid. What can you say about where in an HTML file <span class="fw">script</span> elements can be placed?</span><p class="answer" hidden>Anywhere.</p>
+		    </li>
+		    <li>
+			<div  class="question"><p>Copy the following code into the <span class="fw">head</span> element of the HTML file.</p><pre>&lt;style&gt;
+    script { display: block; color: red; } 
+&lt;/style&gt;			</pre>
+			    <p>Now load the page. What do you see? Why do you think the behaviour was different before?</p>
+			</div><p class="answer" hidden>By default, script elements are not visible, however, if a visible style (e.g. <span class="fw">display: block</span>) is explicitly specified for the script element type, script elements will be displayed in the page.</p>
+		    </li>
+		    <li>
+			<span class="question">Do some detective work to find out where the last alert is being invoked. How does it differ from the other alerts?</span><p class="answer" hidden>It is being invoked from an external file, <em>js_in_html_1.js</em>.</p>			
+		    </li>
+
+		</ol>
+
+		<h4>Part 2</h4>
+		Open the file <em>js_in_html_2.html</em> in a browser and in a text editor.
+		<ol type="a">
+		    <li>
+			<div class="question">
+			    <p>The Javascript statment <span class="fw">alert("some string")</span> is a call to a function (a piece of functionality) provided for our use by the browser, but we can define and use our own functions (pieces of functionality that we might like to reuse).</p>
+			    <p>In the HTML file <em>js_in_html_2.html</em> find <span class="fw">callAlertHead</span> and <span class="fw">callAlertBody</span>. These are two functions defined and used in the file (each function name appears in the file twice). How do we know the difference between a definition and a call (the use of a function)?</p>
+			</div><div class="answer" hidden>There is a difference in syntax, which for a <u>function definition</u> is:<pre>
+
+function &lt;the function name&gt;() {
+    &lt;some code, constituting the function body&gt;
+}
+			</pre>
+			The syntax of a <u>function call</u> is:<pre>
+
+&lt;the function name&gt;();
+
+			</pre>
+			NOTE: The examples above are for a function without parameters.
+			</div>
+		    </li>
+		    <li>
+			<span class="question">What do the functions <span class="fw">callAlertBody</span> and <span class="fw">callAlertHead</span> do?</span><p class="answer" hidden>They both simply call the alert function, each passing in text corresponding to its name.</p>
+		    </li>
+		    <li>
+			<span class="question">Why is the second alert ("Hello from the BODY!") not appearing when you open the page in the browser?</span><p class="answer" hidden>Because the call is made before the function is defined in the file.</p>
+		    </li>
+		    <li>
+			<span class="question">Find the definition of function <span class="fw">callAlertBody</span> and move it somewhere that will make the second alert pop up when the page is opened. Explain your solution.</span><p class="answer" hidden>It can be moved to any position that will be parsed before the call, e.g. inside the head element of the document.</p>
+		    </li>
+		</ol>
+	    </article>		
+	    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	</div>
+	<script src="../common/res/scripts/main.js"></script>
+	<script src="../common/res/scripts/common.js"></script>
+	<script>init_all();</script>
+    </body>
+</html>
