@@ -17,101 +17,105 @@
 
     <body>
 	<header id="tudheader">
-	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
 	    <div id="tuddepttext">
 		<p>Tallaght Campus</p>
 		<p>Department of Computing</p>
 	    </div>
+	    <div id="titlecontainer">
+		<div id="title">
+		    Javascript and HTML Input Elements
+		</div>
+	    </div>
 	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
 	</header>
 
-	<nav>
-	    <ul class="links">
-		<li><a href="index.html">Home</a></li>
-	    </ul>
-	    <ul class="commands">
-		<li class="openall">Open all</li>
-		<li class="closeall">Close all</li>
-	    </ul>
-	</nav>
-
 	<div id="content">
-	    
-	    <h1>Javascript and HTML Input Elements</h1>
-	    
-	    <ol class="toc_grp">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+	    </nav>
 
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000034">
-                    <p>What is an HTML input element?</p>
-                    <article style="display:none">
-                        <h2>What is an HTML input element?</h2>
-			<ul>
-			    <li>
-				<p>HTML <strong>input</strong> elements are primarily used in HTML <strong>forms</strong>. Form data is submitted to the server for processing. In the example below a <strong>php</strong> script on a server processes the submitted data.</p>
-				
-				<figure>
-				    <figcaption>Example of code for an HTML form</figcaption>
-				    <pre class="texts code-listing">
+	    <article>
+		
+		<ol class="toc_grp">
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000034">
+			<p>What is an HTML input element?</p>
+			<article style="display:none">
+                            <h2>What is an HTML input element?</h2>
+			    <ul>
+				<li>
+				    <p>HTML <strong>input</strong> elements are primarily used in HTML <strong>forms</strong>. Form data is submitted to the server for processing. In the example below a <strong>php</strong> script on a server processes the submitted data.</p>
+				    
+				    <figure>
+					<figcaption>Example of code for an HTML form</figcaption>
+					<pre class="texts code-listing">
 &lt;form action="https://303bha.duckdns.org/tudt/cswd/process_example_form.php" method="post">
     &lt;label for="fn">First name:&lt;/label> &lt;input type="text" name="firstname" id="fn">&lt;br/>
     &lt;label for="mn">Middle name:&lt;/label> &lt;input type="text" name="middlename" id="mn">&lt;br/>
     &lt;label for="sn">Surname:&lt;/label> &lt;input type="text" name="surname" id="sn">&lt;br/>
     &lt;input type="submit" value="Submit">
 &lt;/form></pre>
-				</figure>
-				<figure>
-				    <figcaption>The example form, rendered</figcaption>
-	    			    <form action="https://303bha.duckdns.org/tudt/cswd/process_example_form.php" method="post">
-					<label for="fn">First name:</label> <input type="text" name="firstname" id="fn"><br/>
-					<label for="mn">Middle name:</label> <input type="text" name="middlename" id="mn"><br/>
-					<label for="sn">Surname:</label> <input type="text" name="surname" id="sn"><br/>
-					<input type="submit" value="Submit">
-				    </form>
-				</figure>
+				    </figure>
+				    <figure>
+					<figcaption>The example form, rendered</figcaption>
+	    				<form action="https://303bha.duckdns.org/tudt/cswd/process_example_form.php" method="post">
+					    <label for="fn">First name:</label> <input type="text" name="firstname" id="fn"><br/>
+					    <label for="mn">Middle name:</label> <input type="text" name="middlename" id="mn"><br/>
+					    <label for="sn">Surname:</label> <input type="text" name="surname" id="sn"><br/>
+					    <input type="submit" value="Submit">
+					</form>
+				    </figure>
 
-				<p class="box">
-				    <strong>ACTION:</strong> Fill out the form and submit it. The processing in this case happens <strong>on the server</strong>, by a script for which the URL is specified with the <span class="fw">action</span> attribute in the <span class="fw">form</span> tag.
-				</p>
-			    </li>
-			    <li>
-				<p>Input elements are also a <strong>general mechanism</strong> for collecting input from users. This input can be accessed by Javascript for client-side processing.</p>
-			    </li>
-			</ul>
+				    <p class="box">
+					<strong>ACTION:</strong> Fill out the form and submit it. The processing in this case happens <strong>on the server</strong>, by a script for which the URL is specified with the <span class="fw">action</span> attribute in the <span class="fw">form</span> tag.
+				    </p>
+				</li>
+				<li>
+				    <p>Input elements are also a <strong>general mechanism</strong> for collecting input from users. This input can be accessed by Javascript for client-side processing.</p>
+				</li>
+			    </ul>
 
-			
-                    </article>
-		</li>
-		
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000035">
-                    <p>Input element types</p>
-                    <article style="display:none">
-                        <h2>Input element types</h2>
-			
-			<p>HTML5 defines a large number of input types, listed <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input"><strong class="maroon">here</strong></a>. Creating an input element of a particular type harnesses the HTML5 interpreter's capability for input validation.</p>
+			    
+			</article>
+		    </li>
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000035">
+			<p>Input element types</p>
+			<article style="display:none">
+                            <h2>Input element types</h2>
+			    
+			    <p>HTML5 defines a large number of input types, listed <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input"><strong class="maroon">here</strong></a>. Creating an input element of a particular type harnesses the HTML5 interpreter's capability for input validation.</p>
 
-			<p class="box">
-			    <strong>ACTION:</strong> Create an HTML page and add a few different input elements to try them out.
-			</p>
+			    <p class="box">
+				<strong>ACTION:</strong> Create an HTML page and add a few different input elements to try them out.
+			    </p>
 
-			<h3>Text input</h3>
-			<p>The type of input we will primarily be dealing with in this module is <span class="fw">text</span>. The example shows a text input element and some Javascript code for accessing its value. 
+			    <h3>Text input</h3>
+			    <p>The type of input we will primarily be dealing with in this module is <span class="fw">text</span>. The example shows a text input element and some Javascript code for accessing its value. </p>
 			    
 			    <figure class="mt2">
 				<figcaption class="mb1">Examples of a text input elements (HTML code and rendered) </figcaption>
-
+				
 				<div class="code-listing">
 				    <pre class="fl textn w-four">
 &lt;input type="text" size="30"></pre>
 				    <input type="text" size="30"class="mb2">
-
+				    
 				    <p class="cb"></p>
-
+				    
 				    <pre class="fl textn w-four">
 &lt;input type="text" size="20" placeholder="Enter your name"></pre>
 				    <input type="text" size="20" placeholder="Enter your name" class="mb2">
-
+				    
 				    <p class="cb"></p>
 				    
 				    <pre class="fl textn w-four">
@@ -119,31 +123,31 @@
 &lt;input id="occ" type="text" size="10" value="Student"></pre>
 				    <label for="occ"">Occupation?</label> <input id="occ" type="text" size="10" value="Student">
 				</div>
-
+				
 			    </figure>
-
+			    
 			    
 			    <p class="box">
 				<strong>ACTION:</strong> Add the example input elements to your HTML file and try them out. Place them each in a paragraph element for better layout.
 			    </p>
 			    
+			    
+			</article>
+                    </li>
 
-                    </article>
-                </li>
 
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000036">
+			<p>Working with Input Elements in Javascript</p>
+			<article style="display:none">
+                            <h2>Working with Input Elements in Javascript</h2>
 
-		
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000036">
-                    <p>Working with Input Elements in Javascript</p>
-                    <article style="display:none">
-                        <h2>Working with Input Elements in Javascript</h2>
-
-			<p>The example shows a text input element and some Javascript code for accessing its value. Note that to get the value of an input element you use <strong class="fw textxl">value</strong>, not <span class="fw">innerHTML</span>.</p>
-			
-			<figure>
-			    <figcaption>Reading and setting the value of a text input element Javascript</figcaption>
-			    <pre class="code-listing">
+			    <p>The example shows a text input element and some Javascript code for accessing its value. Note that to get the value of an input element you use <strong class="fw textxl">value</strong>, not <span class="fw">innerHTML</span>.</p>
+			    
+			    <figure>
+				<figcaption>Reading and setting the value of a text input element Javascript</figcaption>
+				<pre class="code-listing">
 &lt;input type="text" size="10" id="some-text">
 
 &lt;script>
@@ -153,20 +157,21 @@
     // set the value to "hello"
     document.getElementById("some-text").value = "hello";
 &lt;/script></pre>			    
-			</figure>
+			    </figure>
 
-			<div class="box">
-			    <p><strong>ACTION:</strong> Add the element from the example to your HTML file, placing it inside a paragraph element. Now try out the example Javascript code in the console:</p>
-			    <ul>
-				<li>run the expression that reads the value from the input element (expected outcome: it evaluates to "")</li>
-				<li>type something into the input field and run the previous instruction again (expected outcome: the expression evaluates to your string)</li>
-				<li>run the code for setting the value (expected outcome: the value in the input field changes)</li>
-			    </ul>
-			</div>
-                    </article>
-                </li>
-	    </ol>
-
+			    <div class="box">
+				<p><strong>ACTION:</strong> Add the element from the example to your HTML file, placing it inside a paragraph element. Now try out the example Javascript code in the console:</p>
+				<ul>
+				    <li>run the expression that reads the value from the input element (expected outcome: it evaluates to "")</li>
+				    <li>type something into the input field and run the previous instruction again (expected outcome: the expression evaluates to your string)</li>
+				    <li>run the code for setting the value (expected outcome: the value in the input field changes)</li>
+				</ul>
+			    </div>
+			</article>
+                    </li>
+		</ol>
+	    </article>
+		
 	</div>
 	<script src="../common/res/scripts/main.js"></script>
 	<script src="../common/res/scripts/common.js"></script>

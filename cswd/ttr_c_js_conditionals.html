@@ -17,44 +17,45 @@
 
     <body>
 	<header id="tudheader">
-	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
 	    <div id="tuddepttext">
 		<p>Tallaght Campus</p>
 		<p>Department of Computing</p>
 	    </div>
+	    <div id="titlecontainer">
+		<div id="title">
+		    Javascript Conditional Statements
+		</div>
+	    </div>
 	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
 	</header>
 
-	<nav>
-	    <ul class="links">
-		<li><a href="index.html">Home</a></li>
-	    </ul>
-	    <ul class="commands">
-		<li class="openall">Open all</li>
-		<li class="closeall">Close all</li>
-	    </ul>
-	</nav>
-
 	<div id="content">
-	    
-	    <h1>Javascript Conditional Statements</h1>
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+	    </nav>
 
-	    
-	    
-	    <ol class="toc_grp">
-
+	    <article>
 		
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000040">
-                    <p>What is a conditional statement?</p>
-                    <article style="display:none">
-                        <h2>What is a conditional statement?</h2>
+		<ol class="toc_grp">
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000040">
+			<p>What is a conditional statement?</p>
+			<article style="display:none">
+                            <h2>What is a conditional statement?</h2>
 
-			<ul>
-			    <li>A conditional statement uses a <strong>condition</strong> to provide alternatives of execution in a program.</li>
-			    <li>Conditions are <em>expressions</em> that evaluate to a boolean value (true or false).</li>
-			    <li>The syntax of a conditional statement is:
-				<pre>
+			    <ul>
+				<li>A conditional statement uses a <strong>condition</strong> to provide alternatives of execution in a program.</li>
+				<li>Conditions are <em>expressions</em> that evaluate to a boolean value (true or false).</li>
+				<li>The syntax of a conditional statement is:
+				    <pre>
 
 if (/* condition (expression that evaluates to a boolean) */) {
     /* consequent statement block:
@@ -65,21 +66,21 @@ if (/* condition (expression that evaluates to a boolean) */) {
        code that should be executed if
        the condition is false */
 }
-				</pre>
-                                For example:
-				
-				<pre class="code-listing">
+				    </pre>
+                                    For example:
+				    
+				    <pre class="code-listing">
 let x = 2;
 if (x > 0) {
     alert("x is positive");
 } else {
     alert("x is not positive");
 }</pre>
-				
-			    </li>
-			    <li>During the execution of a conditional statement, exactly one of the blocks (consequent or alternative) is always executed.</li>
-			    <li>The alternative can be left out, in which case the alternative block is 'do nothing'. For example:
-				<pre class="code-listing">
+				    
+				</li>
+				<li>During the execution of a conditional statement, exactly one of the blocks (consequent or alternative) is always executed.</li>
+				<li>The alternative can be left out, in which case the alternative block is 'do nothing'. For example:
+				    <pre class="code-listing">
 let x = 2;
 if (x > 0) {
     alert("x is positive");
@@ -87,10 +88,10 @@ if (x > 0) {
 
 // no else or alternative block:
 // if x is 0 or less do nothing				</pre>
-				
-			    </li>
-			    <li>Conditional statements can be nested if further conditions need to be checked within the consequent or the alternative block. For example:
-				<pre class="code-listing">
+				    
+				</li>
+				<li>Conditional statements can be nested if further conditions need to be checked within the consequent or the alternative block. For example:
+				    <pre class="code-listing">
 let x = 2;
 let y = -7;
 if (x > 0) {
@@ -106,9 +107,9 @@ if (x > 0) {
         alert("Neither x nor y are positive");
     }
 }				</pre>
-			    </li>
-			    <li>If there are more than two alternative paths to take from one point, conditionals can be chained. For example
-				<pre class="code-listing">
+				</li>
+				<li>If there are more than two alternative paths to take from one point, conditionals can be chained. For example
+				    <pre class="code-listing">
 let x = 2;
 if (x == 0) {
     alert("x is zero");
@@ -117,59 +118,60 @@ if (x == 0) {
 } else {
     alert("x is negative");
 }</pre>
-			    </li>
-			    
-			</ul>
-		    </article>
+				</li>
+				
+			    </ul>
+			</article>
 
 
-		    
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000041">
-                    <p>Conditional Statement Exercise</p>
-                    <article style="display:none">
-                        <h2>Conditional Statement Exercise</h2>
+			
+			<!--------------------------------------------------------------------->            
+			<li id="ARTCLID000041">
+			    <p>Conditional Statement Exercise</p>
+			    <article style="display:none">
+				<h2>Conditional Statement Exercise</h2>
 
-			<p>Let's try to integrate a conditional statement with what we know about working with a webpage. We are going to create a webpage that assesses names with regard to their length.</p>
+				<p>Let's try to integrate a conditional statement with what we know about working with a webpage. We are going to create a webpage that assesses names with regard to their length.</p>
 
-			<ul>
-			    <li>Create a skeleton HTML page.</li>
-			    <li>Create a Javascript file and include it from a script element on the HTML page.</li>
-			    <li>In the HTML page add the following elements:
 				<ul>
-				    <li>a text input element and label 'Enter name' to go with it</li>
-				    <li>a button with text 'Measure name'</li>
-				    <li>an empty paragraph element with id 'result'</li>
-				</ul>
-			    </li>
-			    <li>In the Javascript file write a function that:
-				<ul>
-				    <li>takes a single argument (a string)</li>
-				    <li>examines the length of the string argument</li>
-				    <li>returns a string, which depends on the input argument:
+				    <li>Create a skeleton HTML page.</li>
+				    <li>Create a Javascript file and include it from a script element on the HTML page.</li>
+				    <li>In the HTML page add the following elements:
 					<ul>
-					    <li>"The name is long.", if the input argument is longer than 10 characters</li>
-					    <li>"The name is medium length.", if the input argument is greater than 5 and up to 10 characters long</li>
-					    <li>"The name is short.", if the input argument is 5 characters or shorter</li>
+					    <li>a text input element and label 'Enter name' to go with it</li>
+					    <li>a button with text 'Measure name'</li>
+					    <li>an empty paragraph element with id 'result'</li>
 					</ul>
 				    </li>
+				    <li>In the Javascript file write a function that:
+					<ul>
+					    <li>takes a single argument (a string)</li>
+					    <li>examines the length of the string argument</li>
+					    <li>returns a string, which depends on the input argument:
+						<ul>
+						    <li>"The name is long.", if the input argument is longer than 10 characters</li>
+						    <li>"The name is medium length.", if the input argument is greater than 5 and up to 10 characters long</li>
+						    <li>"The name is short.", if the input argument is 5 characters or shorter</li>
+						</ul>
+					    </li>
+					</ul>
+				    </li>
+				    <li>In the Javascript file write another function that:
+					<ul>
+					    <li>reads the value of the input element in the HTML page</li>
+					    <li>calls the first function to get the 'assessment' of the name</li>
+					    <li>writes the 'assessment' into the element with id 'result'</li>
+					</ul>
+				    </li>
+				    <li>Set the last function defined as handler for clicks on the button.</li>
+				    <li>Test the solution. The completed exercise can be found <a href="res/files/tutfiles/conditionalsC.zip">here</a>.</li>
 				</ul>
-			    </li>
-			    <li>In the Javascript file write another function that:
-				<ul>
-				    <li>reads the value of the input element in the HTML page</li>
-				    <li>calls the first function to get the 'assessment' of the name</li>
-				    <li>writes the 'assessment' into the element with id 'result'</li>
-				</ul>
-			    </li>
-			    <li>Set the last function defined as handler for clicks on the button.</li>
-			    <li>Test the solution. The completed exercise can be found <a href="res/files/tutfiles/conditionalsC.zip">here</a>.</li>
-			</ul>
-		    </article>
-                </li>
-                </li>
-	    </ol>
+			    </article>
+			</li>
+                    </li>
+		</ol>
 
+	    </article>
 	</div>
 	<script src="../common/res/scripts/main.js"></script>
 	<script src="../common/res/scripts/common.js"></script>

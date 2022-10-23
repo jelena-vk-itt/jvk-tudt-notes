@@ -13,45 +13,50 @@
 
     <body>
 	<header id="tudheader">
-	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
 	    <div id="tuddepttext">
 		<p>Tallaght Campus</p>
 		<p>Department of Computing</p>
 	    </div>
+	    <div id="titlecontainer">
+		<div id="title">
+		    Javascript Strings
+		</div>
+	    </div>
 	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
 	</header>
 
-	<nav>
-	    <ul class="links">
-		<li><a href="index.html">Home</a></li>
-	    </ul>
-	    <ul class="commands">
-		<li class="openall">Open all</li>
-		<li class="closeall">Close all</li>
-	    </ul>
-	</nav>
-
 	<div id="content">
+
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+	    </nav>
 	    
-	    <h1>Javascript Strings</h1>
+	    <article>
 
-	    <p>Try the examples below in the browser console. Modify each at least once and test the effect.</p>
+		<p>Try the examples below in the browser console. Modify each at least once and test the effect.</p>
 
-	    <h3>String literals and variables</h3>
+		<h3>String literals and variables</h3>
 
-	    <p>String literals are denoted either with double or single quotes.</p>
+		<p>String literals are denoted either with double or single quotes.</p>
 
-	    <figure>
-		<figcaption>String literal examples</figcaption>
-		<pre class="fl code-listing">
+		<figure>
+		    <figcaption>String literal examples</figcaption>
+		    <pre class="fl code-listing">
 "Jane"
 'John'	</pre>
-	    </figure>
+		</figure>
 
-	    <p>String variables are declared as any other variable and can be assigned a value from a literal or from another variable.</p>
-	    <figure>
-		<figcaption>String variable examples</figcaption>
-		<pre class="fl code-listing">
+		<p>String variables are declared as any other variable and can be assigned a value from a literal or from another variable.</p>
+		<figure>
+		    <figcaption>String variable examples</figcaption>
+		    <pre class="fl code-listing">
 // define variable s1 and assign the value "Jane" to it
 let s1 = "Jane";
 
@@ -61,27 +66,27 @@ let s2 = 'John';
 
 // define the variable s3 and assign the value of s1 to it
 let s3 = s1;		</pre>
-	    </figure>
+		</figure>
 
-	    <div class="box"><strong>ACTION:</strong> Try out the instructions in the two code listings above by running them in the console. After declaring a variable you can check its value by typing its name (followed by <strong>Enter</strong>), e.g.<pre>
+		<div class="box"><strong>ACTION:</strong> Try out the instructions in the two code listings above by running them in the console. After declaring a variable you can check its value by typing its name (followed by <strong>Enter</strong>), e.g.<pre>
 
 let s1 = "Jane";
 s1</pre>
-	    </div>
+		</div>
 
-	    <h3>Accessing individual characters of a string and concatenation</h3>
+		<h3>Accessing individual characters of a string and concatenation</h3>
 
-	    <p class="cl">The <strong>String</strong> type has many properties and methods (see e.g. <a href="https://www.w3schools.com/jsref/jsref_obj_string.asp">here</a>).</p>
-	    <dl>
-		<dt><span class="fw">length</span> property</dt><dd>Contains the length of the string in characters.</dd>
-		<dt><span class="fw">charAt(i)</span> method</dt><dd>Extracts and returns the character at index <span class="fw">i</span>.</dd>
-		<dt><span class="fw">[i]</span> operator</dt><dd>Same as charAt. Extracts and returns the character at index <span class="fw">i</span>.</dd>	
-		<dt><span class="fw">+</span> operator i.e. concatenation operator</dt><dd>Concatenates strings with strings or with other types converted to strings.</dd>
-	    </dl>
-	    <figure>
-		<figcaption>String example and console output</figcaption>
-		<div class="mt1 mr1 sc-frl">Expected output:<br/><img class="w-one" src="res/images/tutorials/str1_output.png"></div>
-		<pre class="fl code-listing">// define variable <span class="fw">s1</span> and assign to it the string value "Jane Jensen"
+		<p class="cl">The <strong>String</strong> type has many properties and methods (see e.g. <a href="https://www.w3schools.com/jsref/jsref_obj_string.asp">here</a>).</p>
+		<dl>
+		    <dt><span class="fw">length</span> property</dt><dd>Contains the length of the string in characters.</dd>
+		    <dt><span class="fw">charAt(i)</span> method</dt><dd>Extracts and returns the character at index <span class="fw">i</span>.</dd>
+		    <dt><span class="fw">[i]</span> operator</dt><dd>Same as charAt. Extracts and returns the character at index <span class="fw">i</span>.</dd>	
+		    <dt><span class="fw">+</span> operator i.e. concatenation operator</dt><dd>Concatenates strings with strings or with other types converted to strings.</dd>
+		</dl>
+		<figure>
+		    <figcaption>String example and console output</figcaption>
+		    <div class="mt1 mr1 sc-frl">Expected output:<br/><img class="w-one" src="res/images/tutorials/str1_output.png"></div>
+		    <pre class="fl code-listing">// define variable <span class="fw">s1</span> and assign to it the string value "Jane Jensen"
 let s1 = "Jane Jensen";
 
 // declare variable <span class="fw">c0</span> and initialise with first character from string <span class="fw">s1</span>
@@ -103,18 +108,18 @@ let cLast = s1.charAt(sLength - 1);
 // the combination (concatenation) is performed with the use of the 
 // concatenation operator (<span class="fw">+</span>)
 console.log("Extracted: " + c0 + ", " + c8 + ", " + cLast);</pre>
-	    </figure>
+		</figure>
 
-	    <div class="box"><strong>ACTION:</strong> Try out the instructions in the code listing above by running them in the console. Check what is contained in the variables along the way.   </div>
+		<div class="box"><strong>ACTION:</strong> Try out the instructions in the code listing above by running them in the console. Check what is contained in the variables along the way.   </div>
 
-	    <h3>Extracting substrings</h3>
-	    <dl>
-		<dt><span class="fw">slice(b,e)</span> method</dt><dd>Extracts a substring from the string, starting with index <span class="fw">b</span> and ending at index <span class="fw">e</span>. If <span class="fw">e</span> is left out, the slice includes the characters from index <span class="fw">b</span> to the end.</dd>
-	    </dl>
-	    <figure>
-		<figcaption>String slicing</figcaption>
-		<div class="mr1 mt1 sc-frl">Expected output:<br/><img class="w-one" src="res/images/tutorials/str2_output.png"></div>
-		<pre class="fl code-listing">
+		<h3>Extracting substrings</h3>
+		<dl>
+		    <dt><span class="fw">slice(b,e)</span> method</dt><dd>Extracts a substring from the string, starting with index <span class="fw">b</span> and ending at index <span class="fw">e</span>. If <span class="fw">e</span> is left out, the slice includes the characters from index <span class="fw">b</span> to the end.</dd>
+		</dl>
+		<figure>
+		    <figcaption>String slicing</figcaption>
+		    <div class="mr1 mt1 sc-frl">Expected output:<br/><img class="w-one" src="res/images/tutorials/str2_output.png"></div>
+		    <pre class="fl code-listing">
 // declare variable <span class="fw">s</span> and assign to it the string "TU Dublin Tallaght Campus";
 let s = "TU Dublin Tallaght Campus";
 
@@ -133,9 +138,11 @@ let typeOfPlace = s.slice(19);
 // write the results to console, concatenating with explanatory text
 console.log("Name of city: " + nameOfCity);
 console.log("Type of place: " + typeOfPlace);                  </pre>
-	    </figure>
-	    <div class="box"><strong>ACTION:</strong> Try out the instructions in the code listing above by running them in the console. Check what is contained in the variables along the way.   </div>
-
+		</figure>
+		<div class="box"><strong>ACTION:</strong> Try out the instructions in the code listing above by running them in the console. Check what is contained in the variables along the way.
+		</div>
+	    </article>
+		
 	</div>
     </body>
 </html>

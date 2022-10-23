@@ -13,110 +13,113 @@
 
     <body>
 	<header id="tudheader">
-	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
 	    <div id="tuddepttext">
 		<p>Tallaght Campus</p>
 		<p>Department of Computing</p>
 	    </div>
+	    <div id="titlecontainer">
+		<div id="title">
+		    Javascript Functions
+		</div>
+	    </div>
 	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
 	</header>
 
-	<nav>
-	    <ul class="links">
-		<li><a href="index.html">Home</a></li>
-	    </ul>
-	    <ul class="commands">
-		<li class="openall">Open all</li>
-		<li class="closeall">Close all</li>
-	    </ul>
-	</nav>
-
 	<div id="content">
-	    
-	    <h1>Javascript Functions</h1>
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+	    </nav>
 
-	    <ol class="toc_grp newline">
+	    <article>
+		<ol class="toc_grp newline">
 
-		
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000025">
-                    <p>Notes on notation</p>
-                    <article style="display:none">
-                        <h2>Notes on notation</h2>
-			<p>Instructions starting with <strong>ACTION:</strong>, like the one below, are for the student to carry out while reading the tutorial.</p>
-			<p class="box"><strong>ACTION: </strong>Open your browser.</p>
-                    </article>
-                </li>
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000025">
+			<p>Notes on notation</p>
+			<article style="display:none">
+                            <h2>Notes on notation</h2>
+			    <p>Instructions starting with <strong>ACTION:</strong>, like the one below, are for the student to carry out while reading the tutorial.</p>
+			    <p class="box"><strong>ACTION: </strong>Open your browser.</p>
+			</article>
+                    </li>
 
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000026">
-                    <p>What is a function?</p>
-                    <article style="display:none">
-                        <h2>What is a function?</h2>
-			<p>In programming, a function is a reusable piece of functionality.</p>
-			<p>There are two stages to using a function:</p>
-			<ul>
-			    <li>First, the function must be <strong>defined</strong>. By this we mean the specification of what the function does.</li>
-			    <li>Once defined, the function can be <strong>called</strong>. By this we mean the invocation of the function i.e. getting the function to do whatever it does.</li>
-			</ul>
-			<p>In Javascript, there is no difference as to where function definitions and calls appear in the script content. However, a particular function can be called only after it is defined.</p>
-		    </article>
-		</li>
-
-		
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000027">
-                    <p>Defining a function</p>
-                    <article style="display:none">
-                        <h2>Defining a function</h2>
-			<p>To define a function we must provide:</p>
-			<ul>
-			    <li>a name - must follow Javascript <a href="ttr_u_js_identifiers.html">identifier definition rules</a></li>
-			    <li>a parameter list - this may be empty</li>
-			    <li>a function body - this may also be empty</li>
-			</ul>
-
-			<figure class="threenh my3">
-			    <figcaption>Javascript function definition syntax</figcaption>
-			    <img src="res/images/tutorials/js_function_syntax.png">
-			</figure>
-
-                    </article>
-                </li>
-		
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000028">
-                    <p>Calling a function</p>
-                    <article style="display:none">
-                        <h2>Calling a function</h2>
-			<p>A function</p>
-			<ul>
-			    <li>can be called only if it has been defined</li>
-			    <li>is called using
-				<ul>
-				    <li>the function name</li>
-				    <li>arguments, which are values given to the function parameters for that instance of the function call</li>
-				    
-				</ul>
-			    </li>
-			</ul>
-			
-			<figure class="twonh my3">
-			    <figcaption>Javascript function call syntax</figcaption>
-			    <img src="res/images/tutorials/js_function_call.png">
-			</figure>
-
-			<div class="box my3">
-			    <p><strong>ACTION:</strong></p>
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000026">
+			<p>What is a function?</p>
+			<article style="display:none">
+                            <h2>What is a function?</h2>
+			    <p>In programming, a function is a reusable piece of functionality.</p>
+			    <p>There are two stages to using a function:</p>
 			    <ul>
-				<li>Create an HTML file with the content given below.</li>
-				<li>Open the file in a browser.</li>
-				<li>Open developer tools (<strong>F12</strong> or <strong>Ctrl-Shift-i</strong>, tab <strong>Console</strong>).</li>
-				<li>Now reload the page (<strong>F5</strong> or <strong>Ctrl-Shift-r</strong>).</li>
-				<li>Notice that nothing happened in the console even though the function <span class="fw">addNums</span> has been defined in the HTML file. <span class="question">Why?</span><p class="answer" hidden>Because the function has not been called. It has been defined only.</p></li>
-				<li>Because the function has been defined, the Javascript interpreter in the browser has access to it and can run it if we call it. Call the function from the console by typing in the following <span class="fw">addNums(3, 4)</span>, then pressing <strong>Enter</strong>.</li>
+				<li>First, the function must be <strong>defined</strong>. By this we mean the specification of what the function does.</li>
+				<li>Once defined, the function can be <strong>called</strong>. By this we mean the invocation of the function i.e. getting the function to do whatever it does.</li>
 			    </ul>
-			    <pre>
+			    <p>In Javascript, there is no difference as to where function definitions and calls appear in the script content. However, a particular function can be called only after it is defined.</p>
+			</article>
+		    </li>
+
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000027">
+			<p>Defining a function</p>
+			<article style="display:none">
+                            <h2>Defining a function</h2>
+			    <p>To define a function we must provide:</p>
+			    <ul>
+				<li>a name - must follow Javascript <a href="ttr_u_js_identifiers.html">identifier definition rules</a></li>
+				<li>a parameter list - this may be empty</li>
+				<li>a function body - this may also be empty</li>
+			    </ul>
+
+			    <figure class="threenh my3">
+				<figcaption>Javascript function definition syntax</figcaption>
+				<img src="res/images/tutorials/js_function_syntax.png">
+			    </figure>
+
+			</article>
+                    </li>
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000028">
+			<p>Calling a function</p>
+			<article style="display:none">
+                            <h2>Calling a function</h2>
+			    <p>A function</p>
+			    <ul>
+				<li>can be called only if it has been defined</li>
+				<li>is called using
+				    <ul>
+					<li>the function name</li>
+					<li>arguments, which are values given to the function parameters for that instance of the function call</li>
+					
+				    </ul>
+				</li>
+			    </ul>
+			    
+			    <figure class="twonh my3">
+				<figcaption>Javascript function call syntax</figcaption>
+				<img src="res/images/tutorials/js_function_call.png">
+			    </figure>
+
+			    <div class="box my3">
+				<p><strong>ACTION:</strong></p>
+				<ul>
+				    <li>Create an HTML file with the content given below.</li>
+				    <li>Open the file in a browser.</li>
+				    <li>Open developer tools (<strong>F12</strong> or <strong>Ctrl-Shift-i</strong>, tab <strong>Console</strong>).</li>
+				    <li>Now reload the page (<strong>F5</strong> or <strong>Ctrl-Shift-r</strong>).</li>
+				    <li>Notice that nothing happened in the console even though the function <span class="fw">addNums</span> has been defined in the HTML file. <span class="question">Why?</span><p class="answer" hidden>Because the function has not been called. It has been defined only.</p></li>
+				    <li>Because the function has been defined, the Javascript interpreter in the browser has access to it and can run it if we call it. Call the function from the console by typing in the following <span class="fw">addNums(3, 4)</span>, then pressing <strong>Enter</strong>.</li>
+				</ul>
+				<pre>
 &lt;!doctype html>
 &lt;html lang="en">
     &lt;head>
@@ -131,41 +134,41 @@
 	&lt;/script>	
     &lt;/body>
 &lt;/html>
-			    </pre>
+				</pre>
+				
+			    </div>
 			    
-			</div>
-			
-                    </article>
-                </li>
+			</article>
+                    </li>
 
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000029">
-                    <p>The function return value</p>
-                    <article style="display:none">
-                        <h2>The function return value</h2>
-			<p>A function may also contain one or more <strong>return statements</strong>. A return statement</p>
-			<ul>
-			    <li>ends the function execution</li>
-			    <li>can be accompanied by a <strong>return value</strong>, which is what the function <strong>evaluates to</strong> when it ends via this return statement</li>
-			    <li>a function that returns a value is like any other expression in that it can replace a value of that type in other code</li>
-			</ul>
-
-			<figure class="three my3">
-			    <figcaption>Javascript function return statement</figcaption>
-			    <img src="res/images/tutorials/js_function_ret.png">
-			</figure>
-			
-			<div class="box my3">
-			    <p><strong>ACTION:</strong></p>
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000029">
+			<p>The function return value</p>
+			<article style="display:none">
+                            <h2>The function return value</h2>
+			    <p>A function may also contain one or more <strong>return statements</strong>. A return statement</p>
 			    <ul>
-				<li>Edit your HTML file previously created to add the function <span class="fw">addNums2</span>. The new content of the file is shown below.</li>
-				<li>Open the file in a browser.</li>
-				<li>Open developer tools (<strong>F12</strong> or <strong>Ctrl-Shift-i</strong>, tab <strong>Console</strong>).</li>
-				<li>Now reload the page (<strong>F5</strong> or <strong>Ctrl-Shift-r</strong>).</li>
-				<li>Call the new function from the console by typing in the following <span class="fw">addNums2(3, 4)</span>, then pressing <strong>Enter</strong>. The function evaluates to 7 (returns 7) but does not print anything to the console log.</li>
-				<li>Now use the function as a number (equal to its return value) by calling the following from the console: <span class="fw">3 + addNums2(3, 4)</span></li>
+				<li>ends the function execution</li>
+				<li>can be accompanied by a <strong>return value</strong>, which is what the function <strong>evaluates to</strong> when it ends via this return statement</li>
+				<li>a function that returns a value is like any other expression in that it can replace a value of that type in other code</li>
 			    </ul>
-			    <pre>
+
+			    <figure class="three my3">
+				<figcaption>Javascript function return statement</figcaption>
+				<img src="res/images/tutorials/js_function_ret.png">
+			    </figure>
+			    
+			    <div class="box my3">
+				<p><strong>ACTION:</strong></p>
+				<ul>
+				    <li>Edit your HTML file previously created to add the function <span class="fw">addNums2</span>. The new content of the file is shown below.</li>
+				    <li>Open the file in a browser.</li>
+				    <li>Open developer tools (<strong>F12</strong> or <strong>Ctrl-Shift-i</strong>, tab <strong>Console</strong>).</li>
+				    <li>Now reload the page (<strong>F5</strong> or <strong>Ctrl-Shift-r</strong>).</li>
+				    <li>Call the new function from the console by typing in the following <span class="fw">addNums2(3, 4)</span>, then pressing <strong>Enter</strong>. The function evaluates to 7 (returns 7) but does not print anything to the console log.</li>
+				    <li>Now use the function as a number (equal to its return value) by calling the following from the console: <span class="fw">3 + addNums2(3, 4)</span></li>
+				</ul>
+				<pre>
 &lt;!doctype html>
 &lt;html lang="en">
     &lt;head>
@@ -184,16 +187,14 @@
 	&lt;/script>	
     &lt;/body>
 &lt;/html>
-			    </pre>
-			    
-			</div>
+				</pre>
+				
+			    </div>
 
-                    </article>
-                </li>
-
-
-
-	    </ol>
+			</article>
+                    </li>
+		</ol>
+	    </article>
 	</div>
 	<script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/main.js"></script>
 	<script src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/scripts/common.js"></script>
