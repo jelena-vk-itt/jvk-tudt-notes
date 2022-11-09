@@ -17,68 +17,70 @@
 
     <body>
 	<header id="tudheader">
-	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
 	    <div id="tuddepttext">
 		<p>Tallaght Campus</p>
 		<p>Department of Computing</p>
 	    </div>
+	    <div id="titlecontainer">
+		<div id="title">
+		    Javascript Arrays
+		</div>
+	    </div>
 	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
 	</header>
 
-	<nav>
-	    <ul class="links">
-		<li><a href="index.html">Home</a></li>
-	    </ul>
-	    <ul class="commands">
-		<li class="openall">Open all</li>
-		<li class="closeall">Close all</li>
-	    </ul>
-	</nav>
-
 	<div id="content">
-	    
-	    <h1>Javascript Arrays</h1>
-	    
-	    <ol class="toc_grp">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+	    </nav>
 
+	    <article>
+		
+		<ol class="toc_grp">
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000046">
+			<p>Javascript arrays</p>
+			<article style="display:none">
+                            <h2>Javascript arrays</h2>
 
-	        <!--------------------------------------------------------------------->            
-                <li id="ARTCLID000046">
-                    <p>Javascript arrays</p>
-                    <article style="display:none">
-                        <h2>Javascript arrays</h2>
+			    <ul>
+				<li>Arrays are list-like objects that contain one or more elements.</li>
+				<li>The members of an array do not have to be all of the same type.</li>
+				<li>Arrays can be nested, to any depth.</li>
 
-			<ul>
-			    <li>Arrays are list-like objects that contain one or more elements.</li>
-			    <li>The members of an array do not have to be all of the same type.</li>
-			    <li>Arrays can be nested, to any depth.</li>
+				<li>The list of Javascript Array methods and other information about the Array type can be found <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">here</a>.</li>
+			    </ul>
 
-			    <li>The list of Javascript Array methods and other information about the Array type can be found <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">here</a>.</li>
-			</ul>
+			    <h3 class="mt2">Syntax for array literals</h3>
+			    <div class="box"><span class="fw blue bold">[</span> <em>element-list</em> <span class="fw blue bold">]</span></div>
 
-			<h3 class="mt2">Syntax for array literals</h3>
-			<div class="box"><span class="fw blue bold">[</span> <em>element-list</em> <span class="fw blue bold">]</span></div>
+			    <dl>
+				<dt><span class="fw blue bold">characters in blue</span></dt>
+				<dd>Must appear literally as shown.</dd>
+				
+				<dt><em>element-list</em></dt>
+				<dd>A comma-separated list of Javascript expressions (remember that an expression must evaluate to something).</dd>
+			    </dl>
 
-			<dl>
-			    <dt><span class="fw blue bold">characters in blue</span></dt>
-			    <dd>Must appear literally as shown.</dd>
+			    <h3 class="mt2">Array examples</h3>
 			    
-			    <dt><em>element-list</em></dt>
-			    <dd>A comma-separated list of Javascript expressions (remember that an expression must evaluate to something).</dd>
-			</dl>
-
-			<h3 class="mt2">Array examples</h3>
-			
 			    
-			<p class="mt2">Array literals</p>
-			<pre class="code-listing">
+			    <p class="mt2">Array literals</p>
+			    <pre class="code-listing">
 let emptyArray = [];
 let arrayOfNumbers = [1, 2, 5.3, 8, 2, 4.4, 6];
 let arrayOfStrings = ['&#@!?', 'John', 'Jane', 'bob@xyz.ie'];
 let mixedArray = ['orange', 7.6, true, 1, 3, 'apple', false, 'banana'];</pre>
 
-			<p class="mt2">Accessing parts of the array and finding its length (try this code in the console)</p>			
-			<pre class="code-listing">
+			    <p class="mt2">Accessing parts of the array and finding its length (try this code in the console)</p>			
+			    <pre class="code-listing">
 let mixedArray = ['orange', 7.6, true, 1, 3, 'apple', false, 'banana'];
 
 // we extract the 1st element using index 0
@@ -97,8 +99,8 @@ mixedArray.slice(2, 6);
 // use slice to make a new copy of the array
 let copyOfMixedArray = mixedArray.slice();</pre>
 
-			<p class="mt2">Concatenation (try this code in the console)</p>
-			<pre class="code-listing">
+			    <p class="mt2">Concatenation (try this code in the console)</p>
+			    <pre class="code-listing">
 let numArray = [ 1.1, 2.2, 3.3, 4.4, 5.5, 6.6 ];
 
 // concat() returns a new array containing all the
@@ -107,9 +109,9 @@ let numArray = [ 1.1, 2.2, 3.3, 4.4, 5.5, 6.6 ];
 numArray.concat([7.7, 8.8]);
 numArray.slice(1, 3).concat(numArray.slice(4));</pre>
 
-			
-			<p class="mt2">Modifying arrays (try this code in the console)</p>
-			<pre class="code-listing">
+			    
+			    <p class="mt2">Modifying arrays (try this code in the console)</p>
+			    <pre class="code-listing">
 let stringArray = ['a', 'b', 'c', 'd', 'e'];
 
 // adding an element at the end
@@ -127,10 +129,10 @@ stringArray[0] = 'zzz';
 //    number of elements in range
 //    new elements to insert
 stringArray.splice(2, 2, 'w', 'x', 'y', 'z');</pre>			
-			
+			    
 
-			<p class="mt2">Some other methods (try this code in the console)</p>
-			<pre class="code-listing">
+			    <p class="mt2">Some other methods (try this code in the console)</p>
+			    <pre class="code-listing">
 let nameArray = ['Flo', 'Hal', 'Bob', 'Con', 'Ger', 'Dan', 'Ali'];
 
 // sort the array (the original is modified)
@@ -155,17 +157,17 @@ nameArray.fill('zzz', 3, 5);
 // get the index of an element in the list
 nameArray.indexOf('Hal');
 
-			</pre>
+			    </pre>
 
-			<h3 class="mt2">Array exercise</h3>
-			<img class="fr mt2 ml1" src="res/images/tutorials/js_arrays_with_loops_output.jpg" width="200">
-			<p class="mt2">Using lists with loops: let's write some Javascript code that prints to the console a list of who would like which drink (like the one shown on the right), using the following arrays.</p>
-			<pre>
+			    <h3 class="mt2">Array exercise</h3>
+			    <img class="fr mt2 ml1" src="res/images/tutorials/js_arrays_with_loops_output.jpg" width="200">
+			    <p class="mt2">Using lists with loops: let's write some Javascript code that prints to the console a list of who would like which drink (like the one shown on the right), using the following arrays.</p>
+			    <pre>
 ['Flo', 'Hal', 'Bob', 'Con', 'Ger', 'Dan', 'Ali']
 ['tea', 'coffee', 'tea', 'coffee', 'coffee', 'coffee', 'tea']
-			</pre>
-			<button type="button" onclick="toggle_hide('ex1')">Click to reveal/hide solution</button>
-			<pre id="ex1" class="code-listing" hidden>
+			    </pre>
+			    <button type="button" onclick="toggle_hide('ex1')">Click to reveal/hide solution</button>
+			    <pre id="ex1" class="code-listing" hidden>
 let names = ['Flo', 'Hal', 'Bob', 'Con', 'Ger', 'Dan', 'Ali'];
 let drinks = ['tea', 'coffee', 'tea', 'coffee', 'coffee', 'coffee', 'tea'];
 let list = "";
@@ -173,11 +175,12 @@ for (let i = 0; i < names.length; ++i) {
     list += names[i] + " would like some " + drinks[i] + "\n";
 }
 console.log(list);</pre>    
-                    </article>
-                </li>
+			</article>
+                    </li>
 
-	    </ol>
-	    
+		</ol>
+
+	    </article>
 	</div>
 	<script src="../common/res/scripts/main.js"></script>
 	<script src="../common/res/scripts/common.js"></script>
