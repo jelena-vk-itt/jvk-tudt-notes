@@ -192,7 +192,7 @@ parent.removeChild(elementToRemove);</pre>
 			    <p>We insert a node before a sibling. For example, let's insert a new list item just before the second one.</p>
 
 			    <pre class="code-listing">
-// access the element we want to remove
+// access the element in front of which we want to insert the new one
 let secondListItem = document.body.children[0].children[3].children[1];
 
 // create a new list item element
@@ -202,7 +202,7 @@ let newLI = document.createElement('li');
 //we can set the <span class="fw">innerText</span> property on the element
 newLI.innerText = "It is important to be inclusive";
 
-// insert the node
+// insert the node, by calling insertBefore() on the parent element
 secondListItem.parentElement.insertBefore(newLI, secondListItem);</pre>
 
 
