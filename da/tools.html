@@ -3,7 +3,7 @@
     <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8"/>	
-	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/datalogo.png"/>
 	<link rel="stylesheet" type="text/css" href="res/styles/da.css"/>
 	<title>DA Tools</title>
 	<style>
@@ -12,55 +12,60 @@
     </head>
     <body>
 	<header id="tudheader">
-	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
 	    <div id="tuddepttext">
 		<p>Tallaght Campus</p>
 		<p>Department of Computing</p>
 	    </div>
+	    <div id="titlecontainer">
+		<div id="title">
+		    Tools used in the module
+		</div>
+	    </div>
 	    <img id="rightlogo" src="res/images/dalogo.png" alt="DA Logo">
 	</header>
 	
-	<nav>
-	    <ul class="links">
-		<li><a href="index.html">Home</a></li>
-	    </ul>
-	   
-
-	</nav>
-
 	<div id="content">
-
-	    <article class="tutorial-panel">
-		<h2>Python</h2>
-		<ul>
-		    <li>A <strong>general-purpose programming language</strong>, Python is <strong>high-level</strong> and <strong>interpreted</strong></li>
-		    <li>Invented in the 1980s by Guido van Rossum in the Netherlands</li>
-		    <li>It has specialised libraries for different applications, the most important ones for data analysis being <strong>Numpy</strong>, <strong>Matplotlib</strong> and <strong>Pandas</strong></li>
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
 		</ul>
-		
-	    </article>
-	    <article class="tutorial-panel">
-		<h2>The tools</h2>
-		<p>To work with Python, we will be using <strong>Jupyter Notebooks</strong>, which allow seamless combination of text and code, making them an apt tool for data analysis.</p>
-		<dl>
-		    <dt>Online notebooks at Google Colab</dt>
-		    <dd><p>These can be used with a Google account and allow you to work and save your files in the cloud (<a href="https://colab.research.google.com/notebooks/intro.ipynb">URL</a>).</p></dd>
-		    <dt>Local installation on your own computer</dt>
-		    <dd>
-			<p>There are a few alternatives:</p>
-			<ol>
-			    <li>Anaconda, which can be downloaded from <a href="https://www.anaconda.com/distribution/#download-section"><strong class="maroon">here</strong></a> and includes all the packages we need.</li>
-			    <li>Jupyter Labs provides the same tool as Anaconda but in standalone form. It can installed from <a href="https://jupyter.org/install"><strong class="maroon">here</strong></a>.</li>
-			    <li>Visual Studio Code extensions <strong>Python</strong> and <strong>Jupyter</strong>  provide notebook functionality. More information can be found <a href="https://code.visualstudio.com/docs/python/jupyter-support
-"><strong class="maroon">here</strong></a>. </li>
-			</ol>
-		    </dd>
-		    <dt>Local installation on lab PCs</dt>
-		    <dd><p>To run Jupyter Notebooks on a lab PC, open a command line window and navigate to the directory where your Jupyter Notebook files are. Then run the following command:</p><pre>
+
+	    </nav>
+
+	    <article>
+		<article class="tutorial-panel">
+		    <h2>Python</h2>
+		    <ul>
+			<li>A <strong>general-purpose programming language</strong>, Python is <strong>high-level</strong> and <strong>interpreted</strong></li>
+			<li>Invented in the 1980s by Guido van Rossum in the Netherlands</li>
+			<li>It has specialised libraries for different applications, the most important ones for data analysis being <strong>Numpy</strong>, <strong>Matplotlib</strong> and <strong>Pandas</strong></li>
+		    </ul>
+		    
+		</article>
+		<article class="tutorial-panel">
+		    <h2>The tools</h2>
+		    <p>To work with Python, we will be using <strong>Jupyter Notebooks</strong>, which allow seamless combination of text and code, making them an apt tool for data analysis.</p>
+		    <dl>
+			<dt>Online notebooks at Google Colab</dt>
+			<dd><p>These can be used with a Google account and allow you to work and save your files in the cloud (<a href="https://colab.research.google.com/notebooks/intro.ipynb">URL</a>).</p></dd>
+			<dt>Local installation on your own computer</dt>
+			<dd>
+			    <p>There are a few alternatives:</p>
+			    <ol>
+				<li>Anaconda, which can be downloaded from <a href="https://www.anaconda.com/distribution/#download-section"><strong class="maroon">here</strong></a> and includes all the packages we need. [RECOMMENDED]</li>
+				<li>Jupyter Labs provides the same tool as Anaconda but in standalone form. It can installed from <a href="https://jupyter.org/install"><strong class="maroon">here</strong></a>.</li>
+				<li>Visual Studio Code extensions <strong>Python</strong> and <strong>Jupyter</strong>  provide notebook functionality. More information can be found <a href="https://code.visualstudio.com/docs/python/jupyter-support
+																							       "><strong class="maroon">here</strong></a>. </li>
+			    </ol>
+			</dd>
+			<dt>Local installation on lab PCs</dt>
+			<dd><p>To run Jupyter Notebooks on a lab PC, open a command line window and navigate to the directory where your Jupyter Notebook files are. Then run the following command:</p><pre>
 jupyter notebook		    </pre>
-			
-		    </dd>
-		</dl>
+			    
+			</dd>
+		    </dl>
+		</article>
 	    </article>
 	</div>
     </body>
