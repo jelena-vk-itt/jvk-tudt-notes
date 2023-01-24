@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<!-- link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/-->
+	<link rel="stylesheet" type="text/css" href="../../common/res/styles/two.css"/>
+	<title>Exploratory Data Analysis</title>
+    </head>
+    <body>
+	<a href="index.html">Home</a>
+	
+	<h1>Exploratory Data Analysis</h1>
+
+	<ol class="toc_grp newline">
+	    <li id="em" class="collapsable-article-container">
+		<p>Measures of Relatedness</p>
+		<article>
+		    <h2>Measures of Relatedness</h2>
+		    <table class="rel-meas">
+			<caption>Table: Measures of relatedness by variable types</caption>
+			<tr><th>variable type/variable type</th><th>categorical</th><th>ordinal/<br/>interval-scale numeric</th><th>numeric</th></tr>
+			<tr><th>categorical</th><td>Chi-square<br>[Information Gain]<br>[Lift]</td><td></td><td>t-test<br/>ANOVA<br></td></tr>
+			<tr><th>ordinal/<br/>interval-scale numeric</th><td class="blank"></td><td>Kendall's Tau<br></td><td>Kendall's Tau</td></tr>
+			
+			<tr><th>numeric</th><td class="blank"></td><td class="blank"></td><td>Pearson's correlation coefficient</td></tr>
+		    </table>
+		    <p><a href="res/files/lectures/DA_RelationshipsS.pdf"><strong>Notes on relationship concepts and measures in statistics</strong></a></p>
+		    <p><a href="res/files/lectures/DA_RelationshipsML.pdf"><strong>Notes on relationship concepts and measures in machine learning</strong></a></p>
+		</article>
+	    </li>
+
+	    <li id="el" class="collapsable-article-container">
+		<p>Exploratory Machine Learning</p>
+		<article>
+		    <h2>Exploratory Machine Learning</h2>
+		    <p>Machine learning algorithms for data analysis can be classified into two big groups:</p>
+		    <ul>
+			<li>supervised learning - algorithms used for building predictive models and they involve:
+			    <ul>
+				<li>the use of data where the values of the variable to be predicted are known for the <strong>building of the model</strong></li>
+				<li>the use of other data where the values of the variable to be predicted are known for the <strong>testing and validation</strong> of the model</li>
+				<li>the use of the model for <strong>prediction</strong></li>
+			    </ul>
+			</li>
+
+			<li><strong>unsupervised learning, which is a type of exploratory analysis</strong> - algorithms that
+			    <ul>
+				<li>discover relationships or other information not immediately evident in the data</li>
+				<li>do not build models to be used with unseen data, but work directly on the available dataset</li>
+				<li>for example, perform <strong>clustering</strong> or the discovery of <strong>association rules (notes on Moodle)</strong></li>
+			    </ul>
+			    <p><a href="res/files/lectures/DA_Grouping.pdf"><strong>Notes on unsupervised learning</strong></a></p>
+			</li>
+		    </ul>
+		    
+		</article>
+	    </li>
+
+	    <li id="er" class="collapsable-article-container">
+		<p>References</p>
+		<article class="refs">
+		    <h2>References</h2>
+		    <ul>
+			<li>
+			    <strong>[DSB]</strong> <em>Science for Business: What you need to know about data mining and data-analytic thinking</em>, by Foster Provost and Tom Fawcett, O’Reilly Media, 2013.
+			</li>
+		    </ul>
+		</article>
+	    </li>
+	</ol>
+
+	<script src="../common/res/scripts/main.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>
