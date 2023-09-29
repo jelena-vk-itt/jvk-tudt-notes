@@ -34,8 +34,8 @@ header#tudheader > * {  height: 100%; margin: 0; padding: 0; font-weight: bold; 
 header#tudheader > #tuddepttext > p { width: 13em; padding: 0; margin: 0.5em;}
 header#tudheader #titlecontainer { flex-grow: 1; }
 header#tudheader #title { font-size: 2em; padding-top: 0.5em; margin: auto 1em auto 1em; text-align: center; }
-header#tudheader #rightlogo { height: 4em; }
-header#tudheader #leftlogo { height: 4em; }
+header#tudheader #rightlogo { height: 4.5em; }
+header#tudheader #leftlogo { height: 4.5em; }
 
 
 table#module-info th { width: 7em; text-align: left; padding: 0.2em 0; }
