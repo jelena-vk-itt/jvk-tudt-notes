@@ -1,3 +1,4 @@
+
 function changeBodyColour() {
     document.getElementsByTagName("body")[0].style.background =
 	"rgb(" +
@@ -32,4 +33,12 @@ document.getElementById('makered').addEventListener("click", function() { change
 let buttonArray = document.getElementsByClassName("gb");
 for (let index = 0; index < buttonArray.length; ++index) {
 	buttonArray[index].addEventListener("click", function() { writeGreeting(index + 1, this.textContent); } );
+}
+
+
+// setting the event handler property directly
+let buttonToRandomOnce = document.getElementById('makerandonce');
+buttonToRandomOnce.onclick = function() {
+    changeBodyColour();
+    buttonToRandomOnce.onclick = undefined;
 }

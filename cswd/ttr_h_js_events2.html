@@ -46,7 +46,7 @@
 		<ol class="toc_grp">
 		    <p>So far we have learnt one method for setting up event handlers - with an event handler property on the HTML element (for example <span class="fw">onclick</span>). Another way to set up an event handler is programmatically from Javascript code. This method of setting up handlers is the topic of this tutorial.</p>
 
-		    
+
 		    <!--------------------------------------------------------------------->            
 		    <li id="ARTCLID000055">
 			<p>The <span class="fw">addEventListener()</span> method</p>
@@ -183,6 +183,20 @@ document.getElementById("makered").addEventListener("click", function() { change
 			    </ul>
 			</article>
                     </li>
+
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000071">
+			<p>Alternative: setting the event handler property directly</p>
+			<article style="display:none">
+                            <h2>Alternative: setting the event handler property directly</h2>
+			    <ul>
+				<li>An alternative programmatic construct for setting event handlers is their direct assignment to event handler properties of elements.</li>
+				<li>Similarly, a handler can be removed by setting the event handler property to <span class="fw">undefined</span>.</li>
+				<li>We will demonstrate this by adding a handler for clicks on button <strong>Make background a random colour (once)</strong>, which changes the background to a random colour and then removes itself as handler.</li>
+			    </ul>
+			</article>
+                    </li>
+
 		</ol>
 		<p><a href="res/files/tutfiles/eh2C.zip">Download completed exercises</a></p>
 	    </article>
