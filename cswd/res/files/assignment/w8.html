@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>W8</title>
+	<link rel="stylesheet" type="text/css" href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css" />
+	<style>
+	 body { font-family: helvetica, arial, sans-serif; font-size: large; }
+	 section { margin: 3em 0 0 0; clear: both; }
+	 .fw, pre { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;}
+	 .instructions li { margin-top: 1rem; margin-bottom: 0; }
+	 figure { width: 100%; margin: 0; padding: 0.5rem 0; display: flow-root; }
+	 figure img { width: 100%; float: left; font-weight: bold; font-style: italic; }
+	 .basic-border { border: 1px solid black; }
+	 .note { color: red; font-weight: bold; }
+	</style>
+    </head>
+    <body>
+	<div id="content">
+	    <article>
+		<h1>Client-Side Web Development - Graded Assignment #8</h1>
+		
+		<p class="note">This assignment must be completed with Javascript constructs covered in the module.<br/>
+		    The HTML and Javascript file should not be modified in any way except as specified below in step 4.</p>
+		<ol>
+		    <li>Use VS Code to open files <em>index.html</em> and <em>main.js</em>, in which you completed the previous assignments.</li>
+		    <li>Write some code so that during page loading time an object is created and populated with key-value pairs. There should be one key-value pair for each button, with the button text representing the keys and the descriptions given in the array representing the values (matched by order of appearance):<pre>
+
+let buttonDescriptions = [
+    "Adds a digit 1 to button one",
+    "Changes the text of the long paragraph to uppercase characters",
+    "Modifies the text of the long paragraph",
+    "Changes the background to the specified colour, or to a random colour",
+    "Changes the textual content of the bordered elements"
+];
+		    </pre>
+		    The array must be used as given and declared within a function, rather than directly in the Javascript file. The created object must be declared directly in the Javascript file and visible to all functions.
+		    </li>
+	</li>
+	<li>Add the following at the bottom of the Bootstrap container element:<pre>
+
+&lt;hr>
+&lt;p>&lt;span>&lt;/span>&lt;/p></pre>
+	</li>
+	<li>Write some code in the Javascript file so that when the mouse enters a button, the button's description is displayed in the newly added span element. When the mouse exits the button, the span element should revert to being empty.</li>
+		</ol>
+		
+		<p>&nbsp;</p>
+		<em>For a video demonstrating the required behaviour click <a class="green underline" href="https://screenpal.com/watch/c0XXFRVG3Xd">here</a>.</em><br><br>
+		<em>For information on submission deadline and grading of this assignment see the the <a href="https://jelena-vk-itt.github.io/jvk-tudt-notes/cswd/index.html">Schedule and Notes</a> page, below the table.</em>
+
+	    </article>
+	</div>
+    </body>
+</html>
