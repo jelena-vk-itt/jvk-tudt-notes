@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="res/styles/swd1-pt.css"/>
+	<title>Software Development 1</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">The tools</p>
+	    </div>
+	    <img id="rightlogo" src="../common/res/images/python_logo.png" alt="Python Logo">
+	</header>
+
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+
+	    </nav>
+
+	    <article>
+	    	    
+	    <ol class="toc_grp newline">
+		<li id="swd1-pt-p1-01">
+		    <p>The tools and how to install them</p>
+		    <article style="display:none">
+			<h2>The tools and how to install them</h2>
+
+			<ul>
+			    <li><strong>Python</strong>
+				<ul>
+				    <li>this is the interpreter for the language</li>
+				    <li>it also includes essential libraries of code</li>
+				    <li>when installed alone, it must be interacted with from the command line</li>
+				    <li>it is installed in the labs</li>
+				    <li>if working at home, you will need to install Python (<a href="https://www.python.org/downloads/">the latest version</a>) on your computer</li>
+				    <li>Python is free to download and use</li>
+				</ul>
+			    </li>
+			    <li>The integrated development environment (IDE) <strong>PyCharm</strong>
+				<ul>
+				    <li>this is an environment that makes development with a programming language easier</li>
+				    <li>it relies on Python to be installed in order to be in any way useful (it cannot interpret the language!)</li>
+				    <li>is also installed on the lab computers</li>
+				    <li>if working at home, you will have to install PyCharm (<a href="https://www.jetbrains.com/pycharm/download/">community edition</a>)</li>
+				    <li>the community edition is free</li>
+				</ul>
+			    </li>
+			</ul>
+		    </article>
+		</li>
+
+	    	<li id="swd1-pt-p1-02">
+		    <p>Running Python code</p>
+		    <article style="display:none">
+			<h2>Running Python code</h2>
+			<p><strong>Note:</strong> Sample commands are preceded by the characters '> ', representing a cursor. If the command is shown as <pre>
+> python
+			</pre>
+			then all you have to type in at the command line is <span class="fw">python</span>.</p>
+			<hr>
+
+			<p>Python code can be invoked in various ways. In this module, we will be using the following methods.</p>
+			<ul>
+			    <li>Interactively from the command line (command-by-command)
+				<ol>
+				    <li>open a command line window on your computer (this will differ from OS to OS)</li>
+				    <li>type in<pre>
+
+> python
+				    </pre>
+				    </li>
+				    <li>check that the cursor <span class="fw">>>></span> is being displayed; this means that you are in the Python environment and can type Python code into the command line</li>
+				    <li>type in <pre>
+
+> 3 + 4
+				    </pre>
+				    and press <strong>Enter</strong>; what happens then?
+				    </li>
+				    <li>when running the Python interpreter interactively like this, expressions are evaluated according to the rules of the language and the result of the evaluation displayed on the console</li> 
+				    <li>we will be trying out a few more commands in class...</li>
+				</ol>
+			    </li>
+			    <li>As a script from the command line
+				<ol>
+				    <li>create and save a text file called <em>lab1.py</em> with the following line in it:<pre>
+3 + 4
+				    </pre>
+				    </li>
+				    <li>on the command line, change the current directory to the one containing the file <em>lab.py</em>
+				    </li>
+				    <li>type in<pre>
+python lab1.py
+				    </pre>
+				    what happens then?
+				    </li>
+				    <li>in batch mode, the interpreter does not display the results of evaluating expressions, so, while 3 + 4 is added, nothing further is done with the result; we must explicitly specify that we want the result printed and to do this you should change the line in <em>lab.py</em> to <pre>
+print(3 + 4)</pre>
+				    </li>
+				    <li>run the script again as previously; this time you should see <span class="fw">7</span> printed out in the console</li>
+				</ol>
+			    </li>
+			    <li>From PyCharm
+				<figure><img src="res/images/pycharm_run.png"/></figure>
+			    </li>
+			</ul>
+		    </article>
+		</li>
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000011">
+                    <p>Debugging in PyCharm</p>
+                    <article style="display:none">
+                        <h2>Debugging in PyCharm</h2>
+
+			<p>Debugging is a very important aspect of software development. Debugging with PyCharm will be demonstrated in class but, for reference, there is detailed information on it <a href="https://www.jetbrains.com/help/pycharm/debugging-code.html"><strong class="maroon">here</strong></a> (skip step 1 when following the instructions).</p>
+                    </article>
+                </li>
+		
+		<li id="swd1-pt-p1-03">
+		    <p>Notes on the notes</p>
+		    <article style="display:none">
+			<h2>Notes on the notes</h2>
+			<ul>
+			    <li><p>There are <strong class="underline">code snippets</strong> (examples) and <strong class="underline">exercises</strong>, such as the sample ones below, throughout the module notes.</p>
+				<p>Treat the code snippets as starting points for exploration of a concept or topic, devising and trying out further examples yourself.</p>
+				
+				
+				<figure id="py-ex-ex" class="my1">
+				    <figcaption>An example of an example (run interactively) </figcaption><pre class="code-listing">
+x = 4
+y = 3
+print(x + y)</pre>
+				</figure>
+
+				<p>The exercises are specific and should be carried out according to the instructions. Apart from being Python-learning exercises, they double as practice in requirement gathering and interpretation.</p>
+				<section class="ice">
+				    <p>For example, write a short Python program that reads in two numbers from the console, adds them up and prints the result.</p>
+				</section>
+			    </li>
+
+			    <li>Links shown in <strong class="maroon">bold maroon</strong> point to <strong class="underline">reference material</strong>. For example, here are all the <a href="https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not"><strong class="maroon">logical operators</strong></a>.</li>
+
+			    <li>Angular brackets containing descriptive text (e.g. <span class="fw">&lt;your name></span>) are <strong class="underline">placeholders</strong>, used to describe required input or other literals. For example,
+				<ul>
+				    <li>if an expected input string value is described as <em><strong>&lt;name></strong></em> then the actual value could be <span class="fw">John</span> or <span class="fw">Mary</span></li>
+				    <li>if a value is described as <em><strong>&lt;date of birth in format dd/mm/yy></strong></em> then the actual value might be <span class="fw">01/01/01</span></li>
+				</ul>
+				<p>The actual value <strong>should not</strong> include angular brackets.</p>
+			    </li>
+
+			    <li>If a <strong class="underline">command line window</strong> is shown to demonstrate requirements,
+				<ul>
+				    <li>text printed by the programe is displayed in white</li>
+				    <li>user input is displayed in red</li>
+				</ul>
+
+				<div class="box bg-black white">
+				<span class="fw">Please enter an number: </span><span class="fw red">42</span>
+				</div>
+			    </li>
+
+
+			</ul>
+		    </article>
+		</li>
+
+		
+		<li id="swd1-pt-p1-04">
+		    <p>Reference material</p>
+		    <article style="display:none">
+			<h2>Reference material</h2>
+			<p>One of the most important tools used by both early-stage learners and experienced programmers is reference material. In this module we will be learning the principles of programming in Python, however, not every single construct and function can be mentioned in the lectures and tutorials. Knowledge of the available resources and how to access and use them with ease is one of the important learning outcomes of the module, as is discovering your preferred resources based on your learning style.</p>
+			<p>A good place to start is the Beginner section of the <a href=https://www.python.org/doc/><strong class="maroon">Python documents page</strong></a>.</p>
+		    </article>
+		</li>
+		
+	    </ol>
+	    <p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/3rdpty/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/common.js"></script>
+	<script type="text/javascript" src="res/scripts/swd1-pt.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>
+
+

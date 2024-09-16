@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link type="text/css" rel="stylesheet" href="res/styles/jquery.qtip.min.css">
+	<link rel="stylesheet" type="text/css" href="res/styles/swd1-pt.css"/>
+	<title>Software Development 1</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">To begin...</p>
+	    </div>
+	    <img id="rightlogo" src="../common/res/images/python_logo.png" alt="Python Logo">
+	</header>
+
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+
+	    </nav>
+
+	    <article>
+	    <ol class="toc_grp newline">
+
+
+		<li id="swd1-pt-l1-01">
+		    <p>Functions</p>
+		    <article style="display:none">
+			<h2>Functions</h2>
+
+			<p>Functions in Python are <strong>chunks of functionality</strong> that can be called to do something. The list of Python functions available with the interpreter can be found <a href="https://docs.python.org/3/library/functions.html"><strong class="maroon">here</strong></a>. We will be looking at some of these later.</p>
+			
+			<p>Functions can be
+			    <ul>
+				<li>part of the standard library that is installed with the Python interpreter</li>
+				<li>part of modules or packages that can be added to the installation</li>
+				<li>defined and used in a newly developed Python program</li>
+			    </ul>
+			</p>
+			<p>For example, to exit the Python interactive interpreter, function <span class="fw">exit()</span> or <span class="fw">quit()</span> can be used.</p>
+			<figure id="py-func-exit" class="my1">
+			    <figcaption>Functions for exiting the interactive interpreter (only available in interactive mode)</figcaption><pre class="code-listing">
+exit()
+e# or
+quit()			    </pre>
+			</figure>
+
+			<p>More about functions:</p>
+			<ul>
+			    <li>Function calls are denoted with <strong>parentheses following the function name</strong>. The parentheses may be empty or contain arguments</li>
+			    <li><p>Functions <strong>can take one or more arguments</strong>, i.e. pieces of information that they use when carrying out whatever they are designed to do. The call to the function <span class="fw">print()</span> in code snippet <a class="xref" href="#py-func-print">?</a> is made with argument <span class="fw">3</span>. The function <span class="fw">print()</span> prints the argument passed to it to the console.</p> 
+				<figure id="py-func-print" class="my1">
+				    <figcaption>A function with an argument (run interactively)</figcaption><pre class="code-listing">
+print(3)</pre>
+				</figure>
+			    </li>
+			    <li>Functions <strong>can return values</strong> and this is often their purpose (to create a value by calculating, converting or performing some other action that results in some data).</li>
+			    <figure id="py-func-round" class="my1">
+<figcaption>A function that returns a value (run interactively)</figcaption><pre class="code-listing">
+round(4.3)</pre>
+</figure>
+			</ul>
+			<p>Functions will be introduced and used throughout the module. The syllabus, however, does not cover the definition of own functions.</p>
+		    </article>
+		</li>
+
+		<li id="swd1-pt-l1-02">
+		    <p>The help function</p>
+		    <article style="display:none">
+			<h2>The help function</h2>
+			<p>While Python documentation is available on the <a href=https://www.python.org/doc/><strong class="maroon">Python documents page</strong></a>, it is also possible to get information on individual items programmatically, using the function <span class="fw">help()</span>.</p>
+			<figure id="py-help" class="my1">
+<figcaption>Using the help() function (run interactively)</figcaption><pre class="code-listing">
+help(str)
+help(True)
+help(help)</pre>
+</figure>
+		    </article>
+		</li>
+		
+		<li id="swd1-pt-l1-03">
+		    <p>Objects and methods</p>
+		    <article style="display:none">
+			<h2>Objects and methods</h2>
+			<p>Roughly anything of substance, i.e. anything that has a value and a type, is an <strong>object</strong> in Python. Thus a number or a piece of text is an object, as are more complicated structures with many pieces of individual information.</p>
+			<p>A function can be associated with a particular type of object and in that case it is called a <strong>method</strong>. Methods are called with the syntax</p>
+			<span class="fw">&lt;object name or value>.&lt;method_name>()</span>
+
+			<p>The example in code snippet <a class="xref" href="#py-method-example">?</a> is that of the method <span class="fw">upper</span> called on an object containing the text "hello". Try it out.</p>
+			
+			<figure id="py-method-example" class="my1">
+<figcaption>Example of a method (run interactively)</figcaption><pre class="code-listing">
+"hello".upper()</pre>
+</figure>
+		    </article>
+		</li>
+
+		<li id="swd1-pt-l1-04">
+		    <p>Comments</p>
+		    <article style="display:none">
+			<h2>Comments</h2>
+			<p>You will have noticed the hash symbol in example <a class="xref" href="#py-func-exit">?</a>. This denotes a comment for human consumption. Any text appearing to the right of a hash (octothorpe) character will be ignored by the Python interpreter. This comment facility allows us to place explanations or reminders inside the source code file. </p>
+			<figure id="py-func-comment" class="my1">
+			    <figcaption>Comments</figcaption><pre class="code-listing">
+# This line will be ignored by the interpeter
+exit() # exit() runs but his part of the line is ignored
+			    </pre>
+			</figure>
+
+		    </article>
+		</li>
+
+		
+		<li id="swd1-pt-l1-05">
+		    <p>Imports</p>
+		    <article style="display:none">
+			<h2>Imports</h2>
+			<p>The core functionality of Python is available in the interpreter by virtue of Python having been installed.</p>
+			<p>Some functionality will have been installed but needs to be 'brought in' with a module import.</p>
+			<figure id="py-import-module" class="my1">
+			    <figcaption>Module import (run interactively)</figcaption><pre class="code-listing">
+# generate random number between 1 and 10
+random.randint(1, 10) # error!
+
+# the random module must be imported
+import random
+random.randint(1, 10)	    </pre>
+			</figure>
+			<p>Some more specialised packages of functionality will not be installed with Python (this varies between operating systems) and in that case packages will need to be installed before contained modules can be successfully imported.</p>
+		    </article>
+		</li>	
+	    </ol>
+	    </article>
+	    <p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/3rdpty/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/common.js"></script>
+	<script type="text/javascript" src="res/scripts/swd1-pt.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>
