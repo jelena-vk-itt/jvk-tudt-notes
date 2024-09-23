@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="../common/res/styles/common.css" />
+
+	<style>
+	 #content { background: lightgray; }
+	</style>
+	<title>TUDTC CSWD</title>
+    </head>
+
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <div id="titlecontainer">
+		<div id="title">
+		    Javascript Document Object Model API
+		</div>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
+	</header>
+
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+	    </nav>
+
+	    <article>
+		    
+		    <ol class="toc_grp">
+
+			<!--------------------------------------------------------------------->            
+			<li id="ARTCLID000053">
+			    <p>What is the Document Object Model (DOM)?</p>
+			    <article style="display:none">
+				<h2>What is the Document Object Model (DOM)?</h2>
+				
+				<ul>
+				    <li>The DOM represents the HTML document and the HTML elements contained in it in the form of <strong>Javascript objects</strong>.</li>
+				    <li>These objects are <strong>at the disposal of the scripts</strong> loaded with the html document, for inspection and modification.</li>
+				    <li>The loaded HTML document corresponds to the <span class="fw">document</span> object.</li>
+				    <li>We can access other parts of the HTML by calling methods that return objects representing those parts of the HTML.
+					<dl>
+					    <dt><span class="fw">document.getElementById()</span></dt>
+					    <dd>Argument: an id<br/>
+						Return value:  the element with the given id</dd>
+					    
+					    <dt><span class="fw">document.getElementsByTagName()</span></dt>
+					    <dd>Argument: a tag name<br/>
+						Return value: a HTMLCollection of all the elements with the given tag (e.g. <span class="fw">h1</span>)</dd>
+
+					    <dt><span class="fw">document.getElementsByClassName()</span></dt>
+					    <dd>Argument: a class name<br/>
+						Return value: a HTMLCollection of all the elements belonging to the given class</dd>
+					    
+					    <dt><span class="fw">document.querySelector()</span></dt>
+					    <dd>Argument: a CSS selector<br/>
+						Return value: the first element corresponding to the selector (e.g. <span class="fw">"div > p"</span>)</dd>
+					    
+					    <dt><span class="fw">document.querySelectorAll()</span></dt>
+					    <dd>Argument: a CSS selector<br/>
+						Return value: a HTMLCollection of all elements corresponding to the selector (e.g. <span class="fw">"div > p"</span>)</dd>
+					</dl>
+				    </li>
+				</ul>
+			    </article>
+			</li>
+
+
+			<!--------------------------------------------------------------------->            
+			<li id="ARTCLID000054">
+			    <p>Examples</p>
+			    <article style="display:none">
+				<h2>Examples</h2>
+
+				<a href="res/files/tutfiles/dom.zip">Download the exercise file bundle.</a>
+				
+				<h2><span class="fw">document.getElementById()</span></h2>
+				<p>You are already familiar with this function for accessing elements in the document.</p>
+				<ol>
+				    <li>The function <span class="fw">fetchInfo()</span> can be found in file <em>dom.js</em> of the exercise file bundle. The function takes an element id as a parameter. Write in the body of this function so that it copies the content of the element with the given id into the element with id "info-box1".</li>
+
+				    <li>Set up the function <span class="fw">fetchInfo()</span> as an event handler for clicks on the buttom <strong>Click to fetch info about cats</strong> in <em>dom.html</em>. You must call the function with a suitable argument (it will be the id of one of the paragraphs under "Information about animals" in <em>dom.html</em>).</li>
+				    <li>Add a similar button that will fetch information about hamsters. For this step change the HTML file but not the Javascript code.</li>
+				    <li>Test your solution.</li>
+				</ol>
+				
+
+				<h2><span class="fw">document.getElementsByTagName()</span></h2>
+				<p>The <span class="fw">document</span> method <span class="fw">getElementsByTagName()</span> returns all the elements of a certain type, grouped together in an <span class="fw">HTMLCollection</span> object. It takes the tag name (for example <span class="fw">p</span> or <span class="fw">div</span>) as an argument.</p>
+				<ol>
+				    <li>The function <span class="fw">listEntries()</span> can be found in file <em>dom.js</em> of the exercise file bundle. Define the function so that it lists the ids of all the <span class="fw">paragraph</span> elements in <em>dom.html</em>, separated by spaces, in the element with id <span class="fw">info-box2</span> in <em>dom.html</em>.</li>
+				    <li>Set the function as handler for clicks on the button in the Exercise 2 section of file <em>dom.html</em></li>
+				    <li>Test your solution.</li>
+				</ol>
+
+				<h2><span class="fw">document.getElementsByClassName()</span></h2>
+				<p>The <span class="fw">document</span> method <span class="fw">getElementsByClassName()</span> returns all the elements belonging to a certain class, grouped together in an <span class="fw">HTMLCollection</span> object. It takes the class name as an argument but otherwise works in the same way as <span class="fw">getElementsByTagName()</span>.</p>
+				<ol>
+				    <li>Have a look at the HTML paragraphs just under "Information about animals" in <em>dom.html</em>. You will see that some of the paragraphs have class <span class="fw">mammal</span> and some have class <span class="fw">reptile</span>.</li>
+				    <li>Define a function (name and declare it yourself in <em>dom.js</em>) that fetches all the elements of class <span class="fw">mammal</span> and writes their ids out in the paragraph with id 'm-list' in <em>dom.html</em>. The function should then do the same for the reptiles, writing into paragraph with id 'r-list'.</li>
+				    <li>Set up your function as the click handler for the button 'Click to list mammals and reptiles' in <em>dom.html</em>.</li>
+				    <li>Test your solution.</li>
+				</ol>
+				
+				<h2><span class="fw">document.querySelector()</span> and <span class="fw">document.querySelectorAll()</span></h2>
+				<p>The methods <span class="fw">document.querySelector()</span> and <span class="fw">document.querySelectorAll()</span> take a CSS selector as an argument and return the first selected element or all the selected elements, respectively.</p>
+				<ol>
+				    <li>Declare and define a function that reads the contents of the first <span class="fw">h3</span> element in the file <em>dom.html</em> and writes it to the element with id 'info-box4'. You must use method <span class="fw">document.querySelector()</span> to access the element.</li>
+				    <li>Set the function as handler for clicks on the button 'Click to get first h3' and test.</li>
+				    <li>Declare and define a function that reads the contents of any <span class="fw">h3</span> elements that are inside a <span class="fw">section</span> element in the file <em>dom.html</em>, then writes them to the element with id 'info-box4'. The contents of each element should be placed in a paragraph. You must use method <span class="fw">document.querySelectorAll()</span> to access the elements.</li>
+			    <li>Set the function as handler for clicks on the button 'Click to get h3 elements from section elements' and test.</li>
+			</ol>
+			
+			<a href="res/files/tutfiles/domC.zip">Download the completed exercises.</a>
+
+                    </article>
+                </li>
+
+
+	    </ol>
+	    
+	</div>
+	<script src="../common/res/scripts/main.js"></script>
+	<script src="../common/res/scripts/common.js"></script>
+	<script>init_all();</script>
+    </body>
+</html>
