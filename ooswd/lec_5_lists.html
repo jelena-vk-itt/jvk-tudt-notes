@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link type="text/css" rel="stylesheet" href="res/styles/jquery.qtip.min.css">
+	<link rel="stylesheet" type="text/css" href="res/styles/ooswd.css"/>
+	<title>OOSWD</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Lists</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+
+	    </nav>
+
+	    <article>
+
+		<ol class="toc_grp newline">
+
+		    <!--------------------------------------------------------------------->            
+                    <li id="ooswd-l5-01">
+			<p>What is a list in Python?</p>
+			<article style="display:none">
+			    <h2>What is a list in Python?</h2>
+			    <ul>
+				<li>A list is an <strong>ordered collection of objects</strong> of any type. A list is itself an <strong>object</strong>.</li>
+				<li>The list type in Python is called <span class="fw">list</span>.</li>
+				<li><span class="fw">list</span> is a <strong>sequence</strong> type, along with <span class="fw">str</span>, <span class="fw">tuple</span> and <span class="fw">range</span>.</li>
+				
+				<li>A list literal is denoted using square brackets, with the elements of the list specified inside the brackets and separated by commas. The elements can be literals or variables.</li>
+				<li>A list can be empty.</li>
+				<li>A list can contain another list.</li>
+				<li>Unlike strings, lists are <strong>mutable</strong> objects in Python, which means that their value can be modified 'in place' i.e. at the memory location where they are stored.</li>
+			    </ul>
+			    <figure id="py-list-intro" class="my1">
+				<figcaption>Defining lists (run interactively)</figcaption><pre class="code-listing">
+a_string = "hohoho"
+an_int = 12345
+a_list = ["hello", 4, a_string, 5.6, "a", an_int, True]
+type(a_list)
+empty_list = []
+listWithListElement = ["hi", ["Jane", "Doe", 21], True, 55.3]</pre>
+			    </figure>
+			</article>
+		    </li>
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ooswd-l5-02">
+			<p>List operations and methods</p>
+			<article style="display:none">
+                            <h2>List operations and methods</h2>
+			    <p>As lists are mutable, they support both <a href="https://docs.python.org/3/library/stdtypes.html#common-sequence-operations"><strong class="maroon">operations that do not change the sequence object</strong></a> and <a href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types"><strong class="maroon">those that do</strong></a>.</p>
+			    <ol class="toc_grp newline">
+				<li id="ooswd-l5-s02-a">
+				    <p>Operations that do not change the list object</p>
+				    <article style="display:none">
+					<h3>Operations that do not change the list object</h3>
+					<p>These operations are the ones also supported by the string sequence type.</p>
+					<ul>
+					    <li>Concatenation (using operators <span class="fw">+</span> and <span class="fw">*</span>)
+						<p>Concatenation does not modify the lists that are being concatenated but returns a new list.</p>
+						<figure id="py-list-concat" class="my1">
+						    <figcaption>List concatenation (run interactively)</figcaption><pre class="code-listing">
+["a", "b"] + ['c', 'd']
+['1', '2'] * 3
+
+a_string = "hohoho"
+an_int = 12345
+a_list = ["hello", 4, a_string, 5.6, "a", an_int, True]
+a_list + ['additional string']
+# check if a_list has changed
+a_list</pre>
+						</figure>
+					    </li>
+
+					    <li>Membership checking (using operator <span class="fw">in</span>)
+						<p>The operator <span class="fw">in</span> allows us to check if an object is an element of a list.</p>
+						<figure id="py-list-in" class="my1">
+						    <figcaption>Checking for list membership (run interactively)</figcaption><pre class="code-listing">
+theList = ['abc', 3, True, '']
+'' in theList
+3 in theList
+4 in theList
+						    </pre>
+						</figure>
+					    </li>
+					    
+					    <li>Accessing parts of a list by index (using operator <span class="fw">[]</span>)
+						<p>As with strings, square brackets can be used to access a single element of a list or a group of contiguous elements. The way indices are used with the square brackets is exactly the same as for accessing substrings. Positive and negative index values can both be used.</p>
+						<figure id="py-list-indexing" class="my1">
+						    <figcaption>Accessing elements of a list (run interactively)</figcaption><pre class="code-listing">
+laugh = "hohoho"
+letters = ["a", "b", 'c']
+a_list = ["hello", 4, letters, 5.6, "a", laugh, True]
+a_list
+a_list[0]
+a_list[2:5]
+a_list[5:]
+a_list[:-5]
+
+# accessing element in sublist
+a_list[2][1]
+
+# accessing substring in string element
+a_list[5][:2]</pre>
+						</figure>
+					    </li>
+					    <li>Comparison
+						<h4>Equality operators</h4>
+						<p>These can be used between any two lists. For two lists to be equal, they need to be of the same length and their elements in the same position must be of the same type and have the same value.</p>
+						<figure id="py-list-eq" class="my1">
+						    <figcaption>Equality of lists (run interactively)</figcaption><pre class="code-listing">
+['three'] == [3]
+['3', 4] == ['3', 4]
+[2] != [3]
+['one', 'two', 'three'] == ['one', 'two']	</pre>
+						</figure>
+						
+						<h4>Relational operators</h4>
+						<p>Two lists can be compared with relational operators if their elements in the same position are individually comparable. Comparisons are carried out left to right i.e. the relation between an element pair carries more weight if the elements are at a lower index.</p>
+						
+						<figure id="py-list-relat" class="my1">
+						    <figcaption>Relational operations on lists (run interactively)</figcaption><pre class="code-listing">
+['3', 4] < ['3', 4] # False
+['2', 4] < ['3', 3] # True
+['2', 4] < [3, 3] # Error!				    </pre>
+						</figure>
+					    </li>
+					</ul>
+				    </article>
+				</li>
+				
+				
+				<!--------------------------------------------------------------------->            
+				<li id="ooswd-l5-s02-b">
+				    <p>Operations that change the list object</p>
+				    <article style="display:none">
+					<h3>Operations that change the list object</h3>
+					<ul>
+					    <li>With square brackets (the <span class="fw">[]</span> operator) we can:
+						<ul>
+						    <li>assign a new object to a list element
+							<figure id="py-list-el-set" class="my1">
+							    <figcaption>Setting individual element values of a list (run interactively)</figcaption><pre class="code-listing">
+myList = ["hello", "hi", 5, "how are you"]
+myList
+myList[2] = "bonjour"
+myList</pre>
+							</figure>
+						    </li>						    
+						    <li>replace any contiguous portion of a list with another list
+							<figure id="py-list-sub-set" class="my1">
+							    <figcaption>Replacing a sublist (run interactively)</figcaption><pre class="code-listing">
+myList = ["hello", "hi", 5, "how are you"]
+myList
+myList[2:3] = ["bonjour", "hola"]
+myList
+myList[-1:] = ["good day"]
+myList</pre>
+							</figure>	    
+						    </li>
+						</ul>
+					    </li>
+					</ul>
+				    </article>
+				</li>
+
+				
+				<!--------------------------------------------------------------------->            
+				<li id="ooswd-l5-s02-c">
+				    <p>Sorting lists</p>
+				    <article style="display:none">
+					<h2>Sorting lists</h2>
+					<p>Lists can be sorted using the <a href="https://docs.python.org/3/library/stdtypes.html#list.sort"><strong class="maroon">sort()</strong></a> method, which modifies the list <strong>in place</strong>. The function <a href="https://docs.python.org/3/library/functions.html#sorted"><strong class="maroon">sorted()</strong></a><span class="fw"></span> has the same functionality but does not modify the list, creating a copy of it to sort and return.</p>
+					<p>For a list to be sortable, either</p>
+					<ul>
+					    <li>the values of all its elements need to be comparable
+						<figure id="py-sort-nokey" class="my1">
+						    <figcaption>Sorting a list without a key (run interactively)</figcaption><pre class="code-listing">
+names = ['ben', 'con', 'don', 'ann']
+names
+names.sort()
+# names has changed in place
+names
+
+# now try using sorted() to preserve the original list
+games = ['scrabble', 'ludo', 'monopoly', 'carcasonne']
+games
+sorted(games)
+# check games again (should not have changed)
+games
+
+# try to sort a list with types that cannot be compared
+mixed_list = ['abcd', 34, '', 'aaa', 0, 4, 0.0]
+mixed_list.sort() # error!
+# however if all types can be compared:
+another_mixed_list = [2, True, 0.2]
+another_mixed_list.sort
+# True compared as 1 and the sort works
+another_mixed_list	</pre>				
+						</figure>
+					    </li>
+					    
+					    <li>the key argument is a function (either named or <a href="lec_6_lambda.html">lambda expression</a>) that converts all the elements to comparable values
+						<figure id="py-sort-key" class="my1">
+						    <figcaption>Sorting a list with a key (run interactively)</figcaption><pre class="code-listing">
+# use the bool() casting function as key
+#-------------------
+mixed_list = ['abcd', 34, '', 'aaa', 0, 4, 0.0]
+mixed_list.sort() # error
+# pass key to convert to boolean
+mixed_list.sort(key=bool)
+# elements that equate to False are listed first
+mixed_list
+
+# use the len() function as key
+#-------------------
+word_list = ['hello', 'hi', 'how are you']
+word_list
+word_list.sort(key=len)
+# words are sorted by length
+word_list
+
+# use a lambda expression as key
+#-------------------
+# some names
+names = ["ben", "Con", "ann", "Dan"]
+# try to sort them
+names.sort()
+# order is not alphabetical because
+# because some names are capitalised;
+# we use a lambda expression to
+# convert to all-lower before sorting
+names.sort(key=lambda n : n.lower())</pre>
+						</figure>
+					    </li>
+					</ul>		    
+				    </article>
+				</li>
+
+				
+				<!--------------------------------------------------------------------->            
+				<li id="ooswd-l5-s02-d">
+				    <p>Copying lists</p>
+				    <article style="display:none">
+					<h2>Copying lists</h2>
+
+					<p>There are several levels of copying that can be carried out with lists.</p>
+					
+					<h3>Creating a new name for a list vs. copying</h3>
+
+
+					<p class="bold underline cb">New name</p>
+
+					<figure class="onenh fr m0 ml1">
+					    <figcaption>Giving an existing list a new name (<span class="fw">list2 = list1</span>)</figcaption>
+					    <img src="res/images/list_new_name.png">
+					</figure>
+					
+					<p>Assigning a list object to a new name results in the creation of a new name for the list. The new name points at the exact same list in memory that the assigned object is at. What is copied is only the connection (pointer) from name to object. It is a <strong>copy of a reference</strong>.</p>
+					
+					<figure id="py-lst-new-name" class="my1 cb">
+					    <figcaption>Create a new name for a list (run interactively)</figcaption><pre class="code-listing">
+list1 = ['abc', 123, 1.23, True]
+list2 = list1
+list1
+list2
+
+# check it is the same list
+list1[1] = 456
+list1
+list2					</pre>
+					</figure>
+
+					<p class="bold underline cb">Copy</p>
+
+					<figure class="three fr m0 ml1">
+					    <figcaption>Copy (<span class="fw">list2 = list1.copy()</span> or <span class="fw">list2 = list1[:]</span>)</figcaption>
+					    <img src="res/images/list_copy.png">
+					</figure>
+					
+
+					<p>A copy of a list results in the creation of a new name for the list and a copy of the content in a new memory location. The new name points to the copy of the content. It is a <strong>copy of a value</strong>.</p>
+
+					<figure id="py-lst-copy" class="my1 cb">
+					    <figcaption>List copy (run interactively)</figcaption><pre class="code-listing">
+list1 = ['abc', 123, 1.23, True]
+list2 = list1[:]
+list3 = list1.copy()
+
+# check copies are different lists
+list2.append('newEl')
+list3.remove('abc')
+list1
+list2
+list3
+					    </pre>
+					</figure>
+
+					<h3>Shallow copy vs. deep copy</h3>
+
+					<p>Copying a list with nested lists requires a special operation i.e. a <strong>deep copy</strong>. The copy discussed above is known as a <strong>shallow copy</strong>.</p>
+					<p class="bold underline">Shallow copy</p>
+					
+					<figure class="three fr m0 ml1">
+					    <figcaption>Copy of list containing lists (<span class="fw">list2 = list1.copy()</span> or <span class="fw">list2 = list1[:]</span>)</figcaption>
+					    <img src="res/images/list_shallow_copy.png">
+					</figure>
+					
+					<p>The figure <em>Shallow copy</em> shows what happens when the function <span class="fw">copy()</span> is called on (or equivalent operator <span class="fw">[:]</span> is applied to) a list with nested lists.</p>
+					<p>The only object copied is the top-level list. For nested lists, only the reference (pointer) is copied.</p>
+
+					<figure id="py-lst-sh-copy" class="my1 cb">
+					    <figcaption>List copy (run interactively)</figcaption><pre class="code-listing">
+list1 = ['abc', [1, 2, 3], 1.23, True]
+list2 = list1[:]
+# see that the lists are the same
+list1
+list2
+
+# change original list top level
+list1[2] = 4.567
+# change original list nested level
+list1[1][1] = 222
+# see list1
+list1
+# see list 2
+#      top level is not modified
+#      nested is modified (because shared)
+list2	</pre>
+					</figure>
+
+					<p class="bold underline">Deep copy</p>
+
+					<figure class="three fr m0 ml1">
+					    <figcaption>Deep copy of list containing lists (<span class="fw">list2 = copy.deepcopy(list1)</span>)</figcaption>
+					    <img src="res/images/list_deep_copy.png">
+					</figure>
+
+					<p>When a deep copy is made, the whole hierarchy of nested lists is copied, to any level of depth. For this, the function <span class="fw">copy.deepcopy()</span>.</p>
+
+					<figure id="py-lst-dp-copy" class="my1 cb">
+					    <figcaption>List copy (run interactively)</figcaption><pre class="code-listing">
+# import the copy module
+import copy
+
+# define list1 and create a deep copy
+list1 = ['abc', [1, 2, 3], 1.23, True]
+list2 = list1.deepcopy()
+# see that the lists are the same
+list1
+list2
+
+# change original list top level
+list1[2] = 4.567
+# change original list nested level
+list1[1][1] = 222
+# see list1
+list1
+# see list 2 (no modifications)
+list2	</pre>
+					</figure>
+				    </article>
+				</li>
+				
+				<!--------------------------------------------------------------------->            
+				<li id="ooswd-l5-s02-d">
+				    <p>Creating lists from strings</p>
+				    <article style="display:none">
+					<h2>Creating lists from strings</h2>
+
+					<h3>Casting a string to list</h3>
+					<p>Casting a string to a list returns a list with one string element for each character in the original string.</p>
+					<figure id="py-str-to-list-cast" class="my1">
+					    <figcaption>Casting strings to lists (run interactively)</figcaption><pre class="code-listing">
+myName = "Jane Brown"
+list(myName)
+					    </pre>
+					</figure>
+
+					<h3>Splitting a string</h3>
+					<p>With the <span class="fw">split()</span> method we have more control over how the string is split into list elements, in that a separator can be specified. When the separator is not specified, the split creates substrings of non-whitespace characters that were separated by whitespace characters in the original string.</p>
+					<figure id="py-str-to-list-split" class="my1">
+					    <figcaption>The split method (run interactively)</figcaption><pre class="code-listing">
+myName = "Jane Brown"
+myName.split()
+
+wordsStr = "last, first, penultimate, second, unspecified"
+wordsList = wordsStr.split()
+wordsList
+type(wordsList)
+
+# use a separator
+wordsStr.split(sep=", ")</pre>
+					</figure>
+				    </article>
+				</li>
+
+
+				<!--------------------------------------------------------------------->            
+				<li id="ARTCLID000009">
+				    <p>Creating strings from lists</p>
+				    <article style="display:none">
+					<h2>Creating strings from lists</h2>
+
+					<h3>Casting</h3>
+					<p>Casting from list to string will not produce the result we generally want. The returned string is just the list, printed out.</p>
+					<figure id="py-cast-list-to-str" class="my1">
+					    <figcaption>Casting list to string (run interactively)</figcaption><pre class="code-listing">
+string(["a", "b", "c"])			</pre>
+					</figure>
+
+					<h3>Joining elements into a string</h3>
+					<p>The string type provides a method <a href="https://docs.python.org/3/library/stdtypes.html#str.join"><strong class="maroon">join()</strong></a> for joining elements of an iterable object (which a list is) into a string.</p>
+					<p>The syntax for calling the method is <span class="fw">&lt;separator string object>.join(&lt;list object>)</span>, i.e. the method is called on a string object that should act as separator in the resulting string.</p>
+					<figure id="py-join-list-to-str" class="my1">
+					    <figcaption>Joining list elements into a string (run interactively)</figcaption><pre class="code-listing">
+' '.join(["a", "b", "c"])
+''.join(["A", "n", "n"])
+separator = ", "
+list = ["python", "javascript", "java"]
+separator.join(list)</pre>
+					</figure>
+				    </article>
+				</li>
+
+
+				<!--------------------------------------------------------------------->            
+				<li id="ARTCLID000010">
+				    <p>Mapping lists to lists</p>
+				    <article style="display:none">
+					<h2>Mapping lists to lists</h2>
+					<p>We can create lists from other lists using the <a href="https://docs.python.org/3/library/functions.html#map"><strong class="maroon">map()</strong></a> function, which applies a mapping function to each element on the list to get a corresponding element.</p>
+					<p>The syntax of this function is <span class="fw">map(&lt;mapping function>, &lt;list to be mapped>)</span>. The function returns an iterable object, which means that we need to cast it to a list to get a list with the elements resulting from the mapping. The full expression for mapping a list to a list is so <span class="fw">list(map(&lt;mapping function>, &lt;list to be mapped>))</span>.</p>
+					<figure id="py-map" class="my1">
+					    <figcaption>Mapping lists to new lists</figcaption><pre class="code-listing">
+names = ['jim', 'john', 'jane', 'jen']
+list(map(len, names))
+list(map(lambda s : s.upper(), names))</pre>
+					</figure>			    
+				    </article>
+				</li>
+				
+				<!--------------------------------------------------------------------->            
+				<li id="ooswd-l5-s02-e">
+				    <p>Picking a random element from a list</p>
+				    <article style="display:none">
+					<h2>Picking a random element from a list</h2>
+					<p>Many programs will require the generation of some sort of random information. Usually, a random number is generated in a set range.</p>
+					<p>Python has a function that allows picking a random item from a list directly, <span class="fw">random.choice()</span>.</p>
+					<figure id="py-rand-choice" class="my1">
+					    <figcaption>Picking a random element (run interactively)</figcaption><pre class="code-listing">
+aList = ['hello', 4, ['a', 'b', 'c'], 5.6, 'a', 'hohoho', True]
+aList
+
+import random
+random.choice(aList)
+random.choice(aList)
+random.choice(aList)
+random.choice(aList)
+random.choice(aList)    </pre>
+					</figure>
+				    </article>
+				</li>
+			    </ol>
+
+			</article>
+		    </li>
+		</ol>
+	    </article>
+
+	<p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/3rdpty/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/common.js"></script>
+	<script type="text/javascript" src="res/scripts/ooswd.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>
