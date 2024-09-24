@@ -113,6 +113,31 @@
                         ><strong class="maroon">Python keyword</strong></a
                       >
                     </li>
+		    <li>
+			using any built-in function names (e.g. <span class="fw">str</span> or <span class="fw">len</span>) as variable names would make the functions unavailable and needs to be avoided; you can check if something is a built in function by typing in the name into the Python command line
+			<figure id="py-aug-asgn" class="my1">
+			    <figcaption>
+				Checking if names are used already
+			    </figcaption>
+			    <pre class="code-listing">
+len
+# expected output:
+<span class="gray"><span class="fw">&lt;built-in function len></span></span>
+
+str
+# expected output:
+<span class="gray"><span class="fw">&lt;class 'str'></span></span>
+
+
+xyz # a string that is not already used
+# expected output:
+<span class="gray"><span class="fw">Traceback (most recent call last):</span></span>
+<span class="gray"><span class="fw">File "&ltstdin>", line 1, in <module></span></span>
+<span class="gray"><span class="fw">NameError: name 'xyz' is not defined</span></span>
+# we can proceed to use xyz as a variable name</pre>
+			</figure>
+
+		    </li>
                   </ul>
                 </li>
                 <li>
