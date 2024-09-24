@@ -6,7 +6,7 @@ header#tudheader > * {  color: #014C6F;  }
 
 #toc  { background-color: silver; }
 #toc td.lec:not(:empty) { background: deepskyblue; }
-#toc td.tut:not(:empty) { background: dodgerblue; }
+#toc td.tut:not(:empty) { background: dodgerblue; } 
 #toc td.lab:not(:empty) { background: goldenrod; }
 #toc td.sol:not(:empty) { background: palegoldenrod; }
 #toc td.gwa:not(:empty) { background: tomato; }
@@ -44,6 +44,7 @@ details {background-color: tomato; }
 .yellow {color: yellow; }
 .orange {color: orange; }
 .white { color: white; }
+.gray { color: gray; }
 .bg-darkcyan { background: darkcyan; }
 .bg-lightseagreen { background: lightseagreen; }
 .bg-black { background: black; }
