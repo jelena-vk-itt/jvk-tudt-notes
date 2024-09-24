@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link type="text/css" rel="stylesheet" href="res/styles/jquery.qtip.min.css">
+	<link rel="stylesheet" type="text/css" href="res/styles/ooswd.css"/>
+	<title>SDev1 DMLAI</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <img id="rightlogo" src="../common/res/images/python_logo.png" alt="Python Logo">
+	</header>
+
+	<nav>
+	    <ul class="links">
+		<li><a href="index.html">Home</a></li>
+	    </ul>
+	    <ul class="commands">
+		<li class="openall">Open all</li>
+		<li class="closeall">Close all</li>
+	    </ul>
+
+	</nav>
+
+	<div id="content">
+	    <h1>For loops</h1>
+
+	    <ol class="toc_grp newline">
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000016">
+                    <p>Ranges</p>
+                    <article style="display:none">
+                        <h2>Ranges</h2>
+			<p>The range is an <strong>immutable</strong> sequence type that allows easy definition of <strong>integer sequences</strong>. We introduce it here as for loops in Python are often defined with the use of ranges.</p>
+
+			<figure class="my2">
+			    <figcaption>The syntax of a range expression (BNF)</figcaption><pre  class="box">
+range(&lt;first value, optional>, &lt;first not-included value>, &lt;step>)</pre>
+			</figure>
+
+			<figure class="two my2">
+			    <figcaption>The syntax of a range expression (example)</figcaption>
+			    <img class="fl" src="res/images/range_syntax.png">
+			</figure>
+
+			
+
+			<figure id="py-ranges" class="my2">
+			    <figcaption>Examples of ranges</figcaption><pre class="code-listing">
+range(0, 10, 1)  # contains 0 1 2 3 4 5 6 7 8 9
+range(0, 10)     # same as above (step 1 is default)
+range(10)        # same as above (start value 0 is default)
+range(0, 10, 3)  # contains 0 3 6 9
+range(10, 0, -1) # contains 10 9 8 7 6 5 4 3 2 1
+		    
+			</figure>
+                    </article>
+                </li>
+		
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000018">
+                    <p>For loop syntax in Python</p>
+                    <article style="display:none">
+                        <h2>For loop syntax in Python</h2>
+			<p>In Python, a for loop iterates over the members of any iterable object. A statement block is defined, like in the while loop, with instructions to be executed at each iteration.</p>
+
+			<p>The picture shows the flowchart for a for loop, alongside the generic flow chart.</p>
+			<figure class="fl">
+			    <figcaption>Generic loop flowchart</figcaption>
+			    <img src="res/images/loop_gen_flowchart.png">
+			</figure>
+			<figure class="fl ml3">
+			    <figcaption>For loop flowchart</figcaption>
+			    <img src="res/images/loop_for_flowchart.png">
+			</figure>
+			
+			<p class="cb"> </p>
+
+			<figure class="three mt3">
+			    <figcaption>For loop syntax in Python</figcaption>
+			    <img src="res/images/for_loop_syntax.png">
+			</figure>
+			
+		    </article>
+                </li>
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000017">
+                    <p>Using for loops</p>
+                    <article style="display:none">
+                        <h2>Using for loops</h2>
+			<p>Sequence types are iterable objects in Python. This means that we can design for loops that iterate over any of the sequence types we have covered so far.</p>
+			<p>In terms of the types mentioned in chapter <em>While loops</em>, section <a href="lec_8_loops_while.html#ARTCLID000018"><em>Exiting the loop</em></a>, it is the iteration processes for which the iterations are determined before execution starts (either at coding time or at run time) that are suitable for implementation using for loops.</p>
+			    <ol class="toc_grp">
+
+			    
+			    <!--------------------------------------------------------------------->            
+			    <li id="ARTCLID000019">
+				<p>Iterating over ranges</p>
+				<article style="display:none">
+				    <h2>Iterating over ranges</h2>
+				    
+				    <figure id="py-for-range" class="my1">
+					<figcaption>Iterating over ranges with for loops</figcaption><pre class="code-listing">
+for number in range(0, 10, 1):
+   print(number)
+
+for number in range(1, 11, 2):
+   print(number)
+
+for number in range(11, 0, -3):
+   print(number)	   </pre>
+				    </figure>
+
+				    <details class="ice"><summary></summary>
+					<p>Write a script that uses a for loop to print out 11 random integers between 1 and 11.</p>
+					<p><a href="res/files/python/loops/for_range_rands.py">EXAMPLE SOLUTION</a></p>
+				    </details>
+
+				    <details class="ice"><summary></summary>
+					<p>Write a script that uses a for loop to print out all the even integers between 1 and 100, inclusive, separated by spaces.</p>
+					<p><a href="res/files/python/loops/for_range_ints.py">EXAMPLE SOLUTION</a></p>
+				    </details>
+				</article>
+			    </li>
+			    
+			    <!--------------------------------------------------------------------->            
+			    <li id="ARTCLID000020">
+				<p>Iterating over strings</p>
+				<article style="display:none">
+				    <h2>Iterating over strings</h2>
+
+				    <figure id="py-for-string" class="my1">
+					<figcaption>Iterating over strings with for loops</figcaption><pre class="code-listing">
+for character in "TU Dublin":
+   print(character)
+
+word = "computing"
+for character in word:
+   print("{}: {}".format(word.index(character), character))
+
+# try the above with word = "Tallaght"
+
+# better solution for above:
+word = "Tallaght"
+for index in range(0, len(word)):
+   print("{}: {}".format(index, word[index])) </pre>
+				    </figure>
+
+				    <details class="ice"><summary></summary>
+					<p>Write a Python script that reads in a character string input by the user into a variable called <span class="fw">inputString</span>. Then, using a for loop, it should invert the order of the characters in the word. Finally, it should print out the string resulting from the inversion, the output of expression <span class="fw">inputString[::-1]</span> and the result of comparing the two.</p>
+					<p><a href="res/files/python/loops/for_string.py">EXAMPLE SOLUTION</a></p>
+				    </details>
+				</article>
+			    </li>
+			    
+			    <!--------------------------------------------------------------------->            
+			    <li id="ARTCLID000021">
+				<p>Iterating over lists</p>
+				<article style="display:none">
+				    <h2>Iterating over lists</h2>
+
+				    <figure id="py-for-string" class="my1">
+					<figcaption>Iterating over lists with for loops</figcaption><pre class="code-listing">
+nonMotorised = [ "rollerblades", "bicycle", "scooter", "sail wagon", "legs" ]
+maxWordLen = max(map(len, nonMotorised))
+for mode in sorted(nonMotorised):
+   print("--< " + mode.center(maxWordLen, ' ') + " >--")</pre>
+				    </figure>
+
+				    <details class="ice"><summary></summary>
+					<p>Write a Python program that defines a list of items and stores it in a variable. Print out a menu, using the list items as menu items, each on a separate line and preceded by its ordinal number (1, not 0, for the first item etc.). You must use a for loop, iterating over the list rather than over list indices.</p>
+					<p><a href="res/files/python/loops/for_list.py">EXAMPLE SOLUTION</a></p>
+				    </details>
+				    
+				</article>
+			    </li>
+			</ol>
+                    </article>
+                </li>
+
+
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000026">
+                    <p>Using break, continue and else with for loops</p>
+                    <article style="display:none">
+                        <h2>Using break, continue and else with for loops</h2>
+			<p>The <span class="fw">break</span>, <span class="fw">continue</span> and <span class="fw">else</span> constructs can be used with a for loop in the same way as they are used with while loops.</p>
+
+
+			<details class="ice"><summary></summary>
+			    <p>Rewrite code snippet <a class="xref" href="lec_8_loops_while.html#py-continue">CS-16</a> with a for loop instead of the while loop.</p>
+			    <p><a href="res/files/python/loops/for_continue.py">EXAMPLE SOLUTION</a></p>
+			</details>
+                    </article>
+                </li>
+	
+	    </ol>
+	    <p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/3rdpty/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/common.js"></script>
+	<script type="text/javascript" src="res/scripts/ooswd.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>
