@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="res/styles/ooswd.css" />
+	<title>OOSWD</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Week 4 Lab</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content-no-nav">
+	    <article>
+		<details class="bg-lightseagreen"><summary><strong>Notation in assignment specifications</strong></summary>
+		    <ul>
+			<li>
+			    Angular brackets containing descriptive text are placeholders, used to
+			    describe required input or other literals. For example,
+			    <ul>
+				<li>
+				    if an expected input string value is described as
+				    <em><strong>&lt;name></strong></em> then the actual value could be
+				    <span class="fw">John</span> or <span class="fw">Mary</span>
+				</li>
+				<li>
+				    if a value is described as
+				    <em><strong>&lt;date of birth in format dd/mm/yy></strong></em>
+				    then the actual value might be <span class="fw">01/01/01</span>
+				</li>
+			    </ul>
+			    <p>
+				The actual value <strong>should not</strong> include angular
+				brackets.
+			    </p>
+			</li>
+			<li>
+			    If a command line window is shown to demonstrate requirements,
+			    <ul>
+				<li>text printed by the programe is displayed in white</li>
+				<li>user input is displayed in red</li>
+			    </ul>
+			    For example,
+			    <div class="box bg-black white">
+				<span class="fw">Please enter an number: </span
+									 ><span class="fw red">42</span>
+			    </div>
+			</li>
+		    </ul>
+		</details>
+
+		<h3>General instructions</h3>
+		<ul>
+		    <li>Include comments in your Python scripts. These don't need to be overly verbose, but sufficient for a reader to understand the thinking behind the code.</li>
+		    <li>Input/output
+			<ul>
+			    <li>
+				Unless otherwise specified, you can assume a
+				<strong>well behaved user</strong>, who always enters valid input.
+			    </li>
+			    <li>
+				Reading of user input must always be accompanied by a suitable textual
+				prompt.
+			    </li>
+			    <li>
+				Printing of output must always be accompanied by a suitable textual
+				heading or explanation.
+			    </li>
+			</ul>
+		    </li>
+		</ul>
+
+		<section class="tutorial-panel clearfix">
+		    <h2>Exercise 1: Random experiment</h2>
+		    <ol>
+			<li>
+			    Write some code in Python that performs the following experiment:
+			    <ul>
+				<li>
+				    random numbers in the range [1, 10] (1 to 10 inclusive) are
+				    drawn until 10 is drawn
+				</li>
+				<li>the result is the number of draws it took to get a 10</li>
+			    </ul>
+			</li>
+			<li>
+			    Use a suitable Python loop to perform this experiment 100 times,
+			    recording the results in a list.
+			</li>
+			<li>
+			    Print the average result i.e. the mean of the number of times it
+			    took to draw a 10.
+			</li>
+			<li>Ask the user if they would like the data printed out and, if the answer is positive, print the data using a function.</li>
+		    </ol>
+		</section>
+
+		<section class="tutorial-panel clearfix">
+		    <h2>Exercise 2: Table with headers</h2>
+		    <p>
+			Use code snippet
+			<a href="lec_A_loops_nested.html#py-for-2dimtab">CS-1</a> from the
+			<em>Nested loops</em> lecture as a starting point for a Python script
+			that produces a table with headings for columns and rows as in the
+			picture. You must use a function that constructs the data cell contents and call it from the main body of the script. You may use other functions to avoid repetition in the code.</p>
+		    <pre class="box bg-black white">
+ :-)  |  c1    c2    c3
+-------------------------
+  r1  | r1c1  r1c2  r1c3
+  r2  | r2c1  r2c2  r2c3
+  r3  | r3c1  r3c2  r3c3
+  r4  | r4c1  r4c2  r4c3
+  r5  | r5c1  r5c2  r5c3
+  r6  | r6c1  r6c2  r6c3
+  r7  | r7c1  r7c2  r7c3 </pre>
+		    <br>
+		</section>
+	    </article>
+	    <p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script
+	    type="text/javascript"
+	    src="../common/res/scripts/common.js"
+	></script>
+	<script type="text/javascript" src="res/scripts/ooswd.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>

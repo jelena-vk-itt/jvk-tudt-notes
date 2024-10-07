@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="https://jelena-vk-itt.github.io/jvk-tudt-notes/ooswd/res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css"/>
+
+	<title>SWD1 PBL</title>
+	<style>
+	 body { background: turquoise; }
+	</style>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Week 4 Lab 2: Online shop</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content-no-nav">
+	    <article>
+
+		    <p>Your assignment is to write two Python programs for online shopping at a company called "Groceries at your Fingertips". Part 1 describes the requirements for the first program. Part 2 describes requirements for the second, which is an extended version of the first program.</p>
+		    
+		    <h4>PART 1</h4>
+		    <p>In this part you will be developing a system that allows a user to place a grocery order.</p>
+		    <ul>
+			<li><h4>Assumptions</h4>
+			    <ul>
+				<li>The system may assume that all user input will be correct.</li>
+			    </ul>
+			</li>
+			<li>
+			    <h4>Requirement: Menu</h4>
+			    <ul>
+				<li>The system should have a <strong>Shop</strong> menu with 5 items representing types of groceries of your choice (e.g. bread, milk) and additional items called <em>submit order</em> and <em>exit</em></li>
+				<li>The menu should have a suitable header and include instructions to users.</li>
+				<li>Each menu item should be displayed alongside a choice key string that the user can key in to choose that item (e.g. 1, 2, 3 etc.)</li>
+			    </ul>
+			</li>
+			<li>
+			    <h4>Requirement: Actions</h4>
+			    Actions should be implemented to handle menu items as follows:
+			    <table class="ordinary">
+				<tr><th>Menu</th><th>Item</th><th>Action</th></tr>
+				<tr><th>Shop</th><td>[any grocery item]</td><td>
+				    <p>Display information about the grocery including a short description and price.</p>
+				    <p>Ask the user to enter a quantity (integer) for the grocery, save the information and re-display the <strong>Shop</strong> menu. Make sure to handle the quantity of 0.</p>
+				</td></tr>
+				<tr><th>Shop</th><td>submit order</td><td>
+				    <p>Calculate the price of the order.</p>
+				    <p>Display the list of bought items in descending order of price per item.</p>
+				    <p>Display a suitable message about the total price and delivery (we assume that the user is logged in and their address is known).</p>
+				    <p>Exit the program.</p>
+				</td></tr>
+				<tr><th>Shop</th><td>exit</td><td>
+				    <p>Exit the program.</p>
+				</td></tr>
+			    </table>
+			</li>
+			<li>The program should start by displaying the <strong>Shop</strong> menu.</li>
+			<li>
+			    <h4>Hints</h4>
+			    <ul>
+				<li>Use lists to store grocery items and prices. You might use three one-dimensional lists or one two-dimensional list.</li>
+				<li>Hard-code the 5 grocery items and prices.</li>
+			    </ul>
+			</li>
+			<li>
+			    <h4>Sample interaction</h4>
+			    <div class="box bg-black white"><pre>
+********* Groceries at your Fingertips: Shop *********
+1: bread      A delicious 500g brown loaf                   €1.0
+2: milk       A litre carton of low fat milk                €1.5
+3: eggs       10 free range eggs in a cardboard box         €2.3
+4: oats       500g of porridge oats in paper packaging      €2.2
+5: nuts       100g packet of walnuts                        €3.0
+6: submit order
+7: exit
+
+Choose a grocery you wish to buy (1-5), to submit order (6) or to exit (7): <span class="fw red">1</span>
+
+bread      A delicious 500g brown loaf                   €1.0
+
+Please specify the quantity: 2
+
+
+********* Groceries at your Fingertips: Shop *********
+1: bread      A delicious 500g brown loaf                   €1.0
+2: milk       A litre carton of low fat milk                €1.5
+3: eggs       10 free range eggs in a cardboard box         €2.3
+4: oats       500g of porridge oats in paper packaging      €2.2
+5: nuts       100g packet of walnuts                        €3.0
+6: submit order
+7: exit
+
+Choose a grocery you wish to buy (1-5), to submit order (6) or to exit (7): <span class="fw red">6</span>
+
+
+Your order:
+---------------
+bread      A delicious 500g brown loaf                   €1.0     quantity: 2
+Total: €2.0 
+Thank you for your order :-). It will be delivered shortly.</pre>
+			    </div>
+			</li>
+		    </ul>
+
+		    <h4>PART 2</h4>
+		    <p>In this part you will be extending the system so that it keeps track of stock.</p>
+		    <p>Start by copying your Python file from Part 1. Use the copy to complete Part 2.</p>
+
+		    <ul>
+			<li><h4>Requirement: Additional feature - stock tracking</h4>
+			    <p>Modify the program to keep track of available quantities of the groceries. The new feature should include:</p>
+			    <ul>
+				<li>storing the quantity in stock for each grocery item (at the beginning this should be set to 10 for each item)</li>
+				<li>informing the user of the quantity available when they are asked to enter the quantity they wish to buy</li>
+				<li>decreasing the quantity by the number specified by the user, while handling the cases where the user enters invalid numbers (negative or greater than the number in stock) in some reasonable way</li>
+				<li>displaying out-of-stock items in the <strong>Shop</strong> menu with
+				    <ul>
+					<li>an out-of-stock marker beside the item</li>
+					<li>without the choice key string</li>
+				    </ul>
+				</li>
+			    </ul>
+			    <h4>Sample interaction</h4>
+
+			    <div class="box bg-black white"><pre>
+********* Groceries at your Fingertips: Shop *********
+1: bread      A delicious 500g brown loaf.                  €1.0     [10]
+2: milk       A litre carton of low fat milk.               €1.5     [10]
+3: eggs       10 free range eggs in a cardboard box.        €2.3     [10]
+4: oats       500g of porridge oats in paper packaging.     €2.2     [10]
+5: nuts       100g packet of walnuts.                       €3.0     [10]
+6: submit order
+7: exit
+
+Choose a grocery you wish to buy (1-5), to submit order (6) or to exit (7): <span class="fw red">1</span>
+
+bread      A delicious 500g brown loaf.                  €1.0
+
+Please specify the quantity (available: 10): <span class="fw red">3</span>
+
+Order updated with the following item:
+bread      A delicious 500g brown loaf.                  €1.0     quantity: 3
+
+********* Groceries at your Fingertips: Shop *********
+1: bread      A delicious 500g brown loaf.                  €1.0     [ 7]
+2: milk       A litre carton of low fat milk.               €1.5     [10]
+3: eggs       10 free range eggs in a cardboard box.        €2.3     [10]
+4: oats       500g of porridge oats in paper packaging.     €2.2     [10]
+5: nuts       100g packet of walnuts.                       €3.0     [10]
+6: submit order
+7: exit
+
+Choose a grocery you wish to buy (1-5), to submit order (6) or to exit (7): <span class="fw red">5</span>
+
+nuts       100g packet of walnuts.                       €3.0
+
+Please specify the quantity (available: 10): <span class="fw red">10</span>
+
+Order updated with the following item:
+nuts       100g packet of walnuts.                       €3.0     quantity: 10
+
+********* Groceries at your Fingertips: Shop *********
+1: bread      A delicious 500g brown loaf.                  €1.0     [ 7]
+2: milk       A litre carton of low fat milk.               €1.5     [10]
+3: eggs       10 free range eggs in a cardboard box.        €2.3     [10]
+4: oats       500g of porridge oats in paper packaging.     €2.2     [10]
+   nuts       100g packet of walnuts.                       €3.0     [OUT OF STOCK]
+6: submit order
+7: exit
+
+Choose a grocery you wish to buy (1-5), to submit order (6) or to exit (7): <span class="fw red">5</span>
+
+Invalid choice.
+
+********* Groceries at your Fingertips: Shop *********
+1: bread      A delicious 500g brown loaf.                  €1.0     [ 7]
+2: milk       A litre carton of low fat milk.               €1.5     [10]
+3: eggs       10 free range eggs in a cardboard box.        €2.3     [10]
+4: oats       500g of porridge oats in paper packaging.     €2.2     [10]
+   nuts       100g packet of walnuts.                       €3.0     [OUT OF STOCK]
+6: submit order
+7: exit
+
+Choose a grocery you wish to buy (1-5), to submit order (6) or to exit (7): <span class="fw red">2</span>
+
+milk       A litre carton of low fat milk.               €1.5
+
+Please specify the quantity (available: 10): <span class="fw red">22</span>
+
+Entered quantity is greater than the available number. The order will not be updated.
+
+********* Groceries at your Fingertips: Shop *********
+1: bread      A delicious 500g brown loaf.                  €1.0     [ 7]
+2: milk       A litre carton of low fat milk.               €1.5     [10]
+3: eggs       10 free range eggs in a cardboard box.        €2.3     [10]
+4: oats       500g of porridge oats in paper packaging.     €2.2     [10]
+   nuts       100g packet of walnuts.                       €3.0     [OUT OF STOCK]
+6: submit order
+7: exit
+
+Choose a grocery you wish to buy (1-5), to submit order (6) or to exit (7): <span class="fw red">6</span>
+
+Your order:
+nuts       100g packet of walnuts.                       €3.0     quantity: 10
+bread      A delicious 500g brown loaf.                  €1.0     quantity: 3
+Total: €33.0
+Thank you for your order :-). It will be delivered shortly.</pre>
+			    </div>
+			</li>
+		    </ul>
+	    </article>
+	</div>
+    </body>
+</html>

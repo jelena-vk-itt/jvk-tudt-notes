@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png" />
+	<link
+	    type="text/css"
+	    rel="stylesheet"
+	    href="res/styles/jquery.qtip.min.css"
+	/>
+	<link rel="stylesheet" type="text/css" href="res/styles/ooswd.css" />
+	<title>SDev1 DMLAI</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Functions</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+
+	    </nav>
+
+	    <article>
+		<ol class="toc_grp newline">
+		    <!--------------------------------------------------------------------->
+                    <li id="ARTCLID000026">
+			<p>What is a function?</p>
+			<article style="display:none">
+                            <h2>What is a function?</h2>
+			    <p>In programming, a function is a reusable piece of functionality.</p>
+			    <ul>
+				<li>First, the function must be <strong>defined</strong>. By this we mean the specification of what the function does.</li>
+				<li>Once defined, the function can be <strong>called</strong>. By this we mean the invocation of the function i.e. getting the function to do whatever it does.</li>
+			    </ul>
+			</article>
+		    </li>
+
+
+	            <!--------------------------------------------------------------------->
+                    <li id="ARTCLID000027">
+			<p>Defining a function</p>
+			<article style="display:none">
+                            <h2>Defining a function</h2>
+			    <p>To define a function we must provide:</p>
+			    <ul>
+				<li>a name - must be a <a href="https://docs.python.org/3/reference/lexical_analysis.html#identifiers">valid Python identifier</a></li>
+				<li>a parameter list - this may be empty</li>
+				<li>a function body - this is code in one or more lines, indented in relation to the position of the function heading</li>
+			    </ul>
+
+			    <p>The <strong>body</strong> of a function contains its behaviour. The <strong>parameters</strong> are placeholders for data that will be passed in when the function is used (called). Parameters allow the use of the function with different data, making it a very flexible code reuse mechanism.</p>
+
+			    <figure class="twonh my3">
+				<figcaption>Python function definition syntax</figcaption>
+				<img src="res/images/function_syntax.png">
+			    </figure>
+			</article>
+                    </li>
+
+	            <!--------------------------------------------------------------------->
+                    <li id="ARTCLID000028">
+			<p>Calling a function</p>
+			<article style="display:none">
+                            <h2>Calling a function</h2>
+			    <p>A function</p>
+			    <ul>
+				<li>can be called only if it has been defined</li>
+				<li>is called using
+				    <ul>
+					<li>the function name</li>
+					<li>arguments, which are values given to the function parameters for that call</li>
+
+				    </ul>
+				</li>
+			    </ul>
+
+			    <p>The <strong>arguments</strong> represent the concrete data values (in the form of any kind of valid expression) that are passed to the function to act on. In the function definition these data were represented by placeholders i.e. the parameters.</p>
+
+
+			    <figure class="two my3">
+				<figcaption>Python function call syntax</figcaption>
+				<img src="res/images/function_call.png">
+			    </figure>
+
+			</article>
+                    </li>
+
+	            <!--------------------------------------------------------------------->
+                    <li id="ARTCLID000029">
+			<p>The function return value</p>
+			<article style="display:none">
+                            <h2>The function return value</h2>
+			    <p>A function may also contain one or more <strong>return statements</strong>. A return statement</p>
+			    <ul>
+				<li>ends the function execution</li>
+				<li>can be accompanied by a <strong>return value</strong>, which is what the function <strong>evaluates to</strong> when it ends via this return statement</li>
+				<li>a function that returns a value is like any other expression in that it can replace a value of that type in other code</li>
+			    </ul>
+
+			    <figure class="three my3">
+				<figcaption>Python function return statement</figcaption>
+				<img src="res/images/function_ret.png">
+			    </figure>
+
+			</article>
+                    </li>
+
+
+	            <!--------------------------------------------------------------------->
+                    <li id="ARTCLID000079">
+			<p>Scope of variables and functions defined inside functions</p>
+			<article style="display:none">
+                            <h2>Scope of variables and functions defined inside functions</h2>
+			    <ul>
+				<li>Any kind of code can be placed inside a function definition, including variable definitions and other function definitions.</li>
+				<li>Being defined inside a function limits the scope of a variable or function. It is only visible within the function in which it is defined.</li>
+			    </ul>
+			    <figure id="py-scope" class="my1">
+				<figcaption>Scope examples</figcaption><pre class="code-listing">
+# variable definitions inside a function
+x = 0
+def printxy():
+    x = 3
+    print(x)
+    y = 4
+    print(y)
+
+printxy() # expected output: 3 4
+print(x)  # expected output: 0
+print(y)  # error should be reported (y is not defined)
+
+# nested functions
+def print_num(num):
+    def get_message():
+        return "The number is: "
+    print(get_message() + str(num))
+
+print_num(6)             # expected output: The number is 6
+print(get_message() + 5) # error should be reported (get_message is not defined)	</pre>
+			    </figure>
+			</article>
+                    </li>
+
+	            <!--------------------------------------------------------------------->
+                    <li id="ARTCLID000080">
+			<p>More on function parameters and arguments</p>
+			<article style="display:none">
+                            <h2>More on function parameters and arguments</h2>
+			    <h3>Parameter default values</h3>
+			    <p>Parameters can have default values. These are specified by using an assignment statement with the parameter in the function definition.</p>
+			    <figure id="py-default-arguments" class="my1">
+				<figcaption>Parameter default values</figcaption><pre class="code-listing">
+def add_nums(x, y=5, z=1):
+   return x + y + z</pre>
+			    </figure>
+
+			    <p>Arguments can be left out for any number of contiguous parameters at the end of the parameter list, if those parameters have default values.</p>
+
+			    <figure id="py-omit-def-arg" class="my1">
+				<figcaption>Leaving out end arguments</figcaption><pre class="code-listing">
+add_nums(1, 2, 3) # expected output: 6
+add_nums(1, 2)    # expected output: 4
+add_nums(1)       # expected output: 7
+add_nums()        # an error should be reported (x is not defined)</pre>
+			    </figure>
+
+			    <h3>Positional vs. named arguments</h3>
+			    <p>The arguments seen in function calls so far in this lesson are called <strong>positional</strong>. The interpreter knows how to match them up with the function parameters by posiion. In order to pass arguments out of order, we can use use the parameter names with the arguments, turning them into <strong>named arguments</strong>.</p>
+
+			    <figure id="py-named-args" class="my1">
+				<figcaption>Named arguments</figcaption><pre class="code-listing">
+add_nums(z=3, x=1, y=2) # expected output: 6
+add_nums(1, z=3)        # expected output: 9</pre>
+			    </figure>
+
+			    <h3>Allowing an arbitrary number of arguments</h3>
+			    <p>Python has a mechanism that allows a function to receive arguments unknown in number until runtime. The arbitrary-sized group of arguments is marked with a star (*) character in front of the argument name. Only one such group is allowed in a function definition, otherwise the interpretation of the arguments would be ambiguous.</p>
+			    <figure id="py-arb-args" class="my1">
+				<figcaption>Arbitrary number of arguments</figcaption><pre class="code-listing">
+def concat_strings(msg, *list):
+    msgWithList = msg
+    for l in list:
+        msgWithList += l + ", "
+    if len(list) == 0:
+        msgWithList += "NONE :-("
+    return msgWithList.rstrip(" ,")
+
+concat_strings("My favourite letters: ", "x", "y", "z") # expected output: My favourite letters: x, y, z
+concat_strings("My favourite letters: ")                # expected output: My favourite letters: NONE
+
+names = ['jim', 'john', 'jane', 'jen']
+concat_strings("My favourite names: ", *[ n.capitalize() for n in names ])
+				</pre>
+			    </figure>
+			    <strong>Note:</strong> * before the list in the last statement unpacks the list into individual arguments.
+			</article>
+                    </li>
+
+		</ol>
+	    </article>
+	    <p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script
+	    type="text/javascript"
+	    src="../common/res/scripts/common.js"
+	></script>
+	<script type="text/javascript" src="res/scripts/ooswd.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>

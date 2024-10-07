@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link
+	    rel="shortcut icon"
+	    type="image/x-icon"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/ooswd/res/images/logo.png"
+	/>
+	<link
+	    rel="stylesheet"
+	    type="text/css"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css"
+	/>
+
+	<title>OOSWD</title>
+	<style>
+	 body {
+             background: pink;
+	 }
+	</style>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Week 4 Lab 3: Stock management</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content-no-nav">
+	    <article>
+		<p>
+		    Your assignment is to write a Python programs for keeping track of items
+		    sold in a shop called "Groceries at your Fingertips", fullfilling the
+		    following functional requirements:
+		</p>
+		<ul>
+		    <li>
+			<h4>User interaction</h4>
+			<ul>
+			    <li>
+				Except where indicated, your program may assume that user input is
+				going to be valid (i.e. error handling should be implemented only
+				if stated as an explicit requirement).
+			    </li>
+			    <li>
+				Where user input is a functional requirement, suitable prompts
+				must be provided, e.g.
+				<span class="fw">Please enter your name: </span>
+			    </li>
+			    <li>
+				Where output is a functional requirement, suitable descriptions
+				must be provided, e.g.
+				<span class="fw">Your order total is €100</span> rather than just
+				<span class="fw">€100</span>.
+			    </li>
+			    <li>
+				Communication needs to be maintained with the user for a good user
+				experience, which means that output should not be limited to that
+				specified in the functional requirements. For example, if an item
+				is deleted as requested by the user and the program remains
+				'silent', the user will be left wondering what happened. A message
+				such as <span class="fw">Item successfully deleted</span> would
+				contribute to a better user experience.
+			    </li>
+			</ul>
+		    </li>
+		    <li>
+			<h4>User interface</h4>
+			<figure class="fr twonh ml1">
+			    <figcaption>
+				An example of the user interface (yours does not need to be
+				exactly the same as long as it displays the required information)
+			    </figcaption>
+			    <img src="res/images/pbl4.png" />
+			</figure>
+			<p>The user interface is a page consisting of two parts:</p>
+			<ol>
+			    <li>
+				A list of the items stocked by the shop (at least two items should
+				be pre-loaded at program start-up e.g. bread and milk), each with
+				the following information:
+				<ul>
+				    <li>unique code (a positive integer)</li>
+				    <li>name of item</li>
+				    <li>price</li>
+				    <li>number in stock</li>
+				</ul>
+			    </li>
+			    <li>
+				A menu listing the following options available to the user (a shop
+				employee):
+				<ul>
+				    <li>add item</li>
+				    <li>remove item</li>
+				    <li>update item</li>
+				    <li>update stock</li>
+				    <li>exit</li>
+				</ul>
+				Each menu option should be displayed with a code to be used for
+				choosing the option (e.g. 1, 2, 3, 4).
+			    </li>
+			</ol>
+		    </li>
+		    <li>
+			<h4>Actions</h4>
+			<ul>
+			    <li>
+				On startup, the program should display the user interface page.
+			    </li>
+			    <li>
+				Actions should be implemented to handle the four menu options as
+				follows:
+				<table class="ordinary">
+				    <tr>
+					<th>Menu option</th>
+					<th>Action</th>
+				    </tr>
+				    <tr>
+					<td>add item</td>
+					<td>
+					    <p>
+						Read in user input consisting of information about the
+						item, including name, price and number in stock.
+					    </p>
+					    <p>Assign a unique id to the item.</p>
+					    <p>
+						Redisplay the user interface page with the list updated to
+						include the new item.
+					    </p>
+					</td>
+				    </tr>
+				    <tr>
+					<td>remove item</td>
+					<td>
+					    <p>Read in user input consisting of an item's unique id.</p>
+					    <p>
+						Remove the item associated with the id from the list of
+						items.
+					    </p>
+					    <p>
+						Redisplay the user interface page with the list updated
+						not to include the item specified for deletion.
+					    </p>
+					</td>
+				    </tr>
+				    <tr>
+					<td>update item</td>
+					<td>
+					    <p>Read in user input consisting of an item's unique id.</p>
+					    <p>
+						Read in user input consisting of information about the
+						item, including name, price and number in stock.
+					    </p>
+					    <p>
+						Redisplay the user interface page with the list updated to
+						reflect the new information about the item specified for
+						update.
+					    </p>
+					</td>
+				    </tr>
+				    <tr>
+					<td>update stock</td>
+					<td>
+					    <p>
+						For each item get a random number between 0 and the number
+						in stock and reduce the number in stock by that random
+						number.
+					    </p>
+					    <p>
+						Display a list of items for which stock is low (2 or
+						less), ask user to press any key to continue and read this
+						input.
+					    </p>
+					    <p>
+						Redisplay the user interface page with the list updated to
+						reflect new stock information.
+					    </p>
+					</td>
+				    </tr>
+				    <tr>
+					<td>exit</td>
+					<td>
+					    <p>Exit the program.</p>
+					</td>
+				    </tr>
+				</table>
+			    </li>
+			</ul>
+		    </li>
+		</ul>
+	    </article>
+	</div>
+    </body>
+</html>
