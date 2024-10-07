@@ -45,6 +45,13 @@ details {background-color: tomato; }
 .orange {color: orange; }
 .white { color: white; }
 .gray { color: gray; }
+.darkgray { color: darkgray; }
+.bg-royalblue { background: royalblue; }
+.bg-darkorange { background: darkorange; }
+.bg-orange { background: orange; }
+.bg-green { background: green; }
+.bg-darkgreen { background: darkgreen; }
+.bg-maroon { background-color: maroon; }
 .bg-darkcyan { background: darkcyan; }
 .bg-lightseagreen { background: lightseagreen; }
 .bg-black { background: black; }
