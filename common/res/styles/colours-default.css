@@ -46,6 +46,7 @@ details {background-color: tomato; }
 .white { color: white; }
 .gray { color: gray; }
 .darkgray { color: darkgray; }
+.bg-white { background: white; }
 .bg-royalblue { background: royalblue; }
 .bg-darkorange { background: darkorange; }
 .bg-orange { background: orange; }

@@ -106,7 +106,7 @@ canvas {border: 1px solid black; }
 
 figure { max-width: 100%; margin: 1em 0; padding: 0; }
 figure * { max-width: 100%; }
-figcaption, caption { font-style: italic; margin: 0 0 0.2em 0; text-align: left; }
+figcaption, caption { font-style: italic; margin: 0 0 1em 0; text-align: left; }
 figure.section_symbol { float: right; }
 
 /* the widths below are deprecated; use general ones further down the file */
