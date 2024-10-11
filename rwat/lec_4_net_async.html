@@ -18,12 +18,116 @@
 	    </div>
 	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
 	</header>
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+	    </nav>
 
-	<ul>
-	    <li><a href="res/files/NetworkProgramming.pptx">Network Programming</a></li>
-	    <li><a href="">Asynchronous Programming</a></li>
-	    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Promises</a></li>
-	</ul>
+	    <article>
+
+		<p><a href="res/files/NetworkProgramming.pptx">Network Programming (PowerPoint file)</a></p>
+
+		<ol class="toc_grp">
+
+
+	            <!--------------------------------------------------------------------->
+                    <li id="ARTCLID000081">
+			<p>Synchronous programming</p>
+			<article style="display:none">
+                            <h2>Synchronous programming</h2>
+
+			    <figure class="five">
+				<figcaption>Fully synchronous program execution</figcaption>
+				<img  class="p1 bg-white" src="res/images/async1.png">
+			    </figure>
+			    <ul>
+				<li>In the picture above, the function in context 1 calls function in context 2, which in turn calls function in context 3.</li>
+				<li>The function in context 3 makes a network call (but this could be anything that takes time outside of the Javascript thread of execution).</li>
+				<li>A <strong>synchronous</strong> call involves waiting  for the called function to return (like what the function in context 3 does).</li>
+				<li>Synchronous programming would not be a problem if all functions called did not take long to return.</li>
+				<li>However, if the thread of execution is blocked, this can have a serious impact on user experience, since nothing can happen on the page during the wait: parts of the page may not be rendered and user input is not handled.</li>
+			    </ul>
+			</article>
+		    </li>
+
+
+	            <!--------------------------------------------------------------------->
+                    <li id="ARTCLID000082">
+			<p>Asynchronous programming with callbacks</p>
+			<article style="display:none">
+                            <h2>Asynchronous programming with callbacks</h2>
+			    <figure class="five">
+				<figcaption>Execution of a program with an asynchronous call and the use of a callback</figcaption>
+				<img class="p1 bg-white" src="res/images/async2.png">
+			    </figure>
+			    <ul>
+				<li>In the picture above, the call to the network is asynchronous and returns immediately.</li>
+				<li>The asynchronous call takes a callback function as an argument.</li>
+				<li>When the work requested by the network call is completed and an asynchronous response comes in (black left-directed arrow), the callback code is queued for execution and executes once the thread of execution is free.</li>
+				<li>This pattern allows the thread of execution to be utilised while long-lasting external work is taking place.</li>
+				<li>There are cases where 'internal' work needs to be treated in the same way. For example, code that is computationally expensive can be sent to the back of the queue if it does not involve immediate interaction with the user (also see <a href="#ARTCLID000084">multithreading</a>).</li>
+			    </ul>
+			</article>
+                    </li>
+
+
+	            <!--------------------------------------------------------------------->
+                    <li id="ARTCLID000083">
+			<p>Asynchronous programming with promises</p>
+			<article style="display:none">
+                            <h2>Asynchronous programming with promises</h2>
+			    <figure class="five">
+				<figcaption>Execution of a program with an asynchronous call and the use of a promise</figcaption>
+				<img class="p1 bg-white" src="res/images/async3.png">
+			    </figure>
+			    <ul>
+				<li>The picture above shows a case of using an asynchronous call that returns a promise.</li>
+				<li>An object called a <strong>promise</strong> is returned from the asynchronous call.</li>
+				<li>The callback in this case is still used but rather than passed into the asynchronous call, it is attached to the promise (with the <span class="fw">then</span> method).</li>
+				<li>The <span class="fw">await</span> operator allows parts of the program to be syncrhonised with the completion of the asynchronous call.</li>
+				<li>Both <span class="fw">then</span> and <span class="fw">await</span> can be used by any code that has a reference to the promise. This need not be the code that makes the asynchronous call.</li>
+				<li>Also, asynchronous calls can easily be chained using the <span class="fw">then</span> method (not shown in the picture).</li>
+				<li>These features of the promise mechanism offer more flexibility and ease of use to the programmer than conventional callbacks, especially in cases where many asynchronous operations depend on each other.</li>
+			    </ul>
+			</article>
+                    </li>
+
+
+	            <!--------------------------------------------------------------------->
+                    <li id="ARTCLID000084">
+			<p>Multithreading</p>
+			<article style="display:none">
+                            <h2>Multithreading</h2>
+			    <ul>
+				<li>Multithreading is implemented by the Javascript <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API">Web Workers API</a>.</li>
+				<li>We will not be using this API in the module, but it is good to be aware of its existence.</li>
+				<li>Multithreading can be used for computationally intensive work internal to the application for which simply sending it to the back of the task queue is not sufficient to solve blocking problems.</li>
+			    </ul>
+			</article>
+                    </li>
+
+		</ol>
+
+		<h2>Links</h2>
+		<ul>
+		    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing">Introducing asynchronous JavaScript @MDN</a></li>
+		    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">How to Use Promises @MDN</a></li>
+		    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Implementing_a_promise-based_API">How to implement a promise-based API @MDN</a></li>
+
+
+		</ul>
+	    </article>
+	</div>
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script	type="text/javascript" src="../common/res/scripts/common.js"></script>
+	<script>
+	 init_all();
+	</script>
     </body>
 </html>
-
