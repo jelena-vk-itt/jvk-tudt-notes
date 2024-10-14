@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="res/styles/ooswd.css" />
+	<title>OOSWD</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Classes</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+
+	    </nav>
+
+	    <article>
+		<ol class="toc_grp newline">
+		    
+	            <!--------------------------------------------------------------------->    
+                    <li id="ARTCLID000091">
+			<p>What is a class?</p>
+			<article style="display:none">
+                            <h2>What is a class?</h2>
+			    <p>In a programming language, a class:
+				<ul>
+				    <li>is a specific <strong>blueprint</strong> for objects</li>
+				    <li>represents the <strong>type</strong> of an object that is based on it as a blueprint</li>
+				    <li>bundles <strong>data and associated behaviour</strong> together</li>
+				    <li>is an object itself, of type <span class="fw">type</span>, and can be thought of as a 'meta-object' (an object that is the blueprint for other objects)</li>
+				</ul>
+			    </p>
+			    <h3>Why classes?</h3>
+			    <ul>
+				<li>With functions, we have seen one way of organising code to make it reusable, clearer and easier to maintain.</li>
+				<li>Classes do the same, but they are essentially 'things' as opposed to functions, which represent 'behaviour'.</li>
+				<li>Classes specific behaviour relevant to the thing that they are to be attached to them.</li>
+				<li>Classes were designed to reflect reality, wherein we have things and associated behaviours. Consider the example in the picture below (it is a UML class diagram). Each box in the diagram shows a class. The top section contains the class name, the next section the class data and the bottom section the class methods (functions attached to a class).
+				    <figure>
+					<figcaption>Example class diagram in UML</figcaption>
+					<img class="w-six" src="res/images/class_dgrm_example.png">
+				    </figure>
+				</li>
+				<li>In any project but particularly in complex scenarios like the one shown in the picture <em>Example class diagram in UML</em> classes 
+				    <ul>
+					<li>break the problem down into domain concepts makes it easier to think about requirements</li>
+					<li>make design and implementation more intuitive</li>
+					<li>allow for easy division of labour in team projects</li>
+					<li>allow for easy reuse of concept implementations thanks to
+					    <ul>
+						<li>the encapsulation of data</li>
+						<li>well defined interfaces for manipulating those data</li>
+					    </ul>
+					</li>
+				    </ul>
+				</li>
+			    </ul>
+			    
+			</article>
+                    </li>
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000092">
+			<p>Defining a class in Python</p>
+			<article style="display:none">
+                            <h2>Defining a class in Python</h2>
+
+			    <p>A class in Python is defined using the following syntax:</p>
+
+			    <figure id="py-class-simple" class="my1">
+				<figcaption>A simple class defined in Python</figcaption><pre class="code-listing">
+class Simple:
+    x = "a"
+    y = "b"
+
+    def print(self):
+        print("x is: ", self.x)
+        print("y is: ", self.y)
+				</pre>
+			    </figure>
+
+			    <ul>
+				<li><span class="fw">class</span> is the keyword</li>
+				<li><strong>Simple</strong> is a user-defined name (CamelCase by convention)</li>
+				<li>The colon (<span class="fw">:</span>) is mandatory</li>
+				<li>Everything below that constitutes the body of the class definition:
+				    <ul>
+					<li><span class="fw">x</span> and <span class="fw">y</span> are member variables</li>
+					<li><span class="fw">print()</span> is a member function (method)</li>
+				    </ul>
+				</li>
+			    </ul>	
+			</article>
+		    </li>
+		    
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000093">
+			<p>Using a class to create objects</p>
+			<article style="display:none">
+			    <h2>Using a class to create objects</h2>
+			</article>
+
+			
+		    </li>
+		    
+		    
+
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000094">
+			<p>The constructor</p>
+			<article style="display:none">
+			    <h2>The constructor</h2>
+			</article>
+		    </li>
+
+
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000095">
+			<p>Member variable naming convention</p>
+			<article style="display:none">
+			    <h2>Member variable naming convention</h2>
+			</article>
+		    </li>
+		    
+
+
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000096">
+			<p>Inheritance</p>
+			<article style="display:none">
+			    <h2>Inheritance</h2>
+			</article>
+		    </li>
+
+		</ol>
+	    </article>
+	    <p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script
+	    type="text/javascript"
+	    src="../common/res/scripts/common.js"
+	></script>
+	<script type="text/javascript" src="res/scripts/ooswd.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>
