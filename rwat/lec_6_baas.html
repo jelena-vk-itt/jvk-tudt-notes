@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="res/styles/rwat.css"/>
+	<title>RWAT</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Backend as a Service (BaaS)</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
+	</header>
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+	    </nav>
+
+	    <article>
+		<ol class="toc_grp">
+
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000089">
+			<p>A typical web application</p>
+			<article style="display:none">
+                            <h2>A typical web application</h2>
+			    
+			    <p>A typical web application involves a server which</p>
+			    <ul>
+				<li>serves content to the client</li>
+				<li>runs the web application (business/domain) logic</li>
+				<li>handles the application state with the use of some type of data storage, most commonly a database</li>
+			    </ul>
+
+			    <figure class="mt2">
+				<figcaption>A typical web application</figcaption>
+				<img class="three" src="res/images/baas1.png">
+				<div class="texts">Source: martinfowler.com</div>
+			    </figure>
+			</article>
+                    </li>
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000088">
+			<p>Going serverless with BaaS</p>
+			<article style="display:none">
+                            <h2>Going serverless with BaaS</h2>
+
+			    <p>However, it is possible to develop a full web application using only HTML, CSS and Javascript, by <strong>using BaaS</strong>:</p>
+			    <ul>
+				<li>it stands for Backend as a Service (also called Mobile Baas - MBaaS - when referred to in the context of mobile native development)</li>
+				<li>is accessed using a Web-exposed API, offering services such as
+				    <ul>
+					<li>authentication</li>
+					<li>database</li>
+					<li>cloud storage</li>
+					<li>push notifications</li>
+					<li>API building (codeless function definition)</li>
+					<li>user-defined functions (also called Function as a Service - FaaS)</li>
+				    </ul>
+				</li>
+				<li>is one of the many different technologies that are referred to as 'serverless' - these include F(unction)aaS and C(ontainer)aaS</li>
+				<li>providers are e.g. Firebase (Google) and AWS Amplify</li>
+				<li>Parse is an implementation that needs to be self-hosted - owned by Parse (2011), then Facebook (2013), then made open-source (2017)</li>
+			    </ul>
+			    <figure class="mt2">
+				<figcaption>A serverless web application</figcaption>
+				<img class="w-three" src="res/images/baas2.png">
+				<div class="texts">Source: martinfowler.com</div>
+			    </figure>
+			</article>
+                    </li>
+
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000090">
+			<p>What does this have to do with RWAT?</p>
+			<article style="display:none">
+                            <h2>What does this have to do with RWAT?</h2>
+			    
+			    <ul>
+				<li>BaaS allows us to <strong>develop full-stack applications</strong> with the use of client-side technologies only.</li>
+				<li>While BaaS <strong>does not provide the flexibility of design and range of control</strong> that an own server would provide</li>
+				<li>it also <strong>does not incurr the cost and effort</strong> associated with running a full-blown server.</li>
+			    </ul>
+			</article>
+                    </li>
+		</ol>
+
+		<h2>Links</h2>
+
+		<a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools">Understanding client-side web development tools @MDN</a>
+		
+	    </article>
+	</div>
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script	type="text/javascript" src="../common/res/scripts/common.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>
+
+
+
