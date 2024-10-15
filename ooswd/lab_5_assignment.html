@@ -28,7 +28,7 @@
 		<p>School of Computer Science</p>
 	    </div>
 	    <div id="titlecontainer">
-		<p id="title">Week 5: Classes
+		<p id="title">Week 5: Classes</p>
 	    </div>
 	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
 	</header>
@@ -41,8 +41,28 @@
 		    <li>The application should consist of classes <span class="fw">Product</span> and <span class="fw">Shop</span> and a main program. Each class and the main program should be in a separate file (three files in all).</li>
 
 		    <li>The <span class="fw">Product</span> class should have member variables for the product name, description and stock (string, string and integer respectively) and a constructor that takes parameters that populate each of the member variables.</li>
-		    <li>The shop should hold a list of products and have functions for adding, removing and printing the list of products. It should also have a function that identifies the products that are low on stock (below 3) and prints a list of those products.</li>
+		    <li>The shop should hold a list of products and have the following functions.
+			<ul>
+			    <li>constructor, which a parameter structured like the data given in figure DATA below</li>
+			    <li>for adding a product:
+				<p><span class="fw">add_product(self, name, description, stock)</span></p></li>
+			    <li>removing a product:
+				
+				<p><span class="fw">remove_product(self, name)</span></p></li>
+			    
+			    <li>and printing the list of products:
+				
+				<p><span class="fw">print_product_list(self)</span></p>
+			    </li>
+			    
+			    <li>finally, a function that identifies the products that are low on stock (below 3) and prints a list of those products:
+
+				<p><span class="fw">print_low_on_stock(self)</span></p>
+			    </li>
+			</ul>
+		    </li>
 		    <li>The file <em>main.py</em> should contain code for testing all the functionality of the <span class="fw">Shop</span> class. Start by loading the data below into a <span class="fw">Shop</span> object.
+			<br/><br/>DATA
 			<pre class="code-listing">
 DATA = [
     ["milk", "Fresh from the farm", 10],

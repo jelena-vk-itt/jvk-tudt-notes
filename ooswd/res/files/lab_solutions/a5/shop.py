@@ -1,10 +1,9 @@
-from person import Person
-from address import Address
+from product import Product
 
-class Team:
+class Shop:
 
-    def __init__(self, data):
-        self.teamMembers = list(map(lambda d: Person(*d[:2], Address(*d[2:7]), *d[7:]), data))
+    def __init__(self, prods):
+        self.products = list(map(lambda p: Product(*p), prods))
 
     def add_member(self, p):
         self.teamMembers.append(p)
