@@ -548,6 +548,41 @@ class Person:
 				<p>Download <a href="res/files/python/classes/import/import_set.py">this file</a> onto your computer. Then reorganise it into three files called <em>address.py</em>, <em>person.py</em> and <em>main.py</em>. The first two should include a class definition only and the last on the code that creates <span class="fw">Person</span> objects and prints them. Remember that you must use imports.</p>
 <p><a href="res/files/python/classes/import.zip">EXAMPLE SOLUTION</a></p>
 			    </details>
+
+			    <p>We can also import modules that are installed with Python but are not imported when Python starts up. Examples are the <strong>random</strong> module that we have already used and the <strong>datetime</strong> module, which we will use in the following exercise.</p>
+			    <p>There are several variations of the import syntax, as seen in the next code snippet</p>
+			    
+			    <figure id="py-import">
+				<figcaption>Import syntax</figcaption><pre class="code-listing">
+# import the entire module
+import random
+
+# then access objects from the module by specifying the scope (module name), followed by a dot and the object name
+random.randint(1, 10)
+
+# import specific items (as used above with our classes)
+from random import randint
+
+# then access the imported object directly
+randint(1, 10)
+
+# import all objects from the module
+from math import *
+
+# all objects can be accessed by name 
+print(pi) # pi is an object in module math
+
+# give an alias to the imported module
+import math as m
+
+# access using the alias to specify the scope
+print(m.pi)
+
+</pre>
+
+</figure>
+
+				
 			    <details class="ice"><summary></summary>
 				<p>Starting with the solution files for the previous exercise on imports, modify the person class to add a date of birth as a member variable of type <span class="fw">datetime</span>.</p>
 				<p>The class <span class="fw">datetime</span> is available in Python from module <span class="fw">datetime</span> (same name). Add a method to the <span class="fw">Person</span> class that calculates and returns the person's age. Write some code in file <em>main.py</em> to test your solution.</p>
