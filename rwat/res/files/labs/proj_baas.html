@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link
+	    rel="shortcut icon"
+	    type="image/x-icon"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/rwat/res/images/logo.png"
+	/>
+	<link
+	    rel="stylesheet"
+	    type="text/css"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css"
+	/>
+	<title>BS&JS</title>
+
+	<style>
+	 #content-no-nav {
+             background-color: lightgray;
+	 }
+	 .box {
+             border: 1px solid black;
+             border-radius: 0.5em;
+	 }
+	 img.content {
+             width: 20em;
+	 }
+	 img {
+             max-width: 100%;
+	 }
+	</style>
+    </head>
+
+    <body>
+	<header id="tudheader">
+	    <img
+		id="leftlogo"
+		    src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/images/tudublin_logo.png"
+		    alt="TU Dublin Logo"/>
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<div id="title">
+		    Project setup and backend as a service (BaaS)
+		</div>
+	    </div>
+	    <img
+		id="rightlogo"
+		    src="https://jelena-vk-itt.github.io/jvk-tudt-notes/rwat/res/images/logo.png"
+		    alt="Logo"
+	    />
+	</header>
+
+	<div id="content">
+	    <article>
+		<h2>Assignment</h2>
+
+		<p>The assignment is to implement the application demonstrated <a href="https://go.screenpal.com/watch/cZ6IQTVWwfE">in this video</a>, using backend as a service (BaaS) for the data storage and authentication. This lab contains instructions for using Google's Firebase. If you are familiar with another BaaS product and wish to use it instead, please check with the lecturer or tutor beforehand.</p>
+
+		<p>The layout of your application does not need to be the same as that in the video, but it must implement the following three functions:
+		    <ul>
+			<li>retrieval and display of a list of users from the BaaS database</li>
+			<li>addition of new users to the database</li>
+			<li>restriction of access to the above two functions to authenticated users only</li>
+		    </ul>
+		</p>
+
+		<p>Your application must be set up as an npm project and compiled to a set of static files. See instructions below.</p>
+
+
+		<h2>Setting up an npm project</h2>
+
+		<ul>
+		    <li>Create a <em>lab5</em> directory in your RWAT repository and from the command line, while in the <em>lab5</em>, run the command<pre>
+
+npm init
+		    </pre>
+		    This will ask you a series of questions that you can answer as you wish, except that you should not specify a git repository (as the project directory is already in a repository) and leave <em>index.js</em> as the entry point. Once this is complete, you are ready to install other packages. We will be installing everything in the project directory (there is also a global install option).</li>
+
+		    <li>Install Vite by running the following command:<pre>
+
+npm install vite
+		    </pre>
+		    Vite will allow you to preview your website as you develop it, install various tools and build the static website for deployment/submission.</li>
+		    <li>In your project directory, you will see some subdirectories (namely <em>node_modules</em> and <em>package.json</em>). Create another two files in this project directory: <em>index.html</em> and <em>index.js</em>.</li>
+		    <li>Create a skeleton HTML page in <em>index.html</em> and use a script element to include <em>index.js</em>. Make sure to include it as a module:
+			<pre>
+
+&lt;script type="module" src="index.js">&lt/script>
+			</pre>
+
+			This will allow you to import other files into your <em>index.js</em> file.
+		    </li>
+		    <li>Vite commands:
+			<ul>
+			    <li>to preview your code run Vite from the project directory with
+				<pre>
+
+npx vite
+				</pre>
+
+				Then you can press <strong>r+Enter</strong> to restart (if you have made modifications to your project) and <strong>o+Enter</strong> to open <em>index.html</em> in the browser an preview the application.
+			    </li>
+			    <li>to build the static files in the end run the following command from the project directory
+				<pre>
+
+npx vite build
+				</pre>
+
+				The static website files are placed in the <em>dist</em> subdirectory.
+				
+				<p>Note: depending on where you want to run your static website, you may need to add a configuration file called <em>vite.config.js</em> to your project directory with the following contents <strong>before</strong> building, to get the Vite to produce proper relative paths:</p>
+				    <pre>
+export default {
+  base: "",
+}; </pre>
+			    </li>
+			</ul>
+		    </li>
+				
+		</ul>
+		
+
+		<h2>Working with Firebase</h2>
+
+		<h3>Google account</h3>
+		<p>To work with Firebase, you need to have a Google account.</p>
+		<ul>
+		    <li>Create a Google account if you do not have one</li>
+		</ul>
+		
+		<h3>Creating a Firebase project and registering your application</h3>
+		<p>In order to start using Firebase, you need to create a project, which can house several applications (apps)</p>
+		<ul>
+		    <li>Go <a href="https://console.firebase.google.com">here</a> and create a project, then click on the new project to see the <strong>Project Overview</strong> page.</li>
+		    <li>Register an application with the project by clicking the <strong>&lt;/> (Web)</strong> under 'Add an app to get started' in the middle of the page
+			<ul>
+			    <li>choose a suitable name for your app</li>
+			    <li>leave the 'Firebase Hosting' option unchecked</li>
+			    <li>click 'Register app'</li>
+			</ul>
+		    </li>
+		    <li>On the next page you will see instructions on how to add your app to an npm project. Go back to the npm project on your computer and run the given command
+			<pre>
+
+npm install firebase
+			</pre>
+			
+			This installs the Firebase API in your project directory.
+		    </li>
+		    <li>copy the given Javascript code to your <em>index.js</em> file.</li>
+		</ul>
+
+		<h3>Configuring backend components</h3>
+		<p>A lot of this configuration can be achieved programmatically, using the API, but we will be doing manual configuration so that you can get an idea of what you are dealing with regard to this cloud service.</p>
+		<p>On the project page accessed from the Firebase console, the different backend components available are listed on the left. Some are available only on the paid plan but we will be using two that have a free tier, Authentication and Firestore Database. Further documentation can be found under 'Docs' on the main firebase website. We are using the 'Web modular API' (this refers to the JavaScript modules).</p>
+
+		<h4>Firestore Database</h4>
+
+		<p>Data can be added to the database programmatically, but we will start by creating something to read.</p>
+
+		<ul>
+		    <li>To create the database, from the Firebase project page:
+			<ul>
+			    <li>click Firestore Database > Create database</li>
+			    <li>choose eur3 (Europe), click Next</li>
+			    <li>leave 'Start in Production mode' ticked, click Create</li>
+			</ul>
+		    </li>
+		    <li>To create some initial data:
+			<ul>
+			    <li>click Start a collection</li>
+			    <li>type in a collection name (this should be something you expect to have many of, e.g. users or products), click Next</li>
+			    <li>type in a document id (this should be an instance in the collection e.g. a user's name like bobthebuilder)</li>
+			    <li>type in a field and value (e.g. name + "Bob"), click Save</li>
+			</ul>
+
+			Now you will see a table that allows you to modify the data in your database (add, remove etc.). You will notice that you can start a subcollection at the level of the document (bobcratchit in the example).</li>
+		    <li>Click on the Rules tab. You will see a rule written in a special language developed by Google (see <a href="https://firebase.google.com/docs/firestore/security/get-started?hl=en&authuser=0#auth-required">here</a>). It denies all access to the database. Allow all access by changing:
+			<pre>
+
+allow read, write: if false;
+			</pre>
+			to 
+			<pre>
+
+allow read, write: if true;
+			</pre>
+
+			This setting is only temporary. It would not be a good idea to leave this rule in an actual application.
+		    </li>
+
+		    <li>To start using the API from your program, add the import statement below the other import statements in your <em>index.js</em> file:
+			<pre>
+
+import { getFirestore } from "firebase/firestore";
+			</pre>
+
+			Then use the following to get a reference to the database:
+			<pre>
+
+const db = getFirestore(app);
+			</pre>
+
+			Further coding is up to you. Instructions for various operations can be found here and in other Firestore documentation on the Firebase website <a href="https://firebase.google.com/docs/firestore/quickstart#set_up_your_development_environment">here</a>.
+			
+			<p>Note that many of the calls return promises (due to commnication over the Internet) and that the program needs to be written to interact with these correctly.</p>
+
+		    </li>
+		    <li>Once you have managed to read and write a document field in the database, your set up is complete for the database. Move onto the next section, Authentication, as it is a good idea to have the high-risk tasks in a project such as connecting to external APIs completed first.</li>
+		</ul>
+		<h4>Authentication</h4>
+
+		<ul>
+		    <li>Using the authentication API is similar to using the database API and documentation can be found <a href="https://firebase.google.com/docs/auth/web/start">here</a> if you wish to build your own interface. </li>
+		    <li>Alternatively, you can use a library called <span class="fw">firebaseui</span> which provides a ready-made UI. This library is not properly maintained any more and is tricky to set up. In fact it is not clear if it can be used at all any more to create users. Thus if you decide to use this ready-made UI (which is recommended since the goal of the lab is simply to get some experience working with a BaaS), you will need to create a user from the Firebase console. Then use the following code as given (it includes some backward-compatibility 'patching') in your <em>index.js</em> file:
+			<pre style="background-color:beige">
+
+// import authentication API
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+
+// import ready-made UI
+import firebase from 'firebase/compat/app';
+import * as firebaseui from 'firebaseui'
+import 'firebaseui/dist/firebaseui.css'
+
+// the video shows 'Sign in with Google' but it is left out here (it is sufficient to get the email sign in working)
+const uiConfig = {
+    signInSuccessUrl: "index.html",
+    signInOptions: [
+	{
+	    provider: firebase.auth.EmailAuthProvider.PROVIDER_ID, 
+	    requireDisplayName: false
+	}
+    ]
+};
+
+// the first line will already be in your file, as you will have used it to connect to firebase for the database work
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, (user) => {
+    // code here that fetches the dom object for the element where you want to insert the ready-made UI (here it is called authEl)
+    let authEl = ...
+    if (auth.currentUser) {
+        // a user is logged in - remove the contents of authEl
+	authEl.innerHTML = "";
+        // here display the content you want to appear once user is logged in
+	// ...
+    } else {
+	// here prepare page content you want to be visible during log in
+        // ...
+        // the following two lines create the ready-made UI
+	const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
+	ui.start(authEl, uiConfig);
+    }
+});
+
+// the signout call, which returns a promise and needs to be handled as such is:
+signOut(auth)</pre>
+		    </li>
+		    <li>Once authentication has been set up, you can modify the rules for accessing the database to:
+			<pre>
+
+allow read, write: if request.auth != null;
+			</pre>
+			
+			This gives quite broad permissions, which is not recommended in general but is adequate for our needs in this lab.</li>
+		</ul>
+		
+	    </article>
+
+	</div>
+    </body>
+</html>
