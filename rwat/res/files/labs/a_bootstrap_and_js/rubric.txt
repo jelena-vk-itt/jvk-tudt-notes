@@ -1,0 +1,64 @@
+Client-Side Web Development Practical CA
+=================
+1. File setup
+
+[/2] Files set up
+
+
+2. Bootstrap layout
+
+[/2] container-fluid element
+
+[/4] rows 
+
+[/2] column numbers
+
+[/2] columns fill rows
+
+[/2] column pairs with different width
+
+[/2] content elements 		
+
+[/2] text centering
+
+[/3] margin between rows
+
+[/2] background colours
+
+[/2] text colour
+
+[/3] stacking
+
+[/7] no HTML errors
+
+
+3. Javascript functionality
+
+[/5] a: inner function
+
+[/7] a: outer function
+
+[/5] a: event handler
+
+[/3] a: no syntax errors
+
+
+[/12] b: functionality
+
+[/5] b: event handler
+
+[/4] b: no syntax errors and only javascript file edited
+
+[/4] b: black box
+
+
+[/8] c: functionality
+
+[/4] c: event handler
+
+[/4] c: no syntax errors and only javascript file edited
+
+[/4] c: black box
+
+-----------------
+TOTAL: [/100]

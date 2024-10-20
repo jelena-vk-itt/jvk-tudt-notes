@@ -1,0 +1,14 @@
+* { font-family: sans-serif; font-size: 1.2rem; }
+html, body { margin: 0; padding: 0; }
+body { background-color: lightgray; }
+#workspace { padding: 1em; }
+nav { display: flex;  justify-content: space-around; gap: 1em; padding: 0.5em; background-color: gray; }
+button { font-weight: bold; padding: 0.5em; background-color: lightgray; border-radius: 0.25em;}
+#workspace button { background-color: gray; }
+nav > #dummy { flex-grow: 1; background-color: inherit; border: none; }
+button:hover {  cursor: pointer; }
+label { display: inline-block;  min-width: 4em; }
+input { height: 1.5em; }
+#root, #create-form, #list-table { display: none; }
+th { text-align: left; }
+th, td { padding: 0.2em; }

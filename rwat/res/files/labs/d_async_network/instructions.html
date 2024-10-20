@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link
+	    rel="shortcut icon"
+	    type="image/x-icon"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/rwat/res/images/logo.png"
+	/>
+	<link
+	    rel="stylesheet"
+	    type="text/css"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css"
+	/>
+	<title>BS&JS</title>
+
+	<style>
+	 #content-no-nav {
+             background-color: lightgray;
+	 }
+	 .box {
+             border: 1px solid black;
+             border-radius: 0.5em;
+	 }
+	 img.content {
+             width: 20em;
+	 }
+	 img {
+             max-width: 100%;
+	 }
+	</style>
+    </head>
+
+    <body>
+	<header id="tudheader">
+	    <img
+		id="leftlogo"
+		src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/images/tudublin_logo.png"
+		alt="TU Dublin Logo"
+	    />
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<div id="title">
+		    Network and Asynchronous Programming
+		</div>
+	    </div>
+	    <img
+		id="rightlogo"
+		src="https://jelena-vk-itt.github.io/jvk-tudt-notes/rwat/res/images/logo.png"
+		alt="Logo"
+	    />
+	</header>
+
+	<div id="content">
+	    <article>
+		<h2>Preparation</h2>
+		<p>For this lab you will need to have a local server installed. An example is the VS Code extension <em>Live Server</em>. This is to facilitate testing of network communication.</p>
+		<p>You will also need to create a public GitHub repository (different from the rwat-... repository) with <a href="https://jelena-vk-itt.github.io/jvk-tudt-notes/rwat/lab_0_github_pages.html">GitHub Pages enabled</a>.</p>
+		<h2>Assignment</h2>
+		<ul>
+		    <li>
+			Create a HTML file and a Javascript file and include the Javascript file in the HTML. Create JSON files with the following names and contents in a subdirectory called <em>data</em>:
+			<pre class="code-listing">
+# file 1 name: reference.json
+# file 1 contents: 
+{ "data_location" : "data1.json" }
+
+# file 2 name: data1.json
+# file 2 contents: 
+{ 
+   "data":  [
+      {"name": "Annie Apple","id": "X00111111","address": "Phibsboro, D7","grades": [60, 71, 55, 53, 44, 62]},
+      {"name": "Ben Bounce","id": "B00111111","address": "Rathmines, D6","grades": [44, 22, 77, 33, 41, 50]},
+      {"name": "Charlie Curry","id": "B00222222","address": "Phibsboro, D7","grades": [80, 88, 75, 81, 90, 77]},
+      {"name": "Dan Dreamer","id": "X00222222","address": "Cabra, D7","grades": [64, 55, 66, 65, 78, 62]}
+   ],
+   "data_location" : "data2.json"
+}
+
+# file 3 name: data2.json
+# file 3 contents:
+{ 
+   "data":  [  
+      {"name": "Emmy Ember","id": "X00333333","address": "Stoneybatter, D7","grades": [53, 55, 55, 52, 51, 60]},
+      {"name": "Fiona Falls","id": "C00111111","address": "Grangegorman, D7","grades": [90, 91, 88, 80, 81, 97]},
+      {"name": "Georgina Gull","id": "C00222222","address": "City Centre, D1","grades": [76, 67, 63, 71, 55, 82]},
+      {"name": "Harry Hops","id": "C00333333","address": "Cabra, D7","grades": [50, 33, 55, 11, 42, 61]},
+   ]
+}
+
+# file 4 name: data3.json
+# file 4 contents:
+{ 
+   "data":  [
+      {"name": "Iris Indie","id": "X00444444","address": "Tallaght, D24","grades": [61, 71, 58, 70, 65, 67]},
+      {"name": "Jack Jobs","id": "C00444444","address": "Phibsboro, D7","grades": [60, 71, 55, 53, 44, 62]},
+      {"name": "Kat Kid","id": "C00555555","address": "Grangegorman, D7","grades": [41, 41, 50, 48, 55, 44]},
+      {"name": "Lula Lock","id": "C00666666","address": "Cabra, D7","grades": [77, 80, 85, 80, 78, 81]}
+   ]
+}</pre>
+		    </li>
+		    <li>Implement a solution for fetching and displaying the data. The requirements are as follows:
+			<ul>
+			    <li>Assume that the names of the files <em>data1.json</em> and <em>data2.json</em> are not known in advance (you could even use a bash/PowerShell script to randomly modify the names to something unexpected!).</li>
+			    <li>The names of the files <em>reference.json</em> and <em>data3.json</em> are known.</li>
+			    <li>All the data from the three files need to be fetched and processed. The processing needs to be performed on the data from each file separately, as soon as they are fetched. Then the data need to be stiched together in the right order (data1, data2, data3) and displayed in a table.</li>
+			    <li>The processing should produce entries with separate name and surname and id (three properties in all).</li>
+			</ul>
+		    </li>
+		    <li>Repeat the implementation three times using the following approaches:
+			<ul>
+			    <li><span class="fw">XMLHttpRequest</span> used synchronously</li>
+			    <li><span class="fw">XMLHttpRequest</span> used asynchronously with callbacks</li>
+			    <li><span class="fw">fetch()</span> and promises</li>
+			</ul>
+
+			The HTML page should have three different buttons, with clicks on each of them invoking one of the implementations.
+		    </li>
+		    <li>Once you are happy that your implementations are working on the local test server, push your files to the GitHub Pages-enabled repository and test them by accessing the HTML page from there.</li>
+		</ul>
+		<h2>Submission</h2>
+		<p>Submit your HTML, Javascript and four JSON files in a subdirectory called <em>lab4</em> inside your usual RWAT repository (created at the beginning of the semester).</p>
+		<p>In the HTML page, include a link to the copy of the page on GitHub Pages (specify the full URL in the <span style="font-family:courier;">href</span> property).</p>
+	    </article>
+	</div>
+    </body>
+</html>

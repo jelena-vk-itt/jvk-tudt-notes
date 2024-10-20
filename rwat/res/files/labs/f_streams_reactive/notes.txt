@@ -1,0 +1,23 @@
+Notes for the lab:
+----------------------
+
+Create a project directory
+
+npm init
+This prompts a local install, which makes the code portable and locks in versions of dependencies. This is the approach we will use in this module but be aware that there is also global installation of npm packages, which saves space among other advantages.
+
+npm install vite
+npm install rxjs
+
+
+
+
+
+
+ReactiveX is a collection of opensource projects, providing a libraries for reactive programming for several languages, including Javascript. It was originally created by Microsoft.
+
+RxJS documentation: https://rxjs.dev/guide/overview
+
+It is based on the concept of <em>observables</em>, a 'push' mechanism for providing a stream of data, somewhat like promise but associated with a sequence of values rather than a single value.
+
+It is important to understand the difference between the concept of an event emitter and an observable. When an observer subscribes to the observable, that observer receives a full sequence of the items offered up by the observable, regardless of any other observers subscribed to it. An event emitter emits the event and does not worry about what happens to it afterwards i.e. who might 'catch' it or not. Also, it emits regardless of subscriptions. The observable is in a sort of a contract with its subscribers, making sure that a subscriber gets all the items (events). 
