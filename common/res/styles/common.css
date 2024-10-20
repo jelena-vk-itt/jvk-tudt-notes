@@ -41,6 +41,8 @@ table#ca-info th { width: 8em; text-align: left; }
 table.ordinary { border: 1px solid black; border-collapse: collapse; margin: 0.5em 0; }
 table.ordinary th, table.ordinary td { border: 1px solid black; padding: 0.3em; text-align: left; }
 
+table.centre-all td, table.centre-all th { text-align: center; }
+
 table.sepcells th, table.sepcells td { border: 1px solid black; padding: 0.2em; }
 table.sepcells th { text-align: center; }
 table.sepcells td { text-align: left; }
@@ -104,10 +106,15 @@ details {border: 1px solid black; padding: 0.5em; margin: 1em 0; max-width: 100%
 
 canvas {border: 1px solid black; }
 
-figure { max-width: 100%; margin: 1em 0; padding: 0; }
+figure { max-width: 100%; margin: 2em 0; padding: 0; }
 figure * { max-width: 100%; }
-figcaption, caption { font-style: italic; margin: 0 0 1em 0; text-align: left; }
+figcaption, caption { font-style: italic; margin: 0 0 0.7em 0; text-align: left; }
+figure .legend { font-size: medium; margin: 0.7em 0; }
+figure .legend td { padding-right: 2em; }
+figure hr { border: none; margin: 0; height: 1px; }
+figure hr:first-of-type { height: 3px; }
 figure.section_symbol { float: right; }
+
 
 /* the widths below are deprecated; use general ones further down the file */
 figure.one { width: 10em; }
@@ -244,8 +251,8 @@ details.ice > summary::before { font-weight: bold; font-size: 1.2em; content: "I
 .w-one { width: 10em; }
 .w-two { width: 20em; }
 .w-three { width: 30em; }
+.w-threenh { width: 35em; }
 .w-four { width: 40em; }
-.w-fournh { width: 45em; }
 .w-fournh { width: 45em; }
 .w-five { width: 50em; }
 .w-six { width: 60em; }

@@ -1,0 +1,188 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="res/styles/ooswd.css" />
+	<title>OOSWD</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Classes (continued)</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+
+	    </nav>
+
+	    <article>
+		<ol class="toc_grp newline">
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000103">
+			<p>Class inheritance</p>
+			<article style="display:none">
+                            <h2>Class inheritance</h2>
+
+			    <p>Classes can be defined as subtypes of other classes. This concept is called <strong>class inheritance</strong>.</p>
+
+			    <p>In an inheritance relationship</p>
+			    <ul>
+				<li>one class is a <strong>subclass</strong> of another class, called the <strong>superclass</strong> class</li>
+				<li>the superclass is always more <strong>general</strong> and the subclass more <strong>specific</strong></li>
+				<li>the subclass <strong>inherits</strong> the properties (variables and methods) of the superclass</li>
+				<li>thus, an object of the subclass type <strong>is</strong> an object of the superclass type</li>
+				<li><strong>in addition</strong> to inherited properties, the subclass has properties that are specific to itself</li>
+				<li>relationships can extend over many levels of an inheritance <strong>hierarchy</strong></li>
+				<li>synonymous terms
+				    <ul>
+					<li>superclass, base class, parent class</li>
+					<li>subclass, derived class, child class</li>
+				    </ul>
+				</li>
+			    </ul>
+			    
+			    <p>In the picture below, class <span class="fw">Employee</span> is a derived from class <span class="fw">Person</span>. It inherits properties <span class="fw">name</span>, <span class="fw">surname</span>, <span class="fw">address</span> and <span class="fw">dateOfBirth</span>. An object of type <span class="fw">Employee</span> has all these properties <strong>and</strong> its own property <span class="fw">employeeNumber</span>, which does not pertain to a person in general.</p>
+			    <figure>
+				<figcaption>A class inheritance hierarchy</figcaption>
+				<img class="w-three" src="res/images/inheritance.png">
+			    </figure>
+
+			</article>
+                    </li>
+
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000104">
+			<p>Inheritance syntax in Python</p>
+			<article style="display:none">
+                            <h2>Inheritance syntax in Python</h2>
+
+			    <figure id="py-inheritance">
+				<figcaption>Class inheritance with Python</figcaption><pre class="code-listing">
+class Person:
+    def __init__(self, n, s):
+        self.name = n
+        self.surname = s
+
+    def print(self):
+        print("")
+        print("name: ", self.name)
+        print("surname: ", self.surname)
+
+
+    def get_fullname(self):
+        return self.name + " " + self.surname
+
+
+class Employee(Person):
+    def __init__(self, n, s, en):
+        super().__init__(n, s)
+        self.employeeNumber = en
+
+    def print(self):
+        super().print()
+        print("employee number: ", self.employeeNumber)			    </pre>
+				<table class="legend">
+				    <tr><td><span class="fw">class Employee(Person)</span></td><td>a new class called <span class="fw">Employee</span> is declared as a subclass of <span class="fw">Person</span></td></tr>
+				    <tr><td><span class="fw">super()</span></td><td>returns an object of the base class type</td></tr>
+				    <tr><td><span class="fw">super().__init__()</span></td><td>base class constructor being called from the subclass to construct its inherited part</td></tr>
+				    <tr><td><span class="fw">get_fullname()</span></td><td>inherited and callable on the subclass</td></tr>
+				    <tr><td><span class="fw">print()</span></td><td>on the subclass, this is called instead of the base class <span class="fw">print</span> method</td></tr>
+				</table>
+				<hr/><hr/>
+			    </figure>
+			    <details class="ice"><summary></summary>
+				<p>Copy the code from code snippet <a class="xref" href="#py-inheritance">?</a> into a script file. Then write some code to test the classes:</p>
+				<ul>
+				    <li>create an object of type <span class="fw">Person</span></li>
+				    <li>call the function <span class="fw">print</span> on it</li>
+				    <li>call the function <span class="fw">get_fullname</span> on it</li>
+				    <li>repeat the previous steps with an object of type <span class="fw">Employee</span></li>
+				    <li>think about the outputs until you are happy you understand how they were produced</li>
+				</ul>
+				<p><a href="res/files/python/classes/inheritance.py">EXAMPLE SOLUTION</a></p>
+			    </details>
+
+			    <details class="ice"><summary></summary>
+				<p>Use the answer files for the team/person/address exercise (found <a href="res/files/python/classes/team.zip">here</a>) as the starting point for this exercise. Reorganise the code so that that it retains the functionality of the existing code, but with a new class <span class="fw">Employee</span> included. In the current setup, the <span class="fw">Person</span> class has a member variable for their team role, which really does not belong on <span class="fw">Person</span>, but could belong on <span class="fw">Employee</span>. The team should now consist of employees.</p>
+				<p><a href="res/files/python/classes/team_reorg.zip">EXAMPLE SOLUTION</a></p>
+			    </details>
+			</article>
+                    </li>
+
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000105">
+			<p>Method overriding</p>
+			<article style="display:none">
+                            <h2>Method overriding</h2>
+
+			    <p>In code snippet <a class="xref" href="#py-inheritance">?</a> we have seen the subclass <span class="fw">Employee</span> define the function <span class="fw">print</span>, which has the same name and signature as the function <span class="fw">print</span> in the base class <span class="fw">Person</span>. This is called <strong>method overriding</strong> (or function overriding). As a result of overriding, the definition/execution mapping is as shown in the table.</p>
+			    <table class="ordinary centre-all">
+				If the base class has a function called <span class="fw">func</span>, then the following applies.
+				<tr>
+				    <th>object type</th><th>subclass has function <span class="fw">func</span></th><th><span class="fw">func</span> called on</th><th>executed</th><th>examples in <em>Pets class diagram</em></th>
+				</tr>
+				<tr>
+				    <td>base</td><td>does not matter</td><td>base</td><td>base class <span class="fw">func</span></td><td><span class="fw">petObj.walkTimes()<br>petObj.feedTimes()<br>petObj.setUpAlarms()</span></td>
+				</tr>
+				<tr>
+				    <td>subclass</td><td>&#10004;</td><td>subclass</td><td>subclass <span class="fw">func</span></td><td><span class="fw">dogObj.feedTimes()<br>dogObj.walkTimes()<br>catObj.feedTimes()</span></td>
+				</tr>
+				<tr>
+				    <td>subclass</td><td>X</td><td>subclass</td><td>base <span class="fw">func</span></td><td><span class="fw">dogObj.setUpAlarms()<br>catObj.walkTimes()<br>cat_obj.setUpAlarms()</span></td>
+				</tr>
+				<tr>
+				    <td>subclass</td><td>&#10004;</td><td>base</td><td>subclass <span class="fw">func</span></td><td><span class="fw">feedTimes()</span> called from <span class="fw">dogObj.setUpAlarms()</span><br><span class="fw">walkTimes()</span> called from <span class="fw">dogObj.setUpAlarms()</span><br><span class="fw">feedTimes()</span> called from <span class="fw">catObj.setUpAlarms()</span></td>
+				</tr>
+			    </table>
+			    <figure>
+				<figcaption>Pet class diagram</figcaption>
+				<img class="w-three" src="res/images/func_override.png">
+			    </figure>
+
+			    <details class="ice"><summary></summary>
+				<p>Implement the classes in <em>Pets class diagram</em> and test the four different scenarios that can happen when overriding/overridden functions are called. Place each class in a separate file and use a file called <em>main.py</em> for the test code.</p>
+				<p><a href="res/files/python/classes/pets.zip">EXAMPLE SOLUTION</a></p>
+			    </details>
+
+			    <h3>A couple of other things to note</h3>
+			    <ul>
+				<li>Function overriding is at the heart of the <strong>polymorphism</strong> found in inheritance hierarchies. The word polymorphism roughly means "many shapes" and in object-oriented programming refers to how the same thing (the base class) can behave in many different ways (specific behaviour of subclasses, implemented in overriding functions).</li>
+				<li>It is important for the overriding function to have the <strong>same signature</strong> (name and parameters) as the base class function. Using different overridden and overriding signatures can be made to work sometimes (or can work by chance) but this would be using polymorphism in an inintended way. Python is very permissive, which in many contexts makes it easy to work with, but this should not be abused by the programmer.</li>
+			    </ul>
+			</article>
+                    </li>
+		</ol>
+	    </article>
+	    <p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script
+	    type="text/javascript"
+	    src="../common/res/scripts/common.js"
+	></script>
+	<script type="text/javascript" src="res/scripts/ooswd.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>

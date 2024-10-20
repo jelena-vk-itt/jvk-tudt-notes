@@ -29,6 +29,8 @@ details {background-color: tomato; }
 .exercise, .exercise-no-leader { background-color: lightgray; }
 .contraex, .contraexs, .contraex-no-leader { background-color: #ff4d4d; }
 .code-listing { background-color: #cc9999; }
+.code-listing ~ hr { background-color: black; }
+.code-listing ~ hr:first-of-type { background-color: #cc9999; }
 .badcode-listing { background-color: gray; } 
 .console { background-color: darkslategray; }
 
