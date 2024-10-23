@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link
+	    rel="shortcut icon"
+	    type="image/x-icon"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/ooswd/res/images/logo.png"
+	/>
+	<link
+	    rel="stylesheet"
+	    type="text/css"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css"
+	/>
+
+	<title>OOSWD</title>
+	<style>
+	 body {
+             background: lightgray;
+	 }
+	</style>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Week 6: Class inheritance</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content-no-nav">
+	    <article>
+		<h2>Assignment</h2>
+		<p>Your assignment is to implement a stock keeping application based on a given design.</p>
+
+		<p>The application design is shown in terms of classes and relationships between them figure <em>Stock-keeping application class diagram</em>.</p>
+		<figure>
+		  <figcaption>Stock-keeping application class diagram</figcaption>
+		  <img class="w-three" src="res/images/assignment6.png">
+		</figure>
+		<p>Details of the requirements are as follows:</p>
+		<ul>
+		  <li>The <span class="fw">Product</span> class should have
+		    <ul>
+		      <li>attributes:
+			<ul>
+			  <li><span class="fw">name</span>: a private string variable</li>
+			  <li><span class="fw">lowStockMark</span>: a private integer variable, representing the quantity below which the stock is considered to be low for this product</li>
+			  <li><span class="fw">stock</span>: a private integer variable, representing the quantity of this product that is in stock</li>
+			</ul>
+		      </li>
+		      <li>methods:
+			<ul>
+			  <li><span class="fw">print</span>: prints the contents of the class in a user-friendly way</li>
+			  <li><span class="fw">get_stock</span>: returns an integer representing the quantity in stock for this product</li>
+			  <li><span class="fw">set_stock</span>: takes an integer argument and records the quantity in stock for this product</li>
+			  <li><span class="fw">is_perishable</span>: returns a boolean indicator of whether the product is perishable; the class <span class="fw">Product</span> implementation returns <span class="fw">False</span></li>
+			  <li><span class="fw">stock_is_low</span>: returns a boolean indicator as to whether the stock is lower than the low stock mark</li>
+			</ul>
+		      </li>
+		    </ul>
+		  </li>
+		  <li>The <span class="fw">FoodProduct</span> class is a subclass of <span class="fw">Product</span> and should have:
+		    <ul>
+		      <li>attributes:
+			<ul>
+			  <li><span class="fw">useByDate</span>: a private variable of type <span class="fw">datetime</span> (in Python module <em>datetime</em>); for non-perishable products the value should be <span class="fw">None</span>; you can assume that all the pieces of the same product come from one batch and have the same expiry date</li>
+			</ul>
+		      </li>
+		      <li>methods:
+			<ul>
+			  <li><span class="fw">is_perishable</span>: returns <span class="fw">True</span> if the use-by date is not <span class="fw">None</span> and <span class="fw">False</span> otherwise</li>
+			  <li><span class="fw">is_out_of_date</span>: returns an indicator as to whether the use-by Date has passed</li>
+			</ul>
+		      </li>
+		    </ul>
+		  </li>
+		  <li>The <span class="fw">Shop</span> class should have:
+		    <ul>
+		      <li>attributes:
+			<ul>
+			  <li><span class="fw">name</span>: a private string variable representing the name of the shop</li>
+			  <li><span class="fw">stockedProducts</span>: a private list variable containing objects of type Product or any subclass of Product (the diamond at the end of the link between <span class="fw">Shop</span> and <span class="fw">Product</span> in the picture represents aggregation of Product objects in a <span class="fw">Shop</span> object i.e. an implied list variable)</li>
+			</ul>
+		      </li>
+		      <li>methods:
+			<ul>
+			  <li><span class="fw">add_product</span>: takes an argument of type <span class="fw">Product</span> (or any subclass) and adds it to the list of stocked products</li>
+			  <li><span class="fw">remove_product</span>: takes a string argument representing the product name and removes the product from the stockedProducts list</li>
+			  <li><span class="fw">generate_messages</span>: prints messages, one for each product that is low in stock and one for each product that is out of date</li>
+			  <li><span class="fw">print_product_list</span>: takes a string argument representing a filtering instruction, with possible values:
+			    <ul>
+			      <li>"" (default) - all products</li>
+			      <li>"od" - products that are out of date</li>
+			      <li>"ls" - products for which the stock is low</li>
+			    </ul>
+
+			    and prints a list of products after applying the filter
+			  </li>
+			  <li><span class="fw">restock</span>: takes a string argument representing a product name and an integer argument representing a quantity to be added to the stock for the product; updates the stock for the product accordingly</li>
+			  <li><span class="fw">sell</span>: takes a string argument representing a product name and an integer argument representing a quantity of the product sold; updates the stock for the product accordingly</li>
+			</ul>
+		      </li>
+		    </ul>
+		  </li>
+		  <li><span class="fw">Product</span> and <span class="fw">FoodProduct</span> should be in the same file, <em>product.py</em>. <span class="fw">Shop</span> should be defined in a file of its own, <em>shop.py</em>.</li>
+		  <li>A file called <em>main.py</em> should contain
+		    <ul>
+		      <li>code that creates a shop with some initial products</li>
+		      <li>code that runs scenarios covering all the class methods and all the execution paths through the class methods (e.g. if there is an <span class="fw">if</span> statement, then there should be a scenario that covers the condition being true and another one that covers the condition being false); one scenario may cover several of these</li>
+		      <li>comments that indicate how the code in <em>main.py</em> covers the class methods and execution paths</li>
+		      <li>comments that indicate expected output</li>
+		    </ul>
+		  </li>
+		</ul>
+	    </article>
+	</div>
+    </body>
+</html>
