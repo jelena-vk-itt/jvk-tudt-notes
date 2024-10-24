@@ -57,6 +57,7 @@
 		      <li>methods:
 			<ul>
 			  <li><span class="fw">print</span>: prints the contents of the class in a user-friendly way</li>
+			  <li class="red"><span class="fw">get_name</span>: returns a string representing the name of the product</li>
 			  <li><span class="fw">get_stock</span>: returns an integer representing the quantity in stock for this product</li>
 			  <li><span class="fw">set_stock</span>: takes an integer argument and records the quantity in stock for this product</li>
 			  <li><span class="fw">is_perishable</span>: returns a boolean indicator of whether the product is perishable; the class <span class="fw">Product</span> implementation returns <span class="fw">False</span></li>
@@ -90,9 +91,6 @@
 		      </li>
 		      <li>methods:
 			<ul>
-			  <li><span class="fw">add_product</span>: takes an argument of type <span class="fw">Product</span> (or any subclass) and adds it to the list of stocked products</li>
-			  <li><span class="fw">remove_product</span>: takes a string argument representing the product name and removes the product from the stockedProducts list</li>
-			  <li><span class="fw">generate_messages</span>: prints messages, one for each product that is low in stock and one for each product that is out of date</li>
 			  <li><span class="fw">print_product_list</span>: takes a string argument representing a filtering instruction, with possible values:
 			    <ul>
 			      <li>"" (default) - all products</li>
@@ -102,12 +100,16 @@
 
 			    and prints a list of products after applying the filter
 			  </li>
+			  <li><span class="fw">generate_messages</span>: prints messages, one for each product that is low in stock and one for each product that is out of date</li>
+			  <li><span class="fw">add_product</span>: takes an argument of type <span class="fw">Product</span> (or any subclass) and adds it to the list of stocked products</li>
+			  <li><span class="fw">remove_product</span>: takes a string argument representing the product name and removes the product from the stockedProducts list</li>
 			  <li><span class="fw">restock</span>: takes a string argument representing a product name and an integer argument representing a quantity to be added to the stock for the product; updates the stock for the product accordingly</li>
 			  <li><span class="fw">sell</span>: takes a string argument representing a product name and an integer argument representing a quantity of the product sold; updates the stock for the product accordingly</li>
 			</ul>
 		      </li>
 		    </ul>
 		  </li>
+		  <li class="red">All private member variables should have the two-underscore (<span class="fw">__</span>) prefix added to their names, as is the Python convention.</li>
 		  <li><span class="fw">Product</span> and <span class="fw">FoodProduct</span> should be in the same file, <em>product.py</em>. <span class="fw">Shop</span> should be defined in a file of its own, <em>shop.py</em>.</li>
 		  <li>A file called <em>main.py</em> should contain
 		    <ul>
