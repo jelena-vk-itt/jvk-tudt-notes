@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+    
+    <link rel="stylesheet" type="text/css" href="res/styles/ooswd.css"/>
+    <title>OOSWD</title>
+  </head>
+  <body>
+    <header id="tudheader">
+      <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+      <div id="tuddepttext">
+	<p>School of Computer Science</p>
+      </div>
+      <div id="titlecontainer">
+	<p id="title">Program Design and Coding Principles</p>
+      </div>
+      <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+    </header>
+
+    <div id="content">
+      <nav>
+	<ul class="links">
+	  <li><a href="index.html">Home</a></li>
+	</ul>
+	<ul class="commands">
+	  <li class="openall">Open all</li>
+	  <li class="closeall">Close all</li>
+	</ul>
+
+      </nav>
+
+      <article>
+	<ol class="toc_grp newline">
+
+	  <!--------------------------------------------------------------------->            
+          <li id="ARTCLID000075">
+	    <p>Simple program design steps</p>
+	    <article style="display:none">
+              <h2>Simple program design steps (roughly!)</h2>
+
+	      <ol>
+		<li>Identify inputs and outputs</li>
+		<li>Identify the order of inputs and outputs</li>
+		<li>Identify which inputs affect which outputs</li>
+		<li>Design the flow of control</li>
+		<li>Identify repetitions and variables</li>
+		<li>If necessary, go back to step 4</li>
+		<li>Fill the programmatic details</li>
+		<li>After implementation and testing, fix any imperfections</li>
+	      </ol>
+	    </article>
+          </li>
+
+
+	  
+	  <!--------------------------------------------------------------------->            
+          <li id="ARTCLID000117">
+            <p>Code quality attributes</p>
+            <article style="display:none">
+              <h2>Code quality attributes</h2>
+	      <p>The first goal when learning to program is to get it right, in the sense of fulfilling any <strong>functional requirements</strong> with the code.</p>
+	      <p>However, the <strong>non-functional quality attributes</strong> of a program are just as important. Quantitative measures of these are used to set quality attribute (non-functional) requirements for programs. Some of these attributes are:</p>
+	      <ul>
+		<li><strong>usability</strong>: the user-friendliness of the program
+
+		  <p>Does the program communicate fully with the user and in a way that is easy to understand?</p>
+		</li>
+		<li><strong>understandability</strong>: the clarity of the code for other coders 
+		  <p>How easy would it be for someone else to review the code or take over its development?</p>
+		</li>
+		<li><strong>maintainability</strong>: the ease with which the code once in production can be modified 
+		  <p>Can bug fixes or extensions be applied and tested easily and quickly?</p>
+		</li>
+		<li><strong>reusability</strong>: the possibility of reusing the code if needed 
+		  <p>Can the code easily be utilised in a different context?</p>
+</li>
+		<li><strong>optimality</strong>: as low as possible use of resources 
+		    <p>Is the program written in a way that does not waste memory and/or CPU?)</p> </li>
+		<li><strong>environmental friendliness</strong>: similar to above but with focus on environmental concerns</li>
+		<li><strong>scalability</strong>: the possibility of adjustment for greater processing bulk 
+		  <p>Can this code be deployed so as to serve more users or handle a bigger database?</p>
+</li> 
+		<li><strong>configurability</strong>: changeability of high-level properties
+		    <p>Can the program easily be used in different ways or for different purposes that are all equally useful?</p>
+		</li>
+	      </ul>
+	      The list goes on, but mentioned here are only those that we will consider in our module.
+            </article>
+          </li>
+	  <!--------------------------------------------------------------------->            
+          <li id="ARTCLID000116">
+            <p>An example</p>
+            <article style="display:none">
+              <h2>An example</h2>
+
+	      <p>Let us start with a function that prints out an instruction for volunteers giving out t-shirts at an event. The function prints out the size and colour that needs to be handed out, given the age and height of an event-goer. It is shown in code snippet <a class="xref" href="#py-quality1">?</a>.</p>
+	      
+	      <figure id="py-quality1">
+		<figcaption>Code quality example - version 1 </figcaption><pre class="code-listing">
+def print_instruction(height, age):
+    if height >= 180 and age >= 18:
+        print("This person needs a dark t-shirt, size large.")
+    if height < 180 and height >= 150 and age >= 18:
+        print("This person needs a dark t-shirt, size medium.")
+    if height < 150 and age >= 18:
+        print("This person needs a dark t-shirt, size small.")
+    if height >= 180 and age < 18:
+        print("This person needs a bright t-shirt, size large.")
+    if height < 180 and height >= 150 and age < 18:
+        print("This person needs a bright t-shirt, size medium.")
+    if height < 150 and age < 18:
+        print("This person needs a bright t-shirt, size small.")
+</pre>
+	      </figure>
+	      
+	      <p>The Python function above is <strong>logically correct</strong>, fulfilling its functional requirements, which are</p>
+	      <ul>
+		<li>to choose a t-shirt size based on height (with particular height boundaries for sizes small, medium and large)</li>
+		<li>to choose a t-shirt colour based on age (one colour for adults and another for young people)</li>
+		<li>to print a message with the size and colour information</li>
+	      </ul>
+	      
+	      <p>However, there are various problems with this function, which we will examine and correct one by one.</p>
+
+	      <h3>Code that causes superfluous execution</h3>
+	      <p>This is bad practice because:</p>
+	      <ul>
+		  <li>it is a drain on CPU resources</li>
+		  <li>it confuses the reader by obscuring the code purpose</li>
+	      </ul>
+
+	      <p>Instances in the example:</p>
+	      <ol>
+		  <li>There are six <em>disjunctive</em> (non-overlapping) combinations of age and height. Each is checked for with a new <span class="fw">if</span>-statement, meaning that even <span class="fw">if</span>- an <span class="fw">if</span>-statement condition is true and its block is executed, further <span class="fw">if</span>-statements are also executed, unnecessarily, since they definitely cannot be true due to the disjunctiveness. An <span class="fw">if-elif</span> chain should be used here.		  </li>
+		  <li>The six combinations are also <em>exhaustive</em> (are all the combinations that exist), meaning that the last <span class="fw">elif</span> condition check is superfluous. An <span class="fw">else</span> clause should be used here instead of the <span class="fw">elif</span> one.</li>
+		  <li>Finally, the combinations are <em>contiguous</em> (share boundaries), which means that a check for a value's position with respect to a boundary need to be carried out only once (the check <span class="fw">height < 180</span> in the first <span class="fw">elif</span> clause is superfluous because the <span class="fw">if</span> clause has the check <span class="fw">height >== 180</span> etc.). These superfluous checks can be left out. We have two height boundaries (180 and 150) and one ege boundary (18). The code, when running, should carry out at most 3 checks. </li>
+	      </ol>
+
+	      <p>The unnecessary <span class="fw">if</span>-statements cause the processing power needed for this function to double on average, affecting <em>optimality</em> and <em>environmental friendliness</em>. The other two problems also have an efficiency reduction effect, if a lesser one. All the unnecessary conditionals affect the <em>understandability</em> and <em>maintainability</em> because the functional intention is not expressed clearly by the code.</p>
+	      
+	      <p>Version 2 of the function, including the three improvements discussed above, is shown in code snippet <a class="xref" href="#py-quality2">?</a>. Notice that even though five condition checks are found in the code, at run time no more than three will be executed, which is the minimum possible for this problem.</p>  
+
+	      <figure id="py-quality2">
+		  <figcaption>Code quality example - version 2</figcaption><pre class="code-listing">
+def print_instruction(height, age):
+    if age >= 18:
+        if height >= 180:
+	    print("This person needs a dark t-shirt, size large.")
+        elif height >= 150:
+            print("This person needs a dark t-shirt, size medium.")
+        elif:
+            print("This person needs a dark t-shirt, size small.")
+    else:
+        if height >= 180:
+            print("This person needs a bright t-shirt, size large.")
+        elif height >= 150:
+            print("This person needs a bright t-shirt, size medium.")
+        else:
+            print("This person needs a bright t-shirt, size small.")</pre>
+	      </figure>
+	      
+
+	      <h3>Repetition of code</h3>
+	      <p>This is bad practice because:</p>
+	      <ul>
+		  <li>it is a drain on storage and network resources</li>
+		  <li>it is hard to maintain, given that many-target changes are prone to error</li>
+	      </ul>
+
+	      <p>Instances in the example:</p>
+	      <ol start="4">
+		  <li>In the example the <span class="fw">print</span> call is almost identical in the six conditional blocks. There are a couple of words that are different, but this can be easily parameterised.</li>
+		  <li>The height boundary checks are written into the code twice. There will be cases where this is necessary, if there is a dependency between the two variables that are being checked (age and height). However, in our example there is no dependency (the height and age categories are always the same, regardless of the other variable's value), which means that we can categorise the age and height separately and avoid this repetition.</li>
+	      </ol>
+
+	      <p>Repetition of code affects the code's <em>maintainability</em>, because of the multiple places in which changes would have to be made to modify it. Again, <em>understandability</em> can be affected simply because there is more to read in the listing. Repetition means more text in the program files and the unnecessary use of storage space (which in scenarios such as a mobile application can be scarce) and network resources (e.g. when client-side code of a web application is being transferred over the Internet).</p>
+
+	      <p>Version 3 of the example function, with repetitions removed, is shown in code snippet <a class="xref" href="#py-quality3">?</a>.</p>
+	      <figure id="py-quality3">
+		  <figcaption>Code quality example - version 3</figcaption><pre class="code-listing">
+def write_message_to_supplier(height, age):
+    if age > 18:
+        colour="dark"
+    else:
+        colour="bright"
+
+    if height > 180:
+        size="small"
+    elif height > 150:
+        size="medium"
+    else:
+        size="small"
+
+    print("This person needs a {} tee-shirt, size {}.".format(colour, size))
+</pre>
+	      </figure>
+
+
+	      <h3>Hard-coded constants</h3>
+	      <p>This is bad practice because:</p>
+	      <ul>
+		  <li>it makes code harder to maintain, with literals that might need to change embeded deep in the program</li>
+		  <li>it prohibits program configuration in terms of the hard-coded constants</li>
+		  <li>literals are much harder to interpret than named constants</li>
+	      </ul>
+	      
+	      <p>Instances in the example:</p>
+	      <ol start="6">
+		  <li>The age and height boundaries can be declared with the use of variables at the beginning of the program.</li>
+	      </ol>
+	      <p>The final version (4) of the example function is shown in code snippet <a class="xref" href="#py-quality4">?</a>.</p>
+	      <figure id="py-quality4">
+		  <figcaption>Code quality example - version 4</figcaption><pre class="code-listing">
+LM_SIZE_BOUNDARY = 180
+MS_SIZE_BOUNDARY = 150
+AY_AGE_BOUNDARY = 18
+
+def write_message_to_supplier(height, age):
+    if age > LM_SIZE_BOUNDARY:
+        colour="dark"
+    else:
+        colour="bright"
+
+    if height > LM_SIZE_BOUNDARY:
+        size="small"
+    elif height > MS_SIZE_BOUNDARY:
+        size="medium"
+    else:
+        size="small"
+
+    print("This person needs a {} tee-shirt, size {}.".format(colour, size))</pre>
+	      </figure>
+	    </article>
+	  </li>	  
+	  
+	</ol>
+      </article>
+      <p id="sig">Jelena Vasić</p>
+    </div>
+
+    <script type="text/javascript" src="../common/res/scripts/main.js"></script>
+    <script type="text/javascript" src="../common/res/scripts/common.js"></script>
+    <script type="text/javascript" src="res/scripts/ooswd.js"></script>
+    <script>
+      init_all();
+    </script>
+  </body>
+</html>
