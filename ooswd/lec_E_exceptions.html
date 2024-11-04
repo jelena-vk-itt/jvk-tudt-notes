@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="res/styles/ooswd.css" />
+	<title>OOSWD</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Error handling with exceptions</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+	    </nav>
+
+	    <article>
+		<ol class="toc_grp newline">
+		    
+	            <!---------------------------------------------------------------------            
+                    <li id="ARTCLID000120">
+			<p>What is an exception?</p>
+			<article style="display:none">
+                            <h2>What is an exception?</h2>
+
+			    <ul>
+				<li>Literally, an <a href="https://docs.python.org/3/tutorial/errors.html">exception</a> is a class (<span class="fw">Exception</span>) that represents a <strong>runtime error</strong>.</li>
+				<li>Such errors typically make it impossible for the program to fulfill its intended purpose and prevent further execution.</li>
+				<li>The exception class in Python has many <a href="https://docs.python.org/3/library/exceptions.html">built-in subclasses</a> that represent different types of errors.</li>
+				<li>Examples of such errors are
+				    <ul>
+					<li>when the <span class="fw">+</span> operator is used between a string and a number (<span class="fw">TypeError</span>)</li>
+					<li>when the access is attempted of a list element at a non-existent index (<span class="fw">IndexError</span>)</li>
+					<li>when a non-existent variable is referenced (<span class="fw">NameError</span>)</li>
+				    </ul>
+				    <details class="ice"><summary></summary>
+					<p>For each of the three error types above, write some code that causes it. </p>
+					<p><a href="res/files/python/exceptions/examples.py">EXAMPLE SOLUTION</a></p>
+				    </details>
+				</li>
+			    </ul>
+			</article>
+		    </li>
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000121">
+			<p>How do exceptions work?</p>
+			<article style="display:none">
+                            <h2>How do exceptions work?</h2>
+			    <ul>
+				<li>When a runtime error occurs, an <strong>exception may be raised</strong> (or <em>thrown</em>) using a special language construct: <span class="fw">raise an_exception_object</span></li>
+				<li>If the program <strong>does not handle the exception</strong>
+				    <ul>
+					<li>the current execution frame (e.g. current function) is terminated</li>
+					<li>the exception <strong>is propagated</strong> to the next higher execution frame (e.g. another function that called the current function)</li>
+					<li>that next higher execution frame is terminated</li>
+					<li>the exception is propagated to the following higher execution frame</li>
+					<li>this is repeated until the exception 'reaches the surface' and is presented to the user with any information contained in the exception object when it was raised.</li>
+				    </ul>
+				    We saw this happening with the three examples earlier on. Those exceptions were raised by built-in Python functionality.
+				</li>
+				<li>However, <strong>exceptions can be handled</strong>. This is done with the <span class="fw">try/except/else/finally</span> construct:
+				    <figure>
+					<figcaption>Exception handling construct</figcaption>
+					<img class="w-six" src="res/images/try_except_syntax.png">
+				    </figure>
+
+				    <details class="ice"><summary></summary>
+					<p>Copy the following code into a file and run it three times. Once enter a correct index, once an index that is out of range and once a non-number value. Explain what happens.</p>
+					<figure id="py-tryexcept">
+					    <figcaption>Example of try/except/else/finally</figcaption><pre class="code-listing">
+inp = input("Input an index to set to zero: ")
+nums = [1, 2, 3, 4, 5]
+index = 0
+try:
+    index = int(inp)
+except ValueError as ve:
+    print("A non-number value was entered!")
+    print("Exception message:", ve)
+else:
+    nums[index] = 0
+    print("Here is the new list of numbers: ", nums)
+finally:
+    print("Complete, but not necessarily successfully :-).")</pre>
+					</figure>
+					
+					An unhandled exception is raised when the index is out of bounds. Correct the code to handle this exception as well.
+					<p><a href="res/files/python/exceptions/secondex.py">EXAMPLE SOLUTION</a></p>
+				    </details>
+				    
+				    <ul>
+					<li>Note that all the clauses in the Python exception handling statement constitute the same scope. Any variables defined in clauses above will be accessible to the clauses below.</li>
+					<li>While the <span class="fw">else</span> clause is optional, it is a good idea to make use of it for readability and the case that additional exceptions are raised.</li>
+					<li>The <span class="fw">finally</span> clause is also optional, but it should be used if clean-up or other work using the same scope as the <span class="fw">try</span> clause needs to be completed regardless of the outcome.</li>
+				    </ul>
+				</li>
+				<li>
+				    <p>Exceptions can be explicitly raised in a program.</p>
+				    <figure id="py-raise-ex">
+					<figcaption>Exception raising syntax</figcaption><pre class="code-listing">
+raise object_of_some_error_class_type</pre>
+					<table class="legend">
+					    <tr><td><span class="fw">raise</span></td><td>keyword for raising exceptions</td></tr>
+					    <tr><td><em>object_of_some_error_class_type</em></td><td>an object that for its type has a subclass of <span class="fw">Exception</span></td></tr>
+					</table>
+					<hr/><hr/>
+				    </figure>
+
+				    <p>In the following example, an exception of type Exception is raised.</p>
+				    <figure id="py-raise-actual">
+<figcaption>Raising an exception</figcaption><pre class="code-listing">
+raise Exception("Something went wrong!)</pre>
+<table class="legend">
+    <tr><td>Exceptions take one or two arguments. The first argument is always a message.</td></tr>
+</table>
+<hr/><hr/>
+</figure>
+
+				    
+				</li>
+				
+				<li>New exception types can be defined
+
+				    <figure id="py-define-ex">
+<figcaption>Defining a new exception</figcaption><pre class="code-listing">
+class ProblemWithAge(Exception):
+    pass</pre>
+				    </figure>
+				    In most cases, it is sufficient to define an error type, then use the <span class="fw">Exception</span> class message that is already implemented.
+				</li>
+
+				<li>Additional information can be added to exceptions
+
+<figure id="py-note-ex">
+<figcaption>Adding notes to exceptions</figcaption><pre class="code-listing">
+try:
+    x = 10
+    ...
+except Exception as e:
+    e.add_note("It happened in the block where x was defined.")
+    raise</pre>
+
+</figure>
+				</li>
+			    </ul>
+			</article>
+		    </li>
+
+		    
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000122">
+			<p>Using exceptions</p>
+			<article style="display:none">
+			    <h2>Using exceptions</h2>
+
+			    <p>Exceptions as an error handling mechanism</p>
+			    <ul>
+				<li>are, in most cases, easier to write into the code than many nested conditional statements</li>
+				<li>make code a lot more readable</li>
+				<li>allow for error reporting and handling to be concentrated rather than strewn around the code</li>
+			    </ul>
+
+			    <details class="ice"><summary></summary>
+				<p>The code in example <a class="xref" href="#py-error-handling-with-conditionals">?</a> is relatively simple and yet suffers from lack of clarity as to what functionality it implements.</p>
+				<figure id="py-error-handling-with-conditionals">
+				    <figcaption>Error handling without exceptions</figcaption><pre class="code-listing">
+ageStr = input("Please input your age: ")
+if not ageStr.isdigit():
+    print("ERROR: Age is invalid.")
+else:
+    age = int(ageStr)
+    if age < 18:
+        print("ERROR: You are not old enough to use this website.")
+    else:
+        quantityStr = input("How many bottles of craft beer do you want to buy? ")
+        if not quantityStr.isdigit():
+            print("ERROR: Quantity is invalid.")
+        else:
+            quantity = int(quantityStr)
+            payment = input("Would you like to pay with Revolut or credit card? ")
+            if payment != 'Revolut' and payment != 'credit card':
+                print("ERROR: Invalid payment type.")
+            else:
+                print("Thank you for your order!")</pre>
+				</figure>
+
+				<p>Rewrite the code above to use exceptions, defining exception classes where needed.</p>
+				<p><a href="res/files/python/exceptions/converted.py">EXAMPLE SOLUTION</a></p>
+			    </details>
+			</article>
+		    </li>
+		</ol>
+	    </article>
+	    <p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script
+	    type="text/javascript"
+	    src="../common/res/scripts/common.js"
+	></script>
+	<script type="text/javascript" src="res/scripts/ooswd.js"></script>
+	<script>
+	 init_all();
+	</script>
+    </body>
+</html>
