@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link
+	    rel="shortcut icon"
+	    type="image/x-icon"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/ooswd/res/images/logo.png"
+	/>
+	<link
+	    rel="stylesheet"
+	    type="text/css"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css"
+	/>
+
+	<title>OOSWD</title>
+	<style>
+	 body {
+             background: beige;
+	 }
+	</style>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Lab assignment 7: Exception handling</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content-no-nav">
+	    <article>
+		<h2>Assignment</h2>
+		<ol>
+		    <li>Starting with your solution (or the given one) to exercise 3 in lab assignment <em>Revision, strings, lists</em> (week 2), modify it so that:
+			<ol type="a">
+			    <li>user input errors are handled, either with conditional statements or exceptions, as deemed appropriate</li>
+			    <li>the DRY (don't repeat yourself) principle is applied (e.g. the code for processing own and friend's preferences should not be repeated and the printing of items should use a loop)</li>
+			    <li>the number of items should be configurable with the following constant, defined in the first line of the script file:
+				<p><span class="fw">REQ_LIST_LEN = 5</span></p>
+
+				and the program should work for any value of the constant
+			    </li>
+			</ol>
+		    </li>
+		    <li>Starting with your solution (or the given one) to lab assignment <em>Classes</em> (week 5), modify it so that the following errors are handled with the use of exceptions:
+			<ol type="a">
+			    <li>the product name passed into the <span class="fw">Product</span> constructor is an empty string</li>
+			    <li>the stock value passed into the <span class="fw">Product</span> constructor is not a non-negative integer</li>
+			    <li>the product name passed into the <span class="fw">remove_product</span> is not on the product list</li>
+			</ol>
+			<p>Write some code in <em>main.py</em> to test the error handling.</p>
+		    </li>
+		</ol>
+	    </article>
+	</div>
+    </body>
+</html>

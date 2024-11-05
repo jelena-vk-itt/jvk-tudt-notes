@@ -33,8 +33,8 @@
 	    <article>
 		<ol class="toc_grp newline">
 		    
-	            <!---------------------------------------------------------------------            
-                    <li id="ARTCLID000120">
+	           <!--------------------------------------------------------------------->
+                    <li>
 			<p>What is an exception?</p>
 			<article style="display:none">
                             <h2>What is an exception?</h2>
@@ -56,6 +56,7 @@
 				</li>
 			    </ul>
 			</article>
+
 		    </li>
 		    
 	            <!--------------------------------------------------------------------->            
@@ -145,19 +146,6 @@ class ProblemWithAge(Exception):
 				    In most cases, it is sufficient to define an error type, then use the <span class="fw">Exception</span> class message that is already implemented.
 				</li>
 
-				<li>Additional information can be added to exceptions
-
-<figure id="py-note-ex">
-<figcaption>Adding notes to exceptions</figcaption><pre class="code-listing">
-try:
-    x = 10
-    ...
-except Exception as e:
-    e.add_note("It happened in the block where x was defined.")
-    raise</pre>
-
-</figure>
-				</li>
 			    </ul>
 			</article>
 		    </li>
