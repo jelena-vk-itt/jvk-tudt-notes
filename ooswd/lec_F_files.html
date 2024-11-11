@@ -181,12 +181,18 @@ for row in csvReader:
 			<figure id="py-write-csv">
 			    <figcaption>Writing a CSV file</figcaption><pre class="code-listing">
 import csv
+
 personFile = open("people.csv", "a")
 csvWriter = csv.writer(personFile, delimiter=",")
 csvWriter.writerow(["Kit", "Kat", "X00777777", "Stonebatter", "D7"])</pre>
 
 
 			</figure>
+
+			<details class="ice"><summary></summary>
+<p>Use the code from <a class="xref" href="#py-write-csv">?</a> to write an additional line to the CSV file.</p>
+<p><a href="res/files/python/">EXAMPLE SOLUTION</a></p>
+</details>
                     </article>
                 </li>
 
