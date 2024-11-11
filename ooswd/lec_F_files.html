@@ -33,7 +33,142 @@
 
 	    <article>
 		<ol class="toc_grp newline">
-		    		    
+		    
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000127">
+			<p>Reading from text files</p>
+			<article style="display:none">
+                            <h2>Reading from text files</h2>
+
+			    <ul>
+				<li>To read from a file, we must first <strong>open</strong> it. </li>
+				<li>After reading, we must close the file to free it for any other users or programs that might want to use it.</li>
+				<li>A text file can be read in different ways:
+				    <ul>
+					<li>whole contents in one go</li>
+					<li>line-by-line</li>
+					<li>any number of characters at a time</li>
+				    </ul>
+				</li>			    
+			    </ul>
+
+			    <figure id="py-read-txt-file">
+				<figcaption>Reading a text file in one go</figcaption><pre class="code-listing">
+file = open("test.txt", "r")
+contents = file.read()
+file.close()		</pre>
+				<table class="legend">
+				    <tr><td><span class="fw">file</span></td><td>a file object returned from the call to the function <span class="fw">open</span></td></tr>
+				    <tr><td><span class="fw">"test.txt"</span></td><td>the name of the file to be opened</td></tr>
+				    <tr><td><span class="fw">"r"</span></td><td>the open mode (see <a href="https://docs.python.org/3/library/functions.html#open">here</a> for full list)</td></tr>
+				    <tr><td><span class="fw">read()</span></td><td>the file method that reads the entire file in one go</td></tr>
+				    <tr><td><span class="fw">close()</span></td><td>the file method frees the file resource</td></tr>
+				</table>
+				<hr/><hr/>
+
+			    </figure>
+
+			    <details class="ice"><summary></summary>
+				<p>Create a file called <em>test.txt</em> in your PyCharm project directory and write a few lines of text into it. Then copy code snippet <a class="xref" href="#py-read-txt-file">?</a> into a script file. At the end add an instruction to print <span class="fw">contents</span>. Run to see if the printed contents matches what was in the file.</p>
+			    </details>
+
+			    <figure id="py-read-txt-file-lines">
+				<figcaption>Reading a text file line-by-line</figcaption><pre class="code-listing">
+# reading one line
+file = open("test.txt", "r")
+print(file.readline())
+file.close()
+
+# reading all lines in a while loop
+file = open("test.txt", "r")
+l = file.readline()
+while l:
+    print(l)
+    l = file.readline()
+file.close()
+
+# reading all lines in a for loop
+file = open("test.txt", "r")
+for l in file:
+    print(l)
+file.close()</pre>
+			    </figure>
+
+			    <ul>
+				<li>Notice that the newline character is read out of the file, just like any other character.</li>
+				<li>Once the contents have been exhausted, read methods return an empty string. The file must be reopened to be read from the beginning again.</li>
+			    </ul>
+			    
+			    <figure id="py-read-txt-file-chars">
+				<figcaption>Reading arbitrary numbers of characters from a text file</figcaption><pre class="code-listing">
+# reading characters
+file = open("test.txt", "r")
+print(file.read(1))
+print(file.read(2))
+print(file.read(3))
+file.close()			</pre>
+
+			    </figure>
+
+			    <details class="ice"><summary></summary>
+<p>Copy the code from <a class="xref" href="#py-read-txt-file-lines">?</a> and then from <a class="xref" href="#py-read-txt-file-chars">?</a> into a Python script file and try out the different ways of reading the file.</p>
+			    </details>
+			    
+			</article>
+                    </li>
+
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000128">
+                    <p>Writing to a file</p>
+                    <article style="display:none">
+                        <h2>Writing to a file</h2>
+
+			<ul>
+			    <li>To write to a file, we must open the file and explicitly specify write or append mode (read mode is the default).</li>
+			    <li>The file must be closed after writing. Like with reading, a file must be freed if it is to be used by other programs.</li>
+			</ul>
+
+			<figure id="py-write-txt-file">
+			    <figcaption>Writing to a text file</figcaption><pre class="code-listing">
+file = open("test.txt", "w")
+file.write("A new line!")
+file.close()</pre>
+			</figure>
+			
+			<details class="ice"><summary></summary>
+			    <p>Try the code in <a class="xref" href="#py-write-txt-file">?</a> and check the file to see the result. Now repeat the exercise but opening the file in append mode. What is the result now?</p>
+			</details>
+			
+                    </article>
+                </li>
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000129">
+                    <p>Reading and writing CSV files</p>
+                    <article style="display:none">
+                        <h2>Reading and writing CSV files</h2>
+                    </article>
+                </li>
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000130">
+                    <p>The <span class="fw">with</span> statement</p>
+                    <article style="display:none">
+                        <h2>The <span class="fw">with</span> statement</h2>
+                    </article>
+                </li>
+
+		
+	        <!--------------------------------------------------------------------->            
+                <li id="ARTCLID000131">
+                    <p>Generating data</p>
+                    <article style="display:none">
+                        <h2>Generating data</h2>
+                    </article>
+                </li>
 		</ol>
 	    </article>
 	    <p id="sig">Jelena Vasić</p>
