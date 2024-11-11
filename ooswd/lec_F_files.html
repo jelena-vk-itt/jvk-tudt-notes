@@ -159,6 +159,23 @@ file.close()</pre>
                     <p>Reading and writing CSV files</p>
                     <article style="display:none">
                         <h2>Reading and writing CSV files</h2>
+
+			<figure id="py-read-csv">
+			    <figcaption>Reading a CSV file</figcaption><pre class="code-listing">
+import csv
+
+personFile = open("people.csv")
+csvReader = csv.reader(personFile, delimiter=",")
+for row in csvReader:
+    print(row)</pre>
+
+			</figure>
+
+
+			<details class="ice"><summary></summary>
+<p>Use the code in <a class="xref" href="#py-read-csv">?</a> to read <a href="res/files/python/files/data.csv">this file</a>.</p>
+<p><a href="res/files/python/">EXAMPLE SOLUTION</a></p>
+</details>
                     </article>
                 </li>
 
