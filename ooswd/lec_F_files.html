@@ -202,6 +202,21 @@ personFile.close()</pre>
                     <p>The <span class="fw">with</span> statement</p>
                     <article style="display:none">
                         <h2>The <span class="fw">with</span> statement</h2>
+
+			<figure id="py-with">
+			    <figcaption>Using the with statement</figcaption><pre class="code-listing">
+with open("people.txt", "r") as file:
+    list_of_lists = []
+
+    for line in file:
+        list_of_lists.append(list(map(lambda s: s.strip('"\n'), line.split(","))))
+
+print(list_of_lists)</pre>
+
+			</figure>
+
+			<p>The <span class="fw">with</span> statement cleans up after itself, which means that we do not need to close a file opened as part of this statement.</p>
+			
                     </article>
                 </li>
 
