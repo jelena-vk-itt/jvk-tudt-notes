@@ -167,7 +167,8 @@ import csv
 personFile = open("people.csv")
 csvReader = csv.reader(personFile, delimiter=",")
 for row in csvReader:
-    print(row)</pre>
+    print(row)
+personFile.close()</pre>
 
 			</figure>
 
@@ -183,7 +184,8 @@ import csv
 
 personFile = open("people.csv", "a")
 csvWriter = csv.writer(personFile, delimiter=",")
-csvWriter.writerow(["Kit", "Kat", "X00777777", "Stonebatter", "D7"])</pre>
+csvWriter.writerow(["Kit", "Kat", "X00777777", "Stonebatter", "D7"])
+personFile.close()</pre>
 
 
 			</figure>
