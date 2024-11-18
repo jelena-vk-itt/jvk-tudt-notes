@@ -16,6 +16,8 @@ nav>ul.links>li { background-color: white; }
 nav>ul.links>li>a { color: #014C6F; }
 nav>ul.commands>li { background-color: #012332; color: white; }
 
+article>.links a.highlight { background-color: salmon; }
+
 .toc_grp>li>p { background-color: #d27979; }
 .toc_grp>li>article {background-color:  #d27979; }
 .toc_grp>li>article .toc_grp>li>p {background-color:  #c65353; }
@@ -59,3 +61,4 @@ details {background-color: tomato; }
 .bg-lightseagreen { background: lightseagreen; }
 .bg-black { background: black; }
 .bg-lightgray { background: lightgray; }
+.bg-salmon { background: salmon; }
