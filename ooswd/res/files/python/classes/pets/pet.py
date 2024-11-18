@@ -10,19 +10,19 @@ class Pet:
 
     def set_up_alarms(self):
 
-        walkTimes = self.walk_times()
-        feedTimes = self.feed_times() 
+        wtms = self.walk_times()
+        ftms = self.feed_times() 
 
         # set alarms, then:
 
         print("Pet: ", self.name)
         if (len(ftms) > 0):
-            print("Feed alarms set for: ", ", ".join(feedTimes))
+            print("Feed alarms set for: ", ", ".join(ftms))
         else:
             print("There are no feed times for this pet.")
 
         if (len(wtms) > 0):
-            print("Walk alarms set for: ", ", ".join(walkTimes))
+            print("Walk alarms set for: ", ", ".join(wtms))
         else:
             print("There are no walk times for this pet.")
 
