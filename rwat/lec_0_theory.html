@@ -6,6 +6,20 @@
 	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
 	<link rel="stylesheet" type="text/css" href="res/styles/rwat.css"/>
 	<title>RWAT</title>
+	<style>
+	 ol {
+	     counter-reset: item;
+	     list-style-type: none;
+	 }
+
+	 ol#lt>li:before { content: 'LT' counter(item, decimal) '. '; font-weight: bold; }
+	 ol#st>li:before { content: 'ST' counter(item, decimal) '. '; font-weight: bold; }
+	 ol#la>li:before { content: 'LA' counter(item, decimal) '. '; font-weight: bold; }
+	 ol#sa>li:before { content: 'SA' counter(item, decimal) '. '; font-weight: bold; }
+
+	 ol>li:before { counter-increment: item; }
+
+	</style>
     </head>
     <body>
 	<header id="tudheader">
@@ -51,20 +65,60 @@
 		    
 	            <!--------------------------------------------------------------------->            
                     <li id="ARTCLID000124">
-			<p>Questions</p>
+			<p>Sample exam questions</p>
 			<article style="display:none">
-                            <h2>Questions</h2>
+                            <h2>Sample exam questions</h2>
+
+			    <p>The RWAT exam will be structured as shown below. All questions must be answered.</p>
+			    
 
 			    <h3>Long theory questions</h3>
+			    <p>[1 x 20 marks on exam paper]</p>
+
+			    <p>In the exam, the answer needs to be a critical discussion, with reference to various listed aspects of the topic, e.g. the relevant context, associated technologies, deployment and areas of application.</p>
+			    <ol id="lt">
+				<li>What is the difference between <a href="#ARTCLID000119">full-stack development and client-side development</a>? Critically discuss with reference to technologies, applications, component and deployment architectures. Include a diagram.</li>
+			    </ol>
+			    <hr>
 
 			    <h3>Short theory questions</h3>
+			    <p>[6 x 5 marks on exam paper]</p>
+				<p>In the exam, these questions need to be answered briefly (two or three sentences at most), but in a way that demonstrates your understanding of the relevant concepts.</p>
+
+			    <ol id="st">
+				<li>What is the viewport and what is one purpose of <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design#the_viewport_meta_tag">setting its properties with a HTML meta tag?</a></li>
+				<li>What is the <a href="https://www.freecodecamp.org/news/the-difference-between-a-framework-and-a-library-bd133054023f/">difference between a framework and a library</a>?</li>
+			    </ol>
+			    <hr>
 
 			    <h3>Long applied questions</h3>
+			    <p>[1 x 20 marks on exam paper]</p>
+			    <p>In the exam, this question will describe an application in terms of a set of requirements and ask you to write a technology plan for its realisation. The required focus with respect to development stages (design, implementation, deployment, maintenance etc.) will be specified in the question. You will be asked to give both generic names and examples of specific technology products. Most of these questions will also require a diagram in the answer.</p>
+			    <ol id="la">
+				<li>You are managing a project to implement a game of <em>30 seconds</em>, with the following requirements:
+				    <ul>
+					<li>the game must be implemented as a static Web application</li>
+					<li>it should be usable on both computer browsers and mobile devices</li>
+					<li>the user should be able to create their own concept bank, save it and share it with other users</li>
+					<li>the game uses a 30s timer</li>
+					<li>the game should access concept banks as they are needed</li>
+					<li>multiple developers with frequent updates to the application must be facilitated</li>
+				    </ul>
+				    Write a technology plan for this project, from the point of view of both development and any relevant operations. This should include as much detail as possible on technologies, how they are used and how they fit together. The plan should include a diagram, use generic technology names and give examples of specific products where relevant.
+				</li>
+			    </ol>
+			    <hr>
 
 			    <h3>Short applied questions</h3>
+			    <p>[6 x 5 marks on exam paper]</p>
+			    <ol id="sa">
+				<li>Which of the strings 'HTTP://ABC.COM', 'https://xyz.com', 'http://aaacom', if any, match the following regular expression? Explain.
+				    <pre>
 
-
-			    
+/^http[s]?:\/\/[a-z]+.com/i
+				    </pre>
+				</li>
+			    </ol>
 			</article>
                     </li>
 		    
