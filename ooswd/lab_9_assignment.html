@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link
+	    rel="shortcut icon"
+	    type="image/x-icon"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/ooswd/res/images/logo.png"
+	/>
+	<link
+	    rel="stylesheet"
+	    type="text/css"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css"
+	/>
+
+	<title>OOSWD</title>
+	<style>
+	 body {
+             background: thistle;
+	 }
+	</style>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Lab assignment 9: Containers</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content-no-nav">
+	    <article>
+		<h2>EXERCISE 1</h2>
+		<p>Define three classes called <span class="fw">Source</span>, <span class="fw">Upper</span> and <span class="fw">Storer</span>.</p>
+
+		<figure><img class="w-three" src="res/images/assignment9.png"></figure>
+		
+		<p>The classes have the following methods:</p>
+		<ul>
+		    <li>
+			<span class="fw">Source.do_work()</span> produces a random number (between 1 and 10) of random letters ('a' to 'z') and passes them (one by one) to an instance of <span class="fw">Upper</span> by calling <span class="fw">Upper.queue_work()</span>
+		    </li>
+		    <li><span class="fw">Upper.queue_work()</span> adds the received letters to a <span class="fw">deque</span> object inside the <span class="fw">Upper</span> object</li>
+		    <li><span class="fw">Upper.do_work()</span> converts a random number (between 1 and 10, clipped to the queue length) of queued letters to uppercase, taking them one-by-one according to the first-in-first-out (FIFO) pattern from the <span class="fw">deque</span> object and passing them converted to the <span class="fw">Printer</span> object by calling <span class="fw">Printer.queue_work()</span></li>
+		    <li><span class="fw">Storer.queue_work()</span> adds the received letters to a <span class="fw">deque</span> object inside the <span class="fw">Storer</span> object</li>
+		    <li><span class="fw">Storer.do_work()</span> adds a random number (between 1 and 10, clipped to the queue length) of the queued letters into a store of type <span class="fw">set</span>, taking them one-by-one accoring to the first-in-first-out (FIFO) pattern from the <span class="fw">deque</span> object
+		    </li>
+		    <li><span class="fw">Upper.queue_length()</span> and <span class="fw">Storer.queue_length()</span> each return the length of their inner <span class="fw">deque</span> object</li>
+		    <li><span class="fw">Storer.get_store()</span> returns a list of the stored values, alphabetically ordered</li>
+		</ul>
+
+		<p>The orchestration code should run a for loop e.g. 100 times, calling <span class="fw">do_work()</span> on the <span class="fw">Source</span>, <span class="fw">Upper</span> and <span class="fw">Storer</span> objects (in that order) in each iteration, and printing the length of the queues in every iteration.</p>
+		<p>At the very end, it should print the letters of the alphabet not stored in the <span class="fw">Storer</span> object.</p>
+
+		<h2>EXERCISE 2</h2>
+
+		<p>Define a class called <span class="fw">Dictionary</span> that stores words and their definitions internally in an object of type <span class="fw">dict</span>.</p>
+
+		<p>Use the following data as the initial content of the dictionary</p>
+		
+		<pre>{
+"apple": "a fruit, can be green, red or yellow",
+"baby": "a very young person", 
+"car":	"a transport vehicle",
+"deer":	"an animal with antlers",
+"earth": "a planet, the one we live on"
+}
+		</pre>
+
+		<p>The <span class="fw">Dictionary</span> class should:</p>
+		<ul>
+		    <li>allow the look-up of a word, issuing a suitable message if the word is not in the dictionary</li>
+		    <li>allow the addition of words to the dictionary, one or more at a time</li>
+		    <li>by default, issue a warning, without updating the word, if the addition of an existing word is attempted</li>
+		    <li>provide a mechanism for the above default behaviour to be overridden, so that a word can be updated if needed</li>
+		    <li>allow the deletion of a word, issuing a suitable message if the word is not in the dictionary</li>
+		</ul>
+		<p>Define a class called <span class="fw">DictionaryUI</span>, which handles user interactions with an object of the <span class="fw">Dictionary</span> class, allowing them to make full use of the functionality of that class. It should have a function called <span class="fw">run</span> which kicks-off the interaction.</p>
+		
+		<p>In the top-level scope there should be code that creates and connects a <span class="fw">Dictionary</span> and a <span class="fw">DictionaryUI</span> object and calls <span class="fw">run</span> on the <span class="fw">DictionaryUI</span> object.</p>
+		<p>Complete the entire exercise in a single Python script file.</p>
+	    </article>
+	</div>
+    </body>
+</html>
