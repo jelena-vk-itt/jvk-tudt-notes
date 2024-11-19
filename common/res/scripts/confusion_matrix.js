@@ -70,4 +70,4 @@ function set_canvas_width_to_parent_width(element) {
     }
 }
 
-document.getElementsByTagName("canvas").forEach((c) => { draw_confusion_matrix(c); });
+Array.from(document.getElementsByTagName("canvas")).forEach((c) => { draw_confusion_matrix(c); });
