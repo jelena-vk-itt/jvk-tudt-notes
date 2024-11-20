@@ -1,3 +1,5 @@
+import {setup_xrefs, setup_xrefids} from "../../../common/res/scripts/modules/xrefs.js";
+
 function init_specific() {
 
     setup_xrefids ('[id^=py-]', 'CS', 1, false, function (element, xrefid) { element.getElementsByTagName('figcaption')[0].innerHTML += ' [' + xrefid + ']'; });
@@ -12,71 +14,68 @@ function init_specific() {
 }
 
 
-
-function draw_specific_canvas(element){
-
-    if (element.tagName != "CANVAS") {
-	return;
-    }
+// canvas drawing
+for (let [id, func] of Object.entries({
+    waterfall: (element) => { draw_waterfall(element, null); },
     
-    switch(element.id) {
-    case "waterfall": draw_waterfall(element, null); return;
-    case "waterfall_in_swd1": draw_waterfall(element, [{"boxcol": "#86d190"}, {"boxcol": "#86d190"}, {"boxcol": "#86d190"}, {"boxcol": "#32ad43", "textwght": "bold"}, {}, {}, {}]); return;
-    }
-}
-
+    waterfall_in_swd1: (element) => { draw_waterfall(element,
+						     [{"boxcol": "#86d190"},
+						      {"boxcol": "#86d190"},
+						      {"boxcol": "#86d190"},
+						      {"boxcol": "#32ad43", "textwght": "bold"},
+						      {}, {}, {}]); }
+})) { func(document.getElementById(id)); }
 
 
 function draw_waterfall(element, displayInfo) {
 
-    // content
-    var topLevelCascadeMemberNames = ["Requirements gathering", "Analysis", "Design", "Implementation and testing", "Integration and testing", "Deployment", "Maintenance"];
+    const topLevelCascadeMemberNames = ["Requirements gathering", "Analysis", "Design", "Implementation and testing", "Integration and testing", "Deployment", "Maintenance"];
 
     
-    var numberOfLevels = 7;
-    var numberOfSpecialLevels = 0;
-    var levelWidth = 90;
-    var specialLevelWidth = levelWidth * 2;
-    var extraWidthFactor = 2.2;
-    var padding = 20;
-    var fontSize = 20;
-    var requiredWidth = (numberOfLevels + extraWidthFactor) * levelWidth + 2 * padding + (specialLevelWidth - levelWidth) * numberOfSpecialLevels;
+    const numberOfLevels = 7;
+    const numberOfSpecialLevels = 0;
+    let levelWidth = 90;
+    let specialLevelWidth = levelWidth * 2;
+    const extraWidthFactor = 2.2;
+    let padding = 20;
+    let fontSize = 20;
+    const requiredWidth = (numberOfLevels + extraWidthFactor) * levelWidth + 2 * padding + (specialLevelWidth - levelWidth) * numberOfSpecialLevels;
     
     element.width = requiredWidth;
     
-    var canvasParentWidthInPx = get_parent_content_width(element);
+    const canvasParentWidthInPx = get_parent_content_width(element);
     
     if (canvasParentWidthInPx < element.width) {
 	element.width = canvasParentWidthInPx;
-	var adjustmentFactor = element.width/requiredWidth;
+	const adjustmentFactor = element.width/requiredWidth;
 	levelWidth *= adjustmentFactor;
 	specialLevelWidth *= adjustmentFactor;
 	padding *= adjustmentFactor;
 	fontSize *= adjustmentFactor;
     }
     
-    var boxWidth = levelWidth * (1 + extraWidthFactor);
-    var boxHeight = fontSize * 1.4;
-    var verticalSpace = fontSize * 0.7;
+    const boxWidth = levelWidth * (1 + extraWidthFactor);
+    const boxHeight = fontSize * 1.4;
+    const verticalSpace = fontSize * 0.7;
     
-    var nestedPadding = padding/2;
-    var specialBoxWidth = boxWidth + levelWidth;
-    var specialBoxHeight = 4 * nestedPadding + verticalSpace + 2 * fontSize + 2 * boxHeight;
+    const nestedPadding = padding/2;
+    const specialBoxWidth = boxWidth + levelWidth;
+    const specialBoxHeight = 4 * nestedPadding + verticalSpace + 2 * fontSize + 2 * boxHeight;
 
     element.height = boxHeight * numberOfLevels + verticalSpace * (numberOfLevels - 1) + 2 * padding + (specialBoxHeight - boxHeight) * numberOfSpecialLevels;
     
-    var ctx = element.getContext("2d");
-    defaultFillStyle = "maroon";
-    defaultStrokeStyle = "maroon";
-    defaultFont = fontSize+"px Arial";
+    const ctx = element.getContext("2d");
+    const defaultFillStyle = "maroon";
+    const defaultStrokeStyle = "maroon";
+    const defaultFont = fontSize+"px Arial";
     
-    var x = padding;
-    var y = padding;
+    let x = padding;
+    let y = padding;
 
-    var xNested = x;
-    var yNested = y;
+    const xNested = x;
+    const yNested = y;
 
-    var i = 0;
+    let i = 0;
     for (; i < numberOfLevels; i++) {
 
 	if (displayInfo != null && displayInfo[i].hasOwnProperty('boxcol')) {
@@ -107,3 +106,26 @@ function draw_waterfall(element, displayInfo) {
 }
 
 
+							    
+function set_canvas_width_to_parent_width(element) {
+    const cmParentElement = element.parentElement;
+    const cmParentElementStyle = getComputedStyle(cmParentElement);
+    const cmParentWidthInPx = parseInt(cmParentElementStyle.getPropertyValue('width'), 10);
+    if (!isNaN(cmParentWidthInPx)) {
+	if (cmParentElementStyle.getPropertyValue('box-sizing') == 'border-box') {
+	    let val = parseInt(cmParentElementStyle.getPropertyValue('padding-left'), 10);
+	    if (!isNaN(val)) {
+		cmParentWidthInPx -= val;
+	    }
+	    val = parseInt(cmParentElementStyle.getPropertyValue('padding-right'), 10);
+	    if (!isNaN(val)) {
+		cmParentWidthInPx -= val;
+	    }
+	    val =  parseInt(cmParentElementStyle.getPropertyValue('border-width'), 10);
+	    if (!isNaN(val)) {
+		cmParentWidthInPx -= 2 * val;
+	    }
+	}
+	element.width = cmParentWidthInPx;
+    }
+}
