@@ -1,74 +1,68 @@
 
 const OPEN_ARTICLES_COOKIE_NAME = "toc_open_articles";
 const OPEN_ARTICLES_COOKIE_REGEXP = new RegExp(OPEN_ARTICLES_COOKIE_NAME + "=[^;]*", "g");
-const ARTICLE_LIST_ITEM_SELECTOR = ".toc_grp>li";
-const ARTICLE_CLOSED_SELECTOR = ARTICLE_LIST_ITEM_SELECTOR + ">p";
-const ARTICLE_OPEN_SELECTOR = ARTICLE_LIST_ITEM_SELECTOR + ">article";
-const ARTICLE_FORM_SELECTOR = ARTICLE_CLOSED_SELECTOR + ", " + ARTICLE_OPEN_SELECTOR;
 const OPEN_ARTICLE_TAG_NAME = "ARTICLE";
 const CLOSED_ARTICLE_TAG_NAME = "P";
-const CANVAS_TAG_NAME = "CANVAS";
 const DETAILS_TAG_NAME = "DETAILS";
 const ARTICLE_TAG_NAMES = [OPEN_ARTICLE_TAG_NAME, CLOSED_ARTICLE_TAG_NAME];
 const CLICK_PROTECTED_SELECTOR = "a, details, #jsexample, form, .question, input, label, button";
+const CLOSED_ARTICLE_SELECTOR = ".toc_grp>li>p";
+const OPEN_ARTICLE_SELECTOR = ".toc_grp>li>article";
+const ARTICLE_SELECTOR = OPEN_ARTICLE_SELECTOR + ", " + CLOSED_ARTICLE_SELECTOR;
 
-function init_all() {
-
-    init_articles();
-
-    const clickTheseToOpenAll = document.getElementsByClassName("openall");
-    if (clickTheseToOpenAll) {
-	Array.prototype.forEach.call(clickTheseToOpenAll, function(item) {
-	    item.addEventListener("click", function (e) {
-		open_all();
-	    })
-	});
-    }
-
-    const clickTheseToCloseAll = document.getElementsByClassName("closeall");
-    if (clickTheseToCloseAll) {
-	Array.prototype.forEach.call(clickTheseToCloseAll, function(item) {
-	    item.addEventListener("click", function (e) {
-		close_all();
-	    })
-	});
-    }
-
-    
-    const articleContainers = document.querySelectorAll(ARTICLE_FORM_SELECTOR);
-    if (articleContainers) {
-	Array.prototype.forEach.call(articleContainers, function(item) {
-	    item.addEventListener("click", function (e) {
-		handle_open_close_article(e);
-	    });
-	});
-    }
-
-    const questions = document.getElementsByClassName("question");
-    if (questions) {
-	Array.prototype.forEach.call(questions, function(item) {
-	    item.nextSibling.hidden = true;
-	    item.addEventListener("click", function(e) {
-		item.nextSibling.hidden = !item.nextSibling.hidden;
-	    });
-	});
-    }
+OPEN_ALL_DATA = {
+    actors: [
+	{sel: CLOSED_ARTICLE_SELECTOR, func: open_close_article},
+	{sel: DETAILS_TAG_NAME, func: (el) => { el.open = true; }},
+	{sel: ".answer", func: (el) => { el.setAttribute("openfix", ""); el.hidden = false; }}
+    ]
 }
 
+CLOSE_ALL_DATA = {
+    actors: [
+	{sel: OPEN_ARTICLE_SELECTOR, func: open_close_article},
+	{sel: ".answer", func: (el) => { el.removeAttribute("openfix", ""); el.hidden = true; }}
+    ]
+}
+
+INIT_DATA = {
+    actors: [
+	{sel: ".question", func: (el) => { el.nextSibling.hidden = true; }}
+    ],
+    eventHandlers: [
+	{sel: ".openall", func (e) { run_with_data(OPEN_ALL_DATA); }},
+	{sel: ".closeall", func (e) { run_with_data(CLOSE_ALL_DATA); }},
+	{sel: ARTICLE_SELECTOR, func: handle_open_close_article},
+	{sel: ".question", func (e) { e.target.nextSibling.hidden = !e.target.nextSibling.hidden; }}
+    ]
+}
+
+// initialisation and other functions that are applied to classes of objects on the page
+function run_with_data(data) {
+    if ("actors" in data) {
+	for (let actor of data.actors) {
+	    Array.from(document.querySelectorAll(actor.sel)).forEach((el) => { actor.func(el); });
+	}
+    }
+    if ("eventHandlers" in data) {
+	for (let eh of data.eventHandlers) {
+	    Array.from(document.querySelectorAll(eh.sel)).forEach((el) => {
+		el.addEventListener("click", eh.func); });
+	}
+    }
+}
+    
+// functions for opening and closing articles
 function handle_open_close_article(e) {
     
-    if (e.target.closest(CLICK_PROTECTED_SELECTOR)) {
+    if (e.target.closest(CLICK_PROTECTED_SELECTOR) ||
+	window.getSelection().toString() != "") {
 	return;
     }
 
-    if (window.getSelection().toString() != "") {
-	return;
-    }
-
-    const elementToHide = e.target.closest(ARTICLE_FORM_SELECTOR);
+    const elementToHide = e.target.closest(ARTICLE_SELECTOR);
     if (open_close_article(elementToHide)) {
 	save_open_close_article_state(elementToHide);
-	draw_canvases();
     }
 }
 
@@ -90,37 +84,9 @@ function open_close_article(elementToHide) {
     return true;
 }
 
-function open_all() {
-    const elementList = document.querySelectorAll(ARTICLE_CLOSED_SELECTOR);
-    Array.prototype.forEach.call(elementList, function(item) {
-	open_close_article(item);
-    });
-    const detElList = document.querySelectorAll("details");
-    Array.prototype.forEach.call(detElList, function(item) {
-	item.open = true;
-    });
-    
-    const answers = document.querySelectorAll(".answer");
-    Array.prototype.forEach.call(answers, function(item) {
-	item.setAttribute("openfix", "");
-	item.hidden = false;
-    });
-}
 
-function close_all() {
-    const elementList = document.querySelectorAll(ARTICLE_OPEN_SELECTOR)
-    Array.prototype.forEach.call(elementList, function(item) {
-	open_close_article(item);
-    });
-
-    const answers = document.querySelectorAll(".answer");
-    Array.prototype.forEach.call(answers, function(item) {
-	item.removeAttribute("openfix", "");
-	item.hidden = true;
-    });
-
-}
-
+// saving and restoring the open/closed state of the articles into a cookie
+// (does not work when the file is local)
 function save_open_close_article_state(elementToHide) {
 
     const close = elementToHide.tagName == OPEN_ARTICLE_TAG_NAME;
@@ -251,3 +217,4 @@ function draw_drop_line(ctx, x, y, boxWidth, boxHeight, levelWidth, verticalSpac
     ctx.stroke();	
 }
 
+window.addEventListener("load", (e) => { run_with_data(INIT_DATA); });

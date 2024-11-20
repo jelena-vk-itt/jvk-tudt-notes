@@ -1,8 +1,4 @@
-Array.prototype.forEach.call(document.getElementsByClassName("savehtml"), function(item) {
-    item.addEventListener("click", function(e) { save_html(e.target); })
-});
-
-function save_html(element) {
+export function save_html(element) {
 
     let elements = document.querySelectorAll("input");
     for (let i = 0; i < elements.length; i++) {
