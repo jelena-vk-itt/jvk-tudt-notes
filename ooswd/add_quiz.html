@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link
+	    rel="shortcut icon"
+	    type="image/x-icon"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/ooswd/res/images/logo.png"
+	/>
+	<link
+	    rel="stylesheet"
+	    type="text/css"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css"
+	/>
+
+	<title>OOSWD</title>
+	<style>
+	 body { background: #cbf7ee; }
+	 th { text-align: left; padding-right: 1em;}
+	 button {padding: 0.5em; font-size: large; font-weight: bold; border-radius: 0.2em; }
+	</style>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">OOSWD Quiz Example Questions</p>
+	    </div>
+	    <img id="rightlogo" src="https://jelena-vk-itt.github.io/jvk-tudt-notes/ooswd/res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content-no-nav">
+	    <article>
+		<button>Highlight/hide answers</button>
+		<ol>
+		    <li>What is the purpose of program input and output?
+			<ul>
+			    <li class="true">communication with the outside world</li>
+			    <li>feeding in the program code</li>
+			    <li>aesthetics</li>
+			</ul>
+		    </li>
+		    <li>Python is a
+			<ul>
+			    <li>specific-purpose programming language</li>
+			    <li class="true">general-purpose programming language</li>
+			    <li>adaptable programming language</li>
+			</ul>
+		    </li>
+		    <li>Why is repetition in code not a good idea?
+			<ul>
+			    <li class="true">because it is messy to update</li>
+			    <li>because it does not look good</li>
+			    <li>because too much cutting and pasting is not real programming</li>
+			</ul>
+		    </li>
+		    <li>The purpose of the <span class="fw">import</span> statement in Python is to include
+			<ul>
+			    <li>functions from other files</li>
+			    <li>code written by other programmers</li>
+			    <li class="true">code from other files</li>
+			</ul>
+		    </li>
+		    <li>A function in a programming language facilitates
+			<ul>
+			    <li>writing of code in advance of the main program</li>
+			    <li class="true">reuse of functionality</li>
+			    <li>implementation of more complex functionality</li>
+			</ul>
+		    </li>
+		    <li>Which of the follwoing words most closely describes a class in programming?
+			<ul>
+			    <li>activity</li>
+			    <li>information</li>
+			    <li class="true">entity</li>
+			</ul>
+		    </li>
+		</ol>
+	    </article>
+	</div>
+	<script>
+	 let shown = false;
+	 document.querySelector("button").addEventListener("click", (e) => {
+	     const fw = shown ? "normal" : "bold";
+	     shown = !shown;
+	     Array.from(document.querySelectorAll(".true")).forEach((el) => {
+		 el.style.fontWeight = fw;
+	     });
+	 });
+	</script>
+    </body>
+</html>
