@@ -7,18 +7,21 @@
 	<link rel="stylesheet" type="text/css" href="res/styles/rwat.css"/>
 	<title>RWAT</title>
 	<style>
+	 @counter-style LT { system: numeric; symbols: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9";	prefix: "LT"; }
+	 @counter-style ST { system: numeric; symbols: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9";	prefix: "ST"; }
+	 @counter-style LA { system: numeric; symbols: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9";	prefix: "LA"; }
+	 @counter-style SA { system: numeric; symbols: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9";	prefix: "SA"; }
+	 ol.lt { list-style: LT; }
+	 ol.st { list-style: ST; }
+	 ol.la { list-style: LA; }
+	 ol.sa { list-style: SA; }
 	 ol {
-	     counter-reset: item;
-	     list-style-type: none;
+	     padding-left: 2.5em;
 	 }
-
-	 ol#lt>li:before { content: 'LT' counter(item, decimal) '. '; font-weight: bold; }
-	 ol#st>li:before { content: 'ST' counter(item, decimal) '. '; font-weight: bold; }
-	 ol#la>li:before { content: 'LA' counter(item, decimal) '. '; font-weight: bold; }
-	 ol#sa>li:before { content: 'SA' counter(item, decimal) '. '; font-weight: bold; }
-
-	 ol>li:before { counter-increment: item; }
-
+	 ol li::marker {
+	     display: inline-block;
+	     font-weight: bold;
+	 }
 	</style>
     </head>
     <body>
@@ -44,57 +47,62 @@
 	    </nav>
 
 	    <article>
-
-
+		
 		<ol class="toc_grp">
 		    
 		    
 	            <!--------------------------------------------------------------------->            
                     <li id="ARTCLID000119">
-                    <p>RWAT Module Context and Scope</p>
-                    <article style="display:none">
-                        <h2>RWAT Module Context and Scope</h2>
-			<figure>
-			    <figcaption>Rich Web Application Technologies context and scope</figcaption>
-			    <img class="w-six" src="res/images/webdev.png">
-			</figure>
-		    </article>
+			<p>RWAT Module Context and Scope</p>
+			<article style="display:none">
+                            <h2>RWAT Module Context and Scope</h2>
+			    <figure>
+				<figcaption>Rich Web Application Technologies context and scope</figcaption>
+				<img class="w-six" src="res/images/webdev.png">
+			    </figure>
+			</article>
+                    </li>
+
+		    <h1>Sample exam questions</h1>
+		    
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000134">
+			<p>Long theory questions [1 x 20 marks on exam paper]</p>
+			<article style="display:none">
+                            <h2>Long theory questions [1 x 20 marks on exam paper]</h2>
+			    <p>In the exam, the answer needs to be a critical discussion, with reference to various listed aspects of the topic, e.g. the relevant context, associated technologies, deployment and areas of application.</p>
+			    <ol class="lt">
+				<li>What is the difference between <a href="#ARTCLID000119">full-stack development and client-side development</a>? Critically discuss with reference to technologies, applications, component and deployment architectures. Include a diagram.</li>
+			    </ol>
+			    
+			</article>
+                    </li>
+
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000135">
+			<p>Short theory questions [6 x 5 marks on exam paper]</p>
+			<article style="display:none">
+                            <h2>Short theory questions [6 x 5 marks on exam paper]</h2>
+			    <p>In the exam, these questions need to be answered briefly (two or three sentences at most), but in a way that demonstrates your understanding of the relevant concepts.</p>
+
+			    <ol class="st">
+				<li>What is the viewport and what is one purpose of <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design#the_viewport_meta_tag">setting its properties with a HTML meta tag?</a></li>
+				<li>What is the <a href="https://www.freecodecamp.org/news/the-difference-between-a-framework-and-a-library-bd133054023f/">difference between a framework and a library</a>?</li>
+			    </ol>
+			</article>
                     </li>
 
 
 		    
 	            <!--------------------------------------------------------------------->            
-                    <li id="ARTCLID000124">
-			<p>Sample exam questions</p>
+                    <li id="ARTCLID000136">
+			<p>Long applied questions [1 x 20 marks on exam paper]</p>
 			<article style="display:none">
-                            <h2>Sample exam questions</h2>
-
-			    <p>The RWAT exam will be structured as shown below. All questions must be answered.</p>
-			    
-
-			    <h3>Long theory questions</h3>
-			    <p>[1 x 20 marks on exam paper]</p>
-
-			    <p>In the exam, the answer needs to be a critical discussion, with reference to various listed aspects of the topic, e.g. the relevant context, associated technologies, deployment and areas of application.</p>
-			    <ol id="lt">
-				<li>What is the difference between <a href="#ARTCLID000119">full-stack development and client-side development</a>? Critically discuss with reference to technologies, applications, component and deployment architectures. Include a diagram.</li>
-			    </ol>
-			    <hr>
-
-			    <h3>Short theory questions</h3>
-			    <p>[6 x 5 marks on exam paper]</p>
-				<p>In the exam, these questions need to be answered briefly (two or three sentences at most), but in a way that demonstrates your understanding of the relevant concepts.</p>
-
-			    <ol id="st">
-				<li>What is the viewport and what is one purpose of <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design#the_viewport_meta_tag">setting its properties with a HTML meta tag?</a></li>
-				<li>What is the <a href="https://www.freecodecamp.org/news/the-difference-between-a-framework-and-a-library-bd133054023f/">difference between a framework and a library</a>?</li>
-			    </ol>
-			    <hr>
-
-			    <h3>Long applied questions</h3>
-			    <p>[1 x 20 marks on exam paper]</p>
+                            <h2>Long applied questions [1 x 20 marks on exam paper]</h2>
 			    <p>In the exam, this question will describe an application in terms of a set of requirements and ask you to write a technology plan for its realisation. The required focus with respect to development stages (design, implementation, deployment, maintenance etc.) will be specified in the question. You will be asked to give both generic names and examples of specific technology products. Most of these questions will also require a diagram in the answer.</p>
-			    <ol id="la">
+			    <ol class="la">
 				<li>You are managing a project to implement a game of <em>30 seconds</em>, with the following requirements:
 				    <ul>
 					<li>the game must be implemented as a static Web application</li>
@@ -107,11 +115,15 @@
 				    Write a technology plan for this project, from the point of view of both development and any relevant operations. This should include as much detail as possible on technologies, how they are used and how they fit together. The plan should include a diagram, use generic technology names and give examples of specific products where relevant.
 				</li>
 			    </ol>
-			    <hr>
-
-			    <h3>Short applied questions</h3>
-			    <p>[6 x 5 marks on exam paper]</p>
-			    <ol id="sa">
+			</article>
+                    </li>
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000137">
+			<p>Short applied questions [6 x 5 marks on exam paper]</p>
+			<article style="display:none">
+                            <h2>Short applied questions [6 x 5 marks on exam paper]</h2>
+			    <ol class="sa">
 				<li>Which of the strings 'HTTP://ABC.COM', 'https://xyz.com', 'http://aaacom', if any, match the following regular expression? Explain.
 				    <pre>
 
@@ -121,8 +133,8 @@
 			    </ol>
 			</article>
                     </li>
-		    
-		    
+	
+	
 		</ol>
 	    </article>
 	</div>
