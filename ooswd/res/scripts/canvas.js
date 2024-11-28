@@ -1,31 +1,11 @@
-import {setup_xrefs, setup_xrefids} from "../../../common/res/scripts/modules/xrefs.js";
-
-function init_specific() {
-
-    setup_xrefids ('[id^=py-]', 'CS', 1, false, function (element, xrefid) { element.getElementsByTagName('figcaption')[0].innerHTML += ' [' + xrefid + ']'; });
-    setup_xrefids ('section.ice, details.ice', 'CE', 'A', true, function (element, xrefid) {
-	if (element.tagName == 'DETAILS') {
-	    element.firstElementChild.setAttribute('data-heading', '[' + xrefid + ']'); 	    
-	} else {
-	    element.setAttribute('data-heading', '[' + xrefid + ']'); 
-	}
-    });
-    setup_xrefs();
-}
-
-
-// canvas drawing
-for (let [id, func] of Object.entries({
-    waterfall: (element) => { draw_waterfall(element, null); },
-    
-    waterfall_in_swd1: (element) => { draw_waterfall(element,
-						     [{"boxcol": "#86d190"},
-						      {"boxcol": "#86d190"},
-						      {"boxcol": "#86d190"},
-						      {"boxcol": "#32ad43", "textwght": "bold"},
-						      {}, {}, {}]); }
-})) { func(document.getElementById(id)); }
-
+window.addEventListener('load', (e) => {
+    draw_waterfall(document.querySelector('#waterfall', null));
+    draw_waterfall(document.querySelector('#waterfall_in_swd1', [{"boxcol": "#86d190"},
+								 {"boxcol": "#86d190"},
+								 {"boxcol": "#86d190"},
+								 {"boxcol": "#32ad43", "textwght": "bold"},
+								 {}, {}, {}]));
+});
 
 function draw_waterfall(element, displayInfo) {
 
@@ -106,26 +86,3 @@ function draw_waterfall(element, displayInfo) {
 }
 
 
-							    
-function set_canvas_width_to_parent_width(element) {
-    const cmParentElement = element.parentElement;
-    const cmParentElementStyle = getComputedStyle(cmParentElement);
-    const cmParentWidthInPx = parseInt(cmParentElementStyle.getPropertyValue('width'), 10);
-    if (!isNaN(cmParentWidthInPx)) {
-	if (cmParentElementStyle.getPropertyValue('box-sizing') == 'border-box') {
-	    let val = parseInt(cmParentElementStyle.getPropertyValue('padding-left'), 10);
-	    if (!isNaN(val)) {
-		cmParentWidthInPx -= val;
-	    }
-	    val = parseInt(cmParentElementStyle.getPropertyValue('padding-right'), 10);
-	    if (!isNaN(val)) {
-		cmParentWidthInPx -= val;
-	    }
-	    val =  parseInt(cmParentElementStyle.getPropertyValue('border-width'), 10);
-	    if (!isNaN(val)) {
-		cmParentWidthInPx -= 2 * val;
-	    }
-	}
-	element.width = cmParentWidthInPx;
-    }
-}
