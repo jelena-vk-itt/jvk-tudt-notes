@@ -111,7 +111,7 @@ function save_open_close_article_state(elementToHide) {
 	    const openArticleIndicatorMatches = openArticlesCookieMatches[0].match(openArticleIndicatorRegexp); 
 	    if (!openArticleIndicatorMatches) {
 		if (!close) {
-		    const newOpenArticlesCookie = null;
+		    let newOpenArticlesCookie = null;
 		    if (openArticlesCookieMatches[0] == OPEN_ARTICLES_COOKIE_NAME + "=") {
 			newOpenArticlesCookie = OPEN_ARTICLES_COOKIE_NAME + "=" + id;
 		    } else {
