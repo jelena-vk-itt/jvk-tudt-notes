@@ -63,10 +63,9 @@
 			</article>
                     </li>
 
-		    <h1>Sample exam questions</h1>
-		    
-		    
-	            <!--------------------------------------------------------------------->            
+		    <h1 class="mt2">Sample exam questions</h1>
+
+		    <!--------------------------------------------------------------------->            
                     <li id="ARTCLID000134">
 			<p>Long theory questions [1 x 20 marks on exam paper]</p>
 			<article style="display:none">
@@ -74,6 +73,9 @@
 			    <p>In the exam, the answer needs to be a critical discussion, with reference to various listed aspects of the topic, e.g. the relevant context, associated technologies, deployment and areas of application.</p>
 			    <ol class="lt">
 				<li>What is the difference between <a href="#ARTCLID000119">full-stack development and client-side development</a>? Critically discuss with reference to technologies, applications, component and deployment architectures. Include a diagram.</li>
+				<li>What are client-side rendering (CSR), static-site generation (SSG) and server-side rendering (SSR) in the context of client-side Web development and how do they compare to each other? Discuss with reference to the relevant context, development, deployment, problem types to which each rendering approach is most applicable and include examples (<a href="https://medium.com/@khushbuchoksi/what-are-csr-ssr-ssg-and-isr-d59201e3b060">article</a>).</li>
+				<li>What is client-side web development? Define and discuss with reference to development, deployment, technologies, suitable applications and anything else you know about it.</li>
+				<li>What are Web APIs? Define and discuss with reference to where they are found and how they are used in Web development. Give examples of five Web APIs you have used in Web development, explaining their purpose and providing some examples of use with some code (or pseudocode).</li>
 			    </ol>
 			    
 			</article>
@@ -90,6 +92,7 @@
 			    <ol class="st">
 				<li>What is the viewport and what is one purpose of <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design#the_viewport_meta_tag">setting its properties with a HTML meta tag?</a></li>
 				<li>What is the <a href="https://www.freecodecamp.org/news/the-difference-between-a-framework-and-a-library-bd133054023f/">difference between a framework and a library</a>?</li>
+				<li>What is <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a>? Explain how it works.</li>
 			    </ol>
 			</article>
                     </li>
@@ -114,6 +117,17 @@
 				    </ul>
 				    Write a technology plan for this project, from the point of view of both development and any relevant operations. This should include as much detail as possible on technologies, how they are used and how they fit together. The plan should include a diagram, use generic technology names and give examples of specific products where relevant.
 				</li>
+				<li>You have been asked to implement a children's game using client-side web technologies. The requirements are as follows:
+				    <ul>
+					<li>the game must be implemented as a static Web application</li>
+					<li>it will be used by sighted children and children with slight visual impairment, often needing pictures or text to be enlarged</li>
+					<li>the children must be able to use a mouse to move objects around the screen</li>
+					<li>the game should be usable both from a PC browser and from a mobile device</li>
+					<li>a child playing the game should be able to save the game and resume playing at a different time (on the same device)</li>
+					<li>data for the game is substantial and stored separately in one or more file; it is not known in advance which portions of the data will be needed</li>
+					<li>the game needs to be developed quickly (so you ask a friend to help you)</li>
+				    </ul>
+				</li>
 			    </ol>
 			</article>
                     </li>
@@ -130,12 +144,36 @@
 /^http[s]?:\/\/[a-z]+.com/i
 				    </pre>
 				</li>
+				<li>Which of the elements in the following HTML snippet, if any, correspond to the CSS selector <span class="fw">p.special_element#abc</span><pre>
+
+&lt;p id="special_element#abc">1 Hello&lt;p>
+
+&lt;p class="special_element#abc">2 World&lt;p>
+
+&lt;p class="special_element" id="abc">3 How&lt;p>
+
+&lt;div class="p.special_element#abc">4 Are&lt;p>
+
+&lt;div class="p special_element" id="abc">5 You&lt;p>
+				</pre>
+
+				    Explain your answer.
+				</li>
+				    
+				<li>Explain the effect of the following media queries together for all ranges of relevant properties.<pre>
+
+@media screen and (max-width: 600px) {
+    body { background-color: red; }
+}
 			    </ol>
 			</article>
                     </li>
-	
-	
+		    
+		    
 		</ol>
+
+		<h1 class="mt2">Exam preparation exercise</h1>
+		<p>Pick <strong>one theory long question and one applied long question</strong> (it is best to choose whatever questions seem the hardest to you) and write an answer to each of them as if you were in the exam. Send me your answers by email and I will provide feedback if your email arrives before or on the 7<superscript>th</superscript> of January. Please note that I will give feedback on only one theory question and one applied question per student. Also please do not send LLM-generated text as that would defeat the purpose of the exercise and waste my time. Jelena</p>
 	    </article>
 	</div>
 	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
