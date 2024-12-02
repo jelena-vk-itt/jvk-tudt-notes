@@ -1,4 +1,3 @@
-
 const OPEN_ARTICLES_COOKIE_NAME = "toc_open_articles";
 const OPEN_ARTICLES_COOKIE_REGEXP = new RegExp(OPEN_ARTICLES_COOKIE_NAME + "=[^;]*", "g");
 const OPEN_ARTICLE_TAG_NAME = "ARTICLE";
@@ -160,61 +159,6 @@ function init_articles() {
 	    open_close_article (item.getElementsByTagName((!openArticleIds || (openArticleIds.indexOf(item.getAttribute("id")) < 0)) ? "ARTICLE" : "P")[0]);
 	});
     }
-}
-
-
-// dynamic internal referencing
-function setup_xrefids (selector, num_prefix, start, alpha, func) {
-    var counter = start;
-    document.querySelectorAll(selector).forEach(function(element) {
-	var xrefid = num_prefix + '-' + counter;
-	element.setAttribute('xrefid', xrefid);
-	if (func != null) {
-	    func(element, xrefid);
-	}
-	if (alpha) {
-	    counter = String.fromCharCode(counter.charCodeAt(0) + 1);
-	} else {
-	    ++counter;
-	}
-    });
-}
-
-function setup_xrefs () {
-    document.querySelectorAll('.xref').forEach(function(element) {
-	var arr = element.getAttribute('href').split('#');
-	var id = arr[arr.length - 1];
-	element.innerHTML = '[' + document.getElementById(id).getAttribute('xrefid') + ']';
-    });
-}
-
-// reusable helpers for canvas
-function get_parent_content_width(element) {
-    var cmParentElement = element.parentElement;
-    var cmParentElementStyle = getComputedStyle(cmParentElement);
-    var cmParentWidthInPx = parseFloat(cmParentElementStyle.getPropertyValue('width'));
-    if (cmParentElementStyle.getPropertyValue('box-sizing') == 'border-box') {
-	cmParentWidthInPx -= parseFloat(cmParentElementStyle.getPropertyValue('padding-left'));
-	cmParentWidthInPx -= parseFloat(cmParentElementStyle.getPropertyValue('padding-right'));
-	cmParentWidthInPx -= parseFloat(cmParentElementStyle.getPropertyValue('border-left-width'));
-	cmParentWidthInPx -= parseFloat(cmParentElementStyle.getPropertyValue('border-right-width'));
-    }
-    return cmParentWidthInPx;
-}
-
-function draw_drop_line(ctx, x, y, boxWidth, boxHeight, levelWidth, verticalSpace) {
-    var lineX = x + boxWidth;
-    var lineY = y + boxHeight / 2;
-    ctx.beginPath();
-    ctx.moveTo(lineX, lineY);
-    lineX += levelWidth / 4;
-    ctx.lineTo(lineX, lineY);
-    lineY += boxHeight / 2 + verticalSpace;
-    ctx.lineTo(lineX, lineY);
-    ctx.moveTo(lineX - 5, lineY - 10);
-    ctx.lineTo(lineX, lineY);
-    ctx.lineTo(lineX + 5, lineY - 10);
-    ctx.stroke();	
 }
 
 window.addEventListener("load", (e) => { run_with_data(INIT_DATA); });

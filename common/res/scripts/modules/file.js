@@ -1,4 +1,4 @@
-export function save_html(element) {
+function save_html(element) {
 
     let elements = document.querySelectorAll("input");
     for (let i = 0; i < elements.length; i++) {

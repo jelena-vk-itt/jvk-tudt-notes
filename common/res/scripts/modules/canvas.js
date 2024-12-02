@@ -1,4 +1,4 @@
-export function get_parent_content_width(element) {
+function get_parent_content_width(element) {
     var cmParentElement = element.parentElement;
     var cmParentElementStyle = getComputedStyle(cmParentElement);
     var cmParentWidthInPx = parseFloat(cmParentElementStyle.getPropertyValue('width'));
@@ -11,7 +11,7 @@ export function get_parent_content_width(element) {
     return cmParentWidthInPx;
 }
 
-export function set_canvas_width_to_parent_width(element) {
+function set_canvas_width_to_parent_width(element) {
     var cmParentElement = element.parentElement;
     var cmParentElementStyle = getComputedStyle(cmParentElement);
     var cmParentWidthInPx = parseInt(cmParentElementStyle.getPropertyValue('width'), 10);
@@ -34,7 +34,7 @@ export function set_canvas_width_to_parent_width(element) {
     }
 }
 
-export function draw_drop_line(ctx, x, y, boxWidth, boxHeight, levelWidth, verticalSpace) {
+function draw_drop_line(ctx, x, y, boxWidth, boxHeight, levelWidth, verticalSpace) {
     var lineX = x + boxWidth;
     var lineY = y + boxHeight / 2;
     ctx.beginPath();
