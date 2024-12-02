@@ -46,9 +46,9 @@
 			<span class="fw">Source.do_work()</span> produces a random number (between 1 and 10) of random letters ('a' to 'z') and passes them (one by one) to an instance of <span class="fw">Upper</span> by calling <span class="fw">Upper.queue_work()</span>
 		    </li>
 		    <li><span class="fw">Upper.queue_work()</span> adds the received letters to a <span class="fw">deque</span> object inside the <span class="fw">Upper</span> object</li>
-		    <li><span class="fw">Upper.do_work()</span> converts a random number (between 1 and 10, clipped to the queue length) of queued letters to uppercase, taking them one-by-one according to the first-in-first-out (FIFO) pattern from the <span class="fw">deque</span> object and passing them converted to the <span class="fw">Printer</span> object by calling <span class="fw">Printer.queue_work()</span></li>
+		    <li><span class="fw">Upper.do_work()</span> converts a random number (between 1 and 10, clipped to the queue length) of queued letters to uppercase, taking them one-by-one according to the first-in-first-out (FIFO) pattern from the <span class="fw">deque</span> object and passing them converted to the <span class="fw">Storer</span> object by calling <span class="fw">Storer.queue_work()</span></li>
 		    <li><span class="fw">Storer.queue_work()</span> adds the received letters to a <span class="fw">deque</span> object inside the <span class="fw">Storer</span> object</li>
-		    <li><span class="fw">Storer.do_work()</span> adds a random number (between 1 and 10, clipped to the queue length) of the queued letters into a store of type <span class="fw">set</span>, taking them one-by-one accoring to the first-in-first-out (FIFO) pattern from the <span class="fw">deque</span> object
+		    <li><span class="fw">Storer.do_work()</span> adds a random number (between 1 and 10, clipped to the queue length) of the queued letters into a store of type <span class="fw">set</span>, taking them one-by-one according to the first-in-first-out (FIFO) pattern from the <span class="fw">deque</span> object
 		    </li>
 		    <li><span class="fw">Upper.queue_length()</span> and <span class="fw">Storer.queue_length()</span> each return the length of their inner <span class="fw">deque</span> object</li>
 		    <li><span class="fw">Storer.get_store()</span> returns a list of the stored values, alphabetically ordered</li>
