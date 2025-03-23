@@ -223,7 +223,7 @@
 		<tr>
 		    <th>09/12/2024</th>
 		    <th>13</th>
-		    <td class="lec">
+		    <td class="lec"><a href="javascript:(function(){let c=document.createElement('canvas');document.body.appendChild(c);c.style.cssText='position:absolute;top:0;left:0;z-index:9999;touch-action:none;pointer-events:none';let x=c.getContext('2d'),f='ann_'+(location.hostname.replace(/\./g,'')+location.pathname.replace(/\//g,'')),s;let u=`https://localhost:4443/${f}.json`;console.log('🚀 Bookmarklet running!');console.log('🔍 Fetching:',u);fetch(u).then(e=>{if(e.ok)return e.json();throw new Error('Drawing not found')}).then(e=>{s=e;c.width=e.meta.width;c.height=e.meta.height;h();console.log('✅ Drawing loaded from file.')}).catch(e=>{console.warn('⚠%EF%B8%8F Failed to load drawing from server:',e);let t=document.createElement('div');t.innerText='⚠%EF%B8%8F Failed to load drawing from server!';t.style.cssText='position:fixed;top:10px;left:10px;background:yellow;padding:5px;z-index:10001';document.body.appendChild(t);setTimeout(()=>document.body.removeChild(t),3000);});function h(){x.clearRect(0,0,c.width,c.height);s.frm.forEach(e=>{if(e.length>0){b(e)}});s.data.forEach(e=>{if(e.length>0){if(e[0].type==='text'){x.fillStyle=e[0].color;x.font='20px Verdana';x.fillText(e[0].text,e[0].x,e[0].y)}else{b(e)}}});}function b(e){x.strokeStyle=e[0].color;x.lineWidth=e[0].lineWidth;x.beginPath();x.moveTo(e[0].x,e[0].y);e.forEach(t=>x.lineTo(t.x,t.y));x.stroke()}})();"></a>
 		    </td>
 		    <td class="lab">
 			<a href="res/files/python/sqlite3/main.py">sqlite3 code from class</a>
