@@ -47,7 +47,7 @@
 			    <ol class="toc_grp newline">
 				<li id="ooswd-l2-s01-a">
 				    <p>Boolean datatypes</p>
-				    <article>
+				    <article  style="display:none">
 					<h3>Boolean datatype</h3>
 					<ul>
 					    <li>A piece of data of type <em>boolean</em> carries a <em>truth value</em></li>
@@ -62,39 +62,11 @@
 				    </article>
 				</li>
 				
-				<!--------------------------------------------------------------------->            
-				<li id="ooswd-l2-s01-b">
-				    <p>Logical operators</p>
-				    <article>
-  					<h3>Logical operators</h3>
-					<ul>
-					    <li>Operate over <em>boolean</em> values</li>
-					    <li>List (exhaustive):
-						<dl>
-						    <dt>and</dt><dd>binary operation, both operands must be true for the result to be true</dd>
-						    <dt>or</dt><dd>binary operation, at least one of the two operands must be true for the result to be true</dd>
-						    <dt>not</dt><dd>unary operation, result is the opposite of the operand</dd>
-						</dl>
-			    			<figure id="py-bool-intro" class="my1">
-						    <figcaption>Logical operators (run interactively)</figcaption><pre class="code-listing">
-type(True)
-type(False)
-True and True
-True and False
-False or False
-False or True
-not True
-not False</pre>
-						</figure>
-					    </li>
-					</ul>
-				    </article>
-				</li>
 
 				<!--------------------------------------------------------------------->            
 				<li id="ooswd-l2-s01-c">
 				    <p>Integers</p>
-				    <article>         
+				    <article  style="display:none">         
               				<h3>Integers</h3>
 					<ul>
 					    <li>A piece of data of type <em>integer</em> represents a <strong>whole number</strong></li>
@@ -115,7 +87,7 @@ type(123)
 				<!--------------------------------------------------------------------->            
 				<li id="ooswd-l2-s01-d">
 				    <p>Floats</p>
-				    <article>
+				    <article  style="display:none">
 					<h3>Floats</h3>
 					<ul>
 					    <li>A piece of data of type <em>float</em> represents <strong>real number</strong></li>
@@ -153,10 +125,11 @@ round(0.12345678901234567890, 18) </pre>
 				<!--------------------------------------------------------------------->            
 				<li id="ooswd-l2-s01-e">
 				    <p>Arithmetic operators</p>
-				    <article>
+				    <article style="display:none">
 					<h3>Arithmetic operators</h3>
 					<ul>
-					    <li>Operate over <em>integer</em> and <em>float</em> values</li>
+					    <li><strong>Operate over</strong> <em>integer</em> and <em>float</em> values</li>
+					    <li><strong>Output</strong> <em>integer</em> and <em>float</em> values</li>
 					    <li>List (non-exhaustive, visit <a href=https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex><strong class="maroon">the Python Library Reference</strong></a> for a full list):
 						<dl>
 						    <dt>+</dt><dd>addition</dd>
@@ -183,11 +156,12 @@ round(0.12345678901234567890, 18) </pre>
 				<!--------------------------------------------------------------------->            
 				<li id="ooswd-l2-s01-f">
 				    <p>Comparison operators</p>
-				    <article>
+				    <article style="display:none">
                      			<h3>Comparison operators</h3>
 					<ul>
 					    <li>Comparison operators include equality and relational operators.</li>
-					    <li>Operate over almost any types where an interpretation is possible.</li>
+					    <li><strong>Operate</strong> over almost any types where an interpretation is possible.</li>
+					    <li><strong>Output</strong> boolean values (True or False)</li>
 					    <li>List (non-exhaustive, visit <a href="https://docs.python.org/3/library/stdtypes.html#comparisons"><strong class="maroon">the Python Library Reference</strong></a> for a full list):
 						<dl>
 						    <dt>&lt;</dt><dd>less than</dd>
@@ -224,9 +198,39 @@ round(0.2 + 0.1, 15) == round(0.3, 15) </pre>
 
 				
 				<!--------------------------------------------------------------------->            
+				<li id="ooswd-l2-s01-b">
+				    <p>Logical operators</p>
+				    <article style="display:none">
+  					<h3>Logical operators</h3>
+					<ul>
+					    <li><strong>Operate over</strong> <em>boolean</em> values</li>
+					    <li><strong>Output</strong> <em>boolean</em> values</li>
+					    <li>List (exhaustive):
+						<dl>
+						    <dt>and</dt><dd>binary operation, both operands must be true for the result to be true</dd>
+						    <dt>or</dt><dd>binary operation, at least one of the two operands must be true for the result to be true</dd>
+						    <dt>not</dt><dd>unary operation, result is the opposite of the operand</dd>
+						</dl>
+			    			<figure id="py-bool-intro" class="my1">
+						    <figcaption>Logical operators (run interactively)</figcaption><pre class="code-listing">
+type(True)
+type(False)
+True and True
+True and False
+False or False
+False or True
+not True
+not False</pre>
+						</figure>
+					    </li>
+					</ul>
+				    </article>
+				</li>
+
+				<!--------------------------------------------------------------------->            
 				<li id="ooswd-l2-s01-g">
 				    <p>Strings</p>
-				    <article>
+				    <article style="display:none">
                      			<h3>Strings</h3>
 					<ul>
 					    <li>In Python, a string is an ordered sequence of characters encoded using UTF-8 and representing some <strong>textual data</strong>.</li>
@@ -258,7 +262,7 @@ print("one line\nanother line\thop\thop again")
 				<!--------------------------------------------------------------------->            
 				<li id="ooswd-l2-s01-h">
 				    <p>String concatenation</p>
-				    <article>
+				    <article style="display:none">
                      			<h3>String concatenation</h3>
 					<p>There are many useful string operations in Python, but for the moment we will look at concatenation using the <span class="fw">+</span>. We can concatenate two or more different strings of 'multiply' the same string.</p>
 					<figure id="py-concat" class="my1">
@@ -276,7 +280,7 @@ print("one line\nanother line\thop\thop again")
 	            <!=====================================================================>            
                     <li id="ooswd-l2-02">
 			<p>Casting between types</p>
-			<article>
+			<article style="display:none">
                             <h2>Casting between types</h2>
 			    <p>Python provides functions for converting pieces of data from one type to another.</p>
 			    <dl>
@@ -323,7 +327,7 @@ str(True)</pre>
 	            <!--------------------------------------------------------------------->            
                     <li id="ooswd-l2-03">
 			<p>The value and type of expressions</p>
-			<article>
+			<article style="display:none">
                             <h2>The value and type of expressions</h2>
 
 			    <p><strong>An expression</strong> in Python is an executable construct that when executed results in <strong>a value with a type</strong> i.e. can be evaluated. Expressions can be used as pieces of data, in all the ways that literal values, such as <span class="fw">5</span> or <span class="fw">"Some text"</span>, can be used.</p>
@@ -373,7 +377,7 @@ type(print("a"))</pre>
 		    <!--------------------------------------------------------------------->            
                     <li id="ooswd-l2-04">
 			<p>Printing</p>
-			<article>
+			<article style="display:none">
                             <h2>Printing</h2>
 			    <p>The <span class="fw">print()</span> function writes to the console. We have encountered it already but here we have a closer look at it through examples.</p>
 
