@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>	
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="res/styles/rwat.css"/>
+	<title>HTML and CSS</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">HTML and CSS</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="RWAT Logo">
+	</header>
+	
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+
+	    </nav>
+
+	    <article>
+		<ol class="toc_grp newline">
+
+		    <!-------------------------------------------------------------------------->	
+		    <li id="cswd-ft-html-css-01">
+			<p>HTML and CSS - Overview</p>
+			<article>
+			    <!-- figure class="section_symbol"><pre>
+				 ____________
+				 /   //||\\   \
+				 /   ////\\\\   \
+				 \   \\\\////   /   
+				 \___\\||//___/
+				 </pre>
+				 </figure-->
+			    <h2>HTML and CSS - Overview</h2>
+
+			    <figure class="fr onenh">
+				<figcaption>Some old-style markup (in red)</figcaption>
+				<img src="res/images/1.1_markup_resized.jpg">
+			    </figure>
+			    <ul>
+				<li>HTML stands for Hypertext Markup Language
+				    <ul>
+					<li>the word <strong>hypertext</strong> denotes content that can be connected to other content using <em>hyperlinks</em></li>
+					
+					<li><strong>markup</strong> is information <em>about</em> content (i.e. meta-information) and:
+					    <ul>
+						<li>in HTML the markup is expressed through <em>element tags</em></li>
+						<li>this markup carries information about content structure, semantics and (to a certain degree) formatting</li>
+					    </ul>
+					</li>
+				    </ul>
+				</li>
+				<li>The purpose of HTML is for the preparation of <strong>Web-based documents</strong>, but an HTML document can also be stored locally and <strong>loaded from the file system on the local machine</strong> (this is what you will be doing with the lab exercises)</li>
+				
+				<li>CSS stands for Cascading Style Sheets
+				    <ul>
+					<li>it is a language used for specifying <strong>presentation details (styles)</strong> for html content, separately from the content</li>
+					<li>the word <strong>cascading</strong> describes the mechanism whereby styles can be specified for the same element in many places but an order of precedence (the cascade) defines exactly which declarations are used in rendering the element
+					    <details><summary>More about the advantages of using CSS</summary>
+						<ul>
+						    <li>allows more control over appearance to Web content authors</li>
+						    <li>introduces the separation of content and appearance which
+							<ul>
+							    <li>makes for simpler standards and easier conformance</li>
+							    <li>results in easier maintainability</li>
+							    <li>makes it easier to keep the website consistent across different pages</li>
+							    <li>allows the use of multiple styles so that the same content can be consumed by different devices (PCs, tablets, phones)</li> 
+							    <li>makes it much easier to implement accessibility</li>
+							    <li>allows easier access to content by search engines</li>
+							    <li>allows content development and design to be treated as separate activities (possibly performed by different people!)</li>
+							</ul>
+						    </li>    
+						</ul>
+					    </details>
+					</li>
+				    </ul>
+				</li>
+			    </ul>
+			</article>
+		    </li>
+		    
+		    <!-------------------------------------------------------------------------->	
+		    <li id="cswd-ft-html-css-02">
+			<p>HTML Terminology</p>
+			<article style="display:none">
+			    <h2>HTML Terminology</h2>
+			    
+			    <p>HTML elements are the building blocks of a Web page. HTML elements consist of <strong>tags</strong> and <strong>content</strong>.</p>
+			    <figure class="two fr cr mbh ml1">
+				<img src="res/images/1.1_html_terms_element.png">
+			    </figure>
+			    <figure class="two fr cr mbh ml1">
+				<img src="res/images/1.1_html_terms_tags_oc.png">
+			    </figure>
+			    <figure class="two fr cr mbh">
+				<img src="res/images/1.1_html_terms_tags_lone.png">
+			    </figure>
+			    
+			    <h4>HTML tags</h4>
+			    <ul>
+				<li>HTML tags are the markup (information about the contents) in the html file.</li>
+				<li>A tag consists of angular brackets and all the characters inside the brackets.</li>
+				<li>There are three types of tag:
+				    <ul>
+					<li>open/start tag <div class="example-no-leader"><span class="fw">&lt;p></span></div> </li>
+					<li>close/end tag <div class="example-no-leader"><span class="fw">&lt;/p></span></div></li>
+					<li>lone tag <div class="example-no-leader"><span class="fw">&lt;br/></span></div></li>
+				    </ul>
+				</li>
+			    </ul>
+			    
+			    <h4>HTML content</h4>
+			    <ul>
+				<li>The content is the part of the element that is actually displayed as part of the rendered HTML page.</li>
+				<li>An HTML element's content appears between the open and close tag.</li>
+				<li>A <strong>void</strong> element has no content and consists of a lone tag only.</li>
+			    </ul>
+			    
+			    <h4>Inside an HTML element tag</h4>
+			    <ul>
+				<li>The first word inside the open or void HTML tag is the <strong>element name</strong> <span class="example-no-leader">h1, img</span>. These names are reserved strings in HTML.</li>
+				<li>A close tag consists of a forward slash and the element name.</li>
+				<figure class="three fr cr mbh ml1">
+				    <img src="res/images/1.1_html_terms_attribute.png">
+				</figure>
+				<figure class="two fr cr mbh ml1">
+				    <img src="res/images/1.1_html_terms_attribute_in_void.png">
+				</figure>
+				<li>The remainder of the strings inside the open or void HTML tag are name-value pairs representing <strong>attributes</strong>. Attributes provide more information about the element.</li>
+				<li>If an attribute is not applicable to the element that it is placed on, the browser ignores it.
+				    <aside class="example"><br/><span class="fw">&lt;h1 src="abc.jpg"></span>: the attribute <span class="fw">src</span> is ignored as it has no meaning in the context of element <span class="fw">h1</span>. <br/><span class="fw">&lt;img src="abc.jpg"></span>: the attribute <span class="fw">src</span> is used to specify the source of the image.</aside></li>
+			    </ul>
+			</article>
+		    </li>
+
+		    <!-------------------------------------------------------------------------->	
+		    <li id="cswd-ft-html-css-03">
+			<p>HTML Document Structure</p>
+			<article>
+			    <h2>HTML Document Structure</h2>
+			    <ul>
+				<li>An HTML document has a hierarchical structure, with elements nested inside each other.</li>
+				<li>The top level element is always of type <span class="fw">html</span> and it contains directly within it the <span class="fw">head</span> and <span class="fw">body</span> elements.</li>
+				<li>The <span class="fw">head</span> element is not displayed by the browser but contains metadata (information about the document).</li>
+				<li>The <span class="fw">body</span> element's contents are displayed in the browser window when the HTML page is loaded.</li>
+				<li>Example of an HTML page:<div class="code-listing"><pre class="darkgreen">
+&lt;!-- This is an HTML comment -->
+&lt;!-- The line below indicates that the document uses HTML5 --></pre><pre>
+&lt;!DOCTYPE html></pre><pre class="darkgreen">
+&lt;!-- The html element represents the entire document. The lang attribute specifies the language and can be placed on any element. Placing it on the html element indicates that the language (in this case English) is used in the entire document. --></pre><pre>
+&lt;html lang="en"></pre><pre class="darkgreen ml3">
+&lt;!-- The head element contains instructions for the browser and other non-content information (metadata) relating to the document. --></pre><pre class="ml3">
+&lt;head></pre><pre class="darkgreen ml6">
+&lt;!-- Meta tags contain information about the document. This is used by browsers, search engines and other web services. The first meta tag below specifies how pages should be scaled with respect to the physical screen. The second specifies the character set used for encoding the page. --></pre><pre class="ml6">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+&lt;meta charset="UTF-8"/></pre><pre class="darkgreen ml6">
+&lt;!-- Links to other files are specified with the link element. The link below is to a page icon (this will be displayed in the browser tab for the page). --></pre><pre class="ml6">
+&lt;link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/></pre><pre class="darkgreen ml6">
+&lt;!-- The following link is to a  stylesheet with CSS rulesets for application to this HTML file. The specified path is relative to the location of the HTML file. --></pre><pre class="ml6">
+&lt;link rel="stylesheet" type="text/css" href="res/styles/my.css"/></pre><pre class="darkgreen ml6">
+&lt;!-- The title element is used to specify a page title. This will appear as the title in the browser tab or window. --></pre><pre class="ml6">
+&lt;title>A Very Special HTML Page&lt;/title></pre><pre class="darkgreen ml6">
+&lt;!-- CSS rulesets can be specified directly inside the HTML file, using the style element. This is called an internal or embedded stylesheet. --></pre><pre class="ml6">
+&lt;style>
+     h1 { color: purple }
+&lt;/style></pre><pre class="ml3">
+&lt;/head></pre><pre class="darkgreen ml3">
+&lt;!-- The body holds the actual content of the web page to be displayed in the browser (or interpreted by other device). This consists of HTML elements. --></pre><pre class="ml3">
+&lt;body></pre><pre class="darkgreen ml6">
+&lt;!-- An example of an HTML element that may appear in the body: a h1 heading (the biggest heading in HTML). --></pre><pre class="ml6">
+&lt;h1>A Very Special HTML Page&lt;/h1></pre><pre class="darkgreen ml6">
+&lt;!-- Another example of an HTML element: a paragraph. --></pre><pre class="ml6">
+&lt;p>This text is in a paragraph. It is a relatively short paragraph but it illustrates the point.&lt;/p></pre><pre class="darkgreen ml6">
+&lt;!-- A final example of an HTML element: a link. Links use the tag 'a'. --></pre><pre class="ml6">
+&lt;a href="https://www.rte.ie">Click me to get some news&lt;/a></pre><pre class="ml3">
+&lt/body></pre><pre>
+&lt/html></pre>
+				</div>
+
+				The page above, when rendered in a browser looks like this:
+
+				<figure class="four">
+				    <img src="res/images/lec_1_example_of_html_structure.png">
+				</figure>
+				</li>
+			    </ul>
+			</article>
+		    </li>
+		    
+		    <!-------------------------------------------------------------------------->	
+		    <li id="cswd-ft-html-css-04">
+			<p>Application of Styles with CSS</p>
+			<article>
+			    <h2>Application of Styles with CSS</h2>
+			    <p>It is the W3 Consortium recommendations on CSS that specify both how CSS rules are defined and how they are interpreted and applied by the browser.</p>
+			    <p>For a CSS style to be applied by the browser to a specific HTML element in a specific HTML document, three things need to happen:</p>
+			    <ol>
+				<li>the style needs to be associated with the element as defined in the context of the HTML document</li>
+				<li>the association must be visible within the HTML document</li>
+				<li>the association must have the highest precedence out of all those involving the same style property</li>
+			    </ol>
+
+			    <h3>(1) Associating styles with elements by means of CSS rulesets</h3>
+
+			    <p>HTML elements are associated with styles using CSS <strong>rulesets</strong>. A ruleset
+				<ul>
+				    <li>uses a <strong>selector</strong> to define a subset of HTML elements and</li>
+				    <li>lists styling instructions that are to be associated with that subset of elements</li>
+				</ul>
+			    </p>
+			    
+			    <h4>CSS Rulesets</h4>
+
+			    <p>A CSS ruleset consists of:</p>
+			    <figure class="threenh fr cr mbh ml1">
+				<figcaption>A CSS ruleset associating HTML elements of type <span class="fw">h1</span> with two styles: the purple colour for text and bold font weighting.</figcaption>
+				<img src="res/images/1.1_css_terms_ruleset.png">
+			    </figure>
+			    <ul>
+				<li>a <strong>selector</strong>, used to specify which elements a style should be applied to</li>
+				<li>a <strong>declaration block</strong> containing  one or more <strong>declarations</strong>, which are styling instructions in the form of <strong>property-value</strong> pairs, the property representing an aspect of the element's style and the value being the one that the property should take</li>
+				<li>many of the values specified for CSS properties are <strong>keywords</strong> i.e. strings designated as valid values for the property
+				    <details class="example"><summary></summary>
+					<p>In the declaration <span class="fw tbox">width: 3em</span> the value (<span class="fw">3em</span>) <strong>is not</strong> a keyword because the number of allowed values of this type is infinite.</p>
+					<p>In the declaration <span class="fw tbox">font-weight: bold</span> the value (<span class="fw">bold</span>) <strong>is</strong> a keyword as <span class="fw">bold</span> is one of a closed set of allowed values.</p>
+				    </details>
+				</li>
+			    </ul>
+
+			    <h4>CSS Selectors</h4>
+			    <p>CSS <strong>selectors</strong> use element properties and document structure to 'pick out' elements for association with styles. Detailed information on selectors can be found, for example, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#Selectors">on MDN</a>. Here we list the selector types that are covered <span class="maroon bold">in this module</span>.</p>
+			    <ul>
+				<li><strong>element type selector</strong> selects all the elements of a particular type
+				    <p><strong>Notation:</strong> the element type name i.e. <span class="fw maroon bold"><em>element_type_name</em></span>.</p>
+				    <details class="example"><summary></summary>
+					<table>
+					    <tr><td>Ruleset:</td> <td><span class="fw">h1 { color: green; }</span></td></tr>
+					    <tr><td>Selector:</td> <td><span class="fw">h1</span></td></tr>
+					    <tr><td>An element that is selected:</td> <td><span class="fw">&lt;h1>A Heading&lt;/h1></span></td></tr>
+					    <tr><td>An element that is not selected:</td> <td><span class="fw">&lt;h3>Another Heading&lt;/h3></span></td></tr>
+					    <tr><td>Rendering of the two elements with the ruleset applied:</td> <td><div id="ex1" class="box ex1"><style>#ex1 h1 { color: green; }</style><h1>A Heading</h1><h3>Another Heading</h3></div></td></tr>
+					</table>
+				    </details>
+				</li>
+
+				<li><strong>class selector</strong> selects all the elements that are assigned to a class
+				    <p><strong>Notation:</strong> the class name prefixed by a dot (.) i.e. <span class="fw maroon bold">.<em>class_name</em></span>.</p>
+				    <details class="example"><summary></summary>
+					<table>
+					    <tr><td>Ruleset:</td> <td><span class="fw">.red-text { color: red; }</span></td></tr>
+					    <tr><td>Selector:</td> <td><span class="fw">.red-text</span></td></tr>
+					    <tr><td>An element that is selected:</td> <td><span class="fw">&lt;h3 class="red-text">some text&lt;/h3></span></td></tr>
+					    <tr><td>An element that is not selected:</td> <td><span class="fw">&lt;p class="hat">some more text&lt;/p></span></td></tr>
+					    <tr><td>Rendering of the two elements with the ruleset applied:</td> <td><div id="ex2" class="box"><style>#ex2 .red-text { color: red; }</style><h3 class="red-text">some text</h3><p class="hat">some more text</p></div></td></tr>
+					</table>
+				    </details>
+				</li>
+
+				<li><strong>id selector</strong> selects the elements with a particular id
+				    <p><strong>Notation:</strong> the id prefixed by a hash sign (#) i.e. <span class="fw maroon bold">#<em>id_value</em></span>.</p>
+				    <details class="example"><summary></summary>
+					<table>
+					    <tr><td>Ruleset:</td> <td><span class="fw">#abc123 { font-weight: bold; }</span></td></tr>
+					    <tr><td>Selector:</td> <td><span class="fw">#abc123</span></td></tr>
+					    <tr><td>An element that is selected:</td> <td><span class="fw">&lt;p id="abc123">some text&lt;/p></span></td></tr>
+					    <tr><td>An element that is not selected:</td> <td><span class="fw">&lt;span class="hat">other text&lt;/span></span></td></tr>
+					    <tr><td>Rendering of the two elements with the ruleset applied:</td> <td><div id="ex3" class="box"><style>#ex3 #abc123 { font-weight: bold; }</style><p id="abc123">some text</p><span class="hat">other text</span></div></td></tr>
+					</table>
+				    </details>
+				</li>
+
+				<li><strong>attribute selector</strong> selects the elements with a specified value for a specified attribute
+				    <p><strong>Notation:</strong> the attribute and value separated by an equal sign (=) and inside square brackets i.e. <span class="fw maroon bold">[<em>attribute_name</em>="<em>the_value</em>"]</span>.</p>
+				    <details class="example"><summary></summary>
+					<table>
+					    <tr><td>Ruleset:</td> <td><span class="fw">[src="hat.jpg"] { border: 5px solid; }</span></td></tr>
+					    <tr><td>Selector:</td> <td><span class="fw">[src="hat.jpg"]</span></td></tr>
+					    <tr><td>An element that is selected:</td> <td><span class="fw">&lt;img src="hat.jpg" width="100px"></span></td></tr>
+					    <tr><td>An element that is not selected:</td> <td><span class="fw">&lt;img src="cat.jpg" width="100px"></span></td></tr>
+					    <tr><td>Rendering of the two elements with the ruleset applied:</td> <td><div id="ex4" class="box"><style>#ex4 [src="res/images/hat.jpg"] { border: 5px solid; }</style><img src="res/images/hat.jpg" width="100px"><span class="fw">  </span><img src="res/images/cat.jpg" width="100px"></div></td></tr>
+					</table>
+				    </details>
+				</li>
+
+				<li><strong>complex selectors</strong> combine two or more simple selectors
+				    <p><strong>Notation:</strong> valid selectors separated by combinators i.e. <span class="fw maroon bold"><em>selector_1 combinator selector_2"</em></span>.</p>
+				    <details class="example"><summary></summary>
+					<p>This example presents the <strong>descendant combinator</strong>, which is denoted with a <strong>space character</strong>. The example selector selects any element of type <span class="fw">h1</span> that is inside an element of class <span class="fw">sp</span>, with zero or more intermediate containing elements. </p>
+					<table>
+					    <tr><td>Ruleset:</td> <td><span class="fw">.sp h1 { color: purple; }</span></td></tr>
+					    <tr><td>Selector:</td> <td><span class="fw">.sp h1</span></td></tr>
+					    <tr><td>An element that is selected (highlighed bold):</td> <td>
+						<div class="box">
+						    <span class="fw">&lt;div class="sp"></span><br/>
+						    <span class="fw">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div></span><br/>
+						    <span class="fw bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1>Special&lt;/h1></span><br/>
+						    <span class="fw">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div></span><br/>
+						    <span class="fw">&lt;/div></span><br/>
+						</div></td>
+					    </tr>
+					    <tr><td>An element that is not selected (highlighed bold):</td> <td>
+						<div class="box">
+						    <span class="fw">&lt;div class="nr"></span><br/>
+						    <span class="fw">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div></span><br/>
+						    <span class="fw bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1>Normal&lt;/h1></span><br/>
+						    <span class="fw">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div></span><br/>
+						    <span class="fw">&lt;/div></span><br/>
+						</div></td>
+					    </tr>
+					    <tr><td>Rendering of the two elements with the ruleset applied:</td> <td><div id="ex5" class="box"><style>#ex5 .sp h1 { color: purple; }</style>
+						<div class="sp">
+						    <div>
+							<h1>Special</h1>
+						    </div>
+						</div>
+						<div class="nr">
+						    <div>
+							<h1>Normal</h1>
+						    </div>
+						</div>
+					    </div></td></tr>
+					</table>
+				    </details>
+
+				    <details class="example"><summary></summary>
+					<p>This example presents the <strong>child combinator</strong>, which is denoted with a <strong>right angular bracket (>)</strong>. The example selector selects any element of type <span class="fw">h1</span> that is inside an element of class <span class="fw">sp</span>, with no intermediate containing elements i.e. that is a child of an element of class <span class="fw">sp</span>.</p> 
+					<table>
+					    <tr><td>Ruleset:</td> <td><span class="fw">.sp > h1 { color: orange; }</span></td></tr>
+					    <tr><td>Selector:</td> <td><span class="fw">.sp > h1</span></td></tr>
+					    <tr><td>An element that is selected (highlighed bold):</td> <td>
+						<div class="box">
+						    <span class="fw">&lt;div class="sp"></span><br/>
+						    <span class="fw bold">&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1>Special child&lt;/h1></span><br/>
+						    <span class="fw">&lt;/div></span><br/>
+						</div></td>
+					    </tr>	    
+					    <tr><td>An element that is not selected (highlighed bold):</td> <td>
+						<div class="box">
+						    <span class="fw">&lt;div class="sp"></span><br/>
+						    <span class="fw">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div></span><br/>
+						    <span class="fw bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1>Special grandchild&lt;/h1></span><br/>
+						    <span class="fw">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div></span><br/>
+						    <span class="fw">&lt;/div></span><br/>
+						</div></td>
+					    </tr>	    
+					    <tr><td>Rendering of the two elements with the ruleset applied:</td> <td><div id="ex6" class="box"><style>#ex6 .sp > h1 { color: orange; }</style>
+						<div class="sp">
+						    <h1>Special child</h1>
+						</div>
+						<div class="sp">
+						    <div>
+							<h1>Special grandchild</h1>
+						    </div>
+						</div>
+					    </div></td></tr>
+					</table>
+				    </details>				
+				</li>
+				<li><strong>grouping of selectors</strong> allows the specification of the same group of styles for several selectors at the same time
+				    <p><strong>Notation:</strong> selectors separated by commas e.g. <span class="fw maroon bold"><em>selector_1, selector_2, selector_3</em></span>.</p>				
+				</li>
+			    </ul>
+			    
+			    <h3>(2) Making the element-style associations visible in a HTML document</h3>
+
+			    <p>Rulesets can be introduced into a HTML file in two ways:</p>
+			    <ul>
+				<li><strong>externally</strong> - a file with rulesets (a CSS file) is linked into the HTML file with a <span class="fw">link</span> element<br/>
+				    <details class="example"><summary></summary>
+					<p>In this example, the file <span class="fw">my.css</span>, located in the directory <span class="fw">res/styles</span> relative to the location of the HTML document, contains CSS rulesets. As the CSS file is specified as a link in the HTML file, the rulesets contained in it become applicable to the elements in the HTML document.</p>
+					<pre>
+&lt;html lang="en"></pre><pre class="ml3">
+&lt;head></pre><pre class="ml6 maroon">
+&lt;link rel="stylesheet" type="text/css" href="res/styles/my.css"/></pre><pre class="ml3">
+&lt;/head></pre><pre class="ml3">
+&lt;body></pre><pre class="ml6">
+...</pre><pre class="ml3">
+&lt/body></pre><pre>
+&lt/html></pre>
+				    </details>
+				</li>
+				<li><strong>internally</strong> - rulesets are listed inside a <span class="fw">style</span> element under the <span class="fw">head</span> element of the HTML file<br/>
+				    <details class="example"><summary></summary>
+					<p>The ruleset <span class="fw">h1 { color: purple; }</span> in this example is applicable to the elements in the HTML file that contains it.</p>
+					<pre>
+&lt;html lang="en"></pre><pre class="ml3">
+&lt;head></pre><pre class="ml6 maroon">
+&lt;style></pre><pre class="ml9 maroon">
+h1 { color: purple; }</pre><pre class="ml6 maroon">
+&lt;/style></pre><pre class="ml3">
+&lt;/head></pre><pre class="ml3">
+&lt;body></pre><pre class="ml6">
+...</pre><pre class="ml3">
+&lt/body></pre><pre>
+&lt/html></pre>
+				    </details>
+				</li>
+			    </ul>
+			    
+			    <h3>(1,2) Bypassing rulesets with inline styles</h3>
+			    
+			    <p>Another way of associating styles with HTML elements is</p>
+			    <ul>
+				<li><strong>inline</strong> - styling declarations (property-value pairs) are placed directly on an element
+				    <ul>
+					<li>style property-value pairs are specified as the value of the element's <strong>style</strong> attribute</li>
+					<li>element selection is implicit, by virtue of the <span class="fw">style</span> attribute's presence (selectors not needed)</li>
+					<li>it is an <span class="fw">extensional</span> (by case) mechanism rather than an intentional (by design) one</li>
+				    </ul>
+				    <details class="example"><summary></summary>
+					<p>In this example the inline style specification on the <span class="fw">h1</span> element causes that particular <span class="fw">h1</span> element to have purple text and letters spaced by 1em.</p><pre>
+&lt;h1 style="color:purple;letter-spacing:1em;">A heading&lt;/h1></pre>
+				    </details>
+				    <p><span class="maroon bold">In this module</span> inline style specification should not be used.</p>
+				</li>
+			    </ul>
+			    
+			    <h3>(3) CSS rule precedence</h3>
+			    <p>CSS rules are applied by browsers according to an order of precedence based around rule type and rule definition mechanism. The order, referred to as the <em>cascade</em>, is defined by the W3 Consortium as part of the CSS recommendations.</p>
+			    <details><summary>More about the cascade</summary><br>
+				<canvas id="cascade" width="0" height="0"></canvas>
+				<em>In the CSWD module we concern ourselves only with the cascade items marked with three red asterisks (<span class="red">***</span>).</em>
+				<p>Which of many specified values for a style property will actually be applied to an element is decided based on a strictly defined precedence of rules (see <a href="https://www.w3.org/TR/css-cascade-3/#cascading"  target="_blank">the standard</a>), involving three main factors, listed here in order of priority:</p>
+				<ol>
+				    <li>Origin and importance: the lowest priority is given to <strong>user agent</strong> (browser) declarations and <strong>user</strong> (browser configuration) declarations, which are followed by <strong>author</strong> declarations (the ones we are familiar with, in CSS and HTML files) and then a number of other categories of declarations </li>
+				    <li>Specificity: this is considered at each level of origin and importance; the more specific selector has precedence (e.g. ".cls p" is more specific than "p"). This <a href="https://specificity.keegan.st/">specificity calculator</a> provides a clear visual representation of selector specificity values and compares them.</li>
+				    <li>Order of appearance: among equally specific author declarations, it is the order of appearance that determines which declaration is actually applied (the farther links to .css files and style elements appear in the HTML file, the higher their priority; inline styles have the highest priority) </li>
+				    <li>If the cascade as described so far does not yield a rule for a particular property on an element, then the property value is inherited from the closest ancestor in the html element hierarchy for which the property is specified.</li> 
+				</ol>
+			    </details>
+			    
+			</article>
+		    </li>
+
+		    <!-------------------------------------------------------------------------->	
+		    <li id="cswd-ft-html-css-05">
+			<p>HTML and CSS - Best Practice Guidelines</p>
+			<article>
+			    <figure class="section_symbol one">
+				<pre>
+      /@)
+ ____|  |
+(___)    \_____
+(___)       
+(___)     _____
+ (__)____/
+				</pre>
+			    </figure>
+			    <h2>HTML and CSS - Best Practice Guidelines</h2>
+			    <ul>
+				<li>HTML file names:
+				    <ul>
+					<li>avoid spaces as these are not allowed in URLs</li>
+					<li>use case-sensitive file referencing to make your HTML portable (in Linux, for example, <span class="fw">index.html</span> and <span class="fw">Index.html</span> are not the same thing!)</li>
+				    </ul>
+				</li>
+				<li>Include the <span class="fw">doctype</span> element i.e. <span class="fw">&lt;!doctype html></span></li>
+				<li>While HTML with unclosed tags will be interpreted correctly by most browsers, it is good practice to write correct HTML:
+				    <ul>
+					<li>pair every <em>open</em> tag with a <em>close</em> tag<br>
+					    <aside class="example fw">&lt;p>A paragraph&lt;/p>&lt;p>And another&lt;/p></aside><br>
+					    <aside class="contraex fw">&lt;p>A paragraph&lt;p>And another</aside>
+					</li>
+					<li>use the forward slash at the end of void elements<br>
+					    <aside class="example"><span class="fw">&lt;hr/></span></aside>
+					</li>
+					<li>make sure that tags are nested correctly<br>
+					    <aside class="contraex fw">&lt;h1>&lt;p>Bla bla&lt;/h1>&lt;/p></aside>
+					</li>
+				    </ul>
+				</li>
+				<li>Always put tag attribute values in quotes</li>
+				<li>Do not use the same id for more than one element on an HTML page</li>
+				<li>As a rule try to use <strong>external stylesheets</strong>. Internal stylesheets can be used for practice, testing and for stand-alone pages. Inline styles should be avoided except for temporary changes and testing.</li>
+				<li>Validate your HTML files at <a href="http://validator.w3.org" target="_blank">http://validator.w3.org</a> </li>
+				<li>Make your pages accessibility compliant, e.g.
+				    <ul>
+					<li>Specify the <span class="fw">alt</span> attribute for <span class="fw">img</span> elements</li>
+					<li>Do not use colour as the only means of conveying any information</li>
+					<li>Specify the language using the <span class="fw">lang</span> attribute on the <span class="fw">html</span> element (needed by speech synthesisers and Braille translators)</li>
+				    </ul>
+				</li>
+			    </ul>
+			</article>
+		    </li>
+		    
+		    <!-------------------------------------------------------------------------->	
+		    <li id="cswd-ft-html-css-06">
+			<p>HTML, CSS and the WWW - A Brief History</p>
+			<article>
+			    <figure class="section_symbol two">
+				<pre>
+:-(   ???   :-)   !!!   t
+-+-----+-----+-----+----->
+				</pre>
+			    </figure>
+			    <h2>HTML and CSS - A Brief History</h2>
+			    <dl>
+				<dt>1989</dt>
+				<dd>
+				    Tim Berners-Lee first proposed a <strong>Hypertext Document Format</strong> for use in the CERN community in Switzerland
+				    <ul>
+					<li>The purpose was to support <strong>collaboration</strong>.</li>
+				    </ul>
+				</dd>
+				<dt>1990</dt>
+				<dd>
+				    The obvious wider applicability of the Hypertext Document Format resulted in Tim Berners-Lee conceiving the <strong>World Wide Web</strong> (WWW) and <strong>HTML</strong>.
+				    <ul>
+					<li>The first form of HTML was <strong>text-based</strong> i.e. could define text documents and links between them. </li>
+					<li>HTML was designed as an application of <strong>SGML</strong> (Standard Generalised Markup Language), a language around since the 1960s, which defines what machine-processable markup languages should be like (i.e. it is a markup <em>meta-language</em>). Full compliance as an SGML application was achieved with HTML 4.</li>
+				    </ul>
+				</dd>
+				<dt>1993</dt>
+				<dd>
+				    The first widely-used WWW browser, <strong>Mosaic</strong>, is released by the National Center for Supercomputing Applications (NCSA) at the University of Illinois at Urbana-Champaign. While not the first browser to be created, it
+				    <ul>
+					<li>was easy to install by non-experts</li>
+					<li>was available for the Microsoft Windows operating system</li>
+					<li>had the capability to display images in-line with text</li>
+				    </ul>
+				</dd>
+				<dt>early<br>1990s</dt>
+				<dd>
+				    Early HTML and problems due to a lack of adopted standards
+				    <ul>
+					<li>The rapid adoption of the WWW resulted in what was called the <strong>browser wars</strong>, in which the browser makers (chiefly Netscape and Microsoft with Internet Explorer, both based on original Mosaic code) competed for dominance, increasingly including non-standard features in their offerings. This made it hard for content developers to keep output portable and frustrating for consumers who had to have the 'right' browser to view a lot of the content on the WWW.</li>
+					<li>The demand for intensive processing and increased syntactic lenience posed on browsers by bloated HTML coming from <strong>WYSIWYG</strong> editors created an 'author's convenience - user's hell' scenario.
+					</li>
+					<li>Web (another way to refer to the WWW) authors did not have much  <strong>control over the appearance</strong> of their content.</li>
+					<li>Difficulty in providing accessibility features.</li>
+					<li>Higher development costs of both content and browsers.</li>
+				    </ul>
+				</dd>
+				<dt>late<br>1990s</dt>
+				<dd>
+				    Standards and introduction of CSS
+				    <ul>
+					<li>The <strong>World Wide Web Consortium</strong> (W3C) was started by Tim Berners-Lee and others in 1994. The W3C publishes <strong>recommendations</strong>, which are de facto WWW standards, even if not enforceable. A particular specification goes through a long process of maturation, which includes extensive reviews and testing, before becoming a recommendation. Wide conformance to these recommendations makes using the WWW easier for everybody. </li>
+					<li>The older <strong>HTML</strong> recommendations are: HTML (1991), HTML 2.0 (1995), HTML 3.2 (1997), 4.01 (1999).</li> 
+					<li><strong>Cascading Style Sheets</strong> (CSS) were developed by H&aring;kon Wium Lie and Bert Bos and became a W3C recommendation in 1996.
+					</li>
+				    </ul>
+				</dd>
+				<dt>since<br>2000</dt>
+				<dd>
+				    Document Object Model (DOM)
+				    <ul>
+					<li>The DOM is a Javascript Application Programming Interface (API) that represents HTML documents as an object tree, with the entire document corresponding to a root object and all the other elements to objects suitably contained in the hierarchical structure of the root object. By manipulating these objects, Javascript code can change the content of the web page.
+					    <aside id="jsexample" class="example" onclick="this.innerHTML += ' Again!'">
+						Click me!
+					    </aside>
+					</li>
+					<li>The interface exposed by the DOM is platform-independent.</li>
+					<li>It was published as a W3C recommendation in 2004.</li>
+				    </ul>
+				</dd>
+				<dd>
+				    XML-based HTML
+				    <ul>
+					<li><strong>Extensible Markup Language (XML)</strong> is a subset of SGML, stricter and more suitable for machine processing.</li>
+					<li>An XML-compliant flavour of HTML 4.01 was published as a recommendation in 2001, under the name <strong>XHTML</strong>. This specifies HTML in a stricter form, for example with requirements for correct tag usage (nesting, closing etc.). So formatted, HTML places fewer demands on parsers, search engines and other types of programs that process it.</li>
+					
+					<li>
+					    With <strong>HTML 5</strong> (latest version 5.2 was published in 2017), the specification of HTML departed from SGML and became an application of XML, an approach more suitable for digital applications.
+					    <details><summary>More about HTML 5</summary><br>
+						<ul>
+						    <li>HTML 5 is the latest version of HTML</li>
+						    <li>There have been three minor versions of it so far: 5.0 (2014), 5.1 (2016) and 5.2 (2017)</li>
+						    <li>As the recommendation was finalised 14 years after the last HTML recommendation (version 4.01 as XHTML in 2000), it includes many new features:
+							<ul>
+							    <li>new semantic elements such as <span class="fw">nav</span>, <span class="fw">footer</span> and <span class="fw">article</span></li>
+							    <li>new form input field and attribute types</li>
+							    <li>graphics and media elements, allowing inclusion of audio and video without requirement for browser plug-ins</li>
+							    <li>APIs (local storage, geo-location, canvas etc.)</li>
+							</ul>
+						    </li>
+						</ul>
+					    </details>
+					</li>
+				    </ul>			    
+				</dd>
+			    </dl>
+			</article>
+		    </li>
+
+		    <!-------------------------------------------------------------------------->	
+		    <li id="cswd-ft-html-css-07">
+			<p>References</p>
+			<article>
+			    <figure class="section_symbol one">
+				<pre>
+  ____   ____
+ /    \ /    \
+| ABCD | EFG. |
+| ____ | ____ |
+|/    \|/    \|
+				</pre>
+			    </figure>
+			    <h2>References</h2>
+			    <ol>
+				<li><em>The History of HTML</em> [<a href="http://www.ironspider.ca/webdesign101/htmlhistory.htm">http://www.ironspider.ca/webdesign101/htmlhistory.htm</a>]</li>
+				<li><em>A Brief History of CSS Until 2016</em> [<a href="https://www.w3.org/Style/CSS20/history.html">https://www.w3.org/Style/CSS20/history.html</a>]</li>
+				<li><em>Standards FAQ</em> [<a href="https://www.w3.org/standards/faq.html">https://www.w3.org/standards/faq.html</a>]</li>
+				<li><em>CSS Cascading and Inheritance Level 3</em> [<a href="https://www.w3.org/TR/css-cascade-3/#cascading">https://www.w3.org/TR/css-cascade-3/#cascading</a>]</li>
+			    </ol>
+			</article>
+		    </li>
+		</ol> 
+	    </article>
+	</div>
+	<script type="text/javascript" src="res/scripts/common.js"></script>
+	<script type="text/javascript" src="res/scripts/main.js"></script>
+	<script>init_all();</script>
+    </body>
+</html>
