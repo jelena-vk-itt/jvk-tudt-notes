@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>	
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="res/styles/cswd.css"/>
+	<title>Dynamic Web Content</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <div id="titlecontainer">
+		<div id="title">
+		    Dynamic Web Content
+		</div>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
+	</header>
+	
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+
+	    </nav>
+
+	    <article>
+		<ol class="toc_grp newline">
+
+		    <!-------------------- SECTION 01 -------------------->
+		    <li id="cswd-ft-dyn-web-cont-01">
+			<p>Static vs. Dynamic Web Content</p>
+			<article>
+			    <h2>Static vs. Dynamic Web Content</h2>
+			    <ul>
+				<li>Initial content on the WWW was <strong>static</strong>: on receiving an HTTP request, the server would fetch the requested html page from its file system and send it to the client in the content section of the HTTP response message.
+				    <figure class="four">
+					<img src="res/images/static_content.png">
+					<figcaption>Figure: WWW Session with Static Content (picture by E. Lee)</figcaption>
+				    </figure>
+				</li>
+				<li>However, the content sent to the client does not have to come from a file. It can be created on the fly by the server, from partial HTML files, data read from a database or generated in some other way. This is <strong>server-side-generated dynamic content</strong>.</li>
+				<li>Finally, the content sent to the client does not have to remain the same as the client views it or interacts with it. It can be modified by scripts sent to the client together with the HTML content. This is <strong>client-side-generated dynamic content</strong>.</li>
+				<li>Dynamic content can differ depending on various factors, for example:
+				    <ul>
+					<li>the location of the client (localisation)</li>
+					<li>the identity of the user on the client side (customisation)</li>
+					<li>data in the server-side database (for example a list of products on offer by from website owners)</li>
+					<li>time of day (e.g. a shop's website might display 'open' or 'closed')</li>
+					<li>elapsed time (e.g. animations)</li>
+				    </ul>
+				</li>
+			    </ul>
+			</article>
+		    </li>
+		    
+		    <!-------------------- SECTION 02 -------------------->
+		    <li id="cswd-ft-dyn-web-cont-02">
+			<p>Server-Side-Generated Dynamic Content</p>
+			<article>
+			    <h2>Server-Side-Generated Dynamic Content</h2>
+			    <ul>
+				<li>A URL may refer to a <strong>script based on the server</strong> and when such a URL is requested the server runs the script to <strong>generate the HTML</strong> to be sent in response to the request.			    
+				    <figure class="four">
+					<img src="res/images/server_dynamic_content.png">
+					<figcaption>Figure: WWW Session with Server-Generated Dynamic Content (after picture by E. Lee)</figcaption>
+				    </figure>
+				</li>
+				<li>The early API for server-side scripting was <strong>common gateway interfice (CGI)</strong>, which could be used with many languages e.g. C, PHP and Perl. While servers still support it, not much development takes place in CGI any more.</li>
+				<li>Numerous <strong>server-side scripting languages</strong> are used today, for example: PHP, Ruby, Python, JavaScript, ASP.NET, C#, Java. Older ones are supported directly by web server implementations e.g. PHP on Apache. </li>
+				<li><strong>Web application frameworks</strong> are 'software constructions' that make the development of web applications easier by providing ready-made functionality for reusable functions.
+				    <ul>
+					<li>They generally provide an interface for a single language, e.g.
+					    <ul>
+						<li>Laravel (PHP)</li>
+						<li>Ruby on Rails (Ruby)</li>
+						<li>Django (Python)</li>
+						<li>Express.js (JavaScript)</li>
+						<li>ASP.NET</li>
+						<li>Play (Java, Scala)</li>
+					    </ul>
+					</li>
+					<li>The type of functionality frameworks provide is:
+					    <ul>
+						<li>'scaffolding' for configuration of common activities</li>
+						<li>data access through object-relational mapping (ORM)</li>
+						<li>front-end template system</li>
+						<li>security, caching etc.</li>
+					    </ul>
+					</li>
+				    </ul>
+				</li>
+				<li><strong>Web content management systems</strong> allow non-programmers to author content for the web and to carry out some configuration but do not provide a programming interface. Examples are WordPress and Joomla.
+				</li>
+				<li>Server-side scripts use information sent by the client in the HTTP request as inputs for processing. Information can be transferred to the server in the form of:
+				    <ul>
+					<li>parameters at the end of the URL</li>
+					<li>form input (including invisible fields)</li>
+					<li>cookies</li>
+				    </ul>
+				</li>
+			    </ul>
+			</article>
+		    </li>
+
+		    <!-------------------- SECTION 03 -------------------->
+		    <li id="cswd-ft-dyn-web-cont-03">
+			<p>Client-Side-Generated Dynamic Content</p>
+			<article>
+			    <h2>Client-Side-Generated Dynamic Content</h2>
+			    <ul>
+				<li>Once content is loaded in the browser, it can be <strong>modified by scripts interpreted by the browser</strong>. This is how dynamic content is created on the client side.
+				    <ul>
+					<li>The standard language for client-side scripting is ECMAScript:
+					    <ul>
+						<li>standardised by ECMA International - European association for standardizing information and communication systems</li>
+						<li>a standard that grew out of an implementation - Javascript (an implemented language) came first and the standard was specified based on that language</li>
+						<li>has a number of implementations, for example Javascript, JScript (Microsoft), ActionScript (Macromedia, later Adobe)
+						    the European Computer Manufacturers' Association (ECMA)</li>
+					    </ul>
+					</li>
+					<li><strong>JavaScript</strong>:
+					    <ul>
+						<li>was invented by Brendan Eich in Netscape in 1995 (originally under the name LiveScript)</li> 
+						<li>was the basis for the standard, ECMAScript, introduced in 1997 to underpin it</li>
+						<li>is used in all browsers today</li>
+						<li>is interpreted by the browser 'scripting engine'</li>
+						<li>derives its power from being given full 'write' access to the web page displayed in the browser, through document object model (DOM) object
+						    <figure class="three">
+							<img src="res/images/dom.png">
+							<figcaption>Figure: A portion of the DOM (picture by E. Lee)</figcaption>
+						    </figure>
+						</li>
+						<li>is supported by a number of other APIs (in addition to DOM), e.g. geolocation, canvas, browser-based media APIs and third-party APIs such as Google Maps</li>
+						<li>is further supported by libraries such as JQuery that provide packaged functionality implemented in JavaScript</li>
+						<li>is always executed (by the browser) to handle an event, for example when:
+						    <ul>
+							<li>the page is loaded (onload)</li>
+							<li>the page is unloaded (onunload)</li>
+							<li>an element is clicked (onclick)</li>
+							<li>the mouse pointer exits the area of an element (onmouseout)</li>
+						    </ul>
+						</li>
+						<li>is used for the implementation of diverse functionality, for example:
+						    <ul>
+							<li>display a message box</li>
+							<li>edit and validate form information</li>
+							<li>create a new window</li>
+							<li>display of current date or other information that depends on the current context</li>
+						    </ul>
+						</li>
+						<li>can be used with a <strong>front-end framework</strong> such as React or Angular.js for the building of more complex 'single-page applications'</li>
+					    </ul>
+					</li>
+				    </ul>
+				</li>
+				<li>Other ways of producing dynamic content have been used in the past but are now obsolete or being phased out. For example:
+				    <ul>
+					<li>Java applets - Java code that ran in Java Virtual Machine kicked off by the browser</li>
+					<li>Adobe Flash - animation format that can be played by a browser plug-in</li>
+				    </ul>
+				</li>
+				<li>The tasks performed by client-side scripts are generally not mission-critical, as relying on not-known-in-advance (from the point of view of the website developer) factors such as browser type or configuration is a risk. The more important tasks are left to the server side.</li> 
+			    </ul>
+			</article>
+		    </li>
+		    
+		    <!-------------------- SECTION 08 -------------------->
+		    <li id="cswd-ft-dyn-web-cont-08">
+			<p>References</p>
+			<article>
+			    <figure class="section_symbol">
+				<pre>
+  ____   ____
+ /    \ /    \
+| ABCD | EFG. |
+| ____ | ____ |
+|/    \|/    \|
+				</pre>
+			    </figure>
+			    <h2>References</h2>
+			    <ol>
+				<li><em>A history of the dynamic web</em> [<a href="https://royal.pingdom.com/2007/12/07/a-history-of-the-dynamic-web/">https://royal.pingdom.com/2007/12/07/a-history-of-the-dynamic-web/</a>]</li>
+				<li><em>ECMA International home page</em> [<a href="https://www.ecma-international.org/default.htm">https://www.ecma-international.org/default.htm</a>]</li>
+			    </ol>
+			</article>
+		    </li>
+		</ol>
+	    </article>
+	</div>	    
+
+	<script src="../common/res/scripts/main.js"></script>
+	<script>
+	 init_all();
+	</script>
+
+    </body>
+</html>

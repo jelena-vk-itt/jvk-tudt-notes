@@ -38,7 +38,7 @@
 		    <!--------------------------------------------------------------------->            
                     <li id="ooswd-l4-01">
 			<p>Strings as objects</p>
-			<article>
+			<article style="display:none">
 			    <h2>Strings as objects</h2>
 
 			    <p>The string type, <span class="fw">str</span>, is a <strong>sequence</strong> type in Python (along with <em>list</em>, <em>tuple</em> and <em>range</em>).</p> 
@@ -150,19 +150,19 @@ name[:-4]
 			    <p>Strings are <strong>immutable</strong> objects, which means that a string value cannot be changed 'in place'. A string can be read and its value or parts thereof used as a basis for the creation of new strings, but these will be stored in a different memory location from the original string, the original string remaining intact.</p>
 			    <figure id="py-str-immut" class="my1">
 				<figcaption>Replacing substrings to demonstrate immutability (run interactively)</figcaption><pre class="code-listing">
-name = "Johnathan"
-shorter = name.replace("natha", "")
+name = "Marianne"
+shorter = name.replace("ann", "")
 name
 shorter
 				</pre>
 			    </figure>
-			    <p>In code snippet <a class="xref" href="#py-str-immut">?</a> a call is made on the variable <span class="fw">name</span> for the string "natha" to be replaced with an empty string "". The function does not modify the string stored in variable <span class="fw">name</span> (this would not be allowed because strings are immutable) but creates a new string with the new value and returns that new value. We store it in variable <span class="fw">shorter</span>.</p>
+			    <p>In code snippet <a class="xref" href="#py-str-immut">?</a> a call is made on the variable <span class="fw">name</span> for the string "ann" to be replaced with an empty string "". The function does not modify the string stored in variable <span class="fw">name</span> (this would not be allowed because strings are immutable) but creates a new string with the new value and returns that new value. We store it in variable <span class="fw">shorter</span>.</p>
 			</article>
 		    </li>
 		    
                     <li id="ooswd-l4-02">
 			<p>UTF-8 Encoding</p>
-			<article>
+			<article style="display:none">
 			    <h2>UTF-8 Encoding</h2>
 			    
 			    <p>In Python 3 strings are encoded using the UTF-8 character encoding system. An encoding system maps the visual appearance of characters to numeric values that can be stored and manipulated in a computer. A full list of characters mapped by UTF-8 can be found <a href="https://mcdlr.com/utf-8"><strong class="maroon">here</strong></a>.</p>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>	
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	<link rel="stylesheet" type="text/css" href="res/styles/cswd.css"/>
+	<title>LAB: Setup of Git Repository for CSWD Labs</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>Tallaght Campus</p>
+		<p>Department of Computing</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Uploading Lab Work to the CSWD GitHub Repository</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="CSWD Logo">
+	</header>
+
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+	    </nav>
+
+	    <article>
+		<p>This document contains instructions on how to upload lab work using git commands.</p>
+		
+		<p><strong>Note:</strong> Angular brackets with text between them are placeholders, to be replaced in commands by your own particular information. For example, if in a command you saw <span class="fw">&lt;your name></span>, you would not type literally what you see but replace the entire bracket and what is inside it with your actual name e.g. <span class="fw">Joe Bloggs</span> (<span class="fw">&lt;your name></span> turns into <span class="fw">Joe Bloggs</span>).</p>
+		
+		<ol class="toc_grp newline">
+		    <li id="cswd-ugit-01">
+			<p>Installing git</p>
+			<article>
+			    <h2>Installing git</h2>
+			    <p>In order to use git on your computer, you must have it installed.</p>
+			    <p>First check if git is installed by running the command <span class="fw">git --version</span> in a command line. If this results in a version being reported, git is already installed on your computer and you can skip the following step.</p>
+			    <p>If git is not installed, you must install it from <a href="https://git-scm.com/downloads">this page</a>, choosing to download the installer for your operating system.</p>
+			</article>
+		    </li>
+		    
+		    <li id="cswd-ugit-02">
+			<p>Using git commands to upload lab work</p>
+			<article>
+			    <h2>Using git commands to upload lab work</h2>
+			    
+			    <p>To run git commands, you must open a command line window (<strong>cmd</strong> or <strong>PowerShell</strong> in Windows; <strong>Terminal</strong> in Linux) and type the commands into the window.</p>
+
+			    <ul>
+				<li>Before you do anything else, git requires that you identify yourself. Use the following commands to register your name and email address with git:
+				    <dl>
+					<dt><span class="fw">git config --global user.name "&lt;your name (not username)>"</span><br/>
+					    Example: <span class="fw">git config --global user.name "Joe Bloggs"</span>
+					</dt><dd>lets git know your name</dd>
+					<dt><span class="fw">git config --global user.email "&lt;the email address with which you registered with GitHub>"</span><br/>
+					    Example: <span class="fw">git config --global user.email "x00123456@mytudublin.ie"</span>
+					</dt><dd>lets git know your email (this should be the email you registered on GitHub with)</dd>
+				    </dl>
+				</li>
+				<li>Next, you need to create a copy of your repository on the computer. You do this by <em>cloning</em> the repository with the following command:
+				    <dl>
+					<dt><span class="fw">git clone &lt;repository URL></span><br/>
+					    Example: <span class="fw">git clone https://github.com/CSWD-CompITT/cswd-labs-joe-bloggs</span>
+					</dt><dd>clones a repository to your computer file system (a <strong>repository working directory</strong> is created in the directory where the command was executed); the directory name is of the form <span class="fw">cswd-labs-joe-bloggs</span></dd>
+				    </dl>
+				</li>
+				<li>Now unzip file HTMLAndCSS.zip into the repository working directory.</li>
+				
+				<li>To <strong>commit</strong> your changes (i.e. adding the files from HTMLAndCSS.zip) to the repository locally, use the following two commands, <strong class="maroon underline">while in the repository working directory as the current directory</strong>:
+				    <dl>
+					<dt><span class="fw">git add .</span></dt><dd>moves any modified files or files new to the repository into the 'staged' state</dd>
+					<dt><span class="fw">git commit -m "&lt;some comment describing the changes>"</span></dt><dd>commits the staged files, but does not push them to the online repository</dd>
+				    </dl>
+				</li>
+				<li>To upload the changes to the online repository in GitHub, use the following command, with the repository working directory as the current directory:
+				    <dl>
+					<dt><span class="fw">git push</span></dt><dd>pushes the commited changes to the online repository</dd>
+				    </dl>
+				</li>
+				<li>To check if the updates to the repository have been successfully pushed to GitHub, open your GitHub account on the WWW and have a look at the contents of the CSWD lab repository.</li>
+			    </ul>
+			    
+			</article>
+		    </li>
+		    <li id="cswd-ugit-03">
+			<p>Uploading further work on the same repository</p>
+			<article>
+			    <h2>Uploading further work on the same repository</h2>
+			    <p>Now you are set up to work on your labs in your repository working directory. You will make changes in the lab files while working on them. When you are finished (completely or just for that work session), repeat the steps starting with <span class="fw">git add</span> to update your repository in the cloud. It is a good idea to upload your work regularly.</p>
+			    <p>If your work is up-to-date in the cloud, you can delete the local repository working directory and start again later with <span class="fw">git clone</span>.</p>
+			    <p>If your work is up-to-date in the cloud, you can work on a different computer, also starting with <span class="fw">git clone</span>.</p>
+			    <p>Short reference information on git can be found in the tutorial 'Git and GitHub'.</p>
+			</article>
+		    </li>
+		    
+		</ol>
+	    </article>
+	</div>
+	
+	<script src="../common/res/scripts/main.js"></script>
+	<script>
+	 init_all();
+	</script>
+
+    </body>
+</html>

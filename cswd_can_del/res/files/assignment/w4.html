@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>W</title>
+	<link rel="stylesheet" type="text/css" href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css" />
+	<style>
+	 body { font-family: helvetica, arial, sans-serif; font-size: large; }
+	 section { margin: 3em 0 0 0; clear: both; }
+	 .fw, pre { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;}
+	 .instructions li { margin-top: 1rem; margin-bottom: 0; }
+	 figure { width: 100%; margin: 0; padding: 0.5rem 0; display: flow-root; }
+	 figure img { width: 100%; float: left; font-weight: bold; font-style: italic; }
+	 .basic-border { border: 1px solid black; }
+	</style>
+    </head>
+    <body>
+	<div id="content">
+	    <article>
+		<h1>Client-Side Web Development - Graded Assignment #4</h1>
+		<ol>
+		    <li>Use VS Code to open files <em>index.html</em> and <em>main.js</em>, in which you completed the first three assignments.</li>
+		    <li>In the file <em>index.html</em> add a horizontal line (<span class="fw">&lt;hr></span>) below the other visible contents (but inside the Bootstrap container). Below the line add two buttons, one called <strong>Change one</strong> and another one called <strong>Text to uppercase</strong>.</li>
+		    <li>Write a function in <em>main.js</em> and add an event handler and an id in <em>index.html</em> (each to the appropriate element) to implement the following behaviour:
+			<ol style="list-style-type: upper-roman;">
+			    <li>when the button <strong>Change one</strong> is clicked, the element with text "one" is modified to read "1" instead</li>
+			    <li>on subsequent clicks, a "1" is added, so that after the second click the text on the element is "11", after the third it is "111" and so on</li>
+			</ol>
+			Start by declaring a variable outside of the function with <pre>
+
+let onesString = "";
+		    </pre>When called, the function should append a "1" to <span class="fw">onesString</span> and then use <span class="fw">onesString</span> to set the contents of the element that is being modified.</li>
+		    <li>Write a function in <em>main.js</em> and add an event handler and an id in <em>index.html</em> (each to the appropriate element) to implement the following behaviour: when the button <strong>Text to uppercase</strong> is clicked, the text in the long paragraph is displayed entirely in uppercase. The function must read the contents of the paragraph and modify it - not use a hard-coded version of the text.</li>
+		</ol>
+		<p>&nbsp;</p>
+
+		<em>For a video demonstrating the required behaviour click <a class="green underline" href="https://screenpal.com/watch/c06jFyV5pc6">here</a>.</em><br><br>
+		<em>For information on submission deadline and grading of this assignment see the the <a href="https://jelena-vk-itt.github.io/jvk-tudt-notes/cswd/index.html">Schedule and Notes</a> page, below the table.</em>
+	    </article>
+	</div>
+    </body>
+</html>
