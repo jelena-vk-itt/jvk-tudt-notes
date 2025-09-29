@@ -379,9 +379,9 @@ separator.join(list)</pre>
 
 		    <!--------------------------------------------------------------------->            
 		    <li id="ooswd-l5-s02-e">
-			<p>Tuples and enumerate</p>
+			<p>Tuples</p>
 			<article style="display:none">
-			    <h2>Tuples and enumerate</h2>
+			    <h2>Tuples</h2>
 			    <p>In the section on list comprehensions, we have seen a structure called the <strong>tuple</strong>. <a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">Tuples</a> are sequences, like lists, but are immutable. They are used in contexts where multiple values are needed instead of one value. Tuple literals can be defined either as a comma-separated list or a comma separated list in parentheses.</p>
 			    <figure id="py-tuple-def" class="my1">
 				<figcaption>Defining tuples</figcaption><pre class="code-listing">
@@ -390,24 +390,10 @@ t2 = (1, 2, 3)
 t3 = 3, 4, 5
 
 t1 == t2 # expected output: true
-t1 == t2 # expected output: false   </pre>
+t1 == t3 # expected output: false   </pre>
 			    </figure>
 
-			    <p>Python has a built-in function called <span class="fw">enumerate</span>, which returns index-value tuples of a sequence. This is very useful where the indices of list elements are needed for processing. Like <span class="fw">map</span> and <span class="fw">filter</span>, this function's output is not a list but can be converted to one.</p>
-
-			    <figure id="py-enum" class="my1">
-				<figcaption>Enumerate function</figcaption><pre class="code-listing">
-names = ['jim', 'john', 'jane', 'jen']
-
-# create an enumerated list
-list(enumerate(names))
-
-# get a list of strings preceded by 1-based indices
-[ str(x[0] + 1) + " " + x[1] for x in enumerate(names) ]
-# or
-list(str(x[0] + 1) + " " + x[1] for x in enumerate(names))</pre>
-			    </figure>
-
+	
 			    
 			</article>
 		    </li>
