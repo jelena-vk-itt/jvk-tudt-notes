@@ -56,7 +56,7 @@ table .vtext { width: 2em; writing-mode: vertical-rl; transform: rotate(180deg);
 .weeknum { width: 3em; }
 #toc td.tut, #toc td.lec, #toc td.lab, #toc td.com, #toc td.sol, #toc td.ca { border: 0.1px dotted darkgray; }  
 #toc td.com { max-width: 22em; }
-#toc td.ca { text-align: left; }
+#toc td.ca { text-align: left; font-weight: bold; }
 #toc td.banner { letter-spacing: 1em; text-align: center; }
 
 
