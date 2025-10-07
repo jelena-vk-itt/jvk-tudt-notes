@@ -65,6 +65,32 @@ range(10, 0, -1) # contains 10 9 8 7 6 5 4 3 2 1</pre>
 			    </figure>
 			</article>
                     </li>
+
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000143">
+			<p>Enumerations</p>
+			<article style="display:none">
+                            <h2>Enumerations</h2>
+
+			    <p>An <strong>enumeration</strong> is an iterable object that contans ordered elements, each of which is a tuple containing and index and a value.</p>
+
+			    <figure id="py-enum" class="my1">
+				<figcaption>Creating an enumeration (run interactively)</figcaption><pre class="code-listing">
+nonMotorised = ['bicycle', 'scooter', 'rollerblades', 'rollerskates', 'skateboard']
+
+# create the enumeration
+nonMotorisedEnum = enumerate(nonMotorised)
+
+# notice that the enumeration is an object of type enumeration
+nonMotorisedEnum
+
+# we can see what is inside the enumeration by converting to list
+list(nonMotorisedEnum)</pre>
+			    </figure>
+			    
+			</article>
+                    </li>
 		    
 
 		    
@@ -134,6 +160,7 @@ for number in range(11, 0, -3):
 					</details>
 				    </article>
 				</li>
+
 				
 				<!--------------------------------------------------------------------->            
 				<li id="ARTCLID000020">
@@ -174,9 +201,9 @@ for index in range(0, len(word)):
 					<figure id="py-for-string" class="my1">
 					    <figcaption>Iterating over lists with for loops</figcaption><pre class="code-listing">
 nonMotorised = [ "rollerblades", "bicycle", "scooter", "sail wagon", "legs" ]
-maxWordLen = max(map(len, nonMotorised))
-for mode in sorted(nonMotorised):
-   print("--< " + mode.center(maxWordLen, ' ') + " >--")</pre>
+
+for mode in nonMotorised:
+   print("😊", mode)</pre>
 					</figure>
 
 					<details class="ice"><summary></summary>
@@ -186,6 +213,31 @@ for mode in sorted(nonMotorised):
 					
 				    </article>
 				</li>
+
+				<!--------------------------------------------------------------------->            
+				<li id="ARTCLID000142">
+				    <p>Iterating over enumerations</p>
+				    <article style="display:none">
+					<h2>Iterating over enumerations</h2>
+
+					<p>Enumerations are useful when we need both the index and the item value inside the statement block of the loop.</p>
+
+					<p>Notice that the enumeration does not need to be converted to a list to be used in a for loop.</p>
+					    
+					<figure id="py-for-enum">
+					    <figcaption>Iterating over enumerations with for loops</figcaption><pre class="code-listing">
+nonMotorised = [ "rollerblades", "bicycle", "scooter", "sail wagon", "legs" ]
+
+nonMotorisedEnum = enumerate(nonMotorised)
+
+for modeTuple in nonMotorisedEnum:
+   # increase index by 1 (we don't want to start at 0!)
+   print(modeTuple[0] + 1, modeTuple[1])</pre>
+					</figure>
+				    </article>
+				</li>
+				
+
 			    </ol>
 			</article>
                     </li>
