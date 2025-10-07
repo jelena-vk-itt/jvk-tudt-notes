@@ -141,6 +141,35 @@ name[-3:]
 name[:-4]
 					</pre>
 				    </figure>
+				    
+				    <p>If a <strong>third value</strong> is present between the square brackets, it signifies the <strong>step</strong> that should be applied in extracting the characters. The <strong>default value is 1</strong> (used when there is no third index specified).</p> <p>A <strong>negative step value</strong> indicates that the characters should be extracted <strong>backwards</strong>.</p>
+
+				    <figure id="py-str-sq-brack-third" class="my1">
+					<figcaption>Using the step argument (run interactively)</figcaption><pre class="code-listing">
+word = "supercalafragelistic"
+
+# extract all characters from the whole word (copy the word)
+word[::1]
+
+# extract characters with step 2 from the whole word (expected output: spraarglsi)
+word[::2]
+
+# extract characters with step 3 from the substring that excludes
+# three characters at either end (expected output: eafgi)
+word[3:-3:3]
+# or
+word[3:17:3]
+
+# extract all characters backwards (expected output: citsilegarfalacrepus)
+word[::-1]
+
+# extract characters with step 5 from the substring that excludes
+# four characters at either end of the word (expected output: irc)
+# notice that the first and last index have to be specified backwards as well!
+# also notice that the first index is -5 (fifth starting from -1)
+word[-5:4:-5] 
+					</pre>
+				    </figure>
 
 				</li>
 			    </ul>

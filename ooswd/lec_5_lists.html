@@ -178,6 +178,39 @@ myList[-1:] = ["good day"]
 myList</pre>
 							</figure>	    
 						    </li>
+						    <li>delete a list element by index
+							<figure id="py-list-sub-set" class="my1">
+							    <figcaption>Deleting a list element by index (run interactively)</figcaption><pre class="code-listing">
+myList = ["hello", "hi", 5, "how are you"]
+myList
+
+# use the del operator to delete the second item (index 1)
+del myList[1]
+myList
+
+# OR
+# use the pop method to delete the second item of the resulting list
+myList.pop(1)
+myList</pre>
+							</figure>	    						
+						    </li>
+						    
+						    <li>delete the first list element with a given value
+							<figure id="py-list-sub-set" class="my1">
+							    <figcaption>Deleting a list element by value (run interactively)</figcaption><pre class="code-listing">
+myList = ["hello", "hi", 5, "how are you", "hi"]
+myList
+
+# delete the item with value "hi"
+# notice that only the first appearance of "hi" is removed each time
+myList.remove("hi")
+myList
+
+myList.remove("hi")
+myList</pre>
+							</figure>	    
+							
+						    </li>
 						</ul>
 					    </li>
 					</ul>
