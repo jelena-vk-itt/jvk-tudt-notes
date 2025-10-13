@@ -14,7 +14,7 @@
 		<p>School of Computer Science</p>
 	    </div>
 	    <div id="titlecontainer">
-		<p id="title">Lambdas and list comprehensions lab</p>
+		<p id="title">Functions lab</p>
 	    </div>
 	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
 	</header>
@@ -59,26 +59,36 @@
 		</details>
 
 		<section class="tutorial-panel clearfix">
-		    <h2>Exercise 1: Processing a number list</h2>
-		    <ul>
-			<li>Write a function that takes a list of numbers and prints the numbers separated by commas.</li>
-			<li>Define the list <span class="fw">[1, 2, 3, 5, 7]</span> and print it using your function.</li>
-			<li>For each of the following cases, use a list comprehension with a lambda expression to map the list to a new list, then print it out
-			    <ol>
-				<li>the new list contains the squares of the values in the original list</li>
-				<li>the new list contains the square roots of the values in the original list (if a number is negative, map to the imaginary square root)</li>
-				<li>the new list contains only the odd numbers from the original list</li>
-			    </ol>
-			</li>
-		    </ul>
+		    <h2>Exercise 1: Table with headers, using functions</h2>
+		    <p>
+			Repeat the excercise given in the <em>nested loops</em> lab, to produce the table shown below, but this time with the use of two functions: one that constructs the heading cell contents (e.g. 'c1', 'r1') and one that constructs data cell contents (e.g. 'r1c1'). Also use a function that produces the smiley face string (happy or sad), given the boolean parameter <span class="fw">happy</span>. 
+		    </p>
+		    <pre class="box bg-black white">
+ :-)  |  c1    c2    c3
+-------------------------
+  r1  | r1c1  r1c2  r1c3
+  r2  | r2c1  r2c2  r2c3
+  r3  | r3c1  r3c2  r3c3
+  r4  | r4c1  r4c2  r4c3
+  r5  | r5c1  r5c2  r5c3
+  r6  | r6c1  r6c2  r6c3
+  r7  | r7c1  r7c2  r7c3 </pre>
+		    <br>
 		</section>
+
 		<section class="tutorial-panel clearfix">
-		    <h2>Exercise 2: Processing a list of strings</h2>
+		    <h2>Exercise 2: Calculator</h2>
 		    <ul>
-			<li>Define a list of names</li>
-			<li>Write a function that takes a string and returns true if the string contains less than two vowels</li>
-			<li>Use the function in a list comprehension that converts strings in the original list to all-lowercase and fiters it by the function you wrote in the previous step.</li>
-			<li>Print the original list and the list constructed by the list comprehension.</li>
+			<li>Write a function that takes three parameters, expecting two number arguments and a string with one of the following values: '+', '-', '*' or '/'. The function should perform the operation corresponding to the given string on the two number parameters and return the result of the operation. It should handle all cases of invalid arguments by printing an informative message and returning <span class="fw">None</span>. Name your function and parameters suitably, based on their meaning. </li>
+			<li>Use the function in a program where the user is asked to enter two numbers and an operation and where the result of the operation is displayed to the user. The function will handle any invalid inputs, but you will have to check if the value returned by the function is <span class="fw">None</span>, in order to decide if you should print a result. If <span class="fw">result</span> is the value returned by a call to the function, you can use either of the following conditions: <pre>
+
+if not result is None:
+    # do something
+ 
+if result:
+    # do something</pre></li>
+			<li>List a comprehensive tests for the program.</li>
+			<li>Perform the tests and fix any problems with the program that are revealed by the testing. Repeat this process until the program works correctly.</li>
 		    </ul>
 		</section>
 	    </article>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	
+	<link rel="stylesheet" type="text/css" href="res/styles/ooswd.css"/>
+	<title>OOSWD</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Lambda expressions</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+
+	    </nav>
+
+	    <article>
+
+		<ol class="toc_grp newline">
+
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000078">
+			<p>Lambda expressions</p>
+			<article style="display:none">
+			    <h2>Lambda expressions</h2>
+
+			    <p>A lambda expression</p>
+			    <ul>
+				<li>
+				    is an expression that defines a function i.e. a reusable piece
+				    of functionality
+				</li>
+				<li>
+				    is returns (evaluates to) an <strong>anonymous</strong> function
+				    i.e. a function without a name
+				</li>
+				<li>can be called as a function</li>
+				<li>
+				    can be assigned to a variable and thus get a name by which it
+				    can be called
+				</li>
+				<li>
+				    can be passed in as an argument to another function and called
+				    by the parameter name
+				</li>
+				<li>
+				    takes the form
+				    <pre>
+lambda &lt;parameter list> : &lt;return value created from parameter></pre
+								     >
+				</li>
+				<li>
+				    takes arguments defined by the parameter list between
+				    <span class="fw">lambda</span> and the colon
+				</li>
+				<li>
+				    returns the value to which the expression right of the colon
+				    evaluates
+				</li>
+				<li>can use variables defined outside of it</li>
+			    </ul>
+			    <figure id="py-lambda" class="my1">
+				<figcaption>
+				    Examples of lambda expressions and their use (run interactively)
+				</figcaption>
+				<pre class="code-listing">
+# define a lambda expression
+# that increases a number by 3
+# and assign it to f (name it f)
+f = lambda x : x + 3
+# run it
+f(4)
+f(2.3)
+
+# we don't have to name a lambda
+# expression but can call it
+# directly (it must be placed
+# in parentheses)
+(lambda x : x + 3)(4)
+(lambda x : x + 3)(2)
+
+# define and use a lambda
+# expression with two parameters
+(lambda x, y : x * y)(3, 4)
+(lambda x, y : x * y)(23, 2)
+
+# define a lambda expression
+# that checks if a number is
+# greater than 3 (the return
+# type is boolean)
+g = lambda x : x > 3
+# run it
+f(3)
+f(3.1)				</pre
+				>
+			    </figure>
+
+			    <figure id="py-lambda-2" class="my1">
+				<figcaption>
+				    Examples of lambda expressions that use variables external to
+				    them
+				</figcaption>
+				<pre class="code-listing">
+# some names
+names = ["ben", "con", "ann", "dan"]
+# define a lambda expression that returns the 
+# index in the list 'names' for the given string value
+get_index_for_name = lambda nm : names.index(nm)
+# use it
+get_index_for_name('ann')
+get_index_for_name('ben')
+
+# some scores
+scores = [23, 67, 34, 12]
+# define a lambda expression that returns the
+# value in the list 'scores' corresponding by position
+# to the given value in the list 'names'
+get_score_for_person = lambda nm : scores[names.index(nm)]
+get_score_for_person("ben")
+get_score_for_person("dan")
+
+# sort the name list by scores, using 
+# sorted(), which does not modify the list;
+# we need the original list intact as
+# it is being used in the lambda expression
+sorted(names, key=get_score_for_person)
+# or
+sorted(names, key=lambda n : scores[names.index(n)]</pre>
+			    </figure>
+			</article>
+		    </li>
+
+
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000077">
+			<p>List comprehensions</p>
+			<article style="display:none">
+			    <h2>List comprehensions</h2>
+			    <p>List comprehensions are constructs that allow the construction of lists by mapping and filtering other lists. Python also had (or perhaps still has, but theyare on the way out) methods called <span class="fw">map</span> and <span class="fw">filter</span>, which were used for the same purpose.The syntax of a list comprehension is</p>
+			    <strong class="fw">[</strong> <span class="darkgray">expression1</span> <span class="bg-green"><strong class="fw">if</strong> <span class="darkgray">condition1</span> <strong class="fw">else</strong> <span class="darkgray">expression2</span></span> <strong class="fw">for</strong> <span class="darkgray">list_element</span> <strong class="fw">in</strong> <span class="darkgray">list</span> <span class="bg-royalblue"><strong class="fw">if</strong> <span class="darkgray">condition2</span></span> <strong class="fw">]</strong>
+			    <ul>
+				<li>The black text in the syntax specification constitutes the fixed parts of the comprehension, including keywords and brackets.</li>
+				<li>The statement <span class="fw">for list_element in list</span> specifies the list with expression <span class="fw">list</span> and a variable to store the current element (<span class="fw">list_element</span>) during iteration over the list , much like in a usual for-in loop.</li>
+				<li><span class="fw">expression1</span> is the mapping expression, which transforms each list element to an element of the new list (it corresponds to the function or lambda expression passed to the <span class="fw">map</span> function).</li>
+				<li>The part with the blue background is the filter, with <span class="fw">condition2</span> as the filtering condition, which must return a boolean value. This part is optional.</li>
+				<li>The part with the green background is a construct that allows conditional mapping: <span class="fw">expression1</span> is used if <span class="fw">condition1</span> is true, while <span class="fw">expression2</span> is used if not. This part is also optional.</li>
+			    </ul>
+			    <figure id="py-list-comprehension" class="my1">
+				<figcaption>Examples of list comprehensions</figcaption><pre class="code-listing">
+names = ['jim', 'jill', 'john', 'jane', 'jen', 'jack']
+
+# examples with no filter or conditional mapping
+# -----------------------------------------------
+# map to string length
+[ len(n) for n in names ]
+
+# map to names in all-capitals
+[ n.upper() for n in names ]
+
+# examples with filter only
+# --------------------------
+# map to string length, including only names containing an 'e'
+[ len(n) for n in names if 'e' in n ]
+
+# map to names in all-capitals, including only names longer than 3
+[ n.upper() for n in names if len(n) > 3 ]
+
+# examples with conditional mapping only
+# ---------------------------------------
+# map to all-capitals if name length is less than 4, otherwise don't change
+[ n.upper() if len(n) < 4 else n for n in names ]
+
+# map to length+1 if name contains an 'e', otherwise map to length-1
+[ len(n) + 1 if 'e' in n else len(n) - 1 for n in names ]
+
+# examples including all parts of the construct
+# ----------------------------------------------
+# map to all-capitals if name length is less than 4, otherwise don't change,
+# including only names with an 'e'
+[ n.upper() if len(n) < 4 else n for n in names if 'e' in n ]
+
+# map to length+1 if name contains an 'e', otherwise map to length-1,
+# including only names longer than 3
+[ len(n) + 1 if 'e' in n else len(n) - 1 for n in names if len(n) > 3]</pre>
+			    </figure>
+
+			    <p>Comprehensions are easier to write and to the trained eye are much easier to read. There are some scenarios where map/filter is still more concise: when the mapping function is built in (e.g. len or int) and when multiple lists need to be transformed.</p>
+			    <p>In the list comprehension in the example below, the zip function needs to be called to combine the names and surnames into tuples <span class="fw">(n, s)</span>, which are then transformed. This is a sort of a hack, since it creates an intermediate data structure that is needed only for processing.</p>
+			    
+			    <figure id="py-two-list-compreh" class="my1">
+				<figcaption>Example of list comprehension using two input lists</figcaption><pre class="code-listing">
+names = ['jim', 'jill', 'john', 'jane', 'jen', 'jack']
+surnames = ['lock', 'smith', 'stone', 'mason', 'bell', 'ringer' ]
+
+# join name and surname, capitalising both, using map
+list(map(lambda n, s : n.capitalize() + " " + s.capitalize(), names, surnames))
+
+# the same transformation using a list comprehension
+[ n.capitalize() + " " + s.capitalize() for (n, s) in zip(names, surnames) ]
+				</pre>
+			    </figure>
+			    
+			</article>
+		    </li>
+		</ol>
+	    </article>
+
+		    
+	    <p id="sig">Jelena Vasić</p>
+
+	</div>
+
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/modules/xrefs.js"></script>
+	<script type="text/javascript" src="res/scripts/xrefs.js"></script>
+    </body>
+</html>
