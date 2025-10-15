@@ -190,17 +190,21 @@ add_nums(1, z=3)        # expected output: 9</pre>
 				<figcaption>Arbitrary number of arguments</figcaption><pre class="code-listing">
 def concat_strings(msg, *list):
     msgWithList = msg
-    for l in list:
-        msgWithList += l + ", "
     if len(list) == 0:
         msgWithList += "NONE :-("
+    for l in list:
+        msgWithList += l + ", "
     return msgWithList.rstrip(" ,")
 
-concat_strings("My favourite letters: ", "x", "y", "z") # expected output: My favourite letters: x, y, z
-concat_strings("My favourite letters: ")                # expected output: My favourite letters: NONE
+print(concat_strings("My favourite letters: ", "x", "y", "z"))
+# expected output: My favourite letters: x, y, z
+
+print(concat_strings("My favourite letters: "))
+# expected output: My favourite letters: NONE :-(
 
 names = ['jim', 'john', 'jane', 'jen']
-concat_strings("My favourite names: ", *[ n.capitalize() for n in names ])
+print(concat_strings("My favourite names: ", *[ n.capitalize() for n in names ]))
+# expected output: Jim, John, Jane, Jen
 				</pre>
 			    </figure>
 			    <strong>Note:</strong> * before the list in the last statement unpacks the list into individual arguments.
