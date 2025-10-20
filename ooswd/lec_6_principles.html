@@ -37,25 +37,72 @@
 
 		    <!--------------------------------------------------------------------->            
 		    <li id="ARTCLID000075">
-			<p>Simple program design steps</p>
+			<p>Basic program design</p>
 			<article style="display:none">
-			    <h2>Simple program design steps (roughly!)</h2>
+			    <h2>Basic program design</h2>
 
 			    <ol>
 				<li>Identify inputs and outputs</li>
 				<li>Identify the order of inputs and outputs</li>
 				<li>Identify which inputs affect which outputs</li>
 				<li>Design the flow of control</li>
-				<li>Identify repetitions and variables</li>
+				<li>Identify any repetitions and variables</li>
 				<li>If necessary, go back to step 4</li>
-				<li>Fill the programmatic details</li>
-				<li>After implementation and testing, fix any imperfections</li>
+				<li>Fill in any algorithmic details</li>
+				<li>Only once all this is in place, implement</li>
 			    </ol>
 			</article>
 		    </li>
 
-
 		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000144">
+			<p>Basic testing</p>
+			<article style="display:none">
+                            <h2>Basic testing</h2>
+
+			    <p>Testing in this module will be limited to <strong>unit testing</strong> (for individual scripts) and <strong>system testing</strong> (for several scripts that work together). Here we look at a basic approach for unit testing.</p>
+			    <h3><strong>Functional testing</strong></h3>
+			    <ol>
+				<li>Analyse your program's functional requirements
+				    <ul>
+					<li>identify use cases</li>
+					<li>identify the inputs for each use case</li>
+					<li>for each input identify value ranges or value groups relevant to the use case, including edge cases and invalid ranges</li>
+				    </ul>
+				</li>
+				<li>Design tests so that all variable range combinations are covered by a test</li>
+				<li>Run the tests, making sure that outputs are correct in terms of content and format</li>
+			    </ol>
+			    <p><strong>EXAMPLE 1:</strong></p><p>Driver licence application: user is eligible if they are 18 or over and if they have a provisional licence</p>
+			    <ul>
+				<li>use case: the user enters their age and whether they have a provisional licence, upon which the program tells them if they are eligible</li>
+				<li>inputs: age, provisional</li>
+				<li>ranges::
+				    <ul>
+					<li>age: &lt; 18 (range), >= 18 (range), 18 (edge value), 17 (edge value)</li>
+					<li>has provisional licence: True (range), False (range)</li>
+				    </ul>
+				</li>
+				<li>tests (8 in total): test each of the age ranges with each of the provisional licence ranges</li>
+			    </ul>
+			    <p><strong>EXAMPLE 2:</strong></p><p>Names tidy up: all the names in an entered list must be capitalised and must not contain non-alphabetic characters'</p>
+			    <ul>
+				<li>use case: a list of strings is provided to the program and it must report problems and tidy up the formatting, returning the tidy list if no problems were encountered</li>
+				<li>inputs: list of strings</li>
+				<li>value groups: list of alphabetic strings (range), empty list (edge value), list of strings with some non-alphabetic characters (invalid value)</li>
+				<li>tests (3 in total): test each of the ranges</li>
+			    </ul>
+		    	    
+			    <h3><strong>User experience testing</strong></h3>
+			    <ol>
+				<li>If concrete requirements for user interaction (e.g. output formatting) are given, then these should be included in the functional testing.</li>
+				<li>Identify any general user experience requirements (such as 'keep the user informed of what the program is doing') for your program and study guidelines such as <a href="https://www.nngroup.com/articles/ten-usability-heuristics/">Nielsen's usability heuristics</a> and create a checklist of user experience requirements relevant to your program.</li>
+				<li>In a separate cycle of testing, after functional problems have been fixed, run the tests for all input ranges (except edge cases) and make sure that each test case complies with the checklist.</li>
+			    </ol>
+		    	</article>
+		    </li>
+
 		    <!--------------------------------------------------------------------->            
 		    <li id="ARTCLID000117">
 			<p>Code quality attributes</p>
@@ -79,7 +126,7 @@
 				</li>
 				<li><strong>optimality</strong>: as low as possible use of resources 
 				    <p>Is the program written in a way that does not waste memory and/or CPU?)</p> </li>
-				<li><strong>environmental friendliness</strong>: similar to above but with focus on environmental concerns</li>
+				<li><strong>environmental friendliness/sustainability</strong>: similar to above but with focus on environmental concerns</li>
 				<li><strong>scalability</strong>: the possibility of adjustment for greater processing bulk 
 				    <p>Can this code be deployed so as to serve more users or handle a bigger database?</p>
 				</li> 
@@ -92,9 +139,9 @@
 		    </li>
 		    <!--------------------------------------------------------------------->            
 		    <li id="ARTCLID000116">
-			<p>An example</p>
+			<p>Quality attributes example</p>
 			<article style="display:none">
-			    <h2>An example</h2>
+			    <h2>Quality attributes example</h2>
 
 			    <p>Let us start with a function that prints out an instruction for volunteers giving out t-shirts at an event. The function prints out the size and colour that needs to be handed out, given the age and height of an event-goer. It is shown in code snippet <a class="xref" href="#py-quality1">?</a>.</p>
 			    
@@ -128,8 +175,8 @@ def print_instruction(height, age):
 			    <h3>Code that causes superfluous execution</h3>
 			    <p>This is bad practice because:</p>
 			    <ul>
-				<li>it is a drain on CPU resources</li>
-				<li>it confuses the reader by obscuring the code purpose</li>
+				<li>it is a drain on CPU resources (<strong>optimality</strong>)</li>
+				<li>it confuses the reader by obscuring the code purpose (<strong>understandability</strong>)</li>
 			    </ul>
 
 			    <p>Instances in the example:</p>
@@ -166,8 +213,8 @@ def print_instruction(height, age):
 			    <h3>Repetition of code</h3>
 			    <p>This is bad practice because:</p>
 			    <ul>
-				<li>it is a drain on storage and network resources</li>
-				<li>it is hard to maintain, given that many-target changes are prone to error</li>
+				<li>it is a drain on storage and network resources (<strong>scalability</strong>, <strong>sustainability</strong>)</li>
+				<li>it is hard to maintain, given that many-target changes are prone to error (<strong>maintainability</strong>)</li>
 			    </ul>
 
 			    <p>Instances in the example:</p>
@@ -202,9 +249,9 @@ def write_message_to_supplier(height, age):
 			    <h3>Hard-coded constants</h3>
 			    <p>This is bad practice because:</p>
 			    <ul>
-				<li>it makes code harder to maintain, with literals that might need to change embeded deep in the program</li>
-				<li>it prohibits program configuration in terms of the hard-coded constants</li>
-				<li>literals are much harder to interpret than named constants</li>
+				<li>it makes code harder to maintain, with literals that might need to change embeded deep in the program (<strong>maintainability</strong>)</li>
+				<li>it prohibits program configuration in terms of the hard-coded constants (<strong>configurability</strong>)</li>
+				<li>literals are much harder to interpret than named constants (<strong>understandability</strong>)</li>
 			    </ul>
 			    
 			    <p>Instances in the example:</p>
@@ -237,11 +284,11 @@ def write_message_to_supplier(height, age):
 		    </li>	  
 
 		    
-	            <!--------------------------------------------------------------------->            
-                    <li id="ARTCLID000123">
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000123">
 			<p>Coding principles</p>
 			<article style="display:none">
-                            <h2>Coding principles</h2>
+			    <h2>Coding principles</h2>
 			    <ul>
 				<li>Books, articles and other sources of advice on good programming practice abound in <strong>software design principles</strong>.</li>
 				<li>These principles all have the aim of helping the software developer comply with common quality requirements as a matter of course, rather than in a separate add-on effort.</li>
@@ -253,7 +300,7 @@ def write_message_to_supplier(height, age):
 				<li>DRY (Don't Repeat Yourself)</li>
 				<li>KISS (Keep it Short and Simple)</li>
 				<li>YAGNI (You Ain't Gonna Need It)</li>
-				<li>SOLID
+				<li hidden>SOLID
 				    <ul>
 					<li>Single responsibility principle</li>
 					<li>Open/closed principle</li>
@@ -263,8 +310,8 @@ def write_message_to_supplier(height, age):
 				    </ul>
 				</li>
 			    </ul>
-                    </li>
 			</article>
+		    </li>
 		</ol>
 	    </article>
 	    <p id="sig">Jelena Vasić</p>

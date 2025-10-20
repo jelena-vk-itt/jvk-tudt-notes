@@ -46,6 +46,18 @@
 
 		<ul>
 		    <li>The Python <a href="https://docs.python.org/3/library/stdtypes.html#set"><strong class="maroon">set</strong></a> container contains unique elements (like in maths). It can be used, among other things, for <strong>testing membership</strong> and <strong>identifying unique values in lists</strong>.
+
+			<details class="ice"><summary></summary>
+			    <p>Open the Python command line interface and, with reference to <a href="https://docs.python.org/3/library/stdtypes.html#set">the documentation</a>, complete the following tasks.</p>
+			    <ul>
+				<li>Create a set with each of the three set creation methods. One pair of these sets should have some overlapping elements. The third should be a subset of one of the other sets.</li>
+				<li>Get the length of a set and test some elements for membership in a set (try with an element that you know is in the set and with an element that is not).</li>
+				<li>Perform at least three set operations and for each call the corresponding methods with the same arguments.</li>
+			    </ul>
+			    <p><a href="res/files/python/set/sets.py">EXAMPLE SOLUTION</a></p>
+			</details>
+			
+
 			<details class="ice"><summary></summary>
 			    <p>Create a new Python script and in it save the following list into a variable:</p>
 			    <pre>
@@ -55,8 +67,27 @@
 			</details></li>
 		    <li>The Python <a href="https://docs.python.org/3/library/stdtypes.html#dict"><strong class="maroon">dict</strong></a> container is a mapping object, which maps unique keys to arbitrary objects.
 			<details class="ice"><summary></summary>
-			    <p>Use the <a href="res/files/lab_solutions/a5.zip">shop code</a> from a previous assignment and modify it to use a dictionary instead of a list for the list of products. Which version is better and why?</p>
-			    <p><a href="res/files/python/dict/shop_with_dict.zip">EXAMPLE SOLUTION</a></p>
+			    <p>Create a Python script and, using the first method for dictionary creation given in <a href="https://docs.python.org/3/library/stdtypes.html#dict">the documentation</a>, create a dictionary object containing the following data:</p><pre>{
+"apple": "a fruit, can be green, red or yellow",
+"baby": "a very young person", 
+"car":	"a transport vehicle",
+"deer":	"an animal with antlers",
+"earth": "a planet, the one we live on"
+}</pre>
+			    <p>In the same script, print the dictionary, the perform the following operations:</p>
+			    <ol>
+				<li>create a list of the keys in the dictionary and print it</li>
+				<li>create a list of the values in the dictionary and print it</li>
+				<li>print the number of entries in the dictionary</li>
+				<li>lookup 'car' and 'earth' and for each print the result</li>
+				<li>check if 'baby' is in the dictionary and print the result</li>
+				<li>delete 'baby' from the dictionary, then print the dictionary</li>
+				<li>call the <span class="fw">popitem</span> method on the dictionary, print the result and the dictionary</li>
+				<li>call the <span class="fw">items</span> method on the dictionary and iterate through the result, printing out each item</li>
+				<li>call the <span class="fw">clear</span> method on the dictionary, then print the dictionary</li>
+			    </ol>
+			    
+			    <p><a href="res/files/python/dict/dict.py">EXAMPLE SOLUTION</a></p>
 			</details>
 		    </li>
 		    <li>Python has additional container data types available in the <a href="https://docs.python.org/3/library/collections.html"><strong class="maroon"> collections </strong></a>  package (which must be included in code with an import statement).</li>
