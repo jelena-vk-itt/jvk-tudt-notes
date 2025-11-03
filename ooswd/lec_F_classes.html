@@ -34,27 +34,28 @@
 	    <article>
 		<ol class="toc_grp newline">
 		    
-	            <!--------------------------------------------------------------------->    
-                    <li id="ARTCLID000091">
+	            <!--------------------------------------------------------------------->
+		    <li id="ARTCLID000091">
 			<p>What is a class?</p>
 			<article style="display:none">
                             <h2>What is a class?</h2>
 			    <p>In a programming language, a class:
 				<ul>
 				    <li>is a specific <strong>blueprint</strong> for objects</li>
-				    <li>represents the <strong>type</strong> of an object that is based on it as a blueprint</li>
+				    <li>represents the <strong>type</strong> of any object based on it as a blueprint</li>
 				    <li>bundles <strong>data and associated behaviour</strong> together</li>
-				    <li>is an object itself, of type <span class="fw">type</span>, and can be thought of as a 'meta-object' (an object that is the blueprint for other objects)</li>
 				</ul>
 			    </p>
-			    <p><u>In Python</u></p>
-				<ul>
-				    <li>Everything is an object and therefore has a type underlying it.</li>
-				    <li>What defines the type of an object is its class.</li>
-				    <li>Even classes have a class, <span class="fw">type</span>.
-					<details class="ice"><summary></summary>
-					    <p>Try the following expressions in the Python command line, or wrapped in a <span class="fw">print()</span> call in PyCharm. </p>
-					    <pre>
+			    <p><u>In Python:</u></p>
+			    <ul>
+				<li>everything is an object and any object has a class underlying it</li>
+				<li>'type' and 'class' are interchangeable (when we call <span class="fw">type(x)</span>, it returns the class of x)</li>
+				<li>some classes are built in (e.g. <span class="fw">int</span> or <span class="fw">list</span>), but new ones can be defined (this is what we are doing in this lesson)</li>
+				<li>even classes are objects and have a class, <span class="fw">type</span> (they are in fact 'meta-objects' as they describe other objects)</li>
+			    </ul>
+			    <details class="ice"><summary></summary>
+				<p>Try the following expressions in the Python command line, or wrapped in a <span class="fw">print()</span> call in PyCharm. </p>
+				<pre>
 type(4)
 type(int)
 
@@ -63,315 +64,110 @@ type(str)
 
 type([2, 3, 4])
 type(list)</pre>
-					</details>
-				    </li>
-				</ul>
-				<h3>Why classes?</h3>
+			    </details>
+			    <h3>Why define new classes?</h3>
 			    <ul>
-				<li>With functions, we have seen one way of organising code to make it reusable, clearer and easier to maintain.</li>
-				<li>Classes do the same, but they are essentially 'things' as opposed to functions, which represent 'behaviour'.</li>
-				<li>Classes specific behaviour relevant to the thing that they are to be attached to them.</li>
-				<li>Classes were designed to reflect reality, wherein we have things and associated behaviours. Consider the example in the picture below (it is a UML class diagram). Each box in the diagram shows a class. The top section contains the class name, the next section the class data and the bottom section the class methods (functions attached to a class).
+				<li>We use programming to <strong>solve real-world problems</strong>. Thus, the better programming language constructs match real world 'constructs', the easier it will be to model the real world in a program and the easier it will be to understand a program once it is written.</li>
+				<li>When observing the real world, we tend to think about <strong>it in terms of 'things'</strong> first and then actions performed by and on those things<a href="#footnote-1"><sup>1</sup></a>. This means that a construct that represents a 'thing' should be a good idea and that is exactly what classes are.</li>
+				<li>A class, however, does not represent any one thing. Rather, it <strong>represents a category</strong> (i.e. class!) of things.</li>
+				<li>A <strong>class definition</strong> contains information about a category of things:
+				    <ul>
+					<li>the different attributes it has</li>
+					<li>the different actions that can be performed on it</li>
+					<li>relationships with other categories</li>
+				    </ul>
+				</li>
+				<li>The picture below is a UML class diagram. You do not need to understand all the details at this stage, but each box in the diagram shows a class. The top section of each box contains the class name, the next section the class attributes/properties and the bottom section the class methods (these are essentially functions attached to any object of this class and represent the actions that can be performed on this category of thing).
 				    <figure>
 					<figcaption>Example class diagram in UML</figcaption>
 					<img class="w-six" src="res/images/class_dgrm_example.png">
 				    </figure>
 				</li>
-				<li>In any project but particularly in complex scenarios like the one shown in the picture <em>Example class diagram in UML</em> classes 
+				<li>Working with classes
 				    <ul>
-					<li>break the problem down into domain concepts makes it easier to think about requirements</li>
-					<li>make design and implementation more intuitive</li>
-					<li>allow for easy division of labour in team projects</li>
-					<li>allow for easy reuse of concept implementations thanks to
-					    <ul>
-						<li>the encapsulation of data</li>
-						<li>well defined interfaces for manipulating those data</li>
-					    </ul>
-					</li>
+					<li>makes it easier to think about requirements, as concepts are separated</li>
+					<li>makes design and implementation more intuitive</li>
+					<li>allows for easier division of labour in team projects</li>
+					<li>brings reuse into the domain of 'things' in the same way that functions allow the reuse of 'actions'</li>
 				    </ul>
 				</li>
 			    </ul>
-			    
+			    <p style="font-size:small" id="footnote-1">[1] Of course, there might not be anything that fundamentally precludes the view of the world where action is primary and things only secondary to it, but this does not seem to be the way most people think.</p>			    
 			</article>
-                    </li>
+		    </li>
 		    
-	            <!--------------------------------------------------------------------->            
-                    <li id="ARTCLID000092">
-			<p>Defining a class in Python</p>
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000092">
+			<p>Defining and using a class in Python</p>
 			<article style="display:none">
-                            <h2>Defining a class in Python</h2>
+			    <h2>Defining and using a class in Python</h2>
 
+			    <h3>Class definition syntax</h3>
 			    <p>We use the class construct to define a new object type.</p>
 			    <p>In Python a class is defined using the following syntax:</p>
 
 			    <figure id="py-class-simple">
 				<figcaption>A simple class defined in Python</figcaption><pre class="code-listing">
-class Simple:
-    x = "a"
-    y = "b"
+class ThreeFour:
+
+    def __init__(self):
+        self.x = 3
+        self.y = 4
 
     def print(self):
         print("x is: ", self.x)
-        print("y is: ", self.y)
-				</pre>
+        print("y is: ", self.y)</pre>
 				<table class="legend">    
-				    <tr><td><span class="fw">class</span></td><td>the keyword</td></tr>
-				    <tr><td><strong>Simple</strong></td><td>user-defined name for the class (CamelCase by convention)</td></tr>
-				    <tr><td>the colon (<span class="fw">:</span>)</td><td>mandatory part of the syntax</td></tr>
-				    <tr><td>everything below first line</td><td>body of the class</td></tr>
-				    <tr><td><span class="fw">x</span> and <span class="fw">y</span></td><td>class member variables</td></tr>
-				    <tr><td><span class="fw">print()</span></td><td>a member function (method)</td></tr>
-				    <tr><td><span class="fw">self</span></td><td>the keyword used within methods to refer to the object (not yet created at definition time) on which the method was called at runtime</td></tr>
+				    <tr><td><span class="fw">class</span></td><td>The keyword</td></tr>
+				    <tr><td><span class="fw">ThreeFour</span></td><td>A user-defined name for the class, which must follow <a href="https://docs.python.org/3/reference/lexical_analysis.html#names-identifiers-and-keywords">Python naming rules</a>; is in CamelCase by convention</td></tr>
+				    <tr><td>the colon (<span class="fw">:</span>)</td><td>A mandatory part of the syntax</td></tr>
+				    <tr><td>everything below the first line</td><td>The body of the class, in which all top-level instructions (in the example, the two function definitions) must be indented equally</td></tr>
+				    <tr><td><span class="fw">__init__()</span></td><td>The class constructor, always called <span class="fw">__init__</span>. This method is called when an object of this class is created.</td></tr>
+				    <tr><td><span class="fw">print()</span></td><td>A member function (i.e. a method)</td></tr>
+				    <tr><td><span class="fw">self</span></td><td>The first parameter of any member function, including the constructor, represents the object of type <span class="fw">ThreeFour</span> on which the method was called at runtime. The name <span class="fw">self</span> is always used, by convention, for this parameter.</td></tr>
+				    <tr><td><span class="fw">self.x</span><br/><span class="fw">self.y</span></td><td>Member variables are defined and initialised on the object in the constructor. If defined in the constructor, they can be accessed from other member methods of the class.</td></tr>
 				</table>
 				<hr><hr>
 			    </figure>
 
-			</article>
-		    </li>
-		    
-		    <!--------------------------------------------------------------------->            
-		    <li id="ARTCLID000093">
-			<p>Using a class to create objects</p>
-			<article style="display:none">
-			    <h2>Using a class to create objects</h2>
-			    <p>To create a class, we use the class name as a function (this will be explained later):</p>
+			    <h3>Using a class</h3>
+			    <ul>
+				<li>Once a class is defined, we can create objects of that class. This is called <strong>instanciation</strong>.</li>
+				<li>To instanciate a class, we use the class name as a function, passing any arguments required by the constructor, except for <span class="fw">self</span> (<span class="fw">threeFourObj = ThreeFour()</span> in the picture).</li>
+				<li>To call a class method on an object, we use the dot notation, specifying the object and the method, separated by a fullstop (<span class="fw">threeFourObj.print()</span> in the picture). The argument list does not contain an argument for the first (<span class="fw">self</span>) parameter, because the object preceding the fullstop is in fact the first argument.</li>
+			    </ul>
 			    <figure id="py-obj-from-cls" class="my1">
-				<figcaption>Creating an object from a class</figcaption><pre class="code-listing">
-s = Simple()
-s.print()</pre>
+				<figcaption>Creating an object of a defined class</figcaption><pre class="code-listing">
+threeFourObj = ThreeFour()
+threeFourObj.print()
+print(threeFourObj.x)
+threeFourObj.y = 44
+print(threeFourObj.y)</pre>
 				<table class="legend">    
-				    <tr><td><span class="fw">s = Simple()</span></td><td>creates an object of class <span class="fw">Simple</span> and assigns it to variable <span class="fw">s</span></td></tr>
-				    <tr><td><span class="fw">s.print()</span></td><td>uses dot-notation to run the method <span class="fw">print</span> of class <span class="fw">Simple</span> on object <span class="fw">s</span></td></tr>
+				    <tr><td><span class="fw">threeFourObj = ThreeFour()</span></td><td>An object of type <span class="fw">ThreeFour</span> is created and assigned to variable <span class="fw">threeFourObj</span>.</td></tr>
+				    <tr><td><span class="fw">threeFourObj.print()</span></td><td>Dot-notation is used to run the method <span class="fw">print</span> of class <span class="fw">ThreeFour</span> on object <span class="fw">threeFourObj</span>.</td></tr>
+				    <tr><td><span class="fw">print(threeFourObj.x)</span></td><td>Uses dot-notation to read member variable <span class="fw">x</span></td></tr>
+				    <tr><td><span class="fw">threeFourObj.y = 44</span></td><td>Uses dot-notation to access member variable <span class="fw">y</span> for writing</td></tr>
 				</table>
 				<hr><hr>
-			    </figure>			    
-			</article>			
-		    </li>
-		    
-		    
-
-		    <!--------------------------------------------------------------------->            
-		    <li id="ARTCLID000094">
-			<p>The constructor</p>
-			<article style="display:none">
-			    <h2>The constructor</h2>
-			    <ul>
-				<li>When an object is created, it is initialised with a call to a method called the <strong>constructor</strong>.</li>
-				<li>If the constructor is not defined explicitly, the default constructor is called and this essentially does nothing.</li>
-				<li>To add variables that will belong to the objects (instance member variables), we must define them in the constructor.</li>
-			    </ul>
-			    <figure id="py-constructor">
-				<figcaption>The constructor method</figcaption><pre class="code-listing">
-class Simple:
-    x = "a"
-    y = "b"
-
-    def __init__(self):
-        self.num1 = 1
-        self.num2 = 3
-
-    def print(self):
-        print("x is: ", self.x)
-        print("y is: ", self.y)
-        print("num1 is: ", self.num1)
-        print("num2 is: ", self.num2)
-				</pre>
-				<table class="legend">
-				    <tr><td><span class="fw">__init__</span></td><td>the constructor method</td></tr>
-				    <tr><td><span class="fw">num1</span> and <span class="fw">num2</span></td><td>instance member variables (pertaining to object)</td></tr>
-				</table>
-				<hr/><hr/>
 			    </figure>
-
-			    <details class="ice"><summary></summary>
-				<p>Create a Python file in PyCharm called <em>simple.py</em> and copy in the code from figure <a class="xref" href="#py-constructor">?</a>. Then add a line to create an object of type <span class="fw">Simple</span> and a line to call the <span class="fw">print</span> method. Run the code.
-				</p>
-				<p><a href="res/files/python/classes/simple1.py">EXAMPLE SOLUTION</a></p>
-			    </details>
 
 			</article>
 		    </li>
 
 		    
-	            <!--------------------------------------------------------------------->            
-                    <li id="ARTCLID000099">
-			<p>Accessing and modifying member variables</p>
+		    <!--------------------------------------------------------------------->
+		    <li id="ARTCLID000098">
+			<p>Method parameters</p>
 			<article style="display:none">
-                            <h2>Accessing and modifying member variables</h2>
-			    <p>Like member functions (methods), member variables are accessed using the dot notation.</p>
+			    <h2>Method parameters</h2>
 
-			    <figure id="py-member-vars">
-				<figcaption>Reading and writing member variables</figcaption><pre class="code-listing">
-s = Simple()
-
-print("\n---- print variables individually from object ----")
-print(s.x, s.y, s.num1, s.num2)
-
-print("---- object before modification ----")
-s.print()
-
-s.x = "new a"
-s.y = "new b"
-s.num1 = 10
-s.num2 = 30
-
-print("---- object after modification ----")
-s.print()				</pre>
-			    </figure>
-			    
-			    <details class="ice"><summary></summary>
-				<p>Clear your <em>simple.py</em> file of all code bar the class definition from <a class="xref" href="#py-constructor">?</a>. Add the statements from code snippet <a class="xref" href="#py-member-vars">?</a> and run it. Make sure you understand where the output is coming from.</p>
-				<p><a href="res/files/python/classes/simple2.py">EXAMPLE SOLUTION</a></p>
-			    </details>
-
-			    <!-- subtitle  -->
-
-			    <h3 class="mt3">Adding instance member variables</h3>
-			    <p>While this is <strong>not recommended for the moment</strong>, instance variables can be added to already created objects.</p>
-
-			    <details class="ice"><summary></summary>
-				<p>Copy the following code into a Python script file. You will notice that the <span class="fw">Simple</span> class print method has been modified for easier addition of a printout heading and that it prints a (nonexistent) member variable <span class="fw">z</span>. Run the script.</p><hr><pre>
-class Simple:
-    x = "a"
-    y = "b"
-
-    def __init__(self):
-        self.num1 = 1
-        self.num2 = 3
-
-    def print(self, heading):
-        print("----- {} -----".format(heading))
-        print("x is: ", self.x)
-        print("y is: ", self.y)
-        print("num1 is: ", self.num1)
-        print("num2 is: ", self.num2)
-        print("z is: ", self.z)
-        
-s1 = Simple()
-s2 = Simple()
-
-print("")
-
-s1.z = "c"
-s1.print("s1 after adding variable z to s1")
-s2.print("s2 after adding variable z to s1")</pre><hr>
-				<p>An error is reported. Why do you think this happened? Correct the code so that it runs without errors.
-				</p>
-				
-				<p><a href="res/files/python/classes/simple3.py">EXAMPLE SOLUTION</a></p>
-			    </details>
-			    
-			    <!-- subtitle  -->			    
-
-			    <h3 class="mt3">Class vs. instance member variables </h3>
-
-			    <p>There is a difference between the variables defined directly in the class and variables defined in the constructor:</p>
-			    <ul>
-				<li>class variables, which are defined directly in the class, are shared by all objects</li>
-				<li>each object has its own copy of a variable defined in the constructor</li>
-			    </ul>
-
-			    <figure id="py-clas-inst-vars">
-				<figcaption>Class and instance variables</figcaption><pre class="code-listing">
-class Simple:
-    x = "a"
-    y = "b"
-
-    def __init__(self):
-        self.num1 = 1
-        self.num2 = 3
-				</pre>
-				<table class="legend">
-				    <tr><td><span class="fw">x</span> and <span class="fw">y</span></td><td>class variables (also called static variables), shared by all objects of the class, initialised at class definition time</td></tr>
-				    <tr><td><span class="fw">num1</span> and <span class="fw">num2</span></td><td>instance variables, with a separate copy for each object, initialised in the constructor, at object creation time</td></tr>
-				</table>
-				<hr/><hr/>
-
-			    </figure>
-
-			    <p>Let's have a look how access to these variables works.</p>
-			    
-			    <figure id="py-class-vs-inst-1">
-				<figcaption>Class vs. instance variables (part 1)</figcaption><pre class="code-listing">
-class Simplissima:
-    x = "a"
-
-s1 = Simplissima()
-s2 = Simplissima()
-
-print(s1.x)
-print(s2.x)	</pre>
-			    </figure>
-			    What happens?<pre>
-                     class: x = "a"
-      
-          object s1: NA        object s2: NA
-      
-               ||                    ||
-      	       ||                    ||
-               \/		     \/
-      
-           print(s1.x)           print(s2.x)
-      
-       own x not available   own x not available
-          so get class x        so get class x
-      
-           output: a              output: a
-      			    </pre>
-
-			    <p>Adding onto the code in <a class="xref" href="#py-class-vs-inst-1">?</a>:</p>
-			    <figure id="py-class-vs-inst-2">
-				<figcaption>Class vs. instance variables (part 2)</figcaption><pre class="code-listing">
-s1.x = "hello"
-s2.x = "world"
-print(s1.x)
-print(s2.x)</pre>
-			    </figure>
-			    What happens now?<pre>
-                     class: x = "a"
-      
-      object s1: x = "hello"     object s2: NA
-      
-               ||                    ||
-      	       ||                    ||
-               \/		     \/
-      
-           print(s1.x)           print(s2.x)
-      
-         own x available       own x available
-          so print that         so print that
-      
-          output: hello         output: hello
-			    </pre>
-			    
-			    <p>But can we still access the class (static) variable? Yes. We must scope the variable with the class name. Adding the following line onto the code in the previous two snippets will print 'a'.</p>
-			    <figure id="py-class-vs-inst-3">
-				<figcaption>Class vs. instance variables (part 3)</figcaption><pre class="code-listing">
-print(Simplissima.x) # output: a</pre>
-			    </figure>
-
-			    <div class="box">
-				<p><strong>Class vs. instance variable summary</strong></p>
-				<p>Class variables are useful for declaring constants that will not be modified e.g.<span class="fw">pi=3.14</span>.</p>
-				<p>Although sometimes they are used to set initial values for instance variables that will be modified later, this is not recommended as it obsucres the intention of the programmer. It is much better to initialise instance variables in the constructor e.g. <span class="fw">self.x = "hohoho"</span>.</p>
-			    </div>
-			    
-			</article>
-                    </li>
-
-		    
-	            <!--------------------------------------------------------------------->
-                    <li id="ARTCLID000098">
-			<p>Constructor parameters</p>
-			<article style="display:none">
-                            <h2>Constructor parameters</h2>
-
-			    <p>Our example constructor from the previous section always initialises <span class="fw">num1</span> and <span class="fw">num2</span> to the same values. However, objects can be initialised with different values with the use of constructor parameters.</p>
+			    <p>Let's look at class with methods that have parameters other than the first one (i.e. other than <span class="fw">self</span>)</p>
 			    <figure id="py-constructor-params">
-				<figcaption>Constructor parameters</figcaption><pre class="code-listing">class Simple:
-    def __init__(self, n1, n2):
-        self.num1 = n1
-        self.num2 = n2
+				<figcaption>Parameters</figcaption><pre class="code-listing">class TwoNumbers:
+    def __init__(self, num1, num2):
+        self.num1 = num1
+        self.num2 = num2
 
     def print(self, heading=""):
         print("")
@@ -381,36 +177,199 @@ print(Simplissima.x) # output: a</pre>
         print("num2 is: ", self.num2)
 
 
-s = Simple(3, 4)
-s.print()				</pre>
+twoNumObj = TwoNumbers(3, 4)
+twoNumObj.print()
+twoNumObj.print("THE TWO NUMBERS")</pre>
+				<table class="legend">
+				    <colgroup width="40%"/>
+				    <colgroup width="60%"/>
+				    <tr><td><span class="fw">__init__(self, num1, num2)</span></td><td>The constructor includes two parameters other than <span class="fw">self</span>. These are used to initialise instance member variables <span class="fw">self.num1</span> and <span class="fw">self.num2</span>.</td></tr>
+				    <tr><td><span class="fw">print(self, heading="")</span></td><td>The <span class="fw">print</span> method includes one parameter other than <span class="fw">self</span>. This is used to pass in the heading text and has the empty string as its default value.</td></tr>
+				    <tr><td><span class="fw">twoNumObj = TwoNumbers(3, 4)</span></td><td>The object is constructed with arguments <span class="fw">3</span> and <span class="fw">4</span>. The value of <span class="fw">self</span> does not need to be passed in in any way (it does not exist before the construction call is made).</td></tr>
+				    <tr><td><span class="fw">twoNumObj.print()</span></td><td>The <span class="fw">print</span> method is called without any arguments, indicating that the default value should be used for the <span class="fw">heading</span> parameter. The object <span class="fw">twoNumObj</span>, specified to the left of the fullstop is the first argument i.e. the value given for the <span class="fw">self</span> parameter i.e. the object on which the method is being called.</td></tr>
+				    <tr><td><span class="fw">twoNumObj.print("THE TWO NUMBERS")</span></td><td>The <span class="fw">print</span> method is called with the "THE TWO NUMBERS" argument. This value is assigned to the second function parameter, <span class="fw">heading</span>. As above, the value given for the <span class="fw">self</span> parameter of the function is the object <span class="fw">twoNumObj</span>.</td></tr>
+				</table>
+				<hr><hr>
 			    </figure>
-			    <p>Constructor parameters listed after the <span class="fw">self</span> keyword are treated like any other function parameters.</p>
-			    <details class="ice"><summary></summary>
-				<p>Copy the code snippet <a class="xref" href="#py-constructor-params">?</a> into an empty Python script and run it to check if the outputs are as expected.</p>
-				<p>Then modify the script to include another parameter in the constructor and create an instance variable from its value. Modify the <span class="fw">print</span> method to include the new instance variable in the printout.</p>
-				<p><a href="res/files/python/classes/simple4.py">EXAMPLE SOLUTION</a></p>
-			    </details>
 			</article>
-                    </li>
+		    </li>
+
 
 		    <!--------------------------------------------------------------------->            
-		    <li id="ARTCLID000095">
-			<p>Member naming convention</p>
+		    <li id="ARTCLID000099">
+			<p>More about member variables</p>
 			<article style="display:none">
-			    <h2>Member naming convention</h2>
+			    <h2>More about member variables</h2>
+
+			    <p>Member variables in Python are also called <strong>attributes</strong>.</p>
+
+			    <h3 class="mt3">Instance vs. class member variables</h3>
+			    
+			    <p>We have already seen <strong>instance member variables</strong> in the previous examples:</p>
+			    <ul>
+				<li>each object has its own copy of this type of variable</li>
+				<li>an instance variable must be defined in the constructor</li>
+				<li>it is accessed via the object: <em>object_name</em>.<em>variable_name</em></li>
+			    </ul>
+
+			    <p>There are also <strong>class member variables</strong>:</p>
+			    <ul>
+				<li>there is only one copy of this kind of variable</li>
+				<li>it is stored outside of the individual objects and shared by all objects of the class</li>
+				<li>a class variable is defined in the body of the class definition</li>
+				<li>it can be accessed in two ways:
+				    <ul>
+					<li>via the class: <em>class_name</em>.<em>variable_name</em></li>
+					<li>via the object (but only if an instance member variable of the same name does not exist): <em>object_name</em>.<em>variable_name</em></li>
+				    </ul>
+				</li>
+			    </ul>
+			    <figure id="py-member-vars">
+				<figcaption>Types of member variables</figcaption><pre class="code-listing">class TwoNumbersV2:
+    heading = "THE TWO NUMBERS"
+
+    def __init__(self, num1, num2):
+        self.num1 = num1
+        self.num2 = num2
+
+    def print(self):
+        print("")
+        if self.heading != "":
+            print("----- {} -----".format(self.heading))
+        print("num1 is: ", self.num1)
+        print("num2 is: ", self.num2)
+
+twoNumObj = TwoNumbersV2(3, 4)
+twoNumObj.print()	</pre>
+				<table class="legend">
+				    <tr><td><span class="fw">heading = "THE TWO NUMBERS"</span></td><td>A <strong>class member variable</strong> definition</td></tr>
+				    <tr><td><span class="fw">self.num1 = num1<br>self.num2 = num2</span></td><td><strong>Instance member variable</strong> definitions</td></tr>
+				</table>
+				<hr/><hr/>
+			    </figure>
+
+			    <p>Let's have a look how access to class variables works.</p>
+			    
+			    <figure id="py-class-vs-inst-1">
+				<figcaption>Class vs. instance variables</figcaption><pre class="code-listing">
+class Simplissima:
+    x = "a"
+
+
+s1 = Simplissima()
+s2 = Simplissima()
+
+print(Simplissima.x)
+print(s1.x)
+print(s2.x)	</pre>
+				<table class="legend">
+				    <tr><td><span class="fw">Simplissima.x</span></td><td>Class variable access via class - recommended</td></tr>
+				    <tr><td><span class="fw">s1.x</span></td><td>Class variable accessed via object</td></tr>
+				</table>
+				<hr/><hr/>
+			    </figure>
+			    What happens?<pre>
+               class Simplissima: x = "a"
+               --------------------------
+                  print(Simplissima.x)
+
+                       output: a
+      
+          object s1: no x      object s2: no x
+          ---------------      ---------------
+           print(s1.x)           print(s2.x)
+      
+         own x not defined    own x not defined
+          so get class x       so get class x
+      
+             output: a            output: a
+      			    </pre>
+
+			    <p>Adding onto the code in <a class="xref" href="#py-class-vs-inst-1">?</a>:</p>
+			    <figure id="py-class-vs-inst-2">
+				<figcaption>Accessing class variables (continued)</figcaption><pre class="code-listing">
+s1.x = "hello"
+print(Simplissima.x)
+print(s1.x)
+print(s2.x)</pre>
+				<table class="legend">
+				    <tr><td><span class="fw">s1.x</span></td><td>An object variable called <span class="fw">x</span> is added. This will hide the class variable, regardless of whether it is added externally like above or internally via <span class="fw">self.x = "hello"</span> inside a method of the class.</td></tr>
+				</table>
+				<hr/><hr/>
+			    </figure>
+			    
+			    What happens now?<pre>
+               class Simplissima: x = "a"
+               --------------------------
+                  print(Simplissima.x)
+
+                       output: a
+      
+       object s1: x = "hello"     object s2: no x
+       ----------------------     ---------------
+           print(s1.x)              print(s2.x)
+      
+           own x is set          own x not defined
+          so print own x          so get class x
+      
+           output: hello             output: a</pre>
+
+			    <details class="ice"><summary></summary>
+				<p>Define a class that has a name and an id as instance member variables. The name should be passed into the constructor. The id should be unique and generated from a class member variable that stores the last id used.</p>
+				<p>Defina a <span class="fw">print</span> method for the class. It should print the id and the name of the object, with suitable headings.</p>
+				<p>Create three objects of the class, then call the <span class="fw">print</span> method on each one of them.</p>
+				<p><a href="res/files/python/classes/classvars.py">EXAMPLE SOLUTION</a></p>
+			    </details>
+			    
+			    
+			    <h3 class="mt3">Dynamically adding instance member variables</h3>
+			    <p>Instance variables can be added to already created objects. We have seen this already in <a class="xref" href="#py-class-vs-inst-1">?</a>, where an instance (object-bound) variable <span class="fw">x</span> was created on the object <span class="fw">s1</span> after it was constructed. For most purposes this is not recommended as it breaks the original class definition. In this module, <strong>you should not be doing this</strong>, except in the following exercise.</p>
+
+			    <details class="ice"><summary></summary>
+				<p>Copy the following code into a Python script file. Run the script.</p><pre>
+
+class Test:
+
+    def __init__(self):
+        self.x = 1
+
+    def print(self):
+        print("----- Test -----")
+        print("x is: ", self.x)
+        print("y is: ", self.y)
+        
+to = Test()
+
+to.print()
+				</pre>
+				<p>An error is reported. What do you think happened? </p>
+				
+				<p>Now add the following line just before the print statement at the end of the file:</p><pre>
+
+to.y = "hello"
+				</pre>
+			    </details>
+			</article>
+		    </li>
+
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000145">
+			<p>Underscores in member names</p>
+			<article style="display:none">
+			    <h2>Underscores in member names</h2>
 
 			    <p>Some programming languages have constructs that allow controlling access to variables and methods in classes. In Python all variables and methods in a class are accessible (public). However, there is a convention in naming them that indicates to class users what the intention of the class developer was with respect to variable and method levels of access.</p>
 			    <figure id="py-access-convention">
 				<figcaption>Naming convention for variables and methods</figcaption><pre class="code-listing">class MixedUp:
     def __init__(self)
         self.x = "a"     # public
-        self._y = "b"    # protected
-        self.__z = "c"   # private</pre>
+        self._y = "b"    # private
+        self.__z = "c"   # mangled</pre>
 				<table class="legend">    
-				    <tr><td><span class="fw">x (name with no underscores)</span></td><td>a public variable, intended for access by anybody</td></tr>
-				    <tr><td>_y (one leading underscore)</td><td>a protected variable, intended for access only by objects of the same class </td></tr>
-				    <tr><td>__z (two leading underscores)</td><td>a private variable, inteded for access only by the object itself</td></tr>
-				    <tr><td colspan="2"><strong><em>Note that the same rules apply to method names.</em></strong></td></tr>
+				    <tr><td><span class="fw">x</span> (name with no underscores)</td><td>A public variable or method, intended for access from anywhere</td></tr>
+				    <tr><td><span class="fw">_y</span> (one leading underscore)</td><td>A private variable or method, not intended to be accessed with dot-notation on the object (i.e. from outside of the object)</td></tr>
+				    <tr><td><span class="fw">__z</span> (two leading underscores)</td><td>A private variable or method, as above, but also 'mangled' (prefixed with class name) by the Python interpreter to make external use harder</td></tr>
+				    <tr><td><span class="fw">__init__</span> (two leading and two trailing underscores)</td><td>These names are called <em>dunders</em> and denote Python-internal attributes and methods</td></tr>
 				</table>
 			    </figure>
 
@@ -419,196 +378,114 @@ s.print()				</pre>
 		    </li>
 		    
 
-	            <!--------------------------------------------------------------------->            
-                    <li id="ARTCLID000097">
-			<p>Getters, setters and deleters OPTIONAL</p>
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000100">
+			<p>Classes as variable types</p>
 			<article style="display:none">
-                            <h2>Getters, setters and deleters OPTIONAL</h2>
-			    <p>The constructs described in this section are presented for information only. The student is not expected to use them in this module.</p>
+			    <h2>Classes as variable types</h2>
 
-			    <figure id="py-get-set-del">
-				<figcaption>Getter, setter and deleter example</figcaption><pre class="code-listing">
-class WithProp:
-    
-    def __init__(self):
-        print("calling constructor")
-        self._x = "a"
-
-    def getx(self):
-        print("calling getx")
-        return self._x
-
-    def setx(self, value):
-        print("calling setx")
-        self._x = value
-
-    def delx(self):
-        print("calling delx")
-        del self._x
-
-    x = property(getx, setx, delx)
-
-def prhd(num):
-    print("--------- {} -----------".format(num))
-    
-prhd(1)
-wp = WithProp()
-
-prhd(2)
-print(wp.x)     # output: a
-
-prhd(3)
-wp.x = "b"
-
-prhd(4)
-print(wp.x)     # output: b
-
-prhd(5)
-del wp.x
-
-prhd(6)
-print(wp.x)     # error				</pre>
-				<table class="legend">
-				    <tr><td><span class="fw">x = property(getx, setx, delx)</span></td><td>defines x as an instance variable of class WithProp</td></tr>
-				    <tr><td><span class="fw">getx</span>, <span class="fw">setx</span> and <span class="fw">delx</span></td><td>methods that wrap getting, setting and deleting, performing additional stuff (in this case printing "calling ...")</td></tr>
-				    <tr><td colspan="2">Notice that the getter, setter and delter must access <span class="fw">x</span> with a prepended underscore, which from the outside it is accessed a just <span class="fw">x</span>.</td></tr>
-				</table>
-				<hr/><hr/>
+			    <h3 class="mt3">Immutable and mutable objects</h3>
+			    
+			    <p>We have already seen that <strong>all values assignable to variables in Python are objects</strong> and that these objects can be <strong>immutable or mutable</strong>.</p>
+			    <ul>
+				<li>When dealing with <strong>mutable objects</strong> it is important to remember that
+				    <ul>
+					<li>variables are <strong>a kind of pointer to the actual value</strong> of the object (they do not contain the object)</li>
+					<li>assigning one variable to another simply creates another such pointer to the same object</li>
+				    </ul>
+				    <p>Examples: lists, <span class="underline">objects created from developer-defined classes</span></p>
+				</li>
+				<li>When dealing with <strong>immutable objects</strong> the representation of the object is not of interest but only its value.
+				    <p>Examples: integers, booleans, strings, tuples</p>
+				</li>
+			    </ul>
+			    <figure>
+				<figcaption>Variables referring to mutable and immutable objects</figcaption>
+				<img class="w-four" src="res/images/mut_immut.png">
 			    </figure>
-			    <p>You might like to copy the code snippet <a class="xref" href="#py-get-set-del">?</a> into a script and experiment with it.</p>
-			</article>
-                    </li>
 
-		    
-	            <!--------------------------------------------------------------------->            
-                    <li id="ARTCLID000100">
-			<p>Classes as types of member variables</p>
-			<article style="display:none">
-                            <h2>Classes as types of member variables</h2>
+			    <h3 class="mt3">Global and local variables</h3>
 
-			    <p>Objects that are instances of classes defined as discussed in this lesson can be used like values of any other type. Thus they can be used as the values of object member variables.</p>
-			    <p>In typed programming languages, the type of a member variable can be declared to be some class.</p>
-			    <p>In Python we do not declare the type of a variable, but class methods can be written with the assumption that a particular variable will contain an object of a certain class.</p>
-			    <figure id="py-class-as-member">
-				<figcaption>A class as the type of a member variable value</figcaption><pre class="code-listing">
-class Address:
+			    <p>We have seen that there are global and local variables, as well as class and instance member variables. Any of these can 'contain' (i.e. refer to) an object of a developer-defined class.</p>
+
+			    <p>We have seen multiple examples of <strong>global</strong> variables being assigned a class instance object e.g. <span class="fw">s1</span> and <span class="fw">s2</span> in <a class="xref" href="#py-class-vs-inst-1">?</a>.</p>
+
+			    <p>The following example shows a <strong>local</strong> variable (<span class="fw">address</span>) holding an object of type <span class="fw">Address</span>).</p>
+			    
+			    <figure id="py-gln-object-var">
+				<figcaption>Local variable holding object</figcaption><pre class="code-listing">class Address:
     def __init__(self, n, s, t):
         self.number = n
         self.street = s
         self.town = t
 
-class Person:
+    def print(self):
+        print("Address: {} {}, {}".format(self.number, self.street, self.town))
+
+def get_a_sample_address(town):
+
+    address = Address(1, "Main Street", town)
+    return address
+
+get_a_sample_address("Sometown").print()</pre>
+				
+			    </figure>
+
+			    <h3 class="mt3">Member variables</h3>
+			    
+			    <p>A <strong>member</strong> variable is no different from any other variable in the way it refers to an object. The following example uses the class Address from <a class="xref" href="#py-gln-object-var">?</a>. Here the class <span class="fw">Person</span> includes a member variable called <span class="fw">address</span> of type <span class="fw">Address</span>.</p>
+			    
+			    <figure id="py-class-as-member">
+				<figcaption>A class as the type of a member variable value</figcaption><pre class="code-listing">class Person:
     def __init__(self, n, s, a):
         self.name = n
         self.surname = s
-        self.address = a
-
-    def print(self):
-        print(self.name, self.surname)
-        print(self.address.number, self.address.street, self.address.town)</pre>
-			    </figure>
-			    <p>In the example in code snippet <a class="xref" href="#py-class-as-member">?</a> the class <span class="fw">Person</span> includes a member variable called <span class="fw">address</span>. The <span class="fw">print</span> method assumes that <span class="fw">address</span> has the type <span class="fw">Address</span> and accesses the variables of that class.</p>
-			    <details class="ice"><summary></summary>
-				<p>Copy the code in <a class="xref" href="#py-class-as-member">?</a> into a Python script, then edit it to create an object of class <span class="fw">Address</span> and an object of class <span class="fw">Person</span> (passing in the just created address). Print the person object.</p>
-				<p>Now create another person object but instead of an address of type <span class="fw">Address</span> pass in a string. What happens when you try to print the second person object? Why?</p>
-				<p><a href="res/files/python/classes/clsincls.py">EXAMPLE SOLUTION</a></p>
-			    </details>
-
-			    <p>In the previous in-class exercise the <span class="fw">Person</span> class's <span class="fw">print</span> function accesses the <span class="fw">Address</span> class's mamber variables directly. This is not good practice. To get the most out of object-oriented programming a developer should strive towards encapsulation, exposing as little of a class's variables as possible. Do the next exercise to improve that code.</p>
-				
-			    <details class="ice"><summary></summary>
-				<p>Working with the same file as in the previous exercise, delete the second person and modify the two classes so that the <span class="fw">Address</span> class gets a <span class="fw">print</span> method and the <span class="fw">Person</span> class calls it, rather than accessing individual variables in the address object. Mark all the member variables in both classes as private.</p>
-				    <p><a href="res/files/python/classes/cicencapsulate.py">EXAMPLE SOLUTION</a></p>
-			    </details>
-			</article>
-                    </li>
-
-
-	            <!--------------------------------------------------------------------->            
-                    <li id="ARTCLID000102">
-			<p>Importing modules</p>
-			<article style="display:none">
-                            <h2>Importing modules</h2>
-			    <p>If we started defining many classes and placed them all in the same file things would start getting pretty unmanageable very quickly.</p>
-			    <p>We can place our code in different files and import a file (or module) in another one that depends on its contents.</p>
-			    <figure id="py-import">
-				<figcaption>Module import</figcaption>
-				Contents of address.py: <pre class="code-listing">
-class Address:
-    # code defining the class</pre>
-				Contents of person.py: <pre class="code-listing">
-from address import Address
-
-class Person:
-    # code defining the class and using Address</pre>
-
+        self.address = a</pre>
 			    </figure>
 
 			    <details class="ice"><summary></summary>
-				<p>Download <a href="res/files/python/classes/import/import_set.py">this file</a> onto your computer. Then reorganise it into three files called <em>address.py</em>, <em>person.py</em> and <em>main.py</em>. The first two should include a class definition only and the last on the code that creates <span class="fw">Person</span> objects and prints them. Remember that you must use imports.</p>
-<p><a href="res/files/python/classes/import.zip">EXAMPLE SOLUTION</a></p>
+				<p>Copy the definition of class <span class="fw">Address</span> from <a class="xref" href="#py-gln-object-var">?</a> and the definition of class <span class="fw">Person</span> from <a class="xref" href="#py-class-as-member">?</a> into a Python script. Add the method <span class="fw">print</span> to the class <span class="fw">Person</span> and implement it so that it prints the name and the surname, with a heading, on one line, and prints the address, using the existing method of the <span class="fw">Address</span> class, in another line. In the script, also define a variable of type <span class="fw">Person</span>, then call the print method to print it.</p>
+
+				<p><a href="res/files/python/classes/objmemvars.py">EXAMPLE SOLUTION</a></p>
 			    </details>
 
-			    <p>We can also import modules that are installed with Python but are not imported when Python starts up. Examples are the <strong>random</strong> module that we have already used and the <strong>datetime</strong> module, which we will use in the following exercise.</p>
-			    <p>There are several variations of the import syntax, as seen in the next code snippet</p>
-			    
-			    <figure id="py-import">
-				<figcaption>Import syntax</figcaption><pre class="code-listing">
-# import the entire module
-import random
-
-# then access objects from the module by specifying the scope (module name), followed by a dot and the object name
-random.randint(1, 10)
-
-# import specific items (as used above with our classes)
-from random import randint
-
-# then access the imported object directly
-randint(1, 10)
-
-# import all objects from the module
-from math import *
-
-# all objects can be accessed by name 
-print(pi) # pi is an object in module math
-
-# give an alias to the imported module
-import math as m
-
-# access using the alias to specify the scope
-print(m.pi)
-
-</pre>
-
-</figure>
-
-				
 			    <details class="ice"><summary></summary>
-				<p>Starting with the solution files for the previous exercise on imports, modify the person class to add a date of birth as a member variable of type <span class="fw">datetime</span>.</p>
-				<p>The class <span class="fw">datetime</span> is available in Python from module <span class="fw">datetime</span> (same name). Add a method to the <span class="fw">Person</span> class that calculates and returns the person's age. Write some code in file <em>main.py</em> to test your solution.</p>
-				<p><a href="res/files/python/classes/age.zip">EXAMPLE SOLUTION</a></p>
+				<p>In this exercise we will test the "pointer" nature of variables, which is important to keep in mind when programming in Python.</p>
+				<p>Copy the <span class="fw">Address</span> and <span class="fw">Person</span> classes used before into a new Python script.</p>
+				<p>To class <span class="fw">Person</span>, add a method called <span class="fw">move</span>. This method should increase the number in the address by 1.</p>
+				<p>Create a new address object. Now use the <span class="fw">Person</span> class to create two people living at that address, by passing in the already created address object to both constructors. Call <span class="fw">print</span> on each of the <span class="fw">Person</span> objects.</p>
+				<p>Next, call <span class="fw">move</span> on one of the <span class="fw">Person</span> objects and again call print on each of the <span class="fw">Person</span> objects.</p>
+				<p>What happened? Explain why. What kind of scenario does this behaviour match? How would the code need to be modified to match the alternative reasonable scenario?</p>
+				<p><a href="res/files/python/classes/objmemvarsmod.py">EXAMPLE SOLUTION</a></p>
 			    </details>
+
+			    <h3 class="mt3">Objects in collections</h3>
+
+			    <p>Objects of any type can be in collections such as lists. If a member of a collection is an object of a class, it is (as usual) in fact a 'pointer' to that object.</p>
+			    <p>A list <strong>shallow copy</strong> will copy these pointers to the new list. A list <strong>deep copy</strong> will also create <strong>copies of the objects</strong> for the new list.</p>
+
+			    <details class="ice"><summary></summary>
+				<p>Using the class <span class="fw">Person</span> defined earlier, create three persons in a list. Make one shallow and one deep copy of the list. Write a function to print person lists, then use it to print out the three lists.</p>
+				<p>Now make a modification to one of the objects in the original list. Print out the three lists again and analyse the result.</p>
+
+				<p>Finally, replace a different object in the original list with a new <span class="fw">Person</span> object. Print out the three lists again and analyse the result.</p>
+				
+				<p><a href="res/files/python/classes/objlstcp.py">EXAMPLE SOLUTION</a></p>
+			    </details>
+
 			</article>
-                    </li>
+		    </li>
 		    
-	            <!--------------------------------------------------------------------->            
-                    <li id="ARTCLID000101">
-			<p>Collections of objects</p>
-			<article style="display:none">
-                            <h2>Collections of objects</h2>
-			    <p>Objects of any type can be in collections such as lists.</p>
-			    <details class="ice"><summary></summary>
-				<p>Starting with the files given <a href="res/files/python/classes/team_set.zip">here</a>, modify the <span class="fw">Team</span> class in file <em>team.py</em> with methods to add a person to the team, remove a person from the team and print a list filtered by role in team (or whole list if role is ""). You will notice that the class <span class="fw">Person</span> now has a member variable indicating the member's role ('lead', 'dev' or 'ops'). Write some code in file <em>main.py</em> to test all three methods.</p>
-				<p><a href="res/files/python/classes/team.zip">EXAMPLE SOLUTION</a></p>
-			    </details>
-			</article>
-                    </li>
 		    
 		</ol>
 	    </article>
+
+	    
 	    <p id="sig">Jelena Vasić</p>
 	</div>
 
+
+	
 	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
 	<script type="text/javascript" src="../common/res/scripts/modules/xrefs.js"></script>
 	<script type="text/javascript" src="res/scripts/xrefs.js"></script>

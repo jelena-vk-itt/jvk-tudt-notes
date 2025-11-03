@@ -40,8 +40,14 @@
 		<ul>
 		    <li>The application should consist of classes <span class="fw">Product</span> and <span class="fw">Shop</span> and a main program. Each class and the main program should be in a separate file (three files in all).</li>
 
-		    <li>The <span class="fw">Product</span> class should have member variables for the product name, description and stock (string, string and integer respectively) and a constructor that takes parameters that populate each of the member variables.</li>
-		    <li>The shop should hold a list of products and have the following functions.
+		    <li>The <span class="fw">Product</span> class should have <strong>private</strong> member variables for the product name and stock (string and integer respectively).The class should also have the following methods:
+			<ul>
+			    <li>a constructor, with parameters corresponding to the two member variables</li>
+			    <li>a printing method that prints the product information in one line</li>
+			    <li>a method that checks if the stock is low (below 3)</li>
+			</ul>
+		    </li>
+		    <li>The shop should hold a list of products and have the following methods.
 			<ul>
 			    <li>constructor, which a parameter structured like the data given in figure DATA below</li>
 			    <li>for adding a product:

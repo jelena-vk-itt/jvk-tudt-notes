@@ -34,6 +34,70 @@
 	    <article>
 		<ol class="toc_grp newline">
 		    
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000097">
+			<p>Getters, setters and deleters</p>
+			<article style="display:none">
+			    <h2>Getters, setters and deleters</h2>
+
+
+			    <p>BAD EXAMPLE FROM PREVIOUS PAGE: Person accessing Address fields to print</p>
+
+			    
+			    <figure id="py-get-set-del">
+				<figcaption>Getter, setter and deleter example</figcaption><pre class="code-listing">
+class WithProp:
+    
+    def __init__(self):
+        print("calling constructor")
+        self._x = "a"
+
+    def getx(self):
+        print("calling getx")
+        return self._x
+
+    def setx(self, value):
+        print("calling setx")
+        self._x = value
+
+    def delx(self):
+        print("calling delx")
+        del self._x
+
+    x = property(getx, setx, delx)
+
+def prhd(num):
+    print("--------- {} -----------".format(num))
+    
+prhd(1)
+wp = WithProp()
+
+prhd(2)
+print(wp.x)     # output: a
+
+prhd(3)
+wp.x = "b"
+
+prhd(4)
+print(wp.x)     # output: b
+
+prhd(5)
+del wp.x
+
+prhd(6)
+print(wp.x)     # error				</pre>
+				<table class="legend">
+				    <tr><td><span class="fw">x = property(getx, setx, delx)</span></td><td>defines x as an instance variable of class WithProp</td></tr>
+				    <tr><td><span class="fw">getx</span>, <span class="fw">setx</span> and <span class="fw">delx</span></td><td>methods that wrap getting, setting and deleting, performing additional stuff (in this case printing "calling ...")</td></tr>
+				    <tr><td colspan="2">Notice that the getter, setter and delter must access <span class="fw">x</span> with a prepended underscore, which from the outside it is accessed as just <span class="fw">x</span>.</td></tr>
+				</table>
+				<hr/><hr/>
+			    </figure>
+			    <p>You might like to copy the code snippet <a class="xref" href="#py-get-set-del">?</a> into a script and experiment with it.</p>
+			</article>
+		    </li>
+
+		    
 	            <!--------------------------------------------------------------------->            
                     <li id="ARTCLID000103">
 			<p>Class inheritance</p>
@@ -170,6 +234,9 @@ class Employee(Person):
 			    </ul>
 			</article>
                     </li>
+
+
+		    <p><strong>DUNDERS! ADD!</strong></p>
 		</ol>
 
 		<a href="res/files/python/classes/car_with_owner.zip">Car example from class</a>

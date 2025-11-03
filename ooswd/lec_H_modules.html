@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="res/styles/ooswd.css" />
+	<title>OOSWD</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Modules (again)</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+
+	    </nav>
+
+	    <article>
+		<ol class="toc_grp newline">
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000102">
+			<p>Importing modules</p>
+			<article style="display:none">
+			    <h2>Importing modules</h2>
+
+			    <p>We have already seen that some modules that are installed with Python have to be imported in order to be used, because they are not loaded into the interpreter by default. Examples are the <strong>random</strong> module, which we have used before, and the <strong>datetime</strong> module.</p>
+			    <p>There are several variations of the import syntax, as seen in the next code snippet</p>
+			    
+			    <figure id="py-import">
+				<figcaption>Import syntax</figcaption><pre class="code-listing">
+# import the entire module
+import random
+
+# then access objects from the module by specifying the scope (module name), followed by a dot and the object name
+random.randint(1, 10)
+
+# import specific items (as used above with our classes)
+from random import randint
+
+# then access the imported object directly
+randint(1, 10)
+
+# import all objects from the module
+from math import *
+
+# all objects can be accessed by name 
+print(pi) # pi is an object in module math
+
+# give an alias to the imported module
+import math as m
+
+# access using the alias to specify the scope
+print(m.pi)
+
+				</pre>
+
+			    </figure>
+
+			    <p>Developers can use modules to organise their own code, since large files, e.g. containing multiple classes, can be hard to read and maintain.</p>
+			    <p>With imports, code can be placed in multiple files and the dependencies between them managed with the <span class="fw">import</span> statement.</p>
+			    <figure id="py-import">
+				<figcaption>Module import</figcaption>
+				Contents of address.py: <pre class="code-listing">
+class Address:
+    # code defining the class</pre>
+				Contents of person.py: <pre class="code-listing">
+from address import Address
+
+class Person:
+    # code defining the class and using Address</pre>
+
+			    </figure>
+
+			    <details class="ice"><summary></summary>
+				<p>Download <a href="res/files/python/classes/import/import_set.py">this file</a> onto your computer. Then reorganise it into three files called <em>address.py</em>, <em>person.py</em> and <em>main.py</em>. The first two should include a class definition only and the last on the code that creates <span class="fw">Person</span> objects and prints them. Remember that you must use imports.</p>
+				<p><a href="res/files/python/classes/import.zip">EXAMPLE SOLUTION</a></p>
+
+				<p>Now modify the person class to add a date of birth as a member variable of type <span class="fw">datetime</span>.The class <span class="fw">datetime</span> is available in Python from module <span class="fw">datetime</span> (same name).</p>
+				<p>To the <span class="fw">Person</span> class, add a method that calculates and returns the person's age. Write some code in file <em>main.py</em> to test your solution.</p>
+				<p><a href="res/files/python/classes/age.zip">EXAMPLE SOLUTION</a></p>
+
+				<p>Add another file and in it define a class called <span class="fw">KrisKindle</span>. This class should have a dictionary a list variable that stores objects of type <span class="fw">Person</span>. It should also have the following methods:</p>
+				<dl>
+				    <dt><span class="fw">addPerson</span></dt>
+				    <dd>which takes an argument of type <span class="fw">Person</span> and adds it to the list</dd>
+				    <dt><span class="fw">removePerson</span></dt>
+				    <dd>which removes a person by their name and surname</dd>
+				    <dt><span class="fw">draw</span></dt>
+				    <dd>which randomly assigns each person on the list to another person (who will give them a present), so that each person also gives exactly one present, and stores the assignments</dd>
+				    <dt><span class="fw">printAssignments</span></dt>
+				    <dd>which prints the current assignments</dd> 
+				</dl>
+
+				<p>You must design a way of storing the assigned persons for easy access, but also so that the storage is correctly adjusted if a person is removed.</p>
+				<p>You can use the following algorithm: use the <span class="fw">random.sample</span> method to 'jumble' the people, then assign to each person the person that is after them in line.</p>
+				<p>Modify the <em>main.py</em> script so that it creates an object of type <span class="fw">KrisKindle</span>, adds a few people and makes assignments, then prints them.</p>
+				<p><a href="res/files/python/classes/kk.zip">EXAMPLE SOLUTION</a></p>
+			    </details>
+			</article>
+		    </li>
+		</ol>
+	    </article>
+	    <p id="sig">Jelena Vasić</p>
+	</div>
+
+	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	<script type="text/javascript" src="../common/res/scripts/modules/xrefs.js"></script>
+	<script type="text/javascript" src="res/scripts/xrefs.js"></script>
+    </body>
+</html>

@@ -20,7 +20,7 @@ class Person:
         self.address = a
 
     def print(self):
-        print("")
+        print()
         print("name: ", self.name)
         print("surname: ", self.surname)
         self.address.print()
