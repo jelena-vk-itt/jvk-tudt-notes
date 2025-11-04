@@ -1,25 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta charset="UTF-8" />
-	<link
-	    rel="shortcut icon"
-	    type="image/x-icon"
-	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/ooswd/res/images/logo.png"
-	/>
-	<link
-	    rel="stylesheet"
-	    type="text/css"
-	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css"
-	/>
-
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="res/styles/ooswd.css" />
 	<title>OOSWD</title>
-	<style>
-	 body {
-             background: beige;
-	 }
-	</style>
     </head>
     <body>
 	<header id="tudheader">
@@ -28,62 +14,57 @@
 		<p>School of Computer Science</p>
 	    </div>
 	    <div id="titlecontainer">
-		<p id="title">Week 5: Classes</p>
+		<p id="title">Classes Lab</p>
 	    </div>
 	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
 	</header>
 
 	<div id="content-no-nav">
 	    <article>
-		<h2>Assignment</h2>
-		<p>Your assignment is to implement a stock checking application with the use of Python classes. The requirements are as follows:</p>
-		<ul>
-		    <li>The application should consist of classes <span class="fw">Product</span> and <span class="fw">Shop</span> and a main program. Each class and the main program should be in a separate file (three files in all).</li>
+		<section class="tutorial-panel clearfix">
+		    <p>In this exercise you will be implementing a shop management application using classes.</p>
+		    <ul>
 
-		    <li>The <span class="fw">Product</span> class should have <strong>private</strong> member variables for the product name and stock (string and integer respectively).The class should also have the following methods:
-			<ul>
-			    <li>a constructor, with parameters corresponding to the two member variables</li>
-			    <li>a printing method that prints the product information in one line</li>
-			    <li>a method that checks if the stock is low (below 3)</li>
-			</ul>
-		    </li>
-		    <li>The shop should hold a list of products and have the following methods.
-			<ul>
-			    <li>constructor, which a parameter structured like the data given in figure DATA below</li>
-			    <li>for adding a product:
-				<p><span class="fw">add_product(self, name, description, stock)</span></p></li>
-			    <li>removing a product:
-				
-				<p><span class="fw">remove_product(self, name)</span></p></li>
-			    
-			    <li>and printing the list of products:
-				
-				<p><span class="fw">print_product_list(self)</span></p>
-			    </li>
-			    
-			    <li>finally, a function that identifies the products that are low on stock (below 3) and prints a list of those products:
+			<img style="background-color: white;float:right; width: 600px; max-width: 100%; margin: 0 0 0.5em 0.5em" src="res/images/first_class_assignment.png">
+			<li>The application should consist of classes <span class="fw">Product</span> and <span class="fw">Shop</span> and a main program. Each class and the main program should be in a separate file (three files in total).</li>
+			<li>The requirements for classes Shop and Product are shown in the UML class diagram. Study the diagram, then read the further instructions.</li>
+			<li>The <span class="fw">Product</span> class should have:
+			    <ul>
+				<li>private instance member variables for the product name and stock count (string and integer respectively)</li>
+				<li>a private class member variable called <span class="fw">LOW_STOCK_MARK</span> (all capitals indicating that this should stay constant) set to 3</li>
+				<li>methods:
+				    <ul>
+					<li>a constructor, with parameters corresponding to the two member variables</li>
+					<li>methods for getting and setting the stock and name values (4 methods in total); as these are private (e.g. <span class="fw">productObject._stock</span> is not allowed because <span class="fw">_stock</span> is a private member), we provide the methods for the variables to be read and modified from the outside without direct access</li>
+					<li>a method that checks if the stock is low, by comparing it with the low stock mark</li>
+				    </ul>
+				</li>
+			    </ul>
+			</li>
+			<li>The class <span class="fw">Shop</span> should have:
+			    <ul>
+				<li>a private instance member variable of type <span class="fw">list</span> that holds products (in the UML diagram, this is not shown by an attribute but as the aggregation relationship between the classes, however, it will be implemented as a member variable)</li>
+				<li>a private instance member variable for the name of the shop</li>
+				<li>methods:
+				    <ul>
+					<li>a constructor, with a parameter for the shop name</li>
+					
+					<li><span class="fw">add_product(self, name, stock)</span>, which creates and adds a product to the shop</li>
+					<li><span class="fw">remove_product(self, name)</span>, which removes the product with name <span class="fw">name</span></li>
+					<li><span class="fw">restock(self, name, quantity)</span>, which increases the stock of product with <span class="fw">name</span> by <span class="fw">quantity</span></li>
+					<li><span class="fw">sell(self, name, quantity)</span>, which decreases the stock of product with <span class="fw">name</span> by <span class="fw">quantity</span></li>
+					<li><span class="fw">print_product_list(self, low_stock_only)</span>, which prints the entire product list if <span class="fw">low_stock_only == False</span> and the list of products low on stock if <span class="fw">low_stock_only == True</span>; the default value for <span class="fw">low_stock_only</span> should be <span class="fw">False</span></li>
+				    </ul>
+				</li>
+			    </ul>
+			</li>
+			<li>The file <em>main.py</em> should contain code for testing all the functionality of the <span class="fw">Product</span> and <span class="fw">Shop</span> classes.</li>
+		    </ul>
 
-				<p><span class="fw">print_low_on_stock(self)</span></p>
-			    </li>
-			</ul>
-		    </li>
-		    <li>The file <em>main.py</em> should contain code for testing all the functionality of the <span class="fw">Shop</span> class. Start by loading the data below into a <span class="fw">Shop</span> object.
-			<br/><br/>DATA
-			<pre class="code-listing">
-DATA = [
-    ["milk", "Fresh from the farm", 10],
-    ["bread", "Fresh from the baker", 4],
-    ["tea", "Box of 100 teabags", 1],
-    ["eggs", "A dozen per box", 33],
-    ["ice cream", "1l box, vanilla", 2]
-]			</pre>
-		    </li>
-		</ul>
-		
-
-		<h2>Submission</h2>
-		<p>Create a zip file from the three Python files and submit the zip file in Brightspace using the upload link 'Lab 5'.</p>
+		</section>
 	    </article>
+	    <p id="sig">Jelena Vasić</p>
 	</div>
+
     </body>
 </html>
