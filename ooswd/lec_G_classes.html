@@ -36,69 +36,187 @@
 		    
 		    <!--------------------------------------------------------------------->            
 		    <li id="ARTCLID000097">
-			<p>Getters, setters and deleters</p>
+			<p>Getters and setters</p>
 			<article style="display:none">
-			    <h2>Getters, setters and deleters</h2>
+			    <h2>Getters and setters</h2>
 
+			    <p>In last week's lab we have defined private variables and methods for accessing them.</p>
 
-			    <p>BAD EXAMPLE FROM PREVIOUS PAGE: Person accessing Address fields to print</p>
-
-			    
-			    <figure id="py-get-set-del">
-				<figcaption>Getter, setter and deleter example</figcaption><pre class="code-listing">
-class WithProp:
+			    <figure id="py-priv-getset">
+				<figcaption>Private member variables with ordinary methods as getters and setters</figcaption><pre class="code-listing">class Product:
     
-    def __init__(self):
-        print("calling constructor")
-        self._x = "a"
-
-    def getx(self):
-        print("calling getx")
-        return self._x
-
-    def setx(self, value):
-        print("calling setx")
-        self._x = value
-
-    def delx(self):
-        print("calling delx")
-        del self._x
-
-    x = property(getx, setx, delx)
-
-def prhd(num):
-    print("--------- {} -----------".format(num))
+    lowStockMark = 3
     
-prhd(1)
-wp = WithProp()
+    def __init__(self, name, stock):
+        self._name = name
+        self._stock = stock
 
-prhd(2)
-print(wp.x)     # output: a
+    def get_name(self):
+        return self._name
 
-prhd(3)
-wp.x = "b"
+    def set_name(self, name):
+        self._name = name
 
-prhd(4)
-print(wp.x)     # output: b
+    def get_stock(self):
+        return self._stock
 
-prhd(5)
-del wp.x
+    def set_stock(self, stock):
+        self._stock = stock
 
-prhd(6)
-print(wp.x)     # error				</pre>
+    def stock_is_low(self):
+        return self._stock <= Product.lowStockMark</pre>
 				<table class="legend">
-				    <tr><td><span class="fw">x = property(getx, setx, delx)</span></td><td>defines x as an instance variable of class WithProp</td></tr>
-				    <tr><td><span class="fw">getx</span>, <span class="fw">setx</span> and <span class="fw">delx</span></td><td>methods that wrap getting, setting and deleting, performing additional stuff (in this case printing "calling ...")</td></tr>
-				    <tr><td colspan="2">Notice that the getter, setter and delter must access <span class="fw">x</span> with a prepended underscore, which from the outside it is accessed as just <span class="fw">x</span>.</td></tr>
+				    <tr><td><span class="fw">self._name<br/>self._stock</span></td><td>Private member variables <span class="fw">_name</span> and <span class="fw">_stock</span> accessed directly from within class methods</td></tr>
+				    <tr><td><span class="fw">get_name<br/>set_name<br/>get_stock<br/>set_stock</span></td><td>These are 'getter' and 'setter' methods used to avoid breaking convention by directly accessing private variables</td></tr>
 				</table>
 				<hr/><hr/>
 			    </figure>
-			    <p>You might like to copy the code snippet <a class="xref" href="#py-get-set-del">?</a> into a script and experiment with it.</p>
+
+			    <p>There is nothing wrong with this approach, but it is a little bit tedious. Python provides a mechanism for achieving the same thing more easily.</p>
+
+			    <h3>Using the &#64;properties and setter decorators</h3>
+
+			    <p>With the use of decorators <span class="fw">&#64;property</span> and <span class="fw">&#64;<em>property_name</em>.setter</span>, private member variables are 'wrapped' in methods for read and write access via variable (rather than function) notation.</p>
+			    
+			    <figure id="py-get-set-del">
+				<figcaption>Properties with decorators</figcaption><pre class="code-listing">class Product:
+    
+    lowStockMark = 3
+    
+    def __init__(self, name, stock):
+        self._name = name
+        self._stock = stock
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        self._name = name
+
+    @property
+    def stock(self):
+        return self._stock
+
+    @stock.setter
+    def stock(self, stock):
+        self._stock = stock
+
+    def stock_is_low(self):
+        return self._stock <= Product.lowStockMark
+
+# tests
+p = Product("Milk", 5)
+print(p.name)
+p.name = "UHT milk"
+print(p.name)</pre>
+				<table class="legend">
+				    <tr><td><span class="fw">&#64;property<br/>def name(self):</span></td><td>Method that allows <span class="fw">self._name</span> to be accessed with <em>some_object</em><span class="fw">.name</span> externally for reading</td></tr>
+				    <tr><td><span class="fw">&#64;name.setter<br/>def name(self, name):</span></td><td>Method that allows <span class="fw">self._name</span> to be accessed with <em>some_object</em><span class="fw">.name</span> externally for writing</td></tr>
+				</table>
+				<hr/><hr/>
+			    </figure>
+
+			    <h3>Alternative way of defining properties</h3>
+			    <figure id="py-property-alt">
+				<figcaption>Using function property</figcaption><pre class="code-listing">class Product:
+    
+    lowStockMark = 3
+    
+    def __init__(self, name, stock):
+        self.__name = name
+        self.__stock = stock
+
+    def __get_name(self):
+        return self.__name
+
+    def __set_name(self, name):
+        self.__name = name
+
+    def __get_stock(self):
+        return self.__stock
+
+    def __set_stock(self, stock):
+        self.__stock = stock
+
+    def stock_is_low(self):
+        return self.__stock <= Product.lowStockMark
+
+    name = property(__get_name, __set_name)
+    stock = property(__get_stock, __set_stock)
+
+# tests
+p = Product("Milk", 5)
+print(p.name)
+p.name = "UHT milk"
+print(p.name)</pre>
+				<table class="legend">
+				    <tr><td width=450><span class="fw">__get_name<br/>__set_name<br/>__get_stock<br/>__set_stock</span></td><td>Private getters and setters</td></tr>
+				    <tr><td><span class="fw">name = property(__get_name, __set_name)<br/>stock = property(__get_stock, __set_stock)</span></td><td>Calls to the <span class="fw">property</span> function, which associates the names <span class="fw">name</span> and <span class="fw">stock</span> with the getters and setters, allowing the names to be used (like in the previous example) for variable-style (rather than function-style) access to the private members <span class="fw">__name</span> and <span class="fw">__stock</span></td></tr>
+				</table>
+				<hr/><hr/>
+			    </figure>
 			</article>
 		    </li>
 
 		    
 	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000146">
+			<p>Static methods</p>
+			<article style="display:none">
+                            <h2>Static methods</h2>
+
+			    <p>In last week's lab solution, the following method is found inside the <span class="fw">Shop</span> class:</p>
+
+			    <figure id="py-static-method-candidates">
+				<figcaption>Example of a static method candidate in Python</figcaption><pre class="code-listing">class Shop:
+
+    # other variables and functions
+
+    def print_footer(self):
+        print(Shop.SEP_LINE)
+				</pre>
+			    </figure>
+			    <p>As the method shown above does not access instance member variables, it does not need to be associated with an object and can be made <em>static</em>. A static method:</p>
+			    <ul>
+				<li>is indicated with the <span class="fw">&#64;staticmethod</span> decorator</li>
+				<li>does not have the object itself (<span class="fw">self</span>) as the first parameter</li>
+				<li>similarly to class member variables, can be accessed via the class</li>
+				<li>can alternatively be accessed via objects</li>
+			    </ul>
+			    
+			    <figure id="py-static-methods-declared">
+				<figcaption>A static method in Python</figcaption><pre class="code-listing">class Shop:
+    # other members
+
+    @staticmethod
+    def print_footer():
+        print(Shop.SEP_LINE)
+
+# tests
+Shop.print_footer()
+s = Shop()
+s.print_footer()</pre>
+				<table class="legend">
+				    <tr><td><span class="fw">@staticmethod</span></td><td>Decorator that marks a method as static</td></tr>
+				    <tr><td><span class="fw">def print_header(heading):</span></td><td>A static method does not include the <span class="fw">self</span> parameter</td></tr>
+				    <tr><td><span class="fw">Shop.print_footer()</span></td><td>A static method being accessed via the class</td></tr>
+				    <tr><td><span class="fw">s.print_footer()</span></td><td>A static method being accessed via an object</td></tr>
+				</table>
+				<hr/><hr/>
+			    </figure>
+
+
+			    
+			</article>
+                    </li>
+
+
+
+
+
+		    <!--------------------------------------------------------------------->            
                     <li id="ARTCLID000103">
 			<p>Class inheritance</p>
 			<article style="display:none">
@@ -131,8 +249,9 @@ print(wp.x)     # error				</pre>
 			</article>
                     </li>
 
+
 		    
-	            <!--------------------------------------------------------------------->            
+		    <!--------------------------------------------------------------------->            
                     <li id="ARTCLID000104">
 			<p>Inheritance syntax in Python</p>
 			<article style="display:none">
@@ -149,7 +268,6 @@ class Person:
         print("")
         print("name: ", self.name)
         print("surname: ", self.surname)
-
 
     def get_fullname(self):
         return self.name + " " + self.surname
@@ -236,10 +354,30 @@ class Employee(Person):
                     </li>
 
 
-		    <p><strong>DUNDERS! ADD!</strong></p>
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000147">
+			<p>Special method names</p>
+			<article style="display:none">
+                            <h2>Special method names</h2>
+
+			    <p></p>
+			    <p>If added to developer-defined classes, they will be invoked in specific, well-defined circumstances.</p>
+			    <p>For example, we have already seen an example of a special method name, <span class="fw">__init__</span>. This method is called just after an object of the class is created and it is expected to initialise the new object. </p>
+			    <p>Other examples are:
+				<ul>
+				    <li><span class="fw">__repr__</span> is expected to provide a 'technical' string representation of the object, for debugging</li>
+				    <li><span class="fw">__str__</span> is expected to provide a 'pretty' string representation for use by the function <span class="fw">print</span> and <span class="fw">str</span></li>
+				    <li><span class="fw">__lt__</span> is expected to tell if an object is 'less than' another object (if applicable)</li>
+				</ul>
+			    </p>
+			    <p>These methods are also referred to as <strong>dunder</strong> (double underscores) methods.</p>
+			    <p>The Python documentation lists <a class="lr" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">more examples</a> of these special methods.</p>
+					
+			</article>
+			
+                    </li>
 		</ol>
 
-		<a href="res/files/python/classes/car_with_owner.zip">Car example from class</a>
 	    </article>
 	    <p id="sig">Jelena Vasić</p>
 	</div>
