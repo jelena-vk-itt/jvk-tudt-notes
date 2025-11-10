@@ -44,12 +44,13 @@
 		  <p>Then define two subclasses of <span class="fw">Product</span>:</p>
 		  <ul>
 		      <li><span class="fw">FoodProduct</span>, which should include an additional property, <span class="fw">expiryDate</span>, and override the method <span class="fw">get_department()</span>, returning a suitable constant string</li>
-		      <li><span class="fw">ClothingProduct</span>, which should include an additional property, <span class="fw">season</span>, and override the method <span class="fw">get_department()</span>, returning a suitable constant string</li>
+		      <li><span class="fw">ClothingProduct</span>, which should include an additional property, <span class="fw">season</span>, and override the method <span class="fw">get_department()</span>, returning a suitable constant string. The setter for <span class="fw">season</span> should report an error and not modify the object if the parameter's value is not one of <em>spring</em>, <em>summer</em>, <em>autumn</em> or <em>winter</em>.</li>
 		  </ul>
 	      </li>
 	      <li>Define the <span class="fw">__str__</span> method on classes <span class="fw">Product</span>, <span class="fw">FoodProduct</span> and <span class="fw">ClothingProduct</span>.</li>
 	      <li>Define detailed tests for all the new functionality in the <em>main.py</em> file and run them.</li>
 	      <li>Also in the <em>main.py</em> file, define a list of four objects, two of each subclass. Use a loop to print out all four objects one after the other.</li>
+	      <li><strong>Additional challenge:</strong> Define the comparison dunder methods in the class <span class="fw">Product</span>, in order to facilitate alphabetical ordering of products by name. Test the solution by ordering and printing the objects created in the last step.</li>
 	    </ul>
 	  </li>
 	</ul>

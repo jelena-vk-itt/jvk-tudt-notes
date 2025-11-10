@@ -214,6 +214,28 @@ s.print_footer()</pre>
 
 
 
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000147">
+			<p>Special method names</p>
+			<article style="display:none">
+                            <h2>Special method names</h2>
+
+			    <p></p>
+			    <p>If added to developer-defined classes, they will be invoked in specific, well-defined circumstances.</p>
+			    <p>For example, we have already seen an example of a special method name, <span class="fw">__init__</span>. This method is called just after an object of the class is created and it is expected to initialise the new object. </p>
+			    <p>Other examples are:
+				<ul>
+				    <li><span class="fw">__repr__</span> is expected to provide a 'technical' string representation of the object, for debugging</li>
+				    <li><span class="fw">__str__</span> is expected to provide a 'pretty' string representation for use by the function <span class="fw">print</span> and <span class="fw">str</span></li>
+				    <li><span class="fw">__lt__</span> is expected to tell if an object is 'less than' another object (if applicable)</li>
+				</ul>
+			    </p>
+			    <p>These methods are also referred to as <strong>dunder</strong> (double underscores) methods.</p>
+			    <p>The Python documentation lists <a class="lr" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">more examples</a> of these special methods.</p>
+			    
+			</article>
+			
+                    </li>
 
 
 		    <!--------------------------------------------------------------------->            
@@ -258,16 +280,13 @@ s.print_footer()</pre>
                             <h2>Inheritance syntax in Python</h2>
 
 			    <figure id="py-inheritance">
-				<figcaption>Class inheritance with Python</figcaption><pre class="code-listing">
-class Person:
+				<figcaption>Class inheritance with Python</figcaption><pre class="code-listing">class Person:
     def __init__(self, n, s):
         self.name = n
         self.surname = s
 
-    def print(self):
-        print("")
-        print("name: ", self.name)
-        print("surname: ", self.surname)
+    def __str__(self):
+        return "name: " + self.name + "\nsurname: " + self.surname
 
     def get_fullname(self):
         return self.name + " " + self.surname
@@ -278,23 +297,21 @@ class Employee(Person):
         super().__init__(n, s)
         self.employeeNumber = en
 
-    def print(self):
-        super().print()
-        print("employee number: ", self.employeeNumber)			    </pre>
+    def __str__(self):
+        return super().__str__() + "\nemployee number: " + str(self.employeeNumber)  </pre>
 				<table class="legend">
 				    <tr><td><span class="fw">class Employee(Person)</span></td><td>a new class called <span class="fw">Employee</span> is declared as a subclass of <span class="fw">Person</span></td></tr>
 				    <tr><td><span class="fw">super()</span></td><td>returns an object of the base class type</td></tr>
 				    <tr><td><span class="fw">super().__init__()</span></td><td>base class constructor being called from the subclass to construct its inherited part</td></tr>
 				    <tr><td><span class="fw">get_fullname()</span></td><td>inherited and callable on the subclass</td></tr>
-				    <tr><td><span class="fw">print()</span></td><td>on the subclass, this is called instead of the base class <span class="fw">print</span> method</td></tr>
+				    <tr><td><span class="fw">__str__()</span></td><td>on the subclass, this is called instead of the base class __str__() method</td></tr>
 				</table>
 				<hr/><hr/>
 			    </figure>
 			    <details class="ice"><summary></summary>
 				<p>Copy the code from code snippet <a class="xref" href="#py-inheritance">?</a> into a script file. Then write some code to test the classes:</p>
 				<ul>
-				    <li>create an object of type <span class="fw">Person</span></li>
-				    <li>call the function <span class="fw">print</span> on it</li>
+				    <li>create an object of type <span class="fw">Person</span> and print it</li>
 				    <li>call the function <span class="fw">get_fullname</span> on it</li>
 				    <li>repeat the previous steps with an object of type <span class="fw">Employee</span></li>
 				    <li>think about the outputs until you are happy you understand how they were produced</li>
@@ -302,10 +319,6 @@ class Employee(Person):
 				<p><a href="res/files/python/classes/inheritance.py">EXAMPLE SOLUTION</a></p>
 			    </details>
 
-			    <details class="ice"><summary></summary>
-				<p>Use the answer files for the team/person/address exercise (found <a href="res/files/python/classes/team.zip">here</a>) as the starting point for this exercise. Reorganise the code so that that it retains the functionality of the existing code, but with a new class <span class="fw">Employee</span> included. In the current setup, the <span class="fw">Person</span> class has a member variable for their team role, which really does not belong on <span class="fw">Person</span>, but could belong on <span class="fw">Employee</span>. The team should now consist of employees.</p>
-				<p><a href="res/files/python/classes/team_reorg.zip">EXAMPLE SOLUTION</a></p>
-			    </details>
 			</article>
                     </li>
 
@@ -329,7 +342,7 @@ class Employee(Person):
 				    <td>subclass</td><td>&#10004;</td><td>subclass</td><td>subclass <span class="fw">func</span></td><td><span class="fw">dogObj.feedTimes()<br>dogObj.walkTimes()<br>catObj.feedTimes()</span></td>
 				</tr>
 				<tr>
-				    <td>subclass</td><td>X</td><td>subclass</td><td>base <span class="fw">func</span></td><td><span class="fw">dogObj.setUpAlarms()<br>catObj.walkTimes()<br>cat_obj.setUpAlarms()</span></td>
+				    <td>subclass</td><td>X</td><td>subclass</td><td>base <span class="fw">func</span></td><td><span class="fw">dogObj.setUpAlarms()<br>catObj.walkTimes()<br>catObj.setUpAlarms()</span></td>
 				</tr>
 				<tr>
 				    <td>subclass</td><td>&#10004;</td><td>base</td><td>subclass <span class="fw">func</span></td><td><span class="fw">feedTimes()</span> called from <span class="fw">dogObj.setUpAlarms()</span><br><span class="fw">walkTimes()</span> called from <span class="fw">dogObj.setUpAlarms()</span><br><span class="fw">feedTimes()</span> called from <span class="fw">catObj.setUpAlarms()</span></td>
@@ -354,28 +367,6 @@ class Employee(Person):
                     </li>
 
 
-	            <!--------------------------------------------------------------------->            
-                    <li id="ARTCLID000147">
-			<p>Special method names</p>
-			<article style="display:none">
-                            <h2>Special method names</h2>
-
-			    <p></p>
-			    <p>If added to developer-defined classes, they will be invoked in specific, well-defined circumstances.</p>
-			    <p>For example, we have already seen an example of a special method name, <span class="fw">__init__</span>. This method is called just after an object of the class is created and it is expected to initialise the new object. </p>
-			    <p>Other examples are:
-				<ul>
-				    <li><span class="fw">__repr__</span> is expected to provide a 'technical' string representation of the object, for debugging</li>
-				    <li><span class="fw">__str__</span> is expected to provide a 'pretty' string representation for use by the function <span class="fw">print</span> and <span class="fw">str</span></li>
-				    <li><span class="fw">__lt__</span> is expected to tell if an object is 'less than' another object (if applicable)</li>
-				</ul>
-			    </p>
-			    <p>These methods are also referred to as <strong>dunder</strong> (double underscores) methods.</p>
-			    <p>The Python documentation lists <a class="lr" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">more examples</a> of these special methods.</p>
-					
-			</article>
-			
-                    </li>
 		</ol>
 
 	    </article>
