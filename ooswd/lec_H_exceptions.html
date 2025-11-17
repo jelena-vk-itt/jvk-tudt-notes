@@ -33,7 +33,7 @@
 	    <article>
 		<ol class="toc_grp newline">
 		    
-	           <!--------------------------------------------------------------------->
+	            <!--------------------------------------------------------------------->
                     <li>
 			<p>What is an exception?</p>
 			<article style="display:none">
@@ -78,7 +78,7 @@
 
 				    <details class="ice"><summary></summary>
 					<p>Run the Python script found <a href="res/files/python/exceptions/abcd.py">here</a> in the PyCharm debugger, with a breakpoint on the line where the exception is raised with <span class="fw">raise</span>. Look at the Frames portion of the Debugger panel inside the Debug view in PyCharm. This shows the functions currently on the call stack (in our case, main, a, b, c and d). Step over the line with the <span class="fw">raise</span> statement. You will see how the <span class="fw">print</span> calls at the end of each function are never made, because the exception is propagated through the frames in the call stack, terminating the execution of each function and surfacing to be reported in the console. The whole journey of the exception can be seen in the stack trace.</p>
-</details>
+				    </details>
 				</li>
 				<li>However, <strong>exceptions can be handled</strong>. This is done with the <span class="fw">try/except/else/finally</span> construct:
 				    <figure>
@@ -129,13 +129,13 @@ raise object_of_some_error_class_type</pre>
 
 				    <p>In the following example, an exception of type Exception is raised.</p>
 				    <figure id="py-raise-actual">
-<figcaption>Raising an exception</figcaption><pre class="code-listing">
+					<figcaption>Raising an exception</figcaption><pre class="code-listing">
 raise Exception("Something went wrong!)</pre>
-<table class="legend">
-    <tr><td>Exceptions take one or two arguments. The first argument is always a message.</td></tr>
-</table>
-<hr/><hr/>
-</figure>
+					<table class="legend">
+					    <tr><td>Exceptions take one or more arguments. The first argument is always a message.</td></tr>
+					</table>
+					<hr/><hr/>
+				    </figure>
 
 				    
 				</li>
@@ -143,7 +143,7 @@ raise Exception("Something went wrong!)</pre>
 				<li>New exception types can be defined
 
 				    <figure id="py-define-ex">
-<figcaption>Defining a new exception</figcaption><pre class="code-listing">
+					<figcaption>Defining a new exception</figcaption><pre class="code-listing">
 class ProblemWithAge(Exception):
     pass</pre>
 				    </figure>
@@ -197,8 +197,8 @@ else:
 			    </details>
 
 			    <p>Exceptions <strong>should not</strong> be used to implement conditional behaviour that is part of the normal, error-free functioning of the program. The following example shows some logically correct code that employs exception handling to provide two different execution paths that are taken depending on a condition. This is not good practice.</p>
-<figure id="py-bad-use-ex">
-    <figcaption><strong>BAD PRACTICE EXAMPLE:</strong> Exceptions in error-free functionality</figcaption><pre class="code-listing">
+			    <figure id="py-bad-use-ex">
+				<figcaption><strong>BAD PRACTICE EXAMPLE:</strong> Exceptions in error-free functionality</figcaption><pre class="code-listing">
 # if the entered op is 1, the list is sorted
 # otherwise, the list items are converted to uppercase
 
@@ -213,7 +213,20 @@ try:
 except Exception:
     print(list(map(lambda x: x.upper(), l)))    </pre>
 
-</figure>
+			    </figure>
+
+			    <p>Raise exceptions:</p>
+			    <ul>
+				<li>when your code is written to be reusable, to signal incorrect usage (e.g. incorrect arguments)</li>
+				<li>when using an exception improves readability of the code (e.g. checking whether an input value is a float)</li>
+				<li>when an error only needs to be reported higher in the call stack (e.g. only the point of failure is relevant but not the exact reason)</li>
+			    </ul>
+			    <p>but not:</p>
+			    <ul>
+				<li>when an error can be handled just as easily without an exception</li>
+				<li>to implement non-error use cases (contra-example given above)</li>
+			    </ul>
+				
 
 			</article>
 		    </li>

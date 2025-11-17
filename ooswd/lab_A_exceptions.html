@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<link
+	    rel="shortcut icon"
+	    type="image/x-icon"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/ooswd/res/images/logo.png"
+	/>
+	<link
+	    rel="stylesheet"
+	    type="text/css"
+	    href="https://jelena-vk-itt.github.io/jvk-tudt-notes/common/res/styles/common.css"
+	/>
+
+	<title>OOSWD</title>
+	<style>
+	 body {
+             background: beige;
+	 }
+	</style>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Exceptions Lab</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content-no-nav">
+	    <article>
+		<h2>Assignment</h2>
+		<ol>
+		    <li>Starting with your solution (or the given one) to exercise 3 in lab assignment <em>Revision, strings, lists</em> (week 2):
+			<ol type="a">
+			    <li>improve the code by refactoring it to use constructs learnt since (e.g. loops) and, specifically, implement a function that orders a list given preference numbers like those expected in the program</li>
+			    <li>handle any number of items greater than 1 is handled, rather than 5</li>
+			    <li>handle the following errors, with exceptions or otherwise, as appropriate:
+				<ul>
+				    <li>the number of items entered is less than 2</li>
+				    <li>the count of the preference ordering numbers entered does not match the item count</li>
+				    <li>any of the preference ordering numbers are not integers in the correct range (e.g. 1 - 5)</li>
+				</ul>
+			    </li>
+			</ol>
+		    </li>
+		    <li>Starting with your solution (or the given one) to lab assignment <em>Classes</em> (week 8), modify it so that the following errors are reported as exceptions:
+			<ol type="a">
+			    <li>an empty string is passed to the <span class="fw">Product</span> name setter</li>
+			    <li>an invalid stock value is passed to the <span class="fw">Product</span> stock setter</li>
+			    <li>an empty string is passed to the <span class="fw">Shop</span> constructor</li>
+			    <li>a non-listed product name is passed to any of the <span class="fw">Shop</span> methods <span class="fw">remove_product</span>, <span class="fw">restock</span> and <span class="fw">sell</span></li>
+			    <li>an invalid stock increase value is passed to <span class="fw">Shop</span> method <span class="fw">resstock</span></li>
+			    <li>an invalid stock decreease value is passed to <span class="fw">Shop</span> method <span class="fw">sell</span></li>
+			</ol>
+			<p>Write some code in <em>main.py</em> to test each instance of a raised exception by using a <span class="fw">try-except</span> statement.</p>
+		    </li>
+		</ol>
+	    </article>
+	</div>
+    </body>
+</html>
