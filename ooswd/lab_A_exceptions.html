@@ -55,9 +55,10 @@
 		    <h2>Exercise 2</h2>
 		    <p>Starting with your solution (or the given one) to lab assignment <em>Classes</em> (week 8), modify it so that the following errors are reported as exceptions:
 			<ol type="a">
-			    <li>an empty string is passed to the <span class="fw">Product</span> name setter</li>
-			    <li>an invalid stock value is passed to the <span class="fw">Product</span> stock setter</li>
-			    <li>an empty string is passed to the <span class="fw">Shop</span> constructor</li>
+			    <li>the argument passed to the <span class="fw">Product</span> name setter is not a non-empty string</li>
+			    <li>the argument passed to the <span class="fw">Product</span> stock setter is not a non-negative integer</li>
+			    <li>the argument passed to the <span class="fw">Shop</span> constructor is not a non-empty string</li>
+			    <li>an already-listed product name is passed to the <span class="fw">Shop</span> method <span class="fw">add_product</span> </li>
 			    <li>a non-listed product name is passed to any of the <span class="fw">Shop</span> methods <span class="fw">remove_product</span>, <span class="fw">restock</span> and <span class="fw">sell</span></li>
 			    <li>an invalid stock increase value is passed to <span class="fw">Shop</span> method <span class="fw">restock</span></li>
 			    <li>an invalid stock decreease value is passed to <span class="fw">Shop</span> method <span class="fw">sell</span></li>
