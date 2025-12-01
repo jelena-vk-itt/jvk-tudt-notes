@@ -1,68 +1,58 @@
-from tkinter import *
-from tkinter import ttk
+import tkinter as tk
 
-from tkinter import *
-from tkinter import ttk
+def do_something_function():
+    msg.configure(text="Button clicked!")
 
-def on_stop():
-   global running
-   running = False
+def read_and_display_text():
+    new_message_text = entry.get()
+    if boolVar.get():
+        new_message_text = new_message_text.upper()
+    msg.configure(text=new_message_text)
 
-def show_text():
-    message["text"] = "Call " + phone.get()
+msg_store = ''
+def enter_function(event):
+    global msg_store
+    msg_store = msg['text']
+    msg['text'] = 'Mouse here!'
 
+def leave_function(event):
+    msg['text'] = msg_store
 
-root = Tk()
+# create a Tk root object
+root = tk.Tk()
+root.title("First GUI")
+#root.geometry("300x200")
+root.resizable(False, False)
 
-content = ttk.Frame(root)
-frame = ttk.Frame(content, borderwidth=5, relief="ridge", width=200, height=100)
-namelbl = ttk.Label(content, text="Name")
-name = ttk.Entry(content)
+label = tk.Label(root, text="Good evening!", anchor='w')
+label.grid(row=0, column=0)
 
-onevar = BooleanVar(value=True)
-twovar = BooleanVar(value=False)
-threevar = BooleanVar(value=True)
+label['text'] = 'Good night!'
+label.configure(text='Good morning!')
 
-one = ttk.Checkbutton(content, text="One", variable=onevar, onvalue=True)
-two = ttk.Checkbutton(content, text="Two", variable=twovar, onvalue=True)
-three = ttk.Checkbutton(content, text="Three", variable=threevar, onvalue=True)
-ok = ttk.Button(content, text="Okay", command=show_text)
-cancel = ttk.Button(content, text="Cancel", command=root.destroy)
+txtVar = tk.StringVar()
+txtVar.set('Hello!')
+label['textvariable'] = txtVar
+txtVar.set('Goodbye!')
 
-content.grid(column=0, row=0, sticky=(N, W, E, S))
-frame.grid(column=0, row=0, columnspan=3, rowspan=2, sticky=(N, W, E, S))
-namelbl.grid(column=3, row=0, columnspan=2, sticky=(S))
-name.grid(column=3, row=1, columnspan=2, sticky=(N))
-one.grid(column=0, row=3)
-two.grid(column=1, row=3)
-three.grid(column=2, row=3)
-ok.grid(column=3, row=3)
-cancel.grid(column=4, row=3)
+frame = tk.Frame(root, bg='pink')
+frame.grid(row=1, column=0)
 
+entry = tk.Entry(frame)
+entry.grid(row=1, column=0, padx=10, pady=10)
 
-root.columnconfigure(0, weight=1)
-root.rowconfigure(0, weight=1)
-content.columnconfigure(0, weight=1)
-content.columnconfigure(1, weight=1)
-content.columnconfigure(2, weight=1)
-content.rowconfigure(0, weight=1)
-content.rowconfigure(1, weight=1)
+boolVar = tk.BooleanVar(value=False)
+checkbox = tk.Checkbutton(frame, text="capitalise", variable=boolVar, bg='yellow')
+checkbox.grid(row=1, column=1, padx=10, pady=10)
 
-phone = StringVar()
-home = ttk.Radiobutton(frame, text='Home', variable=phone, value='home')
-office = ttk.Radiobutton(frame, text='Office', variable=phone, value='office')
-cell = ttk.Radiobutton(frame, text='Mobile', variable=phone, value='cell')
-message = ttk.Label(frame, text=" ")
-home.grid(column=0, row=0, sticky=(W))
-office.grid(column=0, row=1, sticky=(W))
-cell.grid(column=0, row=2, sticky=(W))
-message.grid(column=0, row=3, sticky=(W))
+button = tk.Button(frame, text="Click here", command=read_and_display_text)
+button.grid(row=2, column=1, sticky='e', padx=10)
 
-def print_hierarchy(w, depth=0):
-    print('  '*depth + w.winfo_class() + ' w=' + str(w.winfo_width()) + ' h=' + str(w.winfo_height()) + ' x=' + str(w.winfo_x()) + ' y=' + str(w.winfo_y()))
-    for i in w.winfo_children():
-        print_hierarchy(i, depth+1)
+msg = tk.Message(frame, text="Initial message", bg='lightblue', width=500, anchor='w')
+msg.grid(row=3, column=0, columnspan=2, sticky='we', padx=10, pady=(20, 10))
+msg.bind('<Enter>', enter_function)
+msg.bind('<Leave>', leave_function)
 
-print_hierarchy(root)
+# show the object
+root.mainloop()	
 
-root.mainloop()

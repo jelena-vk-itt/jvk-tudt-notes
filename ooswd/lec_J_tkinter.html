@@ -32,13 +32,161 @@
 	    </nav>
 
 	    <article>
+		<ol class="toc_grp">	    
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000148">
+			<p>Introduction to tkinter</p>
+			<article style="display:none">
+			    <h2>Introduction to tkinter</h2>
+
+			    <p><strong>tkinter</strong> is a Python package that provides an interface to the <strong>Tcl/Tk</strong> Graphical User Interface (GUI) library.</p>
+
+			    <h3>Essential constructs</h3>
+			    
+			    <p>At the very least, the Python package needs to be imported and a root GUI object created. Code snippet <a class="xref" href="#py-tikinter-basic">?</a> shows constructs for these, as well as a construct (<span class="fw">root.mainloop()</span>) that keeps the GUI open and waiting for user events (e.g. button clicks or selections).</p>
+			    <figure id="py-tkinter-essential">
+				<figcaption>Using tkinter in a Python script</figcaption><pre class="code-listing">import tkinter as tk
+
+# create a Tk root object
+root = tk.Tk()
+
+# wait for events
+root.mainloop()	</pre>
+			    </figure>
+
+			    <p>The root object has various methods. For example:</p>
+			    <figure id="py-tkinter-root-methods">
+				<figcaption>Calling some tkinter root methods</figcaption><pre class="code-listing">root.title("First GUI")
+root.geometry("300x200")
+				</pre>
+				
+			    </figure>
+
+			    <h3>Widgets</h3>
+			    <p>A GUI is built from various elements, called <em>widgets</em>. With tkinter, these are always added to a parent object, which can be either the root object or another widget.</p>
+			    <figure id="py-tkinter-widget-to-root">
+				<figcaption>Adding a Label widget to the root object</figcaption><pre class="code-listing">label = tk.Label(root, text="Good evening!")
+label.grid(row=0, column=0)</pre>
+
+			    </figure>
+
+			    <p>Each widget has many <strong>configuration options</strong>, a lot of which will not be used. These can be found in widget documentation (see links at bottom of article). However, some options are essential to the widget's usefulness, for example, the configuration option <span class="fw">text</span> of a <span class="fw">Label</span> widget, which is used to specify the label's text content. In the example above we see this option being set via a parameter called <span class="fw">text</span>.</p>
+			    <p>Apart from being created, a widget must be <strong>placed</strong> in its parent with one of three available mechanisms (pack, place, grid). The <em>pack</em> system is older and harder to use than <em>grid</em>, while <em>place</em> gives full control but is also harder to use. Thus, we use <em>grid</em> in all the examples. In the code above, the label is placed in the top left corner of the GUI, as expected with the usual meaning of row and column indices.</p>
+
+
+			    <h3>Configuration options</h3>
+			    <p>We have seen configuration options passed in as arguments to the widget object constructor. They can also be set as attributes on the widget object or as arguments to the <span class="fw">configure</span> method.</p>
+
+			    <figure id="py-tkinter-config-opts">
+				<figcaption>Setting widget configuration options after creation</figcaption><pre class="code-listing">label['text'] = 'Good night!'
+
+label.configure(text='Good morning!', anchor='w')</pre>
+				
+			    </figure>
+
+			    <p>In the example above, the configuration option <span class="fw">anchor</span> specifies the position of the text in the label ('w' for west).</p>
+
+			    <h3>Variables</h3>
+			    <p>Some of the configuration options take variables rather than values. This allows for the value of these options to change dynamically.</p>
+
+			    <figure id="py-tkinter-variables">
+				<figcaption>Using the text variable in a label</figcaption><pre class="code-listing">txtVar = tk.StringVar(value='Hello!')
+label['textvariable'] = txtVar
+txtVar.set('Goodbye!')		</pre>
+				
+			    </figure>
+			    <p>In the example above, once the variable <span class="fw">txtVar</span> is associated with the widget <span class="fw">label</span>, any changes in the variable's value will be reflected in the label text. After the code in the example runs, the text in the label widget is 'Goodbye!', even though the value of the variable was 'Hello!' when the variable was associated with the widget.</p>
+
+			    <h3>More widgets and configuration options</h3>
+
+			    <p>A <span class="fw">Frame</span> added to the GUI represents a visual sub-section that can contain other widgets. In the example below, the frame contains an Entry, a Button and a Message widget.</p>
+
+			    <figure id="py-tkinter-more-widgets">
+				<figcaption>Using the Frame widget</figcaption><pre class="code-listing"># add the frame widget
+frame = tk.Frame(root)
+frame.grid(row=1, column=0)
+
+# add other widgets inside the frame
+entry = tk.Entry(frame)
+entry.grid(row=1, column=0)
+
+checkbox = tk.Checkbutton(frame, text="capitalise")
+checkbox.grid(row=1, column=1)
+
+button = tk.Button(frame, text="Click here")
+button.grid(row=2, column=1)
+
+msg = tk.Message(frame, text="Initial message")
+msg.grid(row=3, column=0)</pre>		
+			    </figure>
+
+			    <p>The next example is the same as the one above, except that the widgets are configured with further options.</p>
+			    
+			    <figure id="py-tkinter-more-options">
+				<figcaption>Using the Frame widget</figcaption><pre class="code-listing"># add the frame widget
+frame = tk.Frame(root, bg='pink')
+frame.grid(row=1, column=0)
+
+# add other widgets inside the frame
+entry = tk.Entry(frame)
+entry.grid(row=1, column=0, padx=10, pady=10)
+
+boolVar = tk.BooleanVar(value=False)
+checkbox = tk.Checkbutton(frame, text="capitalise", variable=boolVar, bg='yellow')
+checkbox.grid(row=1, column=1, padx=10, pady=10)
+
+button = tk.Button(frame, text="Click here")
+button.grid(row=2, column=1, sticky='e', padx=10)
+
+msg = tk.Message(frame, text="Initial message", bg='lightblue', width=500, anchor='w')
+msg.grid(row=3, column=0, columnspan=2, sticky='we', padx=10, pady=(20, 10))</pre>
+			    </figure>
+
+
+			    <h3>Handling events</h3>
+
+			    <p>User events can be bound to handler code with the <span class="fw">bind</span> method, or configured on widgets that allow it.</p>
+
+			    <p>A button widget has the <span class="fw">command</span> configuration option, which can be associated with a function. For example:</p>
+			    <figure id="py-tkinter-command">
+				<figcaption>Using the button widget command</figcaption><pre class="code-listing">def do_something_function():
+    msg.configure(text="Button clicked!")
+
+# having defined a function, we can add it as the command associated with a button
+button = tk.Button(frame, text="Click here", command=do_something_function)  </pre>
+				
+			    </figure>
+
+			    <p>In the following example the <span class="fw">bind</span> method is used to introduce behaviour for the mouse entering the message widget.</p>
+			    <figure id="py-tkinter-bind">
+				<figcaption>Binding behaviour to events</figcaption><pre class="code-listing">msg_store = ''
+def enter_function(event):
+    global msg_store
+    msg_store = msg['text']
+    msg['text'] = 'Mouse here!'
+
+def leave_function(event):
+    msg['text'] = msg_store
+
+# having defined the functions, we can bind them to events
+msg.bind('&lt;Enter>', enter_function)
+msg.bind('&lt;Leave>', leave_function)	</pre>
+			    </figure>
+
+			    <details class="ice"><summary></summary>
+				<p>Using the widgets given in the examples above, write a program that reads the text entered by the user and displays it in the message widget when the button is clicked. If the checkbox is clicked, also capitalise the text.</p>
+				<p><a href="res/files/python/tkinter/tkinter.py">EXAMPLE SOLUTION</a></p>
+			    </details>
+			</article>
+		    </li>
+		</ol>
+		
 		<h2>Resources</h2>
 		<p><a href="https://docs.python.org/3/library/tk.html"><strong>tkinter</strong> documentation @python.org</a></p>
 		<p><a href="https://www.geeksforgeeks.org/python-tkinter-tutorial/">Tutorial @geeksforgeeks</a></p>
 		<p><a href="https://tkdocs.com/tutorial/">Tutorial @tkdocs</a></p>
 		<p><a href="https://tcl.tk/man/tcl8.6/TkCmd/keysyms.htm">Key symbols @tcl.tk</a></p> 
-		
-		
+		    
 	    </article>
 	    <p id="sig">Jelena Vasić</p>
 	</div>
