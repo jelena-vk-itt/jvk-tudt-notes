@@ -98,6 +98,8 @@ function save_open_close_article_state(elementToHide) {
 	}
     } else {
 	const openArticlesCookieMatches = document.cookie.match(OPEN_ARTICLES_COOKIE_REGEXP);
+
+	
 	
 	if (!openArticlesCookieMatches) {
 	    if (!close) {

@@ -109,7 +109,7 @@ figure { max-width: 100%; margin: 2em 0; padding: 0; }
 figure * { max-width: 100%; }
 figcaption, caption { font-style: italic; margin: 0 0 0.7em 0; text-align: left; }
 figure .legend { font-size: medium; margin: 0.7em 0; }
-figure .legend td { padding-right: 2em; }
+figure .legend td { padding: 0.5em 2em 0.5em 0; }
 figure hr { border: none; margin: 0; height: 1px; }
 figure hr:first-of-type { height: 3px; }
 figure.section_symbol { float: right; }
