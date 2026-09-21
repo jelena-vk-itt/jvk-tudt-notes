@@ -47,14 +47,30 @@
 			    <h3>Some string methods</h3>
 			    <p>Here we will look at some methods that can be called on a string object. The full list can be found <a href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str"><strong class="maroon">here</strong></a>.</p>
 			    <ul>
-				<li>A very useful way of constructing strings is to use the <a href="https://docs.python.org/3/tutorial/inputoutput.html#the-string-format-method"><strong class="maroon">format()</strong></a> method (methods are like functions, but are associated with a piece of data and called 'on it'). This particular method allows inserting values of any type into other strings. 
-				    
-				    <figure id="py-string-temp" class="my1">
-					<figcaption>String format (run interactively)</figcaption><pre class="code-listing">
+				<li>For constructing strings dynamically it is best to use one of the string formatting methods:
+				    <ul>
+					<li>
+					    <a class="lr" href="https://docs.python.org/3/tutorial/inputoutput.html#the-string-format-method">format()</a> method
+					    
+					    <figure id="py-string-temp" class="my1">
+						<figcaption>String format (run interactively)</figcaption><pre class="code-listing">
 "Hello {0}, it must be {1} years since we last met!".format("Bob", 7)</pre>
-				    </figure>
-				    
+					    </figure>
+					</li>
+					<li>
+					    <a class="lr" href="https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings">f-strings</a>
+
+
+					    <figure id="py-string-fstr" class="my1">
+						<figcaption>Formatted string literals (run interactively)</figcaption><pre class="code-listing">
+name = "Bob"
+num_years = 7
+"Hello {name}, it must be {num_years} years since we last met!"</pre>
+					    </figure>
+					</li>
+				    </ul>
 				</li>
+				
 
 				<li>There are various useful text modification string methods.
 				    <figure id="py-string-var" class="my1">
@@ -73,6 +89,12 @@ name.isnumeric()
 
 				</li>
 			    </ul>
+			    <section class="ice">
+				<p>Write a script that uses suitable prompts to read in a name and a surname, then uses the <span class="fw">format</span> method to print "Your name is <span class="ph">name</span> <span class="ph">surname</span>", where <span class="ph">name</span> and <span class="ph">surname</span> are placeholders. Make sure that the name and surname are capitalised correctly, regardless of how the user types in the information. Test your script with various inputs.</p>
+
+				<p>Modify your script to use an f-string instead of the <span class="fw">format</span> method. Test the modified script with various inputs.</p>
+				
+			    </section>
 
 			    <h3>Operators</h3>
 			    <p>We have already seen the concatenation operators <span class="fw">+</span> and <span class="fw">*</span>, but there are others that can be used with the string type. We will look at some of them but a full list is available <a href="https://docs.python.org/3/library/stdtypes.html#common-sequence-operations"><strong class="maroon">here</strong></a>.</p>
@@ -106,6 +128,14 @@ name1 < name2
 				    </figure>
 
 				    In code snippet <a class="xref" href="#py-str-comparison">?</a> the result of the last expression may be surprising, but will be explained in the next section, 'UTF-8'.</li>
+			    </ul>
+			    <section class="ice">
+				<p>Write a script that reads in a name and a surname and prints the following, where boolean value placeholders should be either <span class="fw">True</span> or <span class="fw">False</span>, depending on the values entered by the user:</p>
+				<p>The name comes before the surname in alphabetical order: <span class="ph">boolean_value</span><br>
+				    The name contains 'a' or 'A': <span class="ph">boolean_value</span><br>
+				    The surname contains 't' or 'T': <span class="ph">boolean_value</span></p>
+			    </section>
+			    <ul>
 				<li>Operator <span class="fw">[]</span>
 				    <p>Square brackets can be used to read an individual character or a range of characters from a string (slicing).</p>
 				    <p>The return value of this operator is a <strong>string</strong>.</p>
@@ -173,6 +203,10 @@ word[-5:4:-5]
 
 				</li>
 			    </ul>
+
+			    <section class="ice">
+				<p>Write a script that asks the user to enter a 5-character string (you can assume that the user is cooperative), then constructs and prints a string that contains the same characters in inverse order. You must use only the indexing (<span class="fw">[]</span>) and concatenation (<span class="fw">+</span>) operators.</p>
+			    </section>
 
 			    <h3>Immutability</h3>
 
@@ -246,7 +280,9 @@ name.lower() == name_again.lower()				</pre>
 
 
 		<p id="sig">Jelena Vasić</p>
+	    </article>
 	</div>
+    
 
 	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
 	<script type="text/javascript" src="../common/res/scripts/modules/xrefs.js"></script>

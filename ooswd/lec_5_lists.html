@@ -49,7 +49,7 @@
 				<li>A list literal is denoted using square brackets, with the elements of the list specified inside the brackets and separated by commas. The elements can be literals or variables.</li>
 				<li>A list can be empty.</li>
 				<li>A list can contain another list.</li>
-				<li>Unlike strings, lists are <strong>mutable</strong> objects in Python, which means that their value can be modified 'in place' i.e. at the memory location where they are stored.</li>
+				<li>Unlike strings, lists are <strong>mutable</strong> objects in Python, which means that their value can be modified 'in place' i.e. at the memory location where they are stored. Mutability will be demonstrated in the section on copying strings.</li>
 			    </ul>
 			    <figure id="py-list-intro" class="my1">
 				<figcaption>Defining lists (run interactively)</figcaption><pre class="code-listing">
@@ -60,6 +60,10 @@ type(a_list)
 empty_list = []
 listWithListElement = ["hi", ["Jane", "Doe", 21], True, 55.3]</pre>
 			    </figure>
+
+			    <section class="ice" id="listex">
+				<p>Write a script that reads in a user's name, surname, date of birth and address and stores all the information in a list, kept in a variable called <span class="fw">data1</span>). The address should be stored in a sub-list containing the house number, street name and town/city name. Once the list is constructed, the script should print the variable that contains the list.</p>
+			    </section>
 			</article>
 		    </li>
 		    
@@ -90,6 +94,9 @@ a_list + ['additional string']
 # check if a_list has changed
 a_list</pre>
 						</figure>
+						<section class="ice">
+						    <p>Extend the script you wrote in excercise <a class="xref" href="#listex">?</a> to ask for country of birth and create a new list by concatenating the existing one with a list containing the new piece of data. Save the new list in a variable called <span class="fw">data2</span>.</p>
+						</section>
 					    </li>
 
 					    <li>Membership checking (using operator <span class="fw">in</span>)
@@ -102,6 +109,15 @@ theList = ['abc', 3, True, '']
 4 in theList
 						    </pre>
 						</figure>
+						<section class="ice">
+						    <p>Extend your script further to check membership in the list for one value you expect to be in the list and one that you do not expect to be there. It should print the results in the following format:</p>
+						    <p><span class="ph">string_expected_to_be_there</span> is in the list: <span class="ph">boolean_value</span><br/>
+							<span class="ph">string_not_expected_to_be_there</span> is in the list: <span class="ph">boolean_value</span></p>
+
+						    <p>The values in purple are placeholders. An actual printout may be:</p>
+						    <p>"Mary" is in the list: True<br/>
+							"Beth" is in the list: False</p>
+						</section>
 					    </li>
 					    
 					    <li>Accessing parts of a list by index (using operator <span class="fw">[]</span>)
@@ -124,6 +140,11 @@ a_list[2][1]
 a_list[5][:2]</pre>
 						</figure>
 					    </li>
+					    <section class="ice">
+						<p>Extend your script with code that uses indices to read out the name and house number and print:</p>
+						<p><span class="ph">name</span> lives at number <span class="ph">house_number</span>.</p>
+						<p><span class="ph">name</span> and <span class="ph">house_number</span> are placeholders for the stored name and house number.</p>
+					    </section>
 					    <li>Comparison
 						<h4>Equality operators</h4>
 						<p>These can be used between any two lists. For two lists to be equal, they need to be of the same length and their elements in the same position must be of the same type and have the same value.</p>
@@ -144,6 +165,10 @@ a_list[5][:2]</pre>
 ['2', 4] < ['3', 3] # True
 ['2', 4] < [3, 3] # Error!				    </pre>
 						</figure>
+						<section class="ice">
+						    <p>Add code to your script to compare the variable <span class="fw">data2</span>, first with a new list that is identical to it, then to a list that is different, and print out the results clearly.</p>
+						</section>
+
 					    </li>
 					</ul>
 				    </article>
@@ -212,6 +237,9 @@ myList</pre>
 							
 						    </li>
 						</ul>
+						<section class="ice">
+						    <p>Working on the same script, add code that accesses the elements of the list in <span class="fw">data2</span> via indices to modify the name and house number, and delete the last element (country of birth), then prints out the result.</p>
+						</section>
 					    </li>
 					</ul>
 				    </article>
@@ -340,6 +368,9 @@ list1
 # see list 2 (no modifications)
 list2	</pre>
 					</figure>
+					<section class="ice">
+					    <p>There is a person with the same name as that in <span class="fw">data2</span>, but with entirely different other details. Use <span class="fw">deepcopy</span> in your existing script to create a list with information about this other person. Add code that prints out both lists.</p>
+					</section>
 				    </article>
 				</li>
 				
@@ -406,6 +437,12 @@ separator.join(list)</pre>
 			    </ol>
 			    <a href="https://www.w3schools.com/python/python_ref_list.asp"><strong class="maroon">More Python list methods</strong></a>
 
+
+			    <section class="ice">
+				<p>Write a new script that contains the following line:</p><div class="box code"><pre>names = "AMY, bob, cOn, DAn"</pre>
+				</div>
+				<p>Assuming that you know that there are 4 names in the text string, use string-to-list conversion, string methods and list-to-string conversion to correctly capitalise the names in the list in your script. Print the tidied text string.</p>
+			    </section>
 			</article>
 
 		    </li>
@@ -426,7 +463,13 @@ t1 == t2 # expected output: true
 t1 == t3 # expected output: false   </pre>
 			    </figure>
 
-	
+			    <section class="ice">
+				<p>On a command-line interface to the Python interpreter, type the following:</p>
+				<div class="box code"><pre>a_tuple = ("a", 3, True, "b")</pre>
+				</div>
+				<p>In the next line use the indexing operator to access the second element.</p>
+				<p>Next, try to use the indexing operator to set the third element to a new value. What happens? Why?</p>
+			    </section>
 			    
 			</article>
 		    </li>
@@ -450,6 +493,13 @@ random.choice(aList)
 random.choice(aList)
 random.choice(aList)    </pre>
 			    </figure>
+
+			    <section class="ice">
+				<p>Start with the following code in a new script:</p>
+				<div class="box code"><pre>names = "Amy, Ben, Con, Dan, Emi, Fi"</pre>
+				</div>
+				<p>These are names of people that entered a raffle. Pick a name at random and announce them as the raffle winner.</p>
+			    </section>
 			</article>
 		    </li>
 
