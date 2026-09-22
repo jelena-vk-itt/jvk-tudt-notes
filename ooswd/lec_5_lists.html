@@ -62,7 +62,7 @@ listWithListElement = ["hi", ["Jane", "Doe", 21], True, 55.3]</pre>
 			    </figure>
 
 			    <section class="ice" id="listex">
-				<p>Write a script that reads in a user's name, surname, date of birth and address and stores all the information in a list, kept in a variable called <span class="fw">data1</span>). The address should be stored in a sub-list containing the house number, street name and town/city name. Once the list is constructed, the script should print the variable that contains the list.</p>
+				<p>Write a script that reads in a user's name, surname, date of birth and address and stores all the information in a list, kept in a variable called <span class="fw">data1</span>. The address should be stored in a sub-list containing the house number, street name and town/city name. Once the list is constructed, the script should print the variable that contains the list.</p>
 			    </section>
 			</article>
 		    </li>
@@ -354,7 +354,7 @@ import copy
 
 # define list1 and create a deep copy
 list1 = ['abc', [1, 2, 3], 1.23, True]
-list2 = list1.deepcopy()
+list2 = copy.deepcopy(list1)
 # see that the lists are the same
 list1
 list2
@@ -432,17 +432,17 @@ separator = ", "
 list = ["python", "javascript", "java"]
 separator.join(list)</pre>
 					</figure>
+					<section class="ice">
+					    <p>Write a new script that contains the following line:</p><div class="box code"><pre>names = "AMY, bob, cOn, DAn"</pre>
+					    </div>
+					    <p>Assuming that you know that there are 4 names in the text string, use string-to-list conversion, string methods and list-to-string conversion to correctly capitalise the names in the list in your script. Print the tidied text string.</p>
+					</section>
 				    </article>
 				</li>
 			    </ol>
 			    <a href="https://www.w3schools.com/python/python_ref_list.asp"><strong class="maroon">More Python list methods</strong></a>
 
 
-			    <section class="ice">
-				<p>Write a new script that contains the following line:</p><div class="box code"><pre>names = "AMY, bob, cOn, DAn"</pre>
-				</div>
-				<p>Assuming that you know that there are 4 names in the text string, use string-to-list conversion, string methods and list-to-string conversion to correctly capitalise the names in the list in your script. Print the tidied text string.</p>
-			    </section>
 			</article>
 
 		    </li>

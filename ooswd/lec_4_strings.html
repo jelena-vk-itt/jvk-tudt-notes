@@ -54,7 +54,7 @@
 					    
 					    <figure id="py-string-temp" class="my1">
 						<figcaption>String format (run interactively)</figcaption><pre class="code-listing">
-"Hello {0}, it must be {1} years since we last met!".format("Bob", 7)</pre>
+print("Hello {0}, it must be {1} years since we last met!".format("Bob", 7))</pre>
 					    </figure>
 					</li>
 					<li>
@@ -65,7 +65,7 @@
 						<figcaption>Formatted string literals (run interactively)</figcaption><pre class="code-listing">
 name = "Bob"
 num_years = 7
-"Hello {name}, it must be {num_years} years since we last met!"</pre>
+print(f"Hello {name}, it must be {num_years} years since we last met!")</pre>
 					    </figure>
 					</li>
 				    </ul>
@@ -205,7 +205,7 @@ word[-5:4:-5]
 			    </ul>
 
 			    <section class="ice">
-				<p>Write a script that asks the user to enter a 5-character string (you can assume that the user is cooperative), then constructs and prints a string that contains the same characters in inverse order. You must use only the indexing (<span class="fw">[]</span>) and concatenation (<span class="fw">+</span>) operators.</p>
+				<p>Write a script that asks the user to enter a 5-character string (you can assume that the user is cooperative), then constructs and prints a string that contains the same characters in inverse order. You must use only the indexing (<span class="fw">[]</span>) operator, without colons, and concatenation (<span class="fw">+</span>) operator.</p>
 			    </section>
 
 			    <h3>Immutability</h3>
