@@ -345,19 +345,13 @@ print("Your sentences:\n------------------\n" + "\n".join(sentenceList))</pre>
 				<img src="res/images/iteration_analysis.png">
 			    </figure>
 
-			    <p>Also consider how the iterations of a simple loop such as that in code snippet <a class="xref" href="#py-while-det-ct">?</a> might be thought of on first analysis (model and pseudocode):</p><pre>
-do stuff 1                 set n (iter 1)
------------------> check   -----------------> check 
-do stuff 2                 print number 1
-                           set n (iter 2 etc.)</pre>
-			    <p>The <span class="fw">while</span> keyword and condition correspond to the check in the general model i.e. the while loop iterations (condition + statement block)  must start where the arrow is. This means that <span class="fw">set n</span> for the first iteration of the general model has to happen before the while loop is entered (this is initialisation) and that <span class="fw">set n</span> for subsequent iterations must happen at the end of the while statement block (iteration initialisation). After mapping this model onto the Python while loop in <a class="xref" href="#py-while-det-ct">?</a>, we get:</p><pre>
-set n (iter 1)             n = 0
------------------> check   while number < 11:
-print number 1                print(1)
-set n (iter 2 etc.)           number = number + 1</pre>
-
-			    <p>We can map any loop onto this model but it is particularly useful for analysing a problem and translating it into a while loop. We will work through several examples, introducing some new constructs along the way.</p>
-
+			    <p>Also consider how the iterations of a simple loop such as that in code snippet <a class="xref" href="#py-while-det-ct">?</a> might be thought of on first analysis (model, pseudocode and Python code):</p><pre>
+do stuff 1                 setup (iter 1)             number = 0            
+-----------------> check   -----------------> check   while number < 11:    
+do stuff 2                 print number 1	         print(1)           
+                           setup (iter 2 etc.)           number = number + 1</pre>
+			    
+			    <p>The <span class="fw">while</span> keyword and condition correspond to the check in the general model i.e. the while loop iterations (condition + statement block)  must start where the arrow is. This means that the setup for the first iteration of the general model has to happen before the while loop is entered (this is initialisation) and the setup for subsequent iterations at the end of the while statement block.</p>
 
 
 			    <h3>Example 1: While loop without initialisation</h3>
@@ -378,7 +372,7 @@ while random.randint(1, 11) != 11:
 			    </details>
 			    
 			    <h3>Example 2: First iteration always runs (do-while loop)</h3>
-			    <p>Let's have a look at a loop where we want the first iteration to run without a check. In our stuff 1/2 model, this corresponds to stuff 1 and stuff 2 being exactly the same.</p>
+			    
 			    <p>Let's say that a user is entering a password and they are allowed 5 mistakes before they get locked out of an account. The stored passwords are hashed (coded) for security. This means that an entered value must be hashed before it is compared with the stored value. The following picture shows the required loop.</p><pre>
 do stuff 1                  ask user to enter password 
 			    read input password	  
@@ -398,7 +392,10 @@ same as do stuff 1          read input password
 storedHash = hash("abcde")
 
 # initialisation
-attempt = 1
+attempt = 0
+
+# first iteration
+attempt += 1
 pwd = input("Please enter your password: ")
 hashed = hash(pwd)
 
@@ -409,7 +406,7 @@ while hashed != storedHash and attempt < 6:
    hashed = hash(pwd)</pre>
 			    </figure>
 			    
-			    <p>This kind of pattern in a loop is most naturally implemented with a do-while loop, which exists in some programming languages. In a <strong>do-while</strong> loop the check happens at the end of the iteration, rather than at the beginning.</p>
+			    <p>Some programming languages have a <strong>do-while</strong> loop in which the check happens at the end of the iteration, rather than at the beginning, and which is a more natural way to implement the type of scenario in this example.</p>
 			    <p>A do-while loop can be emulated in Python by initialisation that 'passes' the check but does not affect the logic otherwise (dummy values). This allows the code that has to be repeated in code snipped <a class="xref" href="#py-same-init-and-body">?</a> to be kept in one place i.e. inside the loop.</p>
 
 			    
@@ -430,7 +427,7 @@ while hashed != storedHash and attempt < 6:
    hashed = hash(pwd)</pre>
 			    </figure>
 
-			    <p>It is often the case that something slightly different, particularly in prompting the user, needs to be done in the first iteration. The dummy variable can be used to check if the iteration is the first one or not. The dummy variable can then also be used to check if the iteration is the first one inside the loop code block. Code snippet <a class="xref" href="#py-dummy-for-diff">?</a> is the same as <a class="xref" href="#py-dummy-cond">?</a> except that it prints a slightly different prompt the first time around, using the dummy variable to determine if the iteration is the first one.</p>
+			    <p>It is often the case that something slightly different, particularly in prompting the user, needs to be done in the first iteration. One way to handle this is to keep the first iteration outside of the loop. However, if the iteration consists of a lot of code (this could be hundreds of lines), the dummy variable can be used to check if the iteration is the first one or not. The code snippet <a class="xref" href="#py-dummy-for-diff">?</a> is the same as <a class="xref" href="#py-dummy-cond">?</a> except that it prints a slightly different prompt the first time around, using the dummy variable to determine if the iteration is the first one.</p>
 			    <figure id="py-dummy-for-diff" class="my1">
 				<figcaption>Using dummy variable value to check if in first iteration</figcaption><pre class="code-listing">
 # code outside of loop:
