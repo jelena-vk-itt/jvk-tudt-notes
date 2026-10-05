@@ -1,10 +1,12 @@
+print("---------- SENTENCES ----------")
+sentences = []
 
-numList = []
-f = open("data.txt", 'r')
 while True:
-   l = f.readline()
-   if not ''.join(l.strip().split('.', 1)).isnumeric():
-       break
-   numList += [ float(l) ]
+    sentence = input("Enter a sentence or '.' to end: ")
 
-print(numList)
+    if sentence  == '.':
+        break
+
+    sentences += [ sentence ]
+
+print(f"Your sentences: \n{'\n'.join(sentences)}")
