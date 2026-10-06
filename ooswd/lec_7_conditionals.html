@@ -296,6 +296,41 @@ if x != 3:
 			</article>
 		    </li>
 
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000155">
+			<p>Inline conditionals</p>
+			<article style="display:none">
+                            <h2>Inline conditionals</h2>
+
+			    <p>An inline conditional is an <strong>expression</strong> that evaluates to one of the alternatives given, depending on the value of the condition.</p>
+
+			    <figure id="py-il-cond-1">
+				<figcaption>Inline conditional example</figcaption><pre class="code-listing"># using the conditional statement:
+if x > 10:
+    print("x is a big number")
+else:
+    print("x is a small number")
+
+# equivalent code using an inline conditional:
+print("x is a " + ('big' if x > 10 else 'small') + " number") </pre>
+				
+			    </figure>
+
+
+			    <figure id="py-il-cond-2">
+				<figcaption>Another inline conditional example</figcaption><pre class="code-listing"># using the conditional statement:
+binary = 0
+if number != 0:
+    binary = 1
+
+# equivalent code using an inline conditional:
+binary = 1 if number != 0 else 0</pre>
+			    </figure>
+
+			</article>
+                    </li>
+
 		</ol>
 	    </article>
 	    <p id="sig">Jelena Vasić</p>

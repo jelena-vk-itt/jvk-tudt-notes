@@ -7,5 +7,8 @@ while True:
    if not word.isalpha():
        continue
    
-   print(word.upper())
+   word_upper = word.upper()
+   word_char_list = list(word_upper)
+   word_spaced = ' '.join(word_char_list)
+   print(word_spaced)
    

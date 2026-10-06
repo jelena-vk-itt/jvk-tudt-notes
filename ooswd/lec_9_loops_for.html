@@ -170,17 +170,12 @@ for number in range(11, 0, -3):
 
 					<figure id="py-for-string" class="my1">
 					    <figcaption>Iterating over strings with for loops</figcaption><pre class="code-listing">
+# iterating through characters
 for character in "TU Dublin":
    print(character)
 
-word = "computing"
-for character in word:
-   print("{}: {}".format(word.index(character), character))
-
-# try the above with word = "Tallaght"
-
-# better solution for above:
-word = "Tallaght"
+# iterating through indices
+word = "Grangegorman"
 for index in range(0, len(word)):
    print("{}: {}".format(index, word[index])) </pre>
 					</figure>
@@ -223,17 +218,32 @@ for mode in nonMotorised:
 					<p>Enumerations are useful when we need both the index and the item value inside the statement block of the loop.</p>
 
 					<p>Notice that the enumeration does not need to be converted to a list to be used in a for loop.</p>
-					    
-					<figure id="py-for-enum">
-					    <figcaption>Iterating over enumerations with for loops</figcaption><pre class="code-listing">
-nonMotorised = [ "rollerblades", "bicycle", "scooter", "sail wagon", "legs" ]
 
-nonMotorisedEnum = enumerate(nonMotorised)
+					<p>We can iterate <strong>over the tuples</strong> in an enumeration, or <strong>over the indices and values separately</strong>.</p>
+					
+					<figure id="py-for-enum-tup">
+					    <figcaption>Iterating over tuples in an enumeration</figcaption><pre class="code-listing">
+non_motorised = [ "rollerblades", "bicycle", "scooter", "sail wagon", "legs" ]
 
-for modeTuple in nonMotorisedEnum:
+non_motorised_enum = enumerate(non_motorised)
+
+for mode_tuple in non_motorised_enum:
    # increase index by 1 (we don't want to start at 0!)
-   print(modeTuple[0] + 1, modeTuple[1])</pre>
+   print(mode_tuple[0] + 1, mode_tuple[1])</pre>
 					</figure>
+
+					<figure id="py-for-enum-iv">
+					    <figcaption>Iterating over indices and values in an enumeration</figcaption><pre class="code-listing">
+non_motorised = [ "rollerblades", "bicycle", "scooter", "sail wagon", "legs" ]
+
+# get the numbers in the enumeration to start at 1
+non_motorised_enum = enumerate(non_motorised, 1)
+
+# iterate over number and name in parallel
+for mode_num, mode_name in non_motorised_enum:
+   print(mode_num, mode_name)</pre>
+					</figure>
+
 				    </article>
 				</li>
 				
@@ -252,7 +262,7 @@ for modeTuple in nonMotorisedEnum:
 
 
 			    <details class="ice"><summary></summary>
-				<p>Rewrite code snippet <a class="xref" href="lec_8_loops_while.html#py-continue">CS-16</a> with a for loop instead of the while loop.</p>
+				<p>Rewrite code snippet <a href="lec_8_loops_while.html#py-continue">CS-11</a> with a for loop instead of the while loop.</p>
 				<p><a href="res/files/python/loops/for_continue.py">EXAMPLE SOLUTION</a></p>
 			    </details>
 			</article>
