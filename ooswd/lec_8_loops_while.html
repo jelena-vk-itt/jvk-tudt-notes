@@ -142,7 +142,7 @@ n = 7                    # n should have a value beforehand (this is not part of
 count = 1                # (2) let count be 1 for the first iteration
 while count &lt;= n:        # (3) no count >= 1 check as definitely true
     print(':-)')         # (1) the purpose of the iteration
-    number += 1          # (2) preparing the value of count for the next iteration</pre></code>
+    count += 1           # (2) preparing the value of count for the next iteration</pre></code>
 			    </figure>
 
 			    <h3>Example 3 - Adding up numbers entered by the user, with non-number string as end signal</h3>
@@ -158,7 +158,7 @@ while count &lt;= n:        # (3) no count >= 1 check as definitely true
 				<code><pre class="code-listing"># we need a variable to hold the entered value (<span class="fw">value</span>) and one for the sum (<span class="fw">sum</span>)
 sum = 0                        # (1) before entering the loop the sum is 0
 value = input("Number? ")      # (2) get the value for the first iteration
-while value.isNumeric():       # (3) check if the entered value has only numeric characters
+while value.isdigit():       # (3) check if the entered value has only numeric characters
     sum += int(value)          # (1) the iteration functionality
     value = input("Number? ")  # (2) preparing the value of count for the next iteration
 
@@ -189,8 +189,8 @@ print(f"Sum is {sum}")         # printing the sum (not part of the loop)</pre></
 			    <details class="ice"><summary></summary>
 				<p>Write a Python script that:</p>
 				<ul>
-				    <li>generates a random number between 1 and 10 (inclusive) and stores it in a variable called <span class="fw">iterationCount</span></li>
-				    <li>prints out the number <span class="fw">1</span> <span class="fw">iterationCount</span> times using a while loop</li>
+				    <li>generates a random number between 1 and 10 (inclusive) and stores it in a variable called <span class="fw">iteration_count</span></li>
+				    <li>prints out the number <span class="fw">1</span> <span class="fw">iteration_count</span> times using a while loop</li>
 				</ul>
 				
 				<p><a href="res/files/python/loops/xrand_print_1.py">EXAMPLE SOLUTION</a></p>
@@ -311,7 +311,7 @@ print("Please enter a positive whole number")             #
 print("or any other value to conclude: ")                 # --> initialisation
 numberString = input()                                    #
 
-while numberString.isnumeric():                           # --> check
+while numberString.isdigit():                             # --> check
 
    number = int(numberString)                             
    functionValue = number**2 + 3 * number + 4              
@@ -343,7 +343,7 @@ while True:
    print("or any other value to conclude: ")              
    numberString = input()                                 
 
-   if not numberString.isnumeric():                       # --> check
+   if not numberString.isdigit():                         # --> check
       break                                               # --> exit if condition False
 
    number = int(numberString)                             # 
