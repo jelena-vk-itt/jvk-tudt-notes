@@ -139,6 +139,8 @@ figure.cmdline { width: 40em; }
 .example::before, .contraex::before { content: "EXAMPLE:"; font-family: Arial, Helvetica, sans-serif; }
 .code-listing-leader { margin: 1em 0.5em 1em 0; padding: 0.5em 0; font-weight: bold;}
 
+.code-listing { overflow-x: auto; overflow-y: hidden; }
+
 .flcont { display: flex; padding: 0.5em 0; }
 .fljust-start { justify-content: flex-start; }
 .fljust-end { justify-content: flex-end; }
@@ -160,8 +162,8 @@ details.examples::before, details.contraexs::before { content: ""; }
 .lab-answer-form { margin-top: 3em; }
 
 .fw { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;}
-pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; white-space: pre-wrap; }
-.nowrap { white-space: pre; }
+.ph { font-style: italic; color: purple; }
+pre { font-family: courier new, courier, mono; margin: 0; font-weight: bold; }
 
 .ice { background: #9999cc; border: 1px solid black; padding: 0.5em; margin: 1.5em 0;  }
 section.ice::before { font-weight: bold; font-size: 1.2em; content: "In-class exercise " attr(data-heading); }
@@ -244,6 +246,12 @@ details.ice > summary::before { font-weight: bold; font-size: 1.2em; content: "I
 /* positioning */
 .mid { margin: auto; }
 
+/* links */
+a.lr {
+    font-weight: bold;
+    color: maroon;
+}
+
 /* widths */
 .w-quarter { width: 2.5em; }
 .w-half { width: 5em; }
@@ -268,7 +276,7 @@ and responsive elements */
 .sc-75-m1 { width: calc(75% - 1em); }
 
 @media only screen and (max-width: 90em) {
-    .sc-t { font-size: min(1.3vw, small); }
+   .sc-t { font-size: min(1.3vw, small); }
 }
 
 @media only screen and (max-width: 65em) {
