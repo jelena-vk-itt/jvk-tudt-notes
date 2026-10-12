@@ -133,13 +133,25 @@ let fetchPromise = fetch("https://jelena-vk-itt.github.io/jvk-tudt-notes/rwat/re
 				<p>The treatment of the promise when it is fulfilled is specified with a call to <span class="fw">then</span>, which also returns a promise. Thus 'then' calls can be chained to transform information through a sort of a pipeline. Copy and run the code from the following snippet, then try to chain one or more calls to 'then'.</p>
 				
 				<figcaption>Using the method then</figcaption><pre class="code-listing">
-fetchPromise.then(result => { console.log(result.json()); });
+fetchPromise.then(result => {
+    if (result.ok) {
+        console.log('Fetched successfully!');
+    } else {
+        console.log('Fetch encountered a problem :-(.');
+    }
+});
 				</pre>
 
 				<p>The required treatment of promise when it has encoutered an exception is provided in a <span class="fw">catch</span> method call on the promise.</p>
 				
 				<figcaption>Using the method catch</figcaption><pre class="code-listing">
-fetchPromise.then(result => { console.log(result.json()); }).catch(error) { console.log(error); }
+fetchPromise.then(result => {
+    if (result.ok) {
+        console.log('Fetched successfully!');
+    } else {
+        console.log('Fetch encountered a problem :-(.');
+    }
+}).catch(error) { console.log(error); }
 				</pre>
 
 				<p>There are two more keywords relating to asynchronous programming in JavaScript: <span class="fw">await</span> and <span class="fw">async</span>. The former is used to de-asynchronise code, while async is used as a modifier on a function definition to allow asynchronous code inside a function.</p>
