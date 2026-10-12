@@ -1,7 +1,7 @@
 function setup_xrefids (selector, num_prefix, start, alpha, func) {
-    var counter = start;
+    let counter = start;
     document.querySelectorAll(selector).forEach(function(element) {
-	var xrefid = num_prefix + '-' + counter;
+	let xrefid = num_prefix + '-' + counter;
 	element.setAttribute('xrefid', xrefid);
 	if (func != null) {
 	    func(element, xrefid);
@@ -16,9 +16,12 @@ function setup_xrefids (selector, num_prefix, start, alpha, func) {
 
 function setup_xrefs () {
     document.querySelectorAll('.xref').forEach(function(element) {
-	var arr = element.getAttribute('href').split('#');
-	var id = arr[arr.length - 1];
-	element.innerHTML = '[' + document.getElementById(id).getAttribute('xrefid') + ']';
+	let arr = element.getAttribute('href').split('#');
+	let id = arr[arr.length - 1];
+	let referredTo = document.getElementById(id);
+	element.innerHTML = referredTo && referredTo.hasAttribute('xrefid') ?
+	    '[' + referredTo.getAttribute('xrefid') + ']' :
+	    '[?]';
     });
 }
 
