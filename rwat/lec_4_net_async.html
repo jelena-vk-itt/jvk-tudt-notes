@@ -124,12 +124,25 @@ setTimeout(() => { console.log("Now 2s have passed"); }, 5000)</pre>
 			    </ul>
 
 			    <details class="ice"><summary>Promises in JavaScript</summary>
-				<p>One typical asynchronous function in JavaScript is <span class="fw">fetch</span>. When called, it returns a promise.</p>
+				<p>One typical asynchronous function in JavaScript is <span class="fw">fetch</span>. When called, it returns a promise. Copy and run the following code snippet in the console. Also try the file 'fetch2.json'.</p>
 
 				<figcaption>Using the fetch function</figcaption><pre class="code-listing">
+let fetchPromise = fetch("https://jelena-vk-itt.github.io/jvk-tudt-notes/rwat/res/files/fetch1.json");
 				</pre>
 
+				<p>The treatment of the promise when it is fulfilled is specified with a call to <span class="fw">then</span>, which also returns a promise. Thus 'then' calls can be chained to transform information through a sort of a pipeline. Copy and run the code from the following snippet, then try to chain one or more calls to 'then'.</p>
+				
+				<figcaption>Using the method then</figcaption><pre class="code-listing">
+fetchPromise.then(result => { console.log(result.json()); });
+				</pre>
 
+				<p>The required treatment of promise when it has encoutered an exception is provided in a <span class="fw">catch</span> method call on the promise.</p>
+				
+				<figcaption>Using the method catch</figcaption><pre class="code-listing">
+fetchPromise.then(result => { console.log(result.json()); }).catch(error) { console.log(error); }
+				</pre>
+
+				<p>There are two more keywords relating to asynchronous programming in JavaScript: <span class="fw">await</span> and <span class="fw">async</span>. The former is used to de-asynchronise code, while async is used as a modifier on a function definition to allow asynchronous code inside a function.</p>
 
 			    </details>
 			    
