@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+    </head>
+
+    <body>
+	<p><button>Run long-running function</button></p>
+	<p><button>Run fetch and check</button></p>
+	<p><button>Run fetch and display</button></p>
+	<p><button>Run fetch and process 2</button></p>
+	<p><button onclick="alert();">Alert</button></p>
+
+	<script>
+         function writeToBottomOfPage(text) {
+             let paragraph = document.createElement("p");
+             let textNode = document.createTextNode(text);
+             paragraph.appendChild(textNode);
+             document.body.appendChild(paragraph);
+
+         }
+
+         function longRunning() {
+             let x = 0;
+             while (Date.now() > x) {
+                 x += 10000;
+             }
+             let textNode = document.createTextNode("Finished");
+             document.body.appendChild(textNode);
+         }
+
+         // This function fetches a json file over HTTP and checks if the result is ok with one 'then'.
+         function fetchAndCheck() {
+             let fetchPromise = fetch("https://jelena-vk-itt.github.io/jvk-tudt-notes/rwat/res/files/fetch1.json");
+             fetchPromise.then(result => {
+                 let text = "Response status " + (result.ok ? "ok" : "not ok") + ".";
+                 writeToBottomOfPage(text);
+             });
+         }
+
+         function fetchAndDisplay() {
+             for (let i of [1, 2]) {
+                 let fetchPromise = fetch(`https://jelena-vk-itt.github.io/jvk-tudt-notes/rwat/res/files/fetch${i}.json`);
+                 let textPromise = fetchPromise.then(result => result.text());
+                 textPromise.then(textData => {
+                     writeToBottomOfPage(`File ${i} content: ` + textData);
+                 });
+             }
+         }
+
+         function fetchAndProcess2() {
+             let fetchPromise = fetch("https://jelena-vk-itt.github.io/jvk-tudt-notes/rwat/res/files/fetch2.json");
+             fetchPromise.then(result => result.json()).then(obj => {
+                 writeToBottomOfPage("Name of second person in file 2: " + obj[1].first_name)
+                 writeToBottomOfPage("Favourite course of first person in file 2: " + obj[0].fav_course)
+             });
+         }
+
+
+	 let buttons = document.getElementsByTagName("button");
+	 buttons[0].addEventListener("click", longRunning);
+         buttons[1].addEventListener("click", fetchAndCheck);
+         buttons[2].addEventListener("click", fetchAndDisplay);
+         buttons[3].addEventListener("click", fetchAndProcess2);        
+	</script>
+    </body>
+
+</html>
