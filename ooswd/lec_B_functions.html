@@ -127,7 +127,7 @@
 				<li>Being defined inside a function limits the scope of a variable or function. It is only visible within the function in which it is defined.</li>
 			    </ul>
 			    <figure id="py-scope" class="my1">
-				<figcaption>Scope examples</figcaption><pre class="code-listing">
+				<figcaption>Variable scope examples</figcaption><pre class="code-listing">
 # variable definitions inside a function
 x = 0
 def printxy():
@@ -138,8 +138,35 @@ def printxy():
 
 printxy() # expected output: 3 4
 print(x)  # expected output: 0
-print(y)  # error should be reported (y is not defined)
+print(y)  # error should be reported (y is not defined)</pre>
+			    </figure>
 
+			    <p>In the example above, the local x (the one with value 3) <strong>shadows</strong> the global x (the one with value 0). This means that referring to x in the function is a reference to the local variable. If a global variable is not shadowed, it can be accessed for reading directly by name. To be accessed for writing (assignment), it must first be declared as <strong>global</strong>.</p>
+
+			    <figure id="py-global-var-write">
+				<figcaption>Use of global keyword example</figcaption><pre class="code-listing">
+# variable definitions inside a function
+x = 0
+y = 1
+def print_x_newy():
+    print(x) # ok, x accessed for reading
+
+    global y # needed so that y can be written to
+    print(y) 
+    y = 4    # ok, above allows access for writing
+    print(y)
+
+print_x_newy() # expected output: 0 1 4
+print(x)  # expected output: 0
+print(y)  # expected output: 4		</pre>
+
+			    </figure>
+			    
+
+			    <p>Functions also have a scope and like variables can be local to another function. In the following example, the function <span class="fw">get_message</span> is can be used inside the function <span class="fw">print_num</span> but not outside of it. <strong>We will not be using nested functions in this module, but it is good to be able to recognise the construct if encountered.</strong></p>
+			    
+			    <figure id="py-scope-funcs" class="my1">
+				<figcaption>Inner function examples</figcaption><pre class="code-listing">
 # nested functions
 def print_num(num):
     def get_message():
@@ -152,10 +179,14 @@ print(get_message() + 5) # error should be reported (get_message is not defined)
 
 
 			    <details class="ice"><summary></summary>
-				<p>Write a function that asks the user for a positive integer in a loop, until they provide a valid entry. In each iteration, the function must display the ordinal number of the 'try' as part of the prompt.</p>
-				<p><a href="res/files/python/">EXAMPLE SOLUTION</a></p>
+				<p>Write a function that asks the user for a positive integer in a loop, until they provide a valid entry. The function should display the ordinal number of the integer it is fetching within the program, i.e. the first call to the function should print 1, the second should print 2 etc.</p>
+				<p>Write a program that uses the function to fetch 3 integers from the user and prints the list of these integers at the end.</p>
 
-				<p>Update your program so that it fetches the ordinal number using a helper function. This new version should also allow the user to get out of the loop by cancelling with a special input value, e.g. '.'.</p>
+				<p><a href="res/files/python/functions/read_integer1.py">EXAMPLE SOLUTION</a></p>
+
+				<p>Update your program so that the function fetches the ordinal numbers using a helper function. This new version should also allow the user to get out of the loop by cancelling with a special input value, e.g. '.'.</p>
+
+				<p><a href="res/files/python/functions/read_integer2.py">EXAMPLE SOLUTION</a>
 			    </details>
 
 			</article>
@@ -194,7 +225,7 @@ add_nums(1, z=3)        # expected output: 9</pre>
 			    </figure>
 
 			    <h3>Allowing an arbitrary number of arguments</h3>
-			    <p>Python has a mechanism that allows a function to receive arguments unknown in number until runtime. The arbitrary-sized group of arguments is marked with a star (*) character in front of the argument name. Only one such group is allowed in a function definition, otherwise the interpretation of the arguments would be ambiguous.</p>
+			    <p>Python has a mechanism that allows a function to receive arguments unknown in number until runtime. The arbitrary-sized group of arguments is marked with a star (*) character in front of the argument name. Only one such group is allowed in a function definition, otherwise the interpretation of the arguments would be ambiguous. <strong>We will not be defining functions with arbitrary argument counts in this module, but it is good to be able to recognise the construct if encountered.</strong></p>
 			    <figure id="py-arb-args" class="my1">
 				<figcaption>Arbitrary number of arguments</figcaption><pre class="code-listing">
 def concat_strings(msg, *list):
