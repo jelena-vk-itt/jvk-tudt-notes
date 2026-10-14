@@ -61,7 +61,7 @@
 		<section class="tutorial-panel clearfix">
 		    <h2>Exercise 1: Table with headers, using functions</h2>
 		    <p>
-			Repeat the excercise given in the <em>nested loops</em> lab, to produce tables like the one shown below, but this time do it in a function that takes the number of rows and the number of columns as arguments. Define and use a function that constructs the heading and data cell contents (e.g. 'r1', 'r1c1'), given the row and column numbers (note that for the headings (e.g. 'r1') you can use null or zero values for the direction that does not apply. Also define and use a function that produces the smiley face string (happy or sad), given a boolean value. 
+			Repeat the excercise given in the <em>nested loops</em> lab, to produce tables like the one shown below, but this time do it in a function that takes the number of rows and the number of columns as arguments. Define and use a function that constructs the heading and data cell contents (e.g. 'r1', 'r1c1'), given the row and column numbers. For the headings (e.g. 'r1' or 'c1') you can use null or zero values for the direction (row or column) that does not apply. Also define and use a function that produces the smiley face string (happy or sad), given a boolean value. 
 		    </p>
 		    <pre class="box bg-black white">
  :-)  |  c1    c2    c3
@@ -79,14 +79,14 @@
 		<section class="tutorial-panel clearfix">
 		    <h2>Exercise 2: Calculator</h2>
 		    <ul>
-			<li>Write a function that takes three arguments: integers and a string with one of the following values: '+', '-', '*' or '/'. The function should perform the operation corresponding to the given string on the two number parameters and return the result of the operation. It should handle all cases of invalid arguments by printing an informative message and returning <span class="fw">None</span>. Name your function and parameters suitably, based on their meaning. </li>
+			<li>Write a function that takes three arguments: two integers and a string with one of the following values: '+', '-', '*' or '/'. The function should perform the operation corresponding to the given string on the two number parameters and return the result of the operation. It should handle all cases of invalid arguments by printing an informative message and returning <span class="fw">None</span>. Name your function and parameters suitably, based on their meaning. </li>
 			<li>Make a comprehensive list of tests for the function, each consisting of a call with different arguments.</li>
 			<li>Perform the tests and fix any problems with the function that are revealed by the testing. Repeat this process until the function works correctly.</li>
 		    </ul>
 		</section>
 
 		<section class="tutorial-panel clearfix">
-		    <h3>Exercie 3: Menu</h3>
+		    <h2>Exercise 3: Menu</h2>
 		    <ul>
 			<li>Write a program in Python that presents the user with a menu that contains three numbered options: (1) table, (2) arithmetic and (3) exit.</li>
 			<li>If the user picks the table option, they are asked for the number of columns and rows and the table printing function is called with those arguments, then the main menu is shown again. Validation of the input must be performed (we don't necessarily have a cooperative user).</li>
