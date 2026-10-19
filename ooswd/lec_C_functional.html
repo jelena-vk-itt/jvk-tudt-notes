@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="res/images/logo.png"/>
+	
+	<link rel="stylesheet" type="text/css" href="res/styles/ooswd.css"/>
+	<title>OOSWD</title>
+    </head>
+    <body>
+	<header id="tudheader">
+	    <img id="leftlogo" src="../common/res/images/tudublin_logo.png" alt="TU Dublin Logo">
+	    <div id="tuddepttext">
+		<p>School of Computer Science</p>
+	    </div>
+	    <div id="titlecontainer">
+		<p id="title">Lambda expressions</p>
+	    </div>
+	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
+	</header>
+
+	<div id="content">
+	    <nav>
+		<ul class="links">
+		    <li><a href="index.html">Home</a></li>
+		</ul>
+		<ul class="commands">
+		    <li class="openall">Open all</li>
+		    <li class="closeall">Close all</li>
+		</ul>
+
+	    </nav>
+
+	    <article>
+
+		<ol class="toc_grp newline">
+
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000078">
+			<p>Lambda expressions</p>
+			<article style="display:none">
+			    <h2>Lambda expressions</h2>
+
+			    <p>A lambda expression</p>
+			    <ul>
+				<li>
+				    is an expression that defines a function i.e. a reusable piece
+				    of functionality
+				</li>
+				<li>
+				    is returns (evaluates to) an <strong>anonymous</strong> function
+				    i.e. a function without a name
+				</li>
+				<li>can be called as a function</li>
+				<li>
+				    can be assigned to a variable and thus get a name by which it
+				    can be called
+				</li>
+				<li>
+				    can be passed in as an argument to another function and called
+				    by the parameter name
+				</li>
+				<li>
+				    takes the form
+				    <pre>
+lambda &lt;parameter list> : &lt;return value created from parameter></pre
+								     >
+				</li>
+				<li>
+				    takes arguments defined by the parameter list between
+				    <span class="fw">lambda</span> and the colon
+				</li>
+				<li>
+				    returns the value to which the expression right of the colon
+				    evaluates
+				</li>
+				<li>can use variables defined outside of it</li>
+			    </ul>
+			    <figure id="py-lambda" class="my1">
+				<figcaption>
+				    Examples of lambda expressions and their use (run interactively)
+				</figcaption>
+				<pre class="code-listing">
+# define a lambda expression
+# that increases a number by 3
+# and assign it to f (name it f)
+f = lambda x : x + 3
+# run it
+f(4)
+f(2.3)
+
+# we don't have to name a lambda
+# expression but can call it
+# directly (it must be placed
+# in parentheses)
+(lambda x : x + 3)(4)
+(lambda x : x + 3)(2)
+
+# define and use a lambda
+# expression with two parameters
+(lambda x, y : x * y)(3, 4)
+(lambda x, y : x * y)(23, 2)
+
+# define a lambda expression
+# that checks if a number is
+# greater than 3 (the return
+# type is boolean)
+g = lambda x : x > 3
+# run it
+f(3)
+f(3.1)				</pre
+				>
+			    </figure>
+
+			    <figure id="py-lambda-2" class="my1">
+				<figcaption>
+				    Examples of lambda expressions that use variables external to them
+				</figcaption>
+				<pre class="code-listing">
+# some names
+names = ["ben", "con", "ann", "dan"]
+# define a lambda expression that returns the 
+# index in the list 'names' for the given string value
+# it refers to the variable names
+get_index_for_name = lambda nm : names.index(nm)
+# use it
+get_index_for_name('ann')
+get_index_for_name('ben')
+
+# some scores
+scores = [23, 67, 34, 12]
+# define a lambda expression that returns the
+# value in the list 'scores' corresponding by position
+# to the given value in the list 'names'
+get_score_for_person = lambda nm : scores[names.index(nm)]
+get_score_for_person("ben")
+get_score_for_person("dan")
+				</pre>
+
+			    </figure>
+
+			    <p><strong>The main advantage of lambda expressions</strong> is that they can be used directly (anonymously i.e. without a name) wherever a function needs to be used once, e.g. when it is passed in as an argument to another function. This avoids source file littering with unnecessary code and improves readability.</p>
+
+			    <p>The following example shows how a lambda expression can be passed in for the <span class="fw">key</span> parameter of the <span class="fw">sorted</span> function, allowing the function to be defined as it is being passed in.</p>
+
+			    <figure>
+				<figcaption>Passing a lambda expression into a function</figcaption>
+				<pre class="code-listing">
+# sort the name list by scores, using 
+# sorted(), which does not modify the list;
+# we need the original list intact as
+# it is being used in the lambda expression
+sorted(names, key=get_score_for_person)
+# or
+sorted(names, key=lambda n : scores[names.index(n)]</pre>
+			    </figure>
+			</article>
+		    </li>
+
+
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000156">
+			<p>Functional programming</p>
+			<article style="display:none">
+                            <h2>Functional programming</h2>
+			    <p>Python is <strong>not an exclusively functional language</strong> (such languages, e.g. <strong>lisp</strong>, are less common), but it includes several constructs that embody the paradigm.</p>
+
+			    <p>Characteristics of functional programming:</p>
+			    
+			    <ul class="packed">
+				<li>pure functions, which
+				    <ul>
+					<li>always return the same output for the same input <span style="background-color: black; color: white">Python: not enforced</span>
+					    <pre class="code-listing">function add(x, y) &#123; return x + y; &#125;
+
+// rather than
+
+let x = 0;
+function addToX(y) &#123; x += y; return x; &#125;</pre>
+					</li>
+					<li>have no side-effects <span style="background-color: black; color: white">Python: not enforced</span>
+					    <pre class="code-listing">function add(x, y) &#123; return x + y; &#125;
+
+// rather than
+
+function add(x, y) &#123; orderTakeaway(); return x + y; &#125;</pre>
+					</li>
+				    </ul>
+				</li>
+				<li>first-class functions (functions treated as objects) <span style="background-color: black; color: white">Python: yes</span>
+				    <pre class="code-listing">let aFunc = () => &#123; return 'hello'; &#125;</pre>
+				</li>
+				<li>higher order functions (functions that have other functions as inputs or outputs) <span style="background-color: black; color: white">Python: yes</span>
+				    <pre class="code-listing">function makePowerFunc(p) &#123; return x => x**p; &#125;
+
+// used:
+let cube = makePowerFunc(3);
+console.log(cube(5));</pre>
+				</li>
+				<li>immutable data only <span style="background-color: black; color: white">Python: not enforced</span>
+				    <pre class="code-listing">let arr = [3, 5, 4, 1];
+arr2 = arr.toSorted();
+console.log(arr, arr2);
+
+// rather than
+arr.sort();
+console.log(arr);</pre>
+				</li>
+			    </ul>
+
+
+			</article>
+                    </li>
+
+
+		    
+	            <!--------------------------------------------------------------------->            
+                    <li id="ARTCLID000157">
+			<p>Processing lists without loops</p>
+			<article style="display:none">
+                            <h2>Processing lists without loops</h2>
+
+			    <p>A very useful paradigm that uses functional programming is the use of functions that process entire collections of elements. Rather than looping through the elements of the collection, we can specify a function (usually a lambda expression) that we want applied to each element and let the collection-processing function do the rest. The advantages of this approach are:</p>
+			    <ul>
+				<li>processing of lists (or other collections) without having to write loops</li>
+				<li>not having to create and keep track of variables holding intermediate results and values</li>
+				<li>focusing on what needs to be done with individual pieces of data, rather than the collection structure</li>
+			    </ul>
+			    
+			    <h3><span class="fw">map</span></h3>
+			    <p>Creates a new list by using a function to map each element of an existing array to a new element.</p>
+			    <pre class="code-listing">
+# maps each number element to its square
+number_list = [1, 2, 3]
+mapped_values = map(lambda n : n**2, number_list)
+new_number_list = list(mapped_values)
+
+# maps each name to its initial letter
+name_list = ['Alice', 'Bob', 'Con']
+initial_list = list(map(name => name[0])) </pre>
+		
+			    <h3><span class="fw">filter</span></h3>
+			    <p>Creates a new list by using a predicate on each element to decide whether to include or exclude it.</p>
+			    <pre class="code-listing">
+# filters in only even numbers
+number_list = [1, 2, 3, 4, 5]
+even_number_list =  list(filter (lambda n : (n % 2 == 0), number_list))
+
+# filters in names that are shorter than 4 characters
+name_list = ['Alice', 'Bob', 'Con', 'Derval']
+short_name_list = list(filter(lambda name : len(name) < 4, name_list))</pre>
+
+			    <h3><span class="fw">reduce</span></h3>
+
+			    <p>Creates a value by iteratively applying a 'reducing' operation to pairs of values from the list.</p>
+			    <pre class="code-listing">
+from functools import reduce
+
+# reduces by adding (calculates the sum)
+number_list = [1, 2, 3, 4, 5]
+reduce(lambda sum, val : sum + val, number_list, 0)
+
+# concatenate names, separated by spaces
+name_list = ['Alice', 'Bob', 'Con', 'Derval']
+reduce(lambda text, val : text + " " + val, name_list, "") </pre>  
+
+			    <h3><span class="fw">all</span>, <span class="fw">any</span></h3>
+
+			    <p>These are two functions that perform specific reduce operations.</p>
+			    <p>The <span class="fw">all</span> function returns <span class="fw">True</span> if all the values in the passed-in list are or convert to <span class="fw">True</span>.</p>
+
+			    <figure>
+				<figcaption>Examples of using all</figcaption>
+				<pre class="code-listing">
+# check if all the values are or convert to True
+all([True, 4, "abc"]) # expected output: True
+all([True, 0, "abc"]) # expected output: False
+
+# check if all of the names in the list are longer than 3 characters
+all(map(lambda name : len(name) > 3, name_list))				</pre>
+			    </figure>
+
+
+			    <figure>
+				<figcaption>Examples of using any</figcaption>
+				<pre class="code-listing">
+# check if any of the values are or convert to True
+any([False, 0, ""]) # expected output: False
+any([False, 1, ""]) # expected output: True
+
+# check if any of the names in the list start with 'B'
+any(map(lambda name : name[0] == 'B', name_list))				</pre>
+			    </figure>
+
+			    <p>The <span class="fw">any</span> function returns <span class="fw">True</span> if at least one of the values in the passed-in list are or convert to <span class="fw">True</span>.</p>
+			    
+			    
+			    <h3>Chaining</h3>
+
+			    <p>The methods above can be chained for more complex functionality.</p>
+			    <ul>
+				<li><span class="fw">map</span> and <span class="fw">filter</span> can be placed in the middle of chains</li>
+				<li><span class="fw">reduce</span>, <span class="fw">all</span> and <span class="fw">any</span> must be at the end of a chain</li>
+			    </ul>
+			    <pre class="code-listing">
+#calculating space needed to print out the short names, separated by commas
+names = ['Alice', 'Bob', 'Con', 'Derval', 'Evan']
+reduce(lambda sum, nmlen : sum + 2 + nmlen, map(lambda name : len(name), filter(lambda name : len(name) < 5, names)), -2)
+			    </pre>
+
+			</article>
+                    </li>
+
+		    
+		    <!--------------------------------------------------------------------->            
+		    <li id="ARTCLID000077">
+			<p>List comprehensions</p>
+			<article style="display:none">
+			    <h2>List comprehensions</h2>
+			    <p>List comprehensions are a construct that include both mapping and filtering. Their syntax is:</p>
+			    
+			    <strong class="fw">[</strong> <em class="blue">expression</em> <strong class="fw">for</strong> <em class="blue">element</em> <strong class="fw">in</strong> <em class="blue">some_list</em> <span class="bg-lightgray"><strong class="fw">if</strong> <em class="blue">condition</em></span> <strong class="fw">]</strong>
+			    <ul>
+				<li>The black text in the syntax specification constitutes the fixed parts of the comprehension, including keywords and brackets.</li>
+				<li>The blue italic text in the syntax specification are parts that need to be programmed in: the list that needs to be processed (some_list), the name to be used for an element of the list (element) and the expression that <strong>maps</strong> the element to a new element (expression).</li>
+				<li>The remaining part of the syntax (with gray background) is optional and represents the filter part of the comprehension, specifying the condition that an element must 'pass' to be included (condition).</li>
+			    </ul>
+			    <figure id="py-list-comprehension" class="my1">
+				<figcaption>Examples of list comprehensions</figcaption><pre class="code-listing">
+names = ['jim', 'jill', 'john', 'jane', 'jen', 'jack']
+
+# examples with no filter or conditional mapping
+# -----------------------------------------------
+# map to string length
+[ len(n) for n in names ]
+
+# map to names in all-capitals
+[ n.upper() for n in names ]
+
+# examples with filter only
+# --------------------------
+# map to string length, including only names containing an 'e'
+[ len(n) for n in names if 'e' in n ]
+
+# map to names in all-capitals, including only names longer than 3
+[ n.upper() for n in names if len(n) > 3 ]
+
+# examples with conditional mapping only
+# ---------------------------------------
+# map to all-capitals if name length is less than 4, otherwise don't change
+[ n.upper() if len(n) < 4 else n for n in names ]
+
+# map to length+1 if name contains an 'e', otherwise map to length-1
+[ len(n) + 1 if 'e' in n else len(n) - 1 for n in names ]
+
+# examples including all parts of the construct
+# ----------------------------------------------
+# map to all-capitals if name length is less than 4, otherwise don't change,
+# including only names with an 'e'
+[ n.upper() if len(n) < 4 else n for n in names if 'e' in n ]
+
+# map to length+1 if name contains an 'e', otherwise map to length-1,
+# including only names longer than 3
+[ len(n) + 1 if 'e' in n else len(n) - 1 for n in names if len(n) > 3]</pre>
+			    </figure>
+
+			    <p>Comprehensions are considered easier to write, and read. There are some scenarios where map/filter is still more concise: when the mapping function is built in (e.g. len or int) and when multiple lists need to be transformed.</p>
+			    <p>In the list comprehension in the example below, the zip function needs to be called to combine the names and surnames into tuples <span class="fw">(n, s)</span>, which are then transformed. This is a sort of a hack, since it creates an intermediate data structure that is needed only for processing.</p>
+			    
+			    <figure id="py-two-list-compreh" class="my1">
+				<figcaption>Example of list comprehension using two input lists</figcaption><pre class="code-listing">
+names = ['jim', 'jill', 'john', 'jane', 'jen', 'jack']
+surnames = ['lock', 'smith', 'stone', 'mason', 'bell', 'ringer' ]
+
+# join name and surname, capitalising both, using map
+list(map(lambda n, s : n.capitalize() + " " + s.capitalize(), names, surnames))
+
+# the same transformation using a list comprehension
+[ n.capitalize() + " " + s.capitalize() for (n, s) in zip(names, surnames) ]
+				</pre>
+			    </figure>
+			    
+			</article>
+		    </li>
+		</ol>
+	    </article>
+
+	    
+	    <p id="sig">Jelena Vasić</p>
+
+	    </div>
+
+	    <script type="text/javascript" src="../common/res/scripts/main.js"></script>
+	    <script type="text/javascript" src="../common/res/scripts/modules/xrefs.js"></script>
+	    <script type="text/javascript" src="res/scripts/xrefs.js"></script>
+    </body>
+</html>
