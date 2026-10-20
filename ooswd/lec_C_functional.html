@@ -15,7 +15,7 @@
 		<p>School of Computer Science</p>
 	    </div>
 	    <div id="titlecontainer">
-		<p id="title">Lambda expressions</p>
+		<p id="title">Functional programming</p>
 	    </div>
 	    <img id="rightlogo" src="res/images/logo.png" alt="Logo" />
 	</header>
@@ -331,8 +331,8 @@ reduce(lambda sum, nmlen : sum + 2 + nmlen, map(lambda name : len(name), filter(
 				<figcaption>Examples of list comprehensions</figcaption><pre class="code-listing">
 names = ['jim', 'jill', 'john', 'jane', 'jen', 'jack']
 
-# examples with no filter or conditional mapping
-# -----------------------------------------------
+# examples with no filter
+# -----------------------
 # map to string length
 [ len(n) for n in names ]
 
@@ -347,23 +347,16 @@ names = ['jim', 'jill', 'john', 'jane', 'jen', 'jack']
 # map to names in all-capitals, including only names longer than 3
 [ n.upper() for n in names if len(n) > 3 ]
 
-# examples with conditional mapping only
-# ---------------------------------------
+# example with conditional in mapping expression
+# ----------------------------------------------
 # map to all-capitals if name length is less than 4, otherwise don't change
 [ n.upper() if len(n) < 4 else n for n in names ]
 
-# map to length+1 if name contains an 'e', otherwise map to length-1
-[ len(n) + 1 if 'e' in n else len(n) - 1 for n in names ]
-
-# examples including all parts of the construct
-# ----------------------------------------------
+# example including conditional mapping expression and a filter
+# -------------------------------------------------------------
 # map to all-capitals if name length is less than 4, otherwise don't change,
 # including only names with an 'e'
-[ n.upper() if len(n) < 4 else n for n in names if 'e' in n ]
-
-# map to length+1 if name contains an 'e', otherwise map to length-1,
-# including only names longer than 3
-[ len(n) + 1 if 'e' in n else len(n) - 1 for n in names if len(n) > 3]</pre>
+[ n.upper() if len(n) < 4 else n for n in names if 'e' in n ]</pre>
 			    </figure>
 
 			    <p>Comprehensions are considered easier to write, and read. There are some scenarios where map/filter is still more concise: when the mapping function is built in (e.g. len or int) and when multiple lists need to be transformed.</p>
