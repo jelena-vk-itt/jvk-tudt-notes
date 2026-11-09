@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
     <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,7 +45,7 @@
 			    <figure id="py-priv-getset">
 				<figcaption>Private member variables with ordinary methods as getters and setters</figcaption><pre class="code-listing">class Product:
     
-    lowStockMark = 3
+    LOW_STOCK_MARK = 3
     
     def __init__(self, name, stock):
         self._name = name
@@ -64,24 +64,26 @@
         self._stock = stock
 
     def stock_is_low(self):
-        return self._stock <= Product.lowStockMark</pre>
+        return self._stock <= Product.LOW_STOCK_MARK</pre>
 				<table class="legend">
 				    <tr><td><span class="fw">self._name<br/>self._stock</span></td><td>Private member variables <span class="fw">_name</span> and <span class="fw">_stock</span> accessed directly from within class methods</td></tr>
-				    <tr><td><span class="fw">get_name<br/>set_name<br/>get_stock<br/>set_stock</span></td><td>These are 'getter' and 'setter' methods used to avoid breaking convention by directly accessing private variables</td></tr>
+				    <tr><td><span class="fw">get_name<br/>set_name<br/>get_stock<br/>set_stock</span></td><td>These are 'getter' and 'setter' methods that facilitate users of the class in not directly accessing private variables</td></tr>
 				</table>
 				<hr/><hr/>
 			    </figure>
 
-			    <p>There is nothing wrong with this approach, but it is a little bit tedious. Python provides a mechanism for achieving the same thing more easily.</p>
+			    <p>There is nothing wrong with this approach, but the methods are a little tedious to use. Python provides a mechanism for achieving the same thing that makes access to private properties for reading and writing more straightforward.</p>
 
 			    <h3>Using the &#64;properties and setter decorators</h3>
 
-			    <p>With the use of decorators <span class="fw">&#64;property</span> and <span class="fw">&#64;<em>property_name</em>.setter</span>, private member variables are 'wrapped' in methods for read and write access via variable (rather than function) notation.</p>
+			    <p>With the use of decorators <span class="fw">&#64;property</span> and <span class="fw">&#64;<em>property_name</em>.setter</span>, private member variables are again 'wrapped' in methods but these are special methods that are called with the use of dot notation (rather than function call notation).</p>
+
+			    <p>The following code snippet represents the same example as the previous one, but uses property decorators.</p>
 			    
 			    <figure id="py-get-set-del">
 				<figcaption>Properties with decorators</figcaption><pre class="code-listing">class Product:
     
-    lowStockMark = 3
+    LOW_STOCK_MARK = 3
     
     def __init__(self, name, stock):
         self._name = name
@@ -104,12 +106,20 @@
         self._stock = stock
 
     def stock_is_low(self):
-        return self._stock <= Product.lowStockMark
+        return self._stock <= Product.LOW_STOCK_MARK
 
-# tests
+# --- using the class ---
+
+# create an object of the class Product
 p = Product("Milk", 5)
+
+# print the product name (here p.name calls the property getter method)
 print(p.name)
+
+# modify the product name (here p.name calls the property setter method)
 p.name = "UHT milk"
+
+# access the name again to print (property getter method called)
 print(p.name)</pre>
 				<table class="legend">
 				    <tr><td><span class="fw">&#64;property<br/>def name(self):</span></td><td>Method that allows <span class="fw">self._name</span> to be accessed with <em>some_object</em><span class="fw">.name</span> externally for reading</td></tr>
@@ -119,10 +129,12 @@ print(p.name)</pre>
 			    </figure>
 
 			    <h3>Alternative way of defining properties</h3>
+
+			    <p>Another way of defining properties is to define private getter and setter methods (giving them any names we like, as long as they start with underscores) and then use the <span class="fw">property</span> function to declare those methods the getter and setter that are accessed as a property (not as methods).
 			    <figure id="py-property-alt">
 				<figcaption>Using function property</figcaption><pre class="code-listing">class Product:
     
-    lowStockMark = 3
+    LOW_STOCK_MARK = 3
     
     def __init__(self, name, stock):
         self.__name = name
@@ -141,15 +153,24 @@ print(p.name)</pre>
         self.__stock = stock
 
     def stock_is_low(self):
-        return self.__stock <= Product.lowStockMark
+        return self.__stock <= Product.LOW_STOCK_MARK
 
+    # associate the getters and setters defined above with properties
     name = property(__get_name, __set_name)
     stock = property(__get_stock, __set_stock)
 
-# tests
+# --- using the class ---
+
+# create an object of the class Product
 p = Product("Milk", 5)
+
+# print the product name (here p.name calls the property getter method)
 print(p.name)
+
+# modify the product name (here p.name calls the property setter method)
 p.name = "UHT milk"
+
+# access the name again to print (property getter method called)
 print(p.name)</pre>
 				<table class="legend">
 				    <tr><td width=450><span class="fw">__get_name<br/>__set_name<br/>__get_stock<br/>__set_stock</span></td><td>Private getters and setters</td></tr>
@@ -194,8 +215,12 @@ print(p.name)</pre>
     def print_footer():
         print(Shop.SEP_LINE)
 
-# tests
+# --- using a static methods ---
+
+# call the static method on the class
 Shop.print_footer()
+
+# create an object and call the static method on the object
 s = Shop()
 s.print_footer()</pre>
 				<table class="legend">
@@ -213,7 +238,6 @@ s.print_footer()</pre>
                     </li>
 
 
-
 	            <!--------------------------------------------------------------------->            
                     <li id="ARTCLID000147">
 			<p>Special method names</p>
@@ -225,18 +249,20 @@ s.print_footer()</pre>
 			    <p>For example, we have already seen an example of a special method name, <span class="fw">__init__</span>. This method is called just after an object of the class is created and it is expected to initialise the new object. </p>
 			    <p>Other examples are:
 				<ul>
-				    <li><span class="fw">__repr__</span> is expected to provide a 'technical' string representation of the object, for debugging</li>
-				    <li><span class="fw">__str__</span> is expected to provide a 'pretty' string representation for use by the function <span class="fw">print</span> and <span class="fw">str</span></li>
+				    <li><span class="fw">__str__</span> is expected to provide a 'pretty' string representation for use by the functions <span class="fw">print</span> and <span class="fw">str</span></li>
 				    <li><span class="fw">__lt__</span> is expected to tell if an object is 'less than' another object (if applicable)</li>
 				</ul>
 			    </p>
 			    <p>These methods are also referred to as <strong>dunder</strong> (double underscores) methods.</p>
 			    <p>The Python documentation lists <a class="lr" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">more examples</a> of these special methods.</p>
-			    
+
+			    <details class="ice"><summary></summary>
+				<p>Define the methods <span class="fw">__str__</span> in the <span class="fw">Product</span> class defined in <a class="xref" href="#py-get-set-del">?</a>. Test it by calling the <span class="fw">print</span> function on an object of the class.</p>
+				<p><a href="res/files/python/">EXAMPLE SOLUTION</a></p>
+			    </details>
 			</article>
 			
                     </li>
-
 
 		    <!--------------------------------------------------------------------->            
                     <li id="ARTCLID000103">
@@ -263,6 +289,7 @@ s.print_footer()</pre>
 			    </ul>
 			    
 			    <p>In the picture below, class <span class="fw">Employee</span> is a derived from class <span class="fw">Person</span>. It inherits properties <span class="fw">name</span>, <span class="fw">surname</span>, <span class="fw">address</span> and <span class="fw">dateOfBirth</span>. An object of type <span class="fw">Employee</span> has all these properties <strong>and</strong> its own property <span class="fw">employeeNumber</span>, which does not pertain to a person in general.</p>
+			    <p>An object of class <span class="fw">Employee</span> is also of type <span class="fw">Person</span>. Similarly, an object of type <span class="fw">Manager</span> is also of type <span class="fw">Employee</span> <strong>and</strong> of type <span class="fw">Person</span>.</p>
 			    <figure>
 				<figcaption>A class inheritance hierarchy</figcaption>
 				<img class="w-three" src="res/images/inheritance.png">
@@ -376,5 +403,8 @@ class Employee(Person):
 	<script type="text/javascript" src="../common/res/scripts/main.js"></script>
 	<script type="text/javascript" src="../common/res/scripts/modules/xrefs.js"></script>
 	<script type="text/javascript" src="res/scripts/xrefs.js"></script>
+	<script>
+	    run_with_data(OPEN_ALL_DATA);
+	</script>
     </body>
 </html>
