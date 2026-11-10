@@ -128,6 +128,57 @@ print(p.name)</pre>
 				<hr/><hr/>
 			    </figure>
 
+			    <p>Now, we can use the setters in the constructor, which makes for a cleaner solution. This becomes more obviously useful with setters that include a value check, like in the following example (based on the previous one).</p>
+
+			    <figure id="py-set-in-constr">
+				<figcaption>Using property setter in constructor</figcaption><pre class="code-listing">class Product:
+    _LOW_STOCK_MARK = 3
+
+    def __init__(self, name, stock):
+        self.name = name
+        self.stock = stock
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        if type(name) != str or name == "":
+            default_name = "product" + str(Product._get_default_name_suffix())
+            print(f"ERROR: Name must be a non-empty string. Value received: {name}. Setting to {default_name}.")
+            self._name = default_name
+        else:
+            self._name = name
+
+    @property
+    def stock(self):
+        return self._stock
+
+    @stock.setter
+    def stock(self, stock):
+        if type(stock) != int or stock < 0:
+            print(f"ERROR: Stock must be a non-negative whole number. Value received: {stock}. Setting to 0.")
+            self._stock = 0
+        else:
+            self._stock = stock
+
+    def stock_is_low(self):
+        return self._stock <= Product._LOW_STOCK_MARK
+
+    # helper returning a default name suffix
+    _LAST_DEFAULT_NAME_SUFFIX = 0
+    @staticmethod
+    def _get_default_name_suffix():
+        Product._LAST_DEFAULT_NAME_SUFFIX += 1
+        return Product._LAST_DEFAULT_NAME_SUFFIX</pre>
+			    </figure>
+
+			    <details class="ice"><summary></summary>
+				<p>Copy the class definition from <a class="xref" href="#py-set-in-constr">?</a> into a Python script file. Create a product object with valid arguments, a project with an invalid name and a project with invalid stock. For each, print the name and stock using the getter properties. Run the script and interpret what happens.</p>
+				<p><a href="res/files/python/classes/setters_with_checks.py">EXAMPLE SOLUTION</a></p>
+			    </details>
+
 			    <h3>Alternative way of defining properties</h3>
 
 			    <p>Another way of defining properties is to define private getter and setter methods (giving them any names we like, as long as they start with underscores) and then use the <span class="fw">property</span> function to declare those methods the getter and setter that are accessed as a property (not as methods).
@@ -215,7 +266,7 @@ print(p.name)</pre>
     def print_footer():
         print(Shop.SEP_LINE)
 
-# --- using a static methods ---
+# --- using a static method ---
 
 # call the static method on the class
 Shop.print_footer()
@@ -288,7 +339,7 @@ s.print_footer()</pre>
 				</li>
 			    </ul>
 			    
-			    <p>In the picture below, class <span class="fw">Employee</span> is a derived from class <span class="fw">Person</span>. It inherits properties <span class="fw">name</span>, <span class="fw">surname</span>, <span class="fw">address</span> and <span class="fw">dateOfBirth</span>. An object of type <span class="fw">Employee</span> has all these properties <strong>and</strong> its own property <span class="fw">employeeNumber</span>, which does not pertain to a person in general.</p>
+			    <p>In the picture below, class <span class="fw">Employee</span> is derived from class <span class="fw">Person</span>. It inherits properties <span class="fw">name</span>, <span class="fw">surname</span>, <span class="fw">address</span> and <span class="fw">dateOfBirth</span>. An object of type <span class="fw">Employee</span> has all these properties <strong>and</strong> its own property <span class="fw">employeeNumber</span>, which does not pertain to a person in general.</p>
 			    <p>An object of class <span class="fw">Employee</span> is also of type <span class="fw">Person</span>. Similarly, an object of type <span class="fw">Manager</span> is also of type <span class="fw">Employee</span> <strong>and</strong> of type <span class="fw">Person</span>.</p>
 			    <figure>
 				<figcaption>A class inheritance hierarchy</figcaption>
