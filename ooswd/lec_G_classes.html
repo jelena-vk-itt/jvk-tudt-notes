@@ -45,7 +45,7 @@
 			    <figure id="py-priv-getset">
 				<figcaption>Private member variables with ordinary methods as getters and setters</figcaption><pre class="code-listing">class Product:
     
-    LOW_STOCK_MARK = 3
+    _LOW_STOCK_MARK = 3
     
     def __init__(self, name, stock):
         self._name = name
@@ -64,7 +64,7 @@
         self._stock = stock
 
     def stock_is_low(self):
-        return self._stock <= Product.LOW_STOCK_MARK</pre>
+        return self._stock <= Product._LOW_STOCK_MARK</pre>
 				<table class="legend">
 				    <tr><td><span class="fw">self._name<br/>self._stock</span></td><td>Private member variables <span class="fw">_name</span> and <span class="fw">_stock</span> accessed directly from within class methods</td></tr>
 				    <tr><td><span class="fw">get_name<br/>set_name<br/>get_stock<br/>set_stock</span></td><td>These are 'getter' and 'setter' methods that facilitate users of the class in not directly accessing private variables</td></tr>
@@ -83,7 +83,7 @@
 			    <figure id="py-get-set-del">
 				<figcaption>Properties with decorators</figcaption><pre class="code-listing">class Product:
     
-    LOW_STOCK_MARK = 3
+    _LOW_STOCK_MARK = 3
     
     def __init__(self, name, stock):
         self._name = name
@@ -106,7 +106,7 @@
         self._stock = stock
 
     def stock_is_low(self):
-        return self._stock <= Product.LOW_STOCK_MARK
+        return self._stock <= Product._LOW_STOCK_MARK
 
 # --- using the class ---
 
@@ -134,7 +134,7 @@ print(p.name)</pre>
 			    <figure id="py-property-alt">
 				<figcaption>Using function property</figcaption><pre class="code-listing">class Product:
     
-    LOW_STOCK_MARK = 3
+    _LOW_STOCK_MARK = 3
     
     def __init__(self, name, stock):
         self.__name = name
@@ -153,7 +153,7 @@ print(p.name)</pre>
         self.__stock = stock
 
     def stock_is_low(self):
-        return self.__stock <= Product.LOW_STOCK_MARK
+        return self.__stock <= Product._LOW_STOCK_MARK
 
     # associate the getters and setters defined above with properties
     name = property(__get_name, __set_name)
@@ -258,7 +258,7 @@ s.print_footer()</pre>
 
 			    <details class="ice"><summary></summary>
 				<p>Define the methods <span class="fw">__str__</span> in the <span class="fw">Product</span> class defined in <a class="xref" href="#py-get-set-del">?</a>. Test it by calling the <span class="fw">print</span> function on an object of the class.</p>
-				<p><a href="res/files/python/">EXAMPLE SOLUTION</a></p>
+				<p><a href="res/files/python/classes/dunder_str.py">EXAMPLE SOLUTION</a></p>
 			    </details>
 			</article>
 			
@@ -326,6 +326,7 @@ class Employee(Person):
 
     def __str__(self):
         return super().__str__() + "\nemployee number: " + str(self.employeeNumber)  </pre>
+				<p><em>Note that the member variables <span class="fw">name</span> and <span class="fw">surname</span> are left public, to make the example simpler. Encapsulation (private members, accessed with getters and setters) would be better in a general case.</em></p>
 				<table class="legend">
 				    <tr><td><span class="fw">class Employee(Person)</span></td><td>a new class called <span class="fw">Employee</span> is declared as a subclass of <span class="fw">Person</span></td></tr>
 				    <tr><td><span class="fw">super()</span></td><td>returns an object of the base class type</td></tr>

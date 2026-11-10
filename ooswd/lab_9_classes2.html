@@ -39,18 +39,18 @@
 
 	  <ol>
 	      <li>Modify the <span class="fw">Shop</span> class to make methods static if they do not access the object members (there are three such methods).</li>
-	      <li>Modify the <span class="fw">Product</span> class so that it uses properties for <span class="fw">name</span> and <span class="fw">stock</span>.</li>
+	      <li>Modify the <span class="fw">Product</span> class so that it uses properties for <span class="fw">name</span> and <span class="fw">stock</span>. </li>
+	      <li>Modify the <span class="fw">Shop</span> class so that it uses a property for <span class="fw">name</span>.</li>
 	      <li>Add the method <span class="fw">get_department()</span> to class <span class="fw">Product</span>. It should return the string <span class="fw">"General"</span>.
 		  <p>Then define two subclasses of <span class="fw">Product</span>:</p>
 		  <ul>
-		      <li><span class="fw">FoodProduct</span>, which should include an additional property, <span class="fw">expiryDate</span>, and override the method <span class="fw">get_department()</span>, returning a suitable constant string</li>
-		      <li><span class="fw">ClothingProduct</span>, which should include an additional property, <span class="fw">season</span>, and override the method <span class="fw">get_department()</span>, returning a suitable constant string. The setter for <span class="fw">season</span> should report an error and not modify the object if the parameter's value is not one of <span class="fw">"spring"</span>, <span class="fw">"summer"</span>, <span class="fw">"autumn"</span> or <span class="fw">"winter"</span>.</li>
+		      <li><span class="fw">FoodProduct</span>, which should include an additional property, <span class="fw">expiryDate</span>, and override the method <span class="fw">get_department()</span>, returning a suitable constant string. <strong>Not covered in class:</strong> If the parameter passed into the setter for <span class="fw">expiry_date</span> is not a string in the format "dd/mm/yy", the setter should report this as an error and use <span class="fw">"01/01/00"</span> instead.</li>
+		      <li><span class="fw">ClothingProduct</span>, which should include an additional property, <span class="fw">season</span>, and override the method <span class="fw">get_department()</span>, returning a suitable constant string. If the parameter's value passed into the setter for <span class="fw">season</span> is not one of <span class="fw">"spring"</span>, <span class="fw">"summer"</span>, <span class="fw">"autumn"</span> or <span class="fw">"winter"</span>, the setter should report this as an error and use <span class="fw">"spring"</span> instead.</li>
 		  </ul>
 	      </li>
 	      <li>Define the <span class="fw">__str__</span> method on classes <span class="fw">Product</span>, <span class="fw">FoodProduct</span> and <span class="fw">ClothingProduct</span>.</li>
 	      <li>Define detailed tests for all the new functionality in the <em>main.py</em> file and run them.</li>
-	      <li>Also in the <em>main.py</em> file, define a list of four objects, two of each subclass. Use a loop to print out all four objects one after the other.</li>
-	      <li><strong>Additional challenge:</strong> Define the comparison dunder method <span class="fw">__lt__</span> in the class <span class="fw">Product</span>, in order to facilitate alphabetical ordering of products by name. Test the solution by ordering (with the <span class="fw">sorted</span> function)  and printing the objects created in the last step.</li>
+	      <li><strong>Not covered in class:</strong> Define the comparison dunder method <span class="fw">__lt__</span> in the class <span class="fw">Product</span>, in order to facilitate alphabetical ordering of products by name. Test the solution by ordering (with the <span class="fw">sorted</span> function)  and printing the objects created in the last step.</li>
 	    </ul>
 	  </li>
 	</ul>
