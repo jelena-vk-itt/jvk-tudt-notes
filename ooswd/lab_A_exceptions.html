@@ -37,17 +37,13 @@
 	    <article>
 		<section class="tutorial-panel clearfix">
 		    <h2>Exercise 1</h2>
-		    <p>Starting with your solution (or the given one) to exercise 3 in lab assignment <em>Revision, strings, lists</em> (week 2):
+		    <p>Starting with your solution (or the given one) to exercise 3 in lab assignment <em>Revision, strings, lists</em> (week 2), refactor the code so that:
 			<ol type="a">
-			    <li>improve the code by refactoring it to use constructs learnt since (e.g. loops) and, specifically, implement a function that orders a list given preference numbers like those expected in the program</li>
-			    <li>handle any number of items greater than 1, rather than 5</li>
-			    <li>handle the following errors, with exceptions or otherwise, as appropriate:
-				<ul>
-				    <li>the number of items entered is less than 2</li>
-				    <li>the count of the preference ordering numbers entered does not match the item count</li>
-				    <li>any of the preference ordering numbers are not integers in the correct range (e.g. 1 - 5)</li>
-				</ul>
-			    </li>
+			    <li>the reading of the items is performed by a function, which should accept any number of items greater than 1, otherwise raise an exception</li>
+			    <li>the reading of the ids in order of preference should be performed by a function, which prints the options and raises an exception if the numbers do not correspond exactly to the options (decide which argument this function should take)</li>
+			    <li>the ordering of the item list based on preference is performed by a function, with the use of a list comprehension</li>
+			    <li>the reporting of the result is performed by a function</li>
+			    <li>the script uses the four functions described above to carry out its task, handling any exceptions that arise</li>
 			</ol>
 		    </p>
 		</section>
