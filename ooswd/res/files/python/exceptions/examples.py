@@ -1,9 +1,12 @@
 # TypeError
-x = 3 + "3"
+x = 2 + "2"
 
-# IndexError
-l = [1, 2]
-print(l[2])
+# ValueError
+y = int("abc")
 
 # NameError
-print(a_non_existent_name)
+z = a + 3
+
+# IndexError
+lst = ['a', 'b']
+el = lst[3]

@@ -1,42 +1,38 @@
 def read_items():
-    items = input("Enter a list of more than 1 items to be rated, separated by spaces: ").split()
+    items = input("Enter a list of items to be rated, separated by spaces: ").split()
     if len(items) < 2:
-        raise ValueError("There should be at least two items in the list.")
+        raise ValueError("The list must contain at least two items.")
     return items
 
-def read_order(items):
-    print("\nItem ids:\n")
-    print("".join([f"{index + 1} {item}\n" for index, item in enumerate(items)]))
-    count = len(items)
-    preference_strs = input("Enter the item ids in order of your preference for the items, separated by spaces: ").split()
-    if sorted(preference_strs) != [str(i) for i in range(1, count + 1)]:
-        raise ValueError(f"The preference list must contain all ids from 1 to {count} and nothing else.")
+def read_pref_ids(items):
+    print("Item ids: ")
+    print("\n".join([f"{index + 1} {item}" for index, item in enumerate(items)]))
+    pref_ids = input("Enter the item ids in order of your preference for the items, separated by spaces: ").split()
+    if sorted(pref_ids) != [str(num) for num in range(1, len(items) + 1)]:
+        raise ValueError("The list must contain all ids and nothing else.")
+    return [int(pid) for pid in pref_ids]
 
-    return [int(int_str) for int_str in preference_strs]
+def order_items(items, prefs):
+    return [items[pid - 1] for pid in prefs]
 
-def order_items(items, pref_nums):
-    return [items[num - 1] for num in pref_nums]
-
-def print_ordered(items):
-    print(f"The items, ordered by your preference: {" ".join(items)}")
+def report_result(ordered):
+    print(f"Your items in order of preference: {" ".join(ordered)}")
 
 item_list = None
-ord_list = None
 while not item_list:
     try:
         item_list = read_items()
     except ValueError as ve:
-        print(ve, end=" ")
-        print("Try again.")
+        print("ERROR: ", ve, "Try again.")
     else:
-        while not ord_list:
+        pref_list = None
+        while not pref_list:
             try:
-                ord_list = read_order(item_list)
+                pref_list = read_pref_ids(item_list)
             except ValueError as ve:
-                print(ve, end=" ")
-                print("Try again.")
+                print("ERROR: ", ve, "Try again.")
             else:
-                print_ordered(order_items(item_list, ord_list))
+                report_result(order_items(item_list, pref_list))
 
 
 
