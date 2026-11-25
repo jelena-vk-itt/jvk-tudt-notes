@@ -164,11 +164,11 @@ file.close()</pre>
 			    <figcaption>Reading a CSV file</figcaption><pre class="code-listing">
 import csv
 
-personFile = open("people.csv")
-csvReader = csv.reader(personFile, delimiter=",")
-for row in csvReader:
+person_file = open("people.csv")
+csv_reader = csv.reader(person_file, delimiter=",")
+for row in csv_reader:
     print(row)
-personFile.close()</pre>
+person_file.close()</pre>
 
 			</figure>
 
@@ -182,10 +182,10 @@ personFile.close()</pre>
 			    <figcaption>Writing a CSV file</figcaption><pre class="code-listing">
 import csv
 
-personFile = open("people.csv", "a")
-csvWriter = csv.writer(personFile, delimiter=",")
-csvWriter.writerow(["Kit", "Kat", "X00777777", "Stoneybatter", "D7"])
-personFile.close()</pre>
+person_file = open("people.csv", "a")
+csv_writer = csv.writer(person_file, delimiter=",")
+csv_writer.writerow(["Minnie", "Mouse", "X00777777", "Stoneybatter", "D7"])
+person_file.close()</pre>
 
 
 			</figure>
@@ -209,7 +209,7 @@ with open("people.txt", "r") as file:
     list_of_lists = []
 
     for line in file:
-        list_of_lists.append(list(map(lambda s: s.strip('"\n'), line.split(","))))
+        list_of_lists.append([el.strip('"\n') for el in line.split(",")])
 
 print(list_of_lists)</pre>
 
